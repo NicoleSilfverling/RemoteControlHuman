@@ -5,7 +5,6 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
 
-      <Text style={styles.textStyle}>RemoteControlHuman</Text>
       <View style={styles.leftside}>
         <CTAButton/>
         <CTAButton/>
@@ -16,7 +15,7 @@ export default function App() {
         <CTAButton/>
         <CTAButton/>
       </View>
-      <StatusBar style="auto" />
+      <StatusBar hidden />
     </SafeAreaView>
   );
 }
