@@ -6,14 +6,47 @@ export default function App() {
     <SafeAreaView style={styles.container}>
 
       <View style={styles.leftside}>
+      <View style={styles.colStyle}>
+        <CTAButton/>
         <CTAButton/>
         <CTAButton/>
         <CTAButton/>
       </View>
+      <View style={styles.colStyle}>
+        <CTAButton/>
+        <CTAButton/>
+        <CTAButton/>
+        <CTAButton/>
+      </View>
+      <View style={styles.colStyle}>
+        <CTAButton/>
+        <CTAButton/>
+        <CTAButton/>
+        <CTAButton/>
+      </View>
+      </View>
+
       <View style={styles.rightside}>
+        <View style={styles.colStyle}>
         <CTAButton/>
         <CTAButton/>
         <CTAButton/>
+        <CTAButton/>
+      </View>
+        <View style={styles.colStyle}>
+        <CTAButton/>
+        <CTAButton/>
+        <CTAButton/>
+        <CTAButton/>
+      </View>
+        <View style={styles.colStyle}>
+        <CTAButton/>
+        <CTAButton/>
+        <CTAButton/>
+        <CTAButton/>
+      </View>
+        
+        
       </View>
       <StatusBar hidden />
     </SafeAreaView>
@@ -36,6 +69,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     left: 0,
+    flexDirection : 'row',
+    justifyContent: 'space-evenly',
+    padding : 10,
   },
   rightside:{
     width: '40%',
@@ -43,11 +79,18 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     position: 'absolute',
     right: 0,
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection : 'row',
+    justifyContent: 'space-evenly',
+    padding : 10,
   },
   textStyle:{
     color: '#FFF',
     fontSize: 30
   },
+  colStyle:{
+    justifyContent: 'space-evenly',
+    backgroundColor: 'green',
+    height : '100%',
+
+  }
 });
