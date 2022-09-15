@@ -19,8 +19,8 @@ export default CTAButton
 
 const styles = StyleSheet.create({
     container: {
-        height: 90,
-        width: 90,
+        height: '12%',
+        aspectRatio: 1,
         borderRadius: 20,
         borderWidth: 5,
         borderColor: '#FFF',

@@ -68,7 +68,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'yellow',
+    backgroundColor: 'black',
    alignItems: 'center',
     justifyContent: 'center',
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     height : '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'pink'
+    backgroundColor: 'transparent'
   },
 
   rightside:{
@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
   },
   colStyle:{
     justifyContent: 'space-evenly',
-    backgroundColor: 'green',
     height : '100%',
 
   },
