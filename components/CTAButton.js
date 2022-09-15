@@ -1,12 +1,16 @@
 
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { StyleSheet, TouchableHighlight, Text } from 'react-native'
 
 const CTAButton = () => {
+
   return (
-    <View style={styles.container}>
-        <Text style={styles.textStyle}>Hello</Text>
-    </View>
+    <TouchableHighlight onPress={() => console.log("Button pressed")} 
+    style={styles.container} activeOpacity={0.5}
+    underlayColor="#67c904">
+        <Text style={styles.textStyle}></Text>
+    </TouchableHighlight>
+    
   )
 }
 
@@ -23,7 +27,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+        
     },
     textStyle:{
         color: '#FFF',

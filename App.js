@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View, Platform, StatusBar, SafeAreaView} from 'react-native';
+import { StyleSheet, View, Platform, StatusBar, SafeAreaView} from 'react-native';
 import CTAButton from './components/CTAButton';
 
 export default function App() {
@@ -23,7 +23,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#333',
+    backgroundColor: 'black',
     // alignItems: 'center',
     // justifyContent: 'center',
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
@@ -31,14 +31,16 @@ const styles = StyleSheet.create({
   leftside:{
     width: '40%',
     height: '100%',
-    backgroundColor: 'red',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
+    position: 'absolute',
+    left: 0,
   },
   rightside:{
     width: '40%',
     height: '100%',
-    backgroundColor: 'blue',
+    backgroundColor: 'black',
     position: 'absolute',
     right: 0,
     alignItems: 'center',
