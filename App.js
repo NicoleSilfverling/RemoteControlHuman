@@ -30,9 +30,12 @@ export default function App() {
 
       <View style={styles.center}>
       <Image
-        source={require('./assets/images/human.jpg')}
-      />
+        style={styles.tinyLogo}
+          source={require('./assets/images/human.jpg')}
+        />
       </View>
+    
+
 
 
       <View style={styles.rightside}>
@@ -65,7 +68,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: 'yellow',
    alignItems: 'center',
     justifyContent: 'center',
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
@@ -73,7 +76,7 @@ const styles = StyleSheet.create({
   leftside:{
     width: '40%',
     height: '100%',
-    backgroundColor: 'black',
+    backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
@@ -81,20 +84,20 @@ const styles = StyleSheet.create({
     flexDirection : 'row',
     justifyContent: 'space-evenly',
     padding : 10,
-},
+  },
 
-center:{
-  width: '20%',
-  height : '100%',
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: 'blue'
-},
+  center:{
+    width: '25%',
+    height : '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'pink'
+  },
 
   rightside:{
     width: '40%',
     height: '100%',
-    backgroundColor: 'black',
+    backgroundColor: 'transparent',
     position: 'absolute',
     right: 0,
     flexDirection : 'row',
@@ -110,5 +113,11 @@ center:{
     backgroundColor: 'green',
     height : '100%',
 
-  }
+  },
+  tinyLogo: {
+    width: '100%',
+    height: '100%',
+
+  
+  },
 });
