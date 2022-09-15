@@ -1,4 +1,4 @@
-import { StyleSheet, View, Platform, StatusBar, SafeAreaView} from 'react-native';
+import { StyleSheet, View, Platform, StatusBar, SafeAreaView, Image} from 'react-native';
 import CTAButton from './components/CTAButton';
 
 export default function App() {
@@ -17,14 +17,23 @@ export default function App() {
         <CTAButton/>
         <CTAButton/>
         <CTAButton/>
+      
       </View>
-      <View style={styles.colStyle}>
+       <View style={styles.colStyle}>
         <CTAButton/>
         <CTAButton/>
         <CTAButton/>
         <CTAButton/>
       </View>
       </View>
+      
+
+      <View style={styles.center}>
+      <Image
+        source={require('./assets/images/human.jpg')}
+      />
+      </View>
+
 
       <View style={styles.rightside}>
         <View style={styles.colStyle}>
@@ -57,8 +66,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'black',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+   alignItems: 'center',
+    justifyContent: 'center',
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   leftside:{
@@ -72,7 +81,16 @@ const styles = StyleSheet.create({
     flexDirection : 'row',
     justifyContent: 'space-evenly',
     padding : 10,
-  },
+},
+
+center:{
+  width: '20%',
+  height : '100%',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: 'blue'
+},
+
   rightside:{
     width: '40%',
     height: '100%',
