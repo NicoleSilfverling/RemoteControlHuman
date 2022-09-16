@@ -1,15 +1,38 @@
 import React from "react";
 import { StyleSheet, TouchableHighlight, Text } from "react-native";
 
-const CTAButton = (props) => {
+const CTAButton = ({ btnTitle, btnGroup }) => {
+  let btnBorderColor = "#FFF";
+  let btnBackgroundColor = "black";
+
+  if (btnGroup == "1") {
+    btnBorderColor = "red";
+  } else if (btnGroup == "2") {
+    btnBorderColor = "yellow";
+  } else if (btnGroup == "3") {
+    btnBorderColor = "orange";
+  } else if (btnGroup == "4") {
+    btnBorderColor = "#67c904";
+  } else if (btnGroup == "STOP") {
+    btnBackgroundColor = "#f70903";
+    btnBorderColor = "#FFF";
+  } else {
+    btnBorderColor = "#FFF";
+    btnBackgroundColor = "black";
+  }
+  const colorStyles = {
+    borderColor: btnBorderColor,
+    backgroundColor: btnBackgroundColor,
+  };
+
   return (
     <TouchableHighlight
-      onPress={() => console.log("Button pressed")}
-      style={styles.container}
+      onPress={() => console.log("button click logged!")}
+      style={[styles.container, colorStyles]}
       activeOpacity={0.5}
-      underlayColor="#67c904"
+      underlayColor={btnBorderColor}
     >
-      <Text style={styles.textStyle}>{props.btnTitle}</Text>
+      <Text style={styles.textStyle}>{btnTitle}</Text>
     </TouchableHighlight>
   );
 };

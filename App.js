@@ -17,21 +17,21 @@ export default function App() {
         {/* leftside */}
         <View style={styles.leftside}>
           <View style={styles.colStyle}>
-            <CTAButton btnTitle="LEFT" />
-            <CTAButton btnTitle="HAND" />
-            <CTAButton btnTitle="ARM" />
+            <CTAButton btnGroup="1" btnTitle="LEFT" />
+            <CTAButton btnGroup="2" btnTitle="HAND" />
+            <CTAButton btnGroup="2" btnTitle="ARM" />
             <HiddenButton />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnTitle="TORSO" />
-            <CTAButton btnTitle="THUMB" />
-            <CTAButton btnTitle="LEG" />
+            <CTAButton btnGroup="2" btnTitle="TORSO" />
+            <CTAButton btnGroup="2" btnTitle="THUMB" />
+            <CTAButton btnGroup="2" btnTitle="LEG" />
             <HiddenButton />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnTitle="RIGHT" />
-            <CTAButton btnTitle="INDEX" />
-            <CTAButton btnTitle="FOOT" />
+            <CTAButton btnGroup="1" btnTitle="RIGHT" />
+            <CTAButton btnGroup="2" btnTitle="INDEX" />
+            <CTAButton btnGroup="2" btnTitle="FOOT" />
             <HiddenButton />
           </View>
         </View>
@@ -47,22 +47,22 @@ export default function App() {
         {/* right side */}
         <View style={styles.rightside}>
           <View style={styles.colStyle}>
-            <CTAButton btnTitle="BEND" />
-            <CTAButton btnTitle="MOVE" />
+            <CTAButton btnGroup="3" btnTitle="BEND" />
+            <CTAButton btnGroup="3" btnTitle="MOVE" />
             <CTAButton btnTitle="RESET" />
-            <CTAButton btnTitle="LEFT" />
+            <CTAButton btnGroup="4" btnTitle="LEFT" />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnTitle="STRETCH" />
-            <CTAButton btnTitle="WALK" />
-            <CTAButton btnTitle="STOP" />
-            <CTAButton btnTitle="RIGHT" />
+            <CTAButton btnGroup="3" btnTitle="STRETCH" />
+            <CTAButton btnGroup="3" btnTitle="WALK" />
+            <CTAButton btnGroup="STOP" btnTitle="STOP" />
+            <CTAButton btnGroup="4" btnTitle="RIGHT" />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnTitle="FORWARD" />
-            <CTAButton btnTitle="BACKWARD" />
-            <CTAButton btnTitle="UP" />
-            <CTAButton btnTitle="DOWN" />
+            <CTAButton btnGroup="4" btnTitle="FORWARD" />
+            <CTAButton btnGroup="4" btnTitle="BACKWARD" />
+            <CTAButton btnGroup="4" btnTitle="UP" />
+            <CTAButton btnGroup="4" btnTitle="DOWN" />
           </View>
         </View>
 
