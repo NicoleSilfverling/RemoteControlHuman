@@ -6,7 +6,7 @@ const CTAButton = ({ btnTitle, btnGroup }) => {
   let btnBackgroundColor = "black";
 
   if (btnGroup == "1") {
-    btnBorderColor = "red";
+    btnBorderColor = "#FFF";
   } else if (btnGroup == "2") {
     btnBorderColor = "yellow";
   } else if (btnGroup == "3") {
