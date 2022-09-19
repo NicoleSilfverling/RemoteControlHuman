@@ -42,6 +42,10 @@ export default function App() {
             style={styles.imageBody}
             source={require("./assets/images/human.jpg")}
           />
+          <Image
+            style={styles.imageBodyparts}
+            source={require("./assets/images/head.png")}
+          />
         </View>
 
         {/* right side */}
@@ -125,6 +129,13 @@ const styles = StyleSheet.create({
   imageBody: {
     width: "100%",
     height: "100%",
+    zIndex: 0,
+  },
+  imageBodyparts: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    zIndex: 1,
   },
   actionbar: {
     position: "absolute",
