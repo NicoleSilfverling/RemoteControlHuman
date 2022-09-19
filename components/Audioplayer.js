@@ -1,24 +1,28 @@
-import React from 'react';
-import { Audio } from 'expo-av';
-
-export default Audio
+import React from "react";
+import { Audio } from "expo-av";
 
 const [sound, setSound] = React.useState();
 
+export async function playSound() {
+  const [sound, setSound] = React.useState();
+
   async function playSound() {
-    console.log('Loading Sound');
+    console.log("Loading Sound");
     const { sound } = await Audio.Sound.createAsync(
-       require('./assets/sounds/arm.wav')
+      require("./assets/arm.wav")
     );
     setSound(sound);
 
-    console.log('Playing Sound');
-    await sound.playAsync(); }
+    console.log("Playing Sound");
+    await sound.playAsync();
+  }
 
   React.useEffect(() => {
     return sound
       ? () => {
-          console.log('Unloading Sound');
-          sound.unloadAsync(); }
+          console.log("Unloading Sound");
+          sound.unloadAsync();
+        }
       : undefined;
   }, [sound]);
+}
