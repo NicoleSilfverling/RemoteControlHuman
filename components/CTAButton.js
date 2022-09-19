@@ -1,9 +1,12 @@
 import React from "react";
 import { StyleSheet, TouchableHighlight, Text } from "react-native";
+import ContentSelector from "./ContentSelector";
 
-const CTAButton = ({ btnTitle, btnGroup }) => {
+const CTAButton = ({ btnTitle, btnGroup, btnId }) => {
   let btnBorderColor = "#FFF";
   let btnBackgroundColor = "black";
+
+  console.log(btnId + " logging id");
 
   if (btnGroup == "1") {
     btnBorderColor = "#FFF";
@@ -24,10 +27,10 @@ const CTAButton = ({ btnTitle, btnGroup }) => {
     borderColor: btnBorderColor,
     backgroundColor: btnBackgroundColor,
   };
-
   return (
     <TouchableHighlight
-      onPress={() => console.log("button click logged!")}
+      onPress={() => console.log(ContentSelector(btnId).text)}
+      //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
       style={[styles.container, colorStyles]}
       activeOpacity={0.5}
       underlayColor={btnBorderColor}

@@ -17,21 +17,21 @@ export default function App() {
         {/* leftside */}
         <View style={styles.leftside}>
           <View style={styles.colStyle}>
-            <CTAButton btnGroup="1" btnTitle="LEFT" />
-            <CTAButton btnGroup="2" btnTitle="HAND" />
-            <CTAButton btnGroup="2" btnTitle="ARM" />
+            <CTAButton btnId="L1" btnGroup="1" btnTitle="LEFT" />
+            <CTAButton btnId="L2" btnGroup="2" btnTitle="HAND" />
+            <CTAButton btnId="L3" btnGroup="2" btnTitle="ARM" />
             <HiddenButton />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnGroup="2" btnTitle="TORSO" />
-            <CTAButton btnGroup="2" btnTitle="THUMB" />
-            <CTAButton btnGroup="2" btnTitle="LEG" />
+            <CTAButton btnId="L4" btnGroup="2" btnTitle="TORSO" />
+            <CTAButton btnId="L5" btnGroup="2" btnTitle="THUMB" />
+            <CTAButton btnId="L6" btnGroup="2" btnTitle="LEG" />
             <HiddenButton />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnGroup="1" btnTitle="RIGHT" />
-            <CTAButton btnGroup="2" btnTitle="INDEX" />
-            <CTAButton btnGroup="2" btnTitle="FOOT" />
+            <CTAButton btnId="L7" btnGroup="1" btnTitle="RIGHT" />
+            <CTAButton btnId="L8" btnGroup="2" btnTitle="INDEX" />
+            <CTAButton btnId="L9" btnGroup="2" btnTitle="FOOT" />
             <HiddenButton />
           </View>
         </View>
@@ -51,16 +51,16 @@ export default function App() {
         {/* right side */}
         <View style={styles.rightside}>
           <View style={styles.colStyle}>
-            <CTAButton btnGroup="3" btnTitle="BEND" />
-            <CTAButton btnGroup="3" btnTitle="MOVE" />
-            <CTAButton btnTitle="RESET" />
-            <CTAButton btnGroup="4" btnTitle="LEFT" />
+            <CTAButton btnId="R1" btnGroup="3" btnTitle="BEND" />
+            <CTAButton btnId="R2" btnGroup="3" btnTitle="MOVE" />
+            <CTAButton btnId="R3" btnTitle="RESET" />
+            <CTAButton btnId="R4" btnGroup="4" btnTitle="LEFT" />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnGroup="3" btnTitle="STRETCH" />
-            <CTAButton btnGroup="3" btnTitle="WALK" />
-            <CTAButton btnGroup="STOP" btnTitle="STOP" />
-            <CTAButton btnGroup="4" btnTitle="RIGHT" />
+            <CTAButton btnId="R5" btnGroup="3" btnTitle="STRETCH" />
+            <CTAButton btnId="R6" btnGroup="3" btnTitle="WALK" />
+            <CTAButton btnId="R7" btnGroup="STOP" btnTitle="STOP" />
+            <CTAButton btnId="R8" btnGroup="4" btnTitle="RIGHT" />
           </View>
           <View style={styles.colStyle}>
             <CTAButton btnGroup="4" btnTitle="FORWARD" />
