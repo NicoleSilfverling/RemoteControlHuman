@@ -8,7 +8,8 @@ function ContentSelector(btnId) {
       text = "button with id 1";
       // set audio path
       //set image path
-      bodypartImg = require("../assets/images/head.png");
+      iconImg = require("../assets/icons/leftArrowIcon.png");
+
       break;
     case "L2":
       text = "button with id 2";
@@ -30,6 +31,8 @@ function ContentSelector(btnId) {
       break;
     case "L7":
       text = "button with id 7";
+      iconImg = require("../assets/icons/rightArrowIcon.png");
+
       break;
     case "L8":
       text = "button with id 8";
@@ -39,9 +42,13 @@ function ContentSelector(btnId) {
       break;
     case "R1":
       text = "button with id 1";
+      iconImg = require("../assets/icons/bendIcon.png");
+
       break;
     case "R2":
       text = "button with id 2";
+      iconImg = require("../assets/icons/moveIcon.png");
+
       break;
     case "R3":
       text = "button with id 3";
@@ -51,19 +58,19 @@ function ContentSelector(btnId) {
       break;
     case "R5":
       text = "button with id 5";
+      iconImg = require("../assets/icons/stretchIcon.png");
+
       break;
     case "R6":
       text = "button with id 6";
-      img = require("../assets/icons/walkIcon.png");
+      iconImg = require("../assets/icons/walkIcon.png");
       break;
     case "R7":
       text = "button with id 7";
-      img = require("../assets/icons/walkIcon.png");
 
       break;
     case "R8":
       text = "button with id 8";
-      img = require("../assets/icons/walkIcon.png");
 
       break;
     case "R9":
