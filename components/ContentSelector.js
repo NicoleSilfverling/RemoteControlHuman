@@ -1,5 +1,6 @@
 function ContentSelector(btnId) {
   let text = "";
+
   switch (btnId) {
     case "L1":
       text = "button with id 1";

@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   bar2: {
     flex: 1,
-    backgroundColor: "yellow",
+    backgroundColor: "#ffd500",
     borderWidth: 1,
     borderColor: "#FFF",
   },
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   bar4: {
     flex: 1,
-    backgroundColor: "#67c904",
+    backgroundColor: "#00A300",
     borderWidth: 1,
     borderColor: "#FFF",
   },

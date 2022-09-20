@@ -7,16 +7,14 @@ const CTAButton = ({ btnTitle, btnGroup, btnId }) => {
   let btnBorderColor = "#FFF";
   let btnBackgroundColor = "black";
 
-  console.log(btnId + " logging id");
-
   if (btnGroup == "1") {
     btnBorderColor = "#FFF";
   } else if (btnGroup == "2") {
-    btnBorderColor = "yellow";
+    btnBorderColor = "#ffd500";
   } else if (btnGroup == "3") {
     btnBorderColor = "orange";
   } else if (btnGroup == "4") {
-    btnBorderColor = "#67c904";
+    btnBorderColor = "#00A300";
   } else if (btnGroup == "STOP") {
     btnBackgroundColor = "#f70903";
     btnBorderColor = "#FFF";
@@ -30,7 +28,7 @@ const CTAButton = ({ btnTitle, btnGroup, btnId }) => {
   };
   return (
     <TouchableHighlight
-      onPress={() => playSound}
+      onPress={() => console.log("hello")}
       //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
       style={[styles.container, colorStyles]}
       activeOpacity={0.5}

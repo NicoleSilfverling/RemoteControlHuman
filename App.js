@@ -9,6 +9,7 @@ import {
 import Actionbar from "./components/Actionbar";
 import CTAButton from "./components/CTAButton";
 import HiddenButton from "./components/HiddenButton";
+import ShowImage from "./components/ShowImage";
 
 export default function App() {
   return (
@@ -42,10 +43,11 @@ export default function App() {
             style={styles.imageBody}
             source={require("./assets/images/human.jpg")}
           />
-          <Image
+          {/* <Image
             style={styles.imageBodyparts}
             source={require("./assets/images/head.png")}
-          />
+          /> */}
+          <ShowImage />
         </View>
 
         {/* right side */}
@@ -63,10 +65,10 @@ export default function App() {
             <CTAButton btnId="R8" btnGroup="4" btnTitle="RIGHT" />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnGroup="4" btnTitle="FORWARD" />
-            <CTAButton btnGroup="4" btnTitle="BACKWARD" />
-            <CTAButton btnGroup="4" btnTitle="UP" />
-            <CTAButton btnGroup="4" btnTitle="DOWN" />
+            <CTAButton btnId="R9" btnGroup="4" btnTitle="FORWARD" />
+            <CTAButton btnId="R10" btnGroup="4" btnTitle="BACKWARD" />
+            <CTAButton btnId="R11" btnGroup="4" btnTitle="UP" />
+            <CTAButton btnId="R12" btnGroup="4" btnTitle="DOWN" />
           </View>
         </View>
 
