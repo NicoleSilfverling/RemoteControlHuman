@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, TouchableHighlight, Text } from "react-native";
+import { StyleSheet, TouchableHighlight, Text, Image } from "react-native";
 import ContentSelector from "./ContentSelector";
 import { playSound } from "./Audioplayer";
 
@@ -34,7 +34,10 @@ const CTAButton = ({ btnTitle, btnGroup, btnId }) => {
       activeOpacity={0.5}
       underlayColor={btnBorderColor}
     >
-      <Text style={styles.textStyle}>{btnTitle}</Text>
+      <React.Fragment>
+        <Image style={styles.icon} source={ContentSelector(btnId).iconImg} />
+        <Text style={styles.textStyle}>{btnTitle}</Text>
+      </React.Fragment>
     </TouchableHighlight>
   );
 };
@@ -60,5 +63,9 @@ const styles = StyleSheet.create({
     bottom: -50,
     textAlign: "center",
     fontWeight: "bold",
+  },
+  icon: {
+    width: "100%",
+    height: "100%",
   },
 });

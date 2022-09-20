@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Animated, StyleSheet, View, Image } from "react-native";
+import ContentSelector from "./ContentSelector";
 
 class ImageLoader extends Component {
   state = {
@@ -34,7 +35,7 @@ const ShowImage = () => {
     <View style={styles.container}>
       <ImageLoader
         style={styles.image}
-        source={require("../assets/images/head.png")}
+        source={ContentSelector("L3").bodypartImg}
       />
     </View>
   );
