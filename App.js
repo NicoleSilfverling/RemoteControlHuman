@@ -35,6 +35,9 @@ export default function App() {
             <CTAButton btnId="L9" btnGroup="2" btnTitle="FOOT" />
             <HiddenButton />
           </View>
+          <View style={styles.actionbar}>
+            <Actionbar />
+          </View>
         </View>
 
         {/* center */}
@@ -74,9 +77,6 @@ export default function App() {
 
         <StatusBar hidden />
       </View>
-      <View style={styles.actionbar}>
-        <Actionbar />
-      </View>
     </SafeAreaView>
   );
 }
@@ -90,7 +90,8 @@ const styles = StyleSheet.create({
   layout: {
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 30,
+    flex: 1,
+    padding: "3%",
   },
   leftside: {
     // width: '40%',
@@ -100,11 +101,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
+    // backgroundColor: "red",
+    paddingTop: "7%",
+    paddingBottom: "7%",
+    paddingLeft: "3%",
+    paddingRight: "3%",
   },
 
   center: {
-    flex: 1.1,
+    flex: 1.2,
     // width: '25%',
     // height : '100%',
     justifyContent: "center",
@@ -118,15 +124,20 @@ const styles = StyleSheet.create({
     // height: '100%',
     backgroundColor: "transparent",
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
+    paddingTop: "7%",
+    paddingBottom: "7%",
+    paddingLeft: "3%",
+    paddingRight: "3%",
   },
   textStyle: {
     color: "#FFF",
     fontSize: 30,
   },
   colStyle: {
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     height: "100%",
+    // backgroundColor: "green",
   },
   imageBody: {
     width: "100%",
@@ -141,7 +152,11 @@ const styles = StyleSheet.create({
   },
   actionbar: {
     position: "absolute",
-    left: "5%",
-    bottom: "18%",
+    zIndex: 2,
+    bottom: 0,
+    paddingBottom: "18%",
+    marginLeft: "10%",
+    width: "100%",
+    // backgroundColor: "pink",
   },
 });

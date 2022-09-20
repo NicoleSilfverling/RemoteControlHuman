@@ -9,7 +9,7 @@ export default HiddenButton;
 
 const styles = StyleSheet.create({
   container: {
-    height: "9%",
+    height: "12%",
     aspectRatio: 1,
     borderRadius: 15,
     borderWidth: 5,
