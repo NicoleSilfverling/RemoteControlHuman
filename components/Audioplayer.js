@@ -1,8 +1,5 @@
 import React from "react";
 import { Audio } from "expo-av";
-import ContentSelector from "./ContentSelector";
-
-const [sound, setSound] = React.useState();
 
 export async function playSound() {
   const [sound, setSound] = React.useState();
