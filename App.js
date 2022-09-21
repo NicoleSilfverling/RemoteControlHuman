@@ -14,7 +14,6 @@ import ShowImage from "./components/ShowImage";
 import React, { useState } from "react";
 
 export default function App() {
-  const [shouldShow, setShouldShow] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.layout}>
@@ -39,10 +38,6 @@ export default function App() {
             <HiddenButton />
           </View>
           <View style={styles.actionbar}>
-            <Button
-              title="SHow hide image"
-              onPress={() => setShouldShow(!shouldShow)}
-            />
             <Actionbar />
           </View>
         </View>
@@ -53,7 +48,7 @@ export default function App() {
             style={styles.imageBody}
             source={require("./assets/images/human.jpg")}
           />
-          {shouldShow ? <ShowImage /> : null}
+          <ShowImage />
         </View>
 
         {/* right side */}

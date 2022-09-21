@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Animated, StyleSheet, View, Image } from "react-native";
 import ContentSelector from "./ContentSelector";
 
@@ -31,12 +31,16 @@ class ImageLoader extends Component {
 }
 
 const ShowImage = () => {
+  const [shouldShow, setShouldShow] = useState(true);
+
   return (
     <View style={styles.container}>
-      <ImageLoader
-        style={styles.image}
-        source={ContentSelector("L3").bodypartImg}
-      />
+      {shouldShow ? (
+        <ImageLoader
+          style={styles.image}
+          source={ContentSelector("L3").bodypartImg}
+        />
+      ) : null}
     </View>
   );
 };
