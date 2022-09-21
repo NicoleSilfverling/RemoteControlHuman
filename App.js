@@ -5,13 +5,16 @@ import {
   StatusBar,
   SafeAreaView,
   Image,
+  Button,
 } from "react-native";
 import Actionbar from "./components/Actionbar";
 import CTAButton from "./components/CTAButton";
 import HiddenButton from "./components/HiddenButton";
 import ShowImage from "./components/ShowImage";
+import React, { useState } from "react";
 
 export default function App() {
+  const [shouldShow, setShouldShow] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.layout}>
@@ -36,6 +39,10 @@ export default function App() {
             <HiddenButton />
           </View>
           <View style={styles.actionbar}>
+            <Button
+              title="SHow hide image"
+              onPress={() => setShouldShow(!shouldShow)}
+            />
             <Actionbar />
           </View>
         </View>
@@ -46,11 +53,7 @@ export default function App() {
             style={styles.imageBody}
             source={require("./assets/images/human.jpg")}
           />
-          {/* <Image
-            style={styles.imageBodyparts}
-            source={require("./assets/images/head.png")}
-          /> */}
-          <ShowImage />
+          {shouldShow ? <ShowImage /> : null}
         </View>
 
         {/* right side */}
