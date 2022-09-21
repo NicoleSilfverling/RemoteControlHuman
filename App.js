@@ -64,7 +64,7 @@ export default function App() {
           <View style={styles.colStyle}>
             <CTAButton btnId="R5" btnGroup="3" btnTitle="STRETCH" />
             <CTAButton btnId="R6" btnGroup="3" btnTitle="WALK" />
-            <CTAButton btnId="R7" btnGroup="STOP" btnTitle="STOP" />
+            <CTAButton btnId="R7" btnTitle="STOP" />
             <CTAButton btnId="R8" btnGroup="4" btnTitle="RIGHT" />
           </View>
           <View style={styles.colStyle}>
