@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, TouchableHighlight, Text, Image } from "react-native";
 import ContentSelector from "./ContentSelector";
 import { playSound } from "./Audioplayer";
+import { testFunc } from "./ShowImage";
 
 const CTAButton = ({ btnTitle, btnGroup, btnId }) => {
   let btnBorderColor = "#FFF";
@@ -28,7 +29,7 @@ const CTAButton = ({ btnTitle, btnGroup, btnId }) => {
   };
   return (
     <TouchableHighlight
-      onPress={() => playSound}
+      onPress={() => testFunc(btnId)}
       //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
       style={[styles.container, colorStyles]}
       activeOpacity={0.5}

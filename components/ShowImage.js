@@ -30,6 +30,14 @@ class ImageLoader extends Component {
   }
 }
 
+let idFromButton = "";
+
+export function testFunc(btnPressed) {
+  console.log("imported func logged " + btnPressed);
+  idFromButton = btnPressed;
+  console.log(idFromButton);
+}
+
 const ShowImage = () => {
   const [shouldShow, setShouldShow] = useState(true);
 
@@ -38,7 +46,7 @@ const ShowImage = () => {
       {shouldShow ? (
         <ImageLoader
           style={styles.image}
-          source={ContentSelector("L3").bodypartImg}
+          source={ContentSelector(idFromButton).bodypartImg}
         />
       ) : null}
     </View>
