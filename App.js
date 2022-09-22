@@ -9,6 +9,8 @@ import {
 import Actionbar from "./components/Actionbar";
 import CTAButton from "./components/CTAButton";
 import HiddenButton from "./components/HiddenButton";
+import ShowImage from "./components/ShowImage";
+import React, { useState } from "react";
 
 export default function App() {
   return (
@@ -34,6 +36,9 @@ export default function App() {
             <CTAButton btnId="L9" btnGroup="2" btnTitle="FOOT" />
             <HiddenButton />
           </View>
+          <View style={styles.actionbar}>
+            <Actionbar />
+          </View>
         </View>
 
         {/* center */}
@@ -42,10 +47,7 @@ export default function App() {
             style={styles.imageBody}
             source={require("./assets/images/human.jpg")}
           />
-          <Image
-            style={styles.imageBodyparts}
-            source={require("./assets/images/head.png")}
-          />
+          <ShowImage />
         </View>
 
         {/* right side */}
@@ -59,21 +61,18 @@ export default function App() {
           <View style={styles.colStyle}>
             <CTAButton btnId="R5" btnGroup="3" btnTitle="STRETCH" />
             <CTAButton btnId="R6" btnGroup="3" btnTitle="WALK" />
-            <CTAButton btnId="R7" btnGroup="STOP" btnTitle="STOP" />
+            <CTAButton btnId="R7" btnTitle="STOP" />
             <CTAButton btnId="R8" btnGroup="4" btnTitle="RIGHT" />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnGroup="4" btnTitle="FORWARD" />
-            <CTAButton btnGroup="4" btnTitle="BACKWARD" />
-            <CTAButton btnGroup="4" btnTitle="UP" />
-            <CTAButton btnGroup="4" btnTitle="DOWN" />
+            <CTAButton btnId="R9" btnGroup="4" btnTitle="FORWARD" />
+            <CTAButton btnId="R10" btnGroup="4" btnTitle="BACKWARD" />
+            <CTAButton btnId="R11" btnGroup="4" btnTitle="UP" />
+            <CTAButton btnId="R12" btnGroup="4" btnTitle="DOWN" />
           </View>
         </View>
 
         <StatusBar hidden />
-      </View>
-      <View style={styles.actionbar}>
-        <Actionbar />
       </View>
     </SafeAreaView>
   );
@@ -88,7 +87,8 @@ const styles = StyleSheet.create({
   layout: {
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 30,
+    flex: 1,
+    padding: "3%",
   },
   leftside: {
     // width: '40%',
@@ -98,11 +98,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
+    backgroundColor: "red",
+    paddingTop: "7%",
+    paddingBottom: "7%",
+    paddingLeft: "3%",
+    paddingRight: "3%",
   },
 
   center: {
-    flex: 1.1,
+    flex: 1.2,
     // width: '25%',
     // height : '100%',
     justifyContent: "center",
@@ -116,15 +121,20 @@ const styles = StyleSheet.create({
     // height: '100%',
     backgroundColor: "transparent",
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
+    paddingTop: "7%",
+    paddingBottom: "7%",
+    paddingLeft: "3%",
+    paddingRight: "3%",
   },
   textStyle: {
     color: "#FFF",
     fontSize: 30,
   },
   colStyle: {
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     height: "100%",
+    // backgroundColor: "green",
   },
   imageBody: {
     width: "100%",
@@ -139,7 +149,11 @@ const styles = StyleSheet.create({
   },
   actionbar: {
     position: "absolute",
-    left: "5%",
-    bottom: "18%",
+    zIndex: 2,
+    bottom: 0,
+    paddingBottom: "18%",
+    marginLeft: "10%",
+    width: "70%",
+    // backgroundColor: "pink",
   },
 });
