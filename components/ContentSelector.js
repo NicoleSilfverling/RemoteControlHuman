@@ -2,6 +2,7 @@ function ContentSelector(btnId) {
   let text = "";
   let iconImg = "";
   let bodypartImg = "";
+  let sound = "";
 
   switch (btnId) {
     case "L1":
@@ -20,6 +21,8 @@ function ContentSelector(btnId) {
       text = "button with id 3";
       iconImg = require("../assets/icons/armIcon.png");
       bodypartImg = require("../assets/images/arm_l.png");
+      sound = require("../assets/sounds/arm.wav")
+
 
       break;
     case "L4":
