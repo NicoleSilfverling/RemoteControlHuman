@@ -35,7 +35,6 @@ let idFromButton = "";
 export function testFunc(btnPressed) {
   console.log("imported func logged " + btnPressed);
   idFromButton = btnPressed;
-  console.log(idFromButton);
 }
 
 const ShowImage = () => {
@@ -46,7 +45,7 @@ const ShowImage = () => {
       {shouldShow ? (
         <ImageLoader
           style={styles.image}
-          source={ContentSelector(idFromButton).bodypartImg}
+          source={ContentSelector("L3").bodypartImg}
         />
       ) : null}
     </View>

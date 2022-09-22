@@ -29,7 +29,9 @@ const CTAButton = ({ btnTitle, btnGroup, btnId }) => {
   };
   return (
     <TouchableHighlight
-      onPress={() => testFunc(btnId)}
+      onPress={() => {
+        testFunc(btnId), playSound(btnId);
+      }}
       //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
       style={[styles.container, colorStyles]}
       activeOpacity={0.5}
