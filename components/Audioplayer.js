@@ -1,12 +1,11 @@
-import React from "react";
-import { Audio } from "expo-av";
+import React from 'react';
+import { Audio } from 'expo-av';
 
 export async function playSound() {
-  const [sound, setSound] = React.useState();
-  setSound();
+const [sound, setSound] = React.useState();
 
-  async function playSound() {
-    console.log("Loading Sound");
+export  async function playSound() {
+    console.log('Loading Sound');
     const { sound } = await Audio.Sound.createAsync(
       require("../assets/sounds/arm.wav")
     );
@@ -24,4 +23,3 @@ export async function playSound() {
         }
       : undefined;
   }, [sound]);
-}
