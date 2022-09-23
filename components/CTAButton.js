@@ -11,7 +11,7 @@ export default function CTAButton({ btnTitle, btnGroup, btnId }) {
   async function playSound() {
     console.log("Loading Sound");
     const { sound } = await Audio.Sound.createAsync(
-      require("../assets/sounds/arm.wav")
+      ContentSelector(btnId).sound
     );
     setSound(sound);
 
