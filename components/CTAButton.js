@@ -1,10 +1,33 @@
-import React from "react";
+import * as React from "react";
+import { Audio } from "expo-av";
 import { StyleSheet, TouchableHighlight, Text, Image } from "react-native";
 import ContentSelector from "./ContentSelector";
-import { playSound } from "./Audioplayer";
+// import { playSound } from "./Audioplayer";
 import { testFunc } from "./ShowImage";
 
-const CTAButton = ({ btnTitle, btnGroup, btnId }) => {
+export default function CTAButton({ btnTitle, btnGroup, btnId }) {
+  const [sound, setSound] = React.useState();
+
+  async function playSound() {
+    console.log("Loading Sound");
+    const { sound } = await Audio.Sound.createAsync(
+      require("../assets/sounds/arm.wav")
+    );
+    setSound(sound);
+
+    console.log("Playing Sound");
+    await sound.playAsync();
+  }
+
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log("Unloading Sound");
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
+
   let btnBorderColor = "#FFF";
   let btnBackgroundColor = "black";
 
@@ -30,7 +53,7 @@ const CTAButton = ({ btnTitle, btnGroup, btnId }) => {
   return (
     <TouchableHighlight
       onPress={() => {
-        testFunc(btnId), playSound(btnId);
+        testFunc(btnId), playSound();
       }}
       //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
       style={[styles.container, colorStyles]}
@@ -43,9 +66,7 @@ const CTAButton = ({ btnTitle, btnGroup, btnId }) => {
       </React.Fragment>
     </TouchableHighlight>
   );
-};
-
-export default CTAButton;
+}
 
 const styles = StyleSheet.create({
   container: {

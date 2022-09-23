@@ -1,26 +1,28 @@
-import React, { useState } from "react";
+import * as React from "react";
 import { Audio } from "expo-av";
 
-export async function playSound(btnId) {
-  //   const [sound, setSound] = React.useState();
+export async function Audioplayer(btnId) {
   console.log("logging audioplayer and pressed buttonID: " + btnId);
-  //   async function playSound() {
-  //     console.log("Loading Sound");
-  //     const { sound } = await Audio.Sound.createAsync(
-  //       require("./assets/arm.wav")
-  //     );
-  //     setSound(sound);
+  const [sound, setSound] = React.useState();
 
-  //     console.log("Playing Sound");
-  //     await sound.playAsync();
-  //   }
+  async function playSound() {
+    console.log("Loading Sound");
+    const { sound } = await Audio.Sound.createAsync(
+      require("../assets/sounds/arm.wav")
+    );
+    setSound(sound);
 
-  //   React.useEffect(() => {
-  //     return sound
-  //       ? () => {
-  //           console.log("Unloading Sound");
-  //           sound.unloadAsync();
-  //         }
-  //       : undefined;
-  //   }, [sound]);
+    console.log("Playing Sound");
+    await sound.playAsync();
+  }
+  playSound();
+
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log("Unloading Sound");
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
 }
