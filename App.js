@@ -5,14 +5,37 @@ import {
   StatusBar,
   SafeAreaView,
   Image,
+  Button,
 } from "react-native";
 import Actionbar from "./components/Actionbar";
 import CTAButton from "./components/CTAButton";
 import HiddenButton from "./components/HiddenButton";
 import ShowImage from "./components/ShowImage";
-import React, { useState } from "react";
+import * as React from "react";
+import { Audio } from "expo-av";
 
 export default function App() {
+  const [sound, setSound] = React.useState();
+
+  async function playSound() {
+    console.log("Loading Sound");
+    const { sound } = await Audio.Sound.createAsync(
+      require("./assets/sounds/arm.wav")
+    );
+    setSound(sound);
+
+    console.log("Playing Sound");
+    await sound.playAsync();
+  }
+
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log("Unloading Sound");
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.layout}>
@@ -38,6 +61,7 @@ export default function App() {
           </View>
           <View style={styles.actionbar}>
             <Actionbar />
+            <Button title="Play Sound" onPress={playSound} />
           </View>
         </View>
 
