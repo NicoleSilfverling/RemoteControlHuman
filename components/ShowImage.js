@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { Animated, StyleSheet, View, Image } from "react-native";
 import ContentSelector from "./ContentSelector";
 
@@ -32,13 +32,23 @@ class ImageLoader extends Component {
 
 let idFromButton = "";
 
+let runShowImage = false;
+
 export function testFunc(btnPressed) {
   console.log("imported func logged " + btnPressed);
   idFromButton = btnPressed;
+  runShowImage = true;
 }
 
+let turn = 0;
 const ShowImage = () => {
-  const [shouldShow, setShouldShow] = useState(true);
+  useEffect(() => {
+    turn++;
+    console.log(turn);
+    setShouldShow(runShowImage);
+  }, [runShowImage]);
+
+  const [shouldShow, setShouldShow] = useState(false);
 
   return (
     <View style={styles.container}>
