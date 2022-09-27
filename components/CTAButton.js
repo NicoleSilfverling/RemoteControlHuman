@@ -5,13 +5,7 @@ import ContentSelector from "./ContentSelector";
 // import { playSound } from "./Audioplayer";
 import { testFunc } from "./ShowImage";
 
-export default function CTAButton({
-  btnTitle,
-  btnGroup,
-  btnId,
-  showImage,
-  setShowImage,
-}) {
+export default function CTAButton({ btnTitle, btnGroup, btnId, setShowImage }) {
   const [sound, setSound] = React.useState();
 
   async function playSound() {

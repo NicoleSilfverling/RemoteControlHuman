@@ -24,27 +24,56 @@ export default function App() {
         {/* leftside */}
         <View style={styles.leftside}>
           <View style={styles.colStyle}>
+            <CTAButton btnId="L1" btnGroup="1" btnTitle="LEFT" />
             <CTAButton
-              showImage={showImage}
               setShowImage={setShowImage}
-              btnId="L1"
-              btnGroup="1"
-              btnTitle="LEFT"
+              btnId="L2"
+              btnGroup="2"
+              btnTitle="HAND"
             />
-            <CTAButton btnId="L2" btnGroup="2" btnTitle="HAND" />
-            <CTAButton btnId="L3" btnGroup="2" btnTitle="ARM" />
+            <CTAButton
+              setShowImage={setShowImage}
+              btnId="L3"
+              btnGroup="2"
+              btnTitle="ARM"
+            />
             <HiddenButton />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnId="L4" btnGroup="2" btnTitle="TORSO" />
-            <CTAButton btnId="L5" btnGroup="2" btnTitle="THUMB" />
-            <CTAButton btnId="L6" btnGroup="2" btnTitle="LEG" />
+            <CTAButton
+              setShowImage={setShowImage}
+              btnId="L4"
+              btnGroup="2"
+              btnTitle="TORSO"
+            />
+            <CTAButton
+              setShowImage={setShowImage}
+              btnId="L5"
+              btnGroup="2"
+              btnTitle="THUMB"
+            />
+            <CTAButton
+              setShowImage={setShowImage}
+              btnId="L6"
+              btnGroup="2"
+              btnTitle="LEG"
+            />
             <HiddenButton />
           </View>
           <View style={styles.colStyle}>
             <CTAButton btnId="L7" btnGroup="1" btnTitle="RIGHT" />
-            <CTAButton btnId="L8" btnGroup="2" btnTitle="INDEX" />
-            <CTAButton btnId="L9" btnGroup="2" btnTitle="FOOT" />
+            <CTAButton
+              setShowImage={setShowImage}
+              btnId="L8"
+              btnGroup="2"
+              btnTitle="INDEX"
+            />
+            <CTAButton
+              setShowImage={setShowImage}
+              btnId="L9"
+              btnGroup="2"
+              btnTitle="FOOT"
+            />
             <HiddenButton />
           </View>
           <View style={styles.actionbar}>
