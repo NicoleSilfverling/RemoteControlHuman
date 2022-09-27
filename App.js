@@ -13,10 +13,11 @@ import HiddenButton from "./components/HiddenButton";
 import ShowImage from "./components/ShowImage";
 import React, { useState } from "react";
 import { Audio } from "expo-av";
-import Counter from "./components/CounterComponent";
+
 
 export default function App() {
   const [showImage, setShowImage] = useState(false);
+  const [buttonId, setButtonId] = useState("");
 
   return (
     <SafeAreaView style={styles.container}>
@@ -27,12 +28,14 @@ export default function App() {
             <CTAButton btnId="L1" btnGroup="1" btnTitle="LEFT" />
             <CTAButton
               setShowImage={setShowImage}
+              setButtonId={setButtonId}
               btnId="L2"
               btnGroup="2"
               btnTitle="HAND"
             />
             <CTAButton
               setShowImage={setShowImage}
+              setButtonId={setButtonId}
               btnId="L3"
               btnGroup="2"
               btnTitle="ARM"
@@ -48,12 +51,14 @@ export default function App() {
             />
             <CTAButton
               setShowImage={setShowImage}
+              setButtonId={setButtonId}
               btnId="L5"
               btnGroup="2"
               btnTitle="THUMB"
             />
             <CTAButton
               setShowImage={setShowImage}
+              setButtonId={setButtonId}
               btnId="L6"
               btnGroup="2"
               btnTitle="LEG"
@@ -64,12 +69,14 @@ export default function App() {
             <CTAButton btnId="L7" btnGroup="1" btnTitle="RIGHT" />
             <CTAButton
               setShowImage={setShowImage}
+              setButtonId={setButtonId}
               btnId="L8"
               btnGroup="2"
               btnTitle="INDEX"
             />
             <CTAButton
               setShowImage={setShowImage}
+              setButtonId={setButtonId}
               btnId="L9"
               btnGroup="2"
               btnTitle="FOOT"
@@ -92,7 +99,9 @@ export default function App() {
             {/* <Counter count={showImage} setCount={setShowImage} /> */}
           </View>
           {showImage && (
-            <ShowImage showImage={showImage} setShowImage={setShowImage} />
+            <ShowImage showImage={showImage} setShowImage={setShowImage}
+            buttonId = {buttonId} 
+            />
           )}
         </View>
 

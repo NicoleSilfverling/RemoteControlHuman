@@ -5,7 +5,7 @@ import ContentSelector from "./ContentSelector";
 // import { playSound } from "./Audioplayer";
 import { testFunc } from "./ShowImage";
 
-export default function CTAButton({ btnTitle, btnGroup, btnId, setShowImage }) {
+export default function CTAButton({ btnTitle, btnGroup, btnId, setShowImage, setButtonId }) {
   const [sound, setSound] = React.useState();
 
   async function playSound() {
@@ -53,7 +53,7 @@ export default function CTAButton({ btnTitle, btnGroup, btnId, setShowImage }) {
   return (
     <TouchableHighlight
       onPress={() => {
-        setShowImage ? setShowImage(true) : null, playSound();
+        setShowImage ? setShowImage(true) : null, playSound(), setButtonId ? setButtonId(btnId) : null;
       }}
       //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
       style={[styles.container, colorStyles]}

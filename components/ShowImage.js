@@ -41,12 +41,12 @@ class ImageLoader extends Component {
   }
 }
 
-export default function ShowImage({ showImage, setShowImage }) {
+export default function ShowImage({ showImage, setShowImage, buttonId }) {
   return (
     <View style={styles.container}>
       <ImageLoader
         style={styles.image}
-        source={ContentSelector("L3").bodypartImg}
+        source={ContentSelector(buttonId).bodypartImg}
         setShowImage={setShowImage}
         showImage={showImage}
       />
