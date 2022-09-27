@@ -13,14 +13,16 @@ class ImageLoader extends Component {
       useNativeDriver: true,
     }).start();
 
-    setTimeout(
+    setTimeout(() => {
       Animated.timing(this.state.opacity, {
         toValue: 0,
         duration: 500,
         useNativeDriver: true,
-      }).start,
-      2000
-    );
+      }).start;
+      setTimeout(() => {
+        this.props.setShowImage(false);
+      }, 1000);
+    }, 1000);
   };
 
   render() {
@@ -45,6 +47,8 @@ export default function ShowImage({ showImage, setShowImage }) {
       <ImageLoader
         style={styles.image}
         source={ContentSelector("L3").bodypartImg}
+        setShowImage={setShowImage}
+        showImage={showImage}
       />
     </View>
   );

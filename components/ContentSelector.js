@@ -16,6 +16,7 @@ function ContentSelector(btnId) {
     case "L2":
       text = "button with id 2";
       iconImg = require("../assets/icons/handIcon.png");
+      bodypartImg = require("../assets/images/hand_l.png");
       sound = require("../assets/sounds/hand.wav");
 
       break;
@@ -34,12 +35,14 @@ function ContentSelector(btnId) {
     case "L5":
       text = "button with id 5";
       iconImg = require("../assets/icons/thumbIcon.png");
+      bodypartImg = require("../assets/images/hand_l.png");
       sound = require("../assets/sounds/fingers.wav");
 
       break;
     case "L6":
       text = "button with id 6";
       iconImg = require("../assets/icons/legIcon.png");
+      bodypartImg = require("../assets/images/leg_l.png");
       sound = require("../assets/sounds/leg.wav");
 
       break;
@@ -52,11 +55,13 @@ function ContentSelector(btnId) {
     case "L8":
       text = "button with id 8";
       iconImg = require("../assets/icons/indexIcon.png");
+      bodypartImg = require("../assets/images/hand_l.png");
       sound = require("../assets/sounds/fingers.wav");
       break;
     case "L9":
       text = "button with id 9";
       iconImg = require("../assets/icons/footIcon.png");
+      bodypartImg = require("../assets/images/foot_l.png");
       sound = require("../assets/sounds/foot.wav");
       break;
     case "R1":
