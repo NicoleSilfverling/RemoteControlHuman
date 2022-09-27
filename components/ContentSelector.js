@@ -34,7 +34,7 @@ function ContentSelector(btnId) {
     case "L5":
       text = "button with id 5";
       iconImg = require("../assets/icons/thumbIcon.png");
-      sound = require("../assets/sounds/fingers.wav");
+      sound = require("../assets/sounds/thumb.wav");
 
       break;
     case "L6":
@@ -52,7 +52,7 @@ function ContentSelector(btnId) {
     case "L8":
       text = "button with id 8";
       iconImg = require("../assets/icons/indexIcon.png");
-      sound = require("../assets/sounds/fingers.wav");
+      sound = require("../assets/sounds/index.wav");
       break;
     case "L9":
       text = "button with id 9";
@@ -72,7 +72,7 @@ function ContentSelector(btnId) {
     case "R3":
       text = "button with id 3";
       iconImg = require("../assets/icons/resetIcon.png");
-      sound = require("../assets/sounds/standstraight.wav");
+      sound = require("../assets/sounds/reset.wav");
       break;
     case "R4":
       text = "button with id 4";
