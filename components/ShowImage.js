@@ -12,6 +12,15 @@ class ImageLoader extends Component {
       duration: 500,
       useNativeDriver: true,
     }).start();
+
+    setTimeout(
+      Animated.timing(this.state.opacity, {
+        toValue: 0,
+        duration: 500,
+        useNativeDriver: true,
+      }).start,
+      2000
+    );
   };
 
   render() {
@@ -30,39 +39,16 @@ class ImageLoader extends Component {
   }
 }
 
-let idFromButton = "";
-
-let runShowImage = false;
-
-export function testFunc(btnPressed) {
-  console.log("imported func logged " + btnPressed);
-  idFromButton = btnPressed;
-  runShowImage = true;
-}
-
-let turn = 0;
-const ShowImage = () => {
-  useEffect(() => {
-    turn++;
-    console.log(turn);
-    setShouldShow(runShowImage);
-  }, [runShowImage]);
-
-  const [shouldShow, setShouldShow] = useState(false);
-
+export default function ShowImage({ showImage, setShowImage }) {
   return (
     <View style={styles.container}>
-      {shouldShow ? (
-        <ImageLoader
-          style={styles.image}
-          source={ContentSelector("L3").bodypartImg}
-        />
-      ) : null}
+      <ImageLoader
+        style={styles.image}
+        source={ContentSelector("L3").bodypartImg}
+      />
     </View>
   );
-};
-
-export default ShowImage;
+}
 
 const styles = StyleSheet.create({
   container: {

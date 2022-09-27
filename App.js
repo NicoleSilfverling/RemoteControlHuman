@@ -11,14 +11,12 @@ import Actionbar from "./components/Actionbar";
 import CTAButton from "./components/CTAButton";
 import HiddenButton from "./components/HiddenButton";
 import ShowImage from "./components/ShowImage";
-import * as React from "react";
+import React, { useState } from "react";
 import { Audio } from "expo-av";
 import Counter from "./components/CounterComponent";
 
 export default function App() {
-
-  const [count, setCount] = useState(0);
-
+  const [showImage, setShowImage] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -26,7 +24,13 @@ export default function App() {
         {/* leftside */}
         <View style={styles.leftside}>
           <View style={styles.colStyle}>
-            <CTAButton btnId="L1" btnGroup="1" btnTitle="LEFT" />
+            <CTAButton
+              showImage={showImage}
+              setShowImage={setShowImage}
+              btnId="L1"
+              btnGroup="1"
+              btnTitle="LEFT"
+            />
             <CTAButton btnId="L2" btnGroup="2" btnTitle="HAND" />
             <CTAButton btnId="L3" btnGroup="2" btnTitle="ARM" />
             <HiddenButton />
@@ -46,10 +50,6 @@ export default function App() {
           <View style={styles.actionbar}>
             <Actionbar />
           </View>
-          <View style={{ display: "flex", flexDirection: "row" }}>
-                  <Counter count={count} setCount={setCount} />
-                  {count === 3 && <ImageComp />}
-            </View>
         </View>
 
         {/* center */}
@@ -58,7 +58,13 @@ export default function App() {
             style={styles.imageBody}
             source={require("./assets/images/human.jpg")}
           />
-          <ShowImage />
+          {/* <ShowImage /> */}
+          <View style={{ display: "flex", flexDirection: "row" }}>
+            {/* <Counter count={showImage} setCount={setShowImage} /> */}
+          </View>
+          {showImage && (
+            <ShowImage showImage={showImage} setShowImage={setShowImage} />
+          )}
         </View>
 
         {/* right side */}
@@ -92,7 +98,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "pink",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   layout: {

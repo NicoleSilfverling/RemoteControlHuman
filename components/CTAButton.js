@@ -1,11 +1,17 @@
-import * as React from "react";
+import React from "react";
 import { Audio } from "expo-av";
 import { StyleSheet, TouchableHighlight, Text, Image } from "react-native";
 import ContentSelector from "./ContentSelector";
 // import { playSound } from "./Audioplayer";
 import { testFunc } from "./ShowImage";
 
-export default function CTAButton({ btnTitle, btnGroup, btnId }) {
+export default function CTAButton({
+  btnTitle,
+  btnGroup,
+  btnId,
+  showImage,
+  setShowImage,
+}) {
   const [sound, setSound] = React.useState();
 
   async function playSound() {
@@ -53,7 +59,7 @@ export default function CTAButton({ btnTitle, btnGroup, btnId }) {
   return (
     <TouchableHighlight
       onPress={() => {
-        testFunc(btnId), playSound();
+        setShowImage(true), playSound();
       }}
       //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
       style={[styles.container, colorStyles]}
