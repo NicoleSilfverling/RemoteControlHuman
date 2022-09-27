@@ -59,7 +59,7 @@ export default function CTAButton({
   return (
     <TouchableHighlight
       onPress={() => {
-        setShowImage(true), playSound();
+        setShowImage ? setShowImage(true) : null, playSound();
       }}
       //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
       style={[styles.container, colorStyles]}
