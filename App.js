@@ -13,8 +13,13 @@ import HiddenButton from "./components/HiddenButton";
 import ShowImage from "./components/ShowImage";
 import * as React from "react";
 import { Audio } from "expo-av";
+import Counter from "./components/CounterComponent";
 
 export default function App() {
+
+  const [count, setCount] = useState(0);
+
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.layout}>
@@ -41,6 +46,10 @@ export default function App() {
           <View style={styles.actionbar}>
             <Actionbar />
           </View>
+          <View style={{ display: "flex", flexDirection: "row" }}>
+                  <Counter count={count} setCount={setCount} />
+                  {count === 3 && <ImageComp />}
+            </View>
         </View>
 
         {/* center */}
@@ -83,7 +92,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: "white",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   layout: {
