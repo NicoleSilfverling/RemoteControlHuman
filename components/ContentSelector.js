@@ -1,8 +1,9 @@
-function ContentSelector(btnId) {
+function ContentSelector(btnId, bodyHalfLeft) {
   let text = "";
   let iconImg = "";
   let bodypartImg = "";
   let sound = "";
+
 
   switch (btnId) {
     case "L1":
@@ -16,7 +17,9 @@ function ContentSelector(btnId) {
     case "L2":
       text = "button with id 2";
       iconImg = require("../assets/icons/handIcon.png");
-      bodypartImg = require("../assets/images/hand_l.png");
+      if (bodyHalfLeft)
+      bodypartImg = require("../assets/images/hand_l.png")
+      else bodypartImg = require("../assets/images/hand_r.png");
       sound = require("../assets/sounds/hand.wav");
 
       break;

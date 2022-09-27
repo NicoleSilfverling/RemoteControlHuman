@@ -5,13 +5,21 @@ import ContentSelector from "./ContentSelector";
 // import { playSound } from "./Audioplayer";
 import { testFunc } from "./ShowImage";
 
-export default function CTAButton({ btnTitle, btnGroup, btnId, setShowImage, setButtonId }) {
+export default function CTAButton({
+  btnTitle,
+  btnGroup,
+  btnId,
+  setShowImage,
+  setButtonId,
+  setBodyHalfLeft,
+  bodyHalfLeft
+}) {
   const [sound, setSound] = React.useState();
 
   async function playSound() {
     console.log("Loading Sound");
     const { sound } = await Audio.Sound.createAsync(
-      ContentSelector(btnId).sound
+      ContentSelector(btnId, bodyHalfLeft).sound
     );
     setSound(sound);
 
@@ -50,10 +58,21 @@ export default function CTAButton({ btnTitle, btnGroup, btnId, setShowImage, set
     borderColor: btnBorderColor,
     backgroundColor: btnBackgroundColor,
   };
+
+  let leftSide;
+
+  if (btnId == "L1")
+      leftSide = true;
+      else if (btnId == "L7")
+      leftSide = false;
+
   return (
     <TouchableHighlight
       onPress={() => {
-        setShowImage ? setShowImage(true) : null, playSound(), setButtonId ? setButtonId(btnId) : null;
+        setShowImage ? setShowImage(true) : null,
+        playSound(),
+        setButtonId ? setButtonId(btnId) : null,
+        setBodyHalfLeft  ? setBodyHalfLeft(leftSide) : null;
       }}
       //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
       style={[styles.container, colorStyles]}

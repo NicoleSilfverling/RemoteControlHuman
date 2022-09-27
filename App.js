@@ -18,6 +18,7 @@ import { Audio } from "expo-av";
 export default function App() {
   const [showImage, setShowImage] = useState(false);
   const [buttonId, setButtonId] = useState("");
+  const [bodyHalfLeft, setBodyHalfLeft] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,7 +26,13 @@ export default function App() {
         {/* leftside */}
         <View style={styles.leftside}>
           <View style={styles.colStyle}>
-            <CTAButton btnId="L1" btnGroup="1" btnTitle="LEFT" />
+            <CTAButton
+            setBodyHalfLeft={setBodyHalfLeft} 
+            bodyHalfLeft = {bodyHalfLeft}
+            btnId="L1" 
+            btnGroup="1" 
+            btnTitle="LEFT"
+             />
             <CTAButton
               setShowImage={setShowImage}
               setButtonId={setButtonId}
@@ -66,7 +73,12 @@ export default function App() {
             <HiddenButton />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnId="L7" btnGroup="1" btnTitle="RIGHT" />
+            <CTAButton
+            setBodyHalfLeft={setBodyHalfLeft} 
+            btnId="L7" 
+            btnGroup="1" 
+            btnTitle="RIGHT" 
+            />
             <CTAButton
               setShowImage={setShowImage}
               setButtonId={setButtonId}
@@ -101,6 +113,7 @@ export default function App() {
           {showImage && (
             <ShowImage showImage={showImage} setShowImage={setShowImage}
             buttonId = {buttonId} 
+            bodyHalfLeft = {bodyHalfLeft}
             />
           )}
         </View>
