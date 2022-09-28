@@ -19,10 +19,8 @@ class ImageLoader extends Component {
         duration: 500,
         useNativeDriver: true,
       }).start;
-      setTimeout(() => {
-        this.props.setShowImage(false);
-      }, 1000);
-    }, 1000);
+      this.props.setShowImage(false);
+    }, 2000);
   };
 
   render() {

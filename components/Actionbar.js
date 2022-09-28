@@ -8,7 +8,6 @@ const Actionbar = ({ groupId }) => {
   let backgroundColorBar4;
   let backgroundColorBar5;
 
-  console.log(groupId + " actionbar groupid");
   if (groupId == "1") {
     backgroundColorBar1 = "#FFF";
   } else if (groupId == "2") {
@@ -29,8 +28,19 @@ const Actionbar = ({ groupId }) => {
     backgroundColorBar3 = "orange";
     backgroundColorBar4 = "#00A300";
     backgroundColorBar5 = "#FFF";
+
+    setTimeout(() => {
+      console.log("set timeout runs");
+      backgroundColorBar1 = "red";
+      //   backgroundColorBar2 = "transparent";
+      //   backgroundColorBar3 = "transparent";
+      //   backgroundColorBar4 = "transparent";
+      //   backgroundColorBar5 = "transparent";
+      console.log(backgroundColorBar1 + " color");
+    }, 1000);
   }
 
+  console.log(backgroundColorBar1 + " color1");
   let colorStylesBar1 = {
     backgroundColor: backgroundColorBar1,
   };
@@ -46,24 +56,7 @@ const Actionbar = ({ groupId }) => {
   let colorStylesBar5 = {
     backgroundColor: backgroundColorBar5,
   };
-
-  useEffect(() => {
-    colorStylesBar1 = {
-      backgroundColor: backgroundColorBar1,
-    };
-    colorStylesBar2 = {
-      backgroundColor: backgroundColorBar2,
-    };
-    colorStylesBar3 = {
-      backgroundColor: backgroundColorBar3,
-    };
-    colorStylesBar4 = {
-      backgroundColor: backgroundColorBar4,
-    };
-    colorStylesBar4 = {
-      backgroundColor: backgroundColorBar5,
-    };
-  }, [groupId]);
+  console.log(backgroundColorBar1 + " color2");
 
   return (
     <View style={styles.container}>
