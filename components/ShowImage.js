@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { Animated, StyleSheet, View, Image } from "react-native";
 import ContentSelector from "./ContentSelector";
 
@@ -12,6 +12,17 @@ class ImageLoader extends Component {
       duration: 500,
       useNativeDriver: true,
     }).start();
+
+    setTimeout(() => {
+      Animated.timing(this.state.opacity, {
+        toValue: 0,
+        duration: 500,
+        useNativeDriver: true,
+      }).start;
+      setTimeout(() => {
+        this.props.setShowImage(false);
+      }, 1000);
+    }, 1000);
   };
 
   render() {
@@ -30,29 +41,23 @@ class ImageLoader extends Component {
   }
 }
 
-let idFromButton = "";
-
-export function testFunc(btnPressed) {
-  console.log("imported func logged " + btnPressed);
-  idFromButton = btnPressed;
-}
-
-const ShowImage = () => {
-  const [shouldShow, setShouldShow] = useState(true);
-
+export default function ShowImage({
+  showImage,
+  setShowImage,
+  buttonId,
+  bodyHalfLeft,
+}) {
   return (
     <View style={styles.container}>
-      {shouldShow ? (
-        <ImageLoader
-          style={styles.image}
-          source={ContentSelector("L3").bodypartImg}
-        />
-      ) : null}
+      <ImageLoader
+        style={styles.image}
+        source={ContentSelector(buttonId, bodyHalfLeft).bodypartImg}
+        setShowImage={setShowImage}
+        showImage={showImage}
+      />
     </View>
   );
-};
-
-export default ShowImage;
+}
 
 const styles = StyleSheet.create({
   container: {

@@ -11,31 +11,88 @@ import Actionbar from "./components/Actionbar";
 import CTAButton from "./components/CTAButton";
 import HiddenButton from "./components/HiddenButton";
 import ShowImage from "./components/ShowImage";
-import * as React from "react";
+import React, { useState } from "react";
 import { Audio } from "expo-av";
 
+
 export default function App() {
+  const [showImage, setShowImage] = useState(false);
+  const [buttonId, setButtonId] = useState("");
+  const [bodyHalfLeft, setBodyHalfLeft] = useState(false);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.layout}>
         {/* leftside */}
         <View style={styles.leftside}>
           <View style={styles.colStyle}>
-            <CTAButton btnId="L1" btnGroup="1" btnTitle="LEFT" />
-            <CTAButton btnId="L2" btnGroup="2" btnTitle="HAND" />
-            <CTAButton btnId="L3" btnGroup="2" btnTitle="ARM" />
+            <CTAButton
+            setBodyHalfLeft={setBodyHalfLeft} 
+            bodyHalfLeft = {bodyHalfLeft}
+            btnId="L1" 
+            btnGroup="1" 
+            btnTitle="LEFT"
+             />
+            <CTAButton
+              setShowImage={setShowImage}
+              setButtonId={setButtonId}
+              btnId="L2"
+              btnGroup="2"
+              btnTitle="HAND"
+            />
+            <CTAButton
+              setShowImage={setShowImage}
+              setButtonId={setButtonId}
+              btnId="L3"
+              btnGroup="2"
+              btnTitle="ARM"
+            />
             <HiddenButton />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnId="L4" btnGroup="2" btnTitle="TORSO" />
-            <CTAButton btnId="L5" btnGroup="2" btnTitle="THUMB" />
-            <CTAButton btnId="L6" btnGroup="2" btnTitle="LEG" />
+            <CTAButton
+              setShowImage={setShowImage}
+              btnId="L4"
+              btnGroup="2"
+              btnTitle="TORSO"
+            />
+            <CTAButton
+              setShowImage={setShowImage}
+              setButtonId={setButtonId}
+              btnId="L5"
+              btnGroup="2"
+              btnTitle="THUMB"
+            />
+            <CTAButton
+              setShowImage={setShowImage}
+              setButtonId={setButtonId}
+              btnId="L6"
+              btnGroup="2"
+              btnTitle="LEG"
+            />
             <HiddenButton />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnId="L7" btnGroup="1" btnTitle="RIGHT" />
-            <CTAButton btnId="L8" btnGroup="2" btnTitle="INDEX" />
-            <CTAButton btnId="L9" btnGroup="2" btnTitle="FOOT" />
+            <CTAButton
+            setBodyHalfLeft={setBodyHalfLeft} 
+            btnId="L7" 
+            btnGroup="1" 
+            btnTitle="RIGHT" 
+            />
+            <CTAButton
+              setShowImage={setShowImage}
+              setButtonId={setButtonId}
+              btnId="L8"
+              btnGroup="2"
+              btnTitle="INDEX"
+            />
+            <CTAButton
+              setShowImage={setShowImage}
+              setButtonId={setButtonId}
+              btnId="L9"
+              btnGroup="2"
+              btnTitle="FOOT"
+            />
             <HiddenButton />
           </View>
           <View style={styles.actionbar}>
@@ -49,7 +106,16 @@ export default function App() {
             style={styles.imageBody}
             source={require("./assets/images/human.jpg")}
           />
-          <ShowImage />
+          {/* <ShowImage /> */}
+          <View style={{ display: "flex", flexDirection: "row" }}>
+            {/* <Counter count={showImage} setCount={setShowImage} /> */}
+          </View>
+          {showImage && (
+            <ShowImage showImage={showImage} setShowImage={setShowImage}
+            buttonId = {buttonId} 
+            bodyHalfLeft = {bodyHalfLeft}
+            />
+          )}
         </View>
 
         {/* right side */}
@@ -83,7 +149,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: "pink",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   layout: {
