@@ -36,11 +36,9 @@ const Actionbar = ({ groupId }) => {
       //   backgroundColorBar3 = "transparent";
       //   backgroundColorBar4 = "transparent";
       //   backgroundColorBar5 = "transparent";
-      console.log(backgroundColorBar1 + " color");
     }, 1000);
   }
 
-  console.log(backgroundColorBar1 + " color1");
   let colorStylesBar1 = {
     backgroundColor: backgroundColorBar1,
   };
@@ -56,7 +54,6 @@ const Actionbar = ({ groupId }) => {
   let colorStylesBar5 = {
     backgroundColor: backgroundColorBar5,
   };
-  console.log(backgroundColorBar1 + " color2");
 
   return (
     <View style={styles.container}>

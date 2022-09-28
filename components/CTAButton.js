@@ -13,7 +13,7 @@ export default function CTAButton({
   setButtonId,
   setBodyHalfLeft,
   bodyHalfLeft,
-  setGroupId
+  setGroupId,
 }) {
   const [sound, setSound] = React.useState();
 
@@ -62,19 +62,17 @@ export default function CTAButton({
 
   let leftSide;
 
-  if (btnId == "L1")
-      leftSide = true;
-      else if (btnId == "L7")
-      leftSide = false;
+  if (btnId == "L1") leftSide = true;
+  else if (btnId == "L7") leftSide = false;
 
   return (
     <TouchableHighlight
       onPress={() => {
         setShowImage ? setShowImage(true) : null,
-        playSound(),
-        setButtonId ? setButtonId(btnId) : null,
-        setBodyHalfLeft  ? setBodyHalfLeft(leftSide) : null,
-        setGroupId ? setGroupId(btnGroup) : null;
+          playSound(),
+          setButtonId ? setButtonId(btnId) : null,
+          setBodyHalfLeft ? setBodyHalfLeft(leftSide) : null,
+          setGroupId ? setGroupId(btnGroup) : null;
       }}
       //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
       style={[styles.container, colorStyles]}
