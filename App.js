@@ -208,12 +208,6 @@ const styles = StyleSheet.create({
     height: "100%",
     zIndex: 0,
   },
-  imageBodyparts: {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    zIndex: 1,
-  },
   actionbar: {
     position: "absolute",
     zIndex: 2,
