@@ -1,10 +1,32 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { StyleSheet, View } from "react-native";
 
-const Actionbar = () => {
+const Actionbar = (groupId) => {
+
+
+  let backgroundColorFill;
+
+  if (groupId=="1") {
+    backgroundColorFill = "#FFF"
+  }
+
+  let colorStyles;
+
+
+  useEffect(() => {
+    colorStyles = {
+  
+      backgroundColor : backgroundColorFill
+    }
+  }, [groupId])
+  
+
+  
+
+
   return (
     <View style={styles.container}>
-      <View style={styles.bar1}></View>
+      <View style={[styles.bar1, colorStyles]}></View>
       <View style={styles.bar2}></View>
       <View style={styles.bar3}></View>
       <View style={styles.bar4}></View>

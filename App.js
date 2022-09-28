@@ -18,6 +18,7 @@ export default function App() {
   const [showImage, setShowImage] = useState(false);
   const [buttonId, setButtonId] = useState("");
   const [bodyHalfLeft, setBodyHalfLeft] = useState(false);
+  const [groupId, setGroupId] = useState("")
 
   return (
     <SafeAreaView style={styles.container}>
@@ -28,6 +29,7 @@ export default function App() {
             <CTAButton
               setBodyHalfLeft={setBodyHalfLeft}
               bodyHalfLeft={bodyHalfLeft}
+              setGroupId = {setGroupId}
               btnId="L1"
               btnGroup="1"
               btnTitle="LEFT"
@@ -95,7 +97,7 @@ export default function App() {
             <HiddenButton />
           </View>
           <View style={styles.actionbar}>
-            <Actionbar />
+            <Actionbar groupId={groupId} />
           </View>
         </View>
 

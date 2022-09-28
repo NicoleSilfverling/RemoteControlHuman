@@ -12,7 +12,8 @@ export default function CTAButton({
   setShowImage,
   setButtonId,
   setBodyHalfLeft,
-  bodyHalfLeft
+  bodyHalfLeft,
+  setGroupId
 }) {
   const [sound, setSound] = React.useState();
 
@@ -72,7 +73,8 @@ export default function CTAButton({
         setShowImage ? setShowImage(true) : null,
         playSound(),
         setButtonId ? setButtonId(btnId) : null,
-        setBodyHalfLeft  ? setBodyHalfLeft(leftSide) : null;
+        setBodyHalfLeft  ? setBodyHalfLeft(leftSide) : null,
+        setGroupId ? setGroupId(btnGroup) : null;
       }}
       //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
       style={[styles.container, colorStyles]}
