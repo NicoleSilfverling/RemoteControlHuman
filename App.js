@@ -18,7 +18,7 @@ export default function App() {
   const [showImage, setShowImage] = useState(false);
   const [buttonId, setButtonId] = useState("");
   const [bodyHalfLeft, setBodyHalfLeft] = useState(false);
-  const [groupId, setGroupId] = useState("")
+  const [groupId, setGroupId] = useState("");
 
   return (
     <SafeAreaView style={styles.container}>
@@ -29,7 +29,7 @@ export default function App() {
             <CTAButton
               setBodyHalfLeft={setBodyHalfLeft}
               bodyHalfLeft={bodyHalfLeft}
-              setGroupId = {setGroupId}
+              setGroupId={setGroupId}
               btnId="L1"
               btnGroup="1"
               btnTitle="LEFT"
@@ -37,6 +37,7 @@ export default function App() {
             <CTAButton
               setShowImage={setShowImage}
               setButtonId={setButtonId}
+              setGroupId={setGroupId}
               btnId="L2"
               btnGroup="2"
               btnTitle="HAND"
@@ -44,6 +45,7 @@ export default function App() {
             <CTAButton
               setShowImage={setShowImage}
               setButtonId={setButtonId}
+              setGroupId={setGroupId}
               btnId="L3"
               btnGroup="2"
               btnTitle="ARM"
@@ -53,6 +55,7 @@ export default function App() {
           <View style={styles.colStyle}>
             <CTAButton
               setShowImage={setShowImage}
+              setGroupId={setGroupId}
               btnId="L4"
               btnGroup="2"
               btnTitle="TORSO"
@@ -60,6 +63,7 @@ export default function App() {
             <CTAButton
               setShowImage={setShowImage}
               setButtonId={setButtonId}
+              setGroupId={setGroupId}
               btnId="L5"
               btnGroup="2"
               btnTitle="THUMB"
@@ -67,6 +71,7 @@ export default function App() {
             <CTAButton
               setShowImage={setShowImage}
               setButtonId={setButtonId}
+              setGroupId={setGroupId}
               btnId="L6"
               btnGroup="2"
               btnTitle="LEG"
@@ -76,6 +81,7 @@ export default function App() {
           <View style={styles.colStyle}>
             <CTAButton
               setBodyHalfLeft={setBodyHalfLeft}
+              setGroupId={setGroupId}
               btnId="L7"
               btnGroup="1"
               btnTitle="RIGHT"
@@ -83,6 +89,7 @@ export default function App() {
             <CTAButton
               setShowImage={setShowImage}
               setButtonId={setButtonId}
+              setGroupId={setGroupId}
               btnId="L8"
               btnGroup="2"
               btnTitle="INDEX"
@@ -90,6 +97,7 @@ export default function App() {
             <CTAButton
               setShowImage={setShowImage}
               setButtonId={setButtonId}
+              setGroupId={setGroupId}
               btnId="L9"
               btnGroup="2"
               btnTitle="FOOT"
@@ -124,22 +132,82 @@ export default function App() {
         {/* right side */}
         <View style={styles.rightside}>
           <View style={styles.colStyle}>
-            <CTAButton btnId="R1" btnGroup="3" btnTitle="BEND" />
-            <CTAButton btnId="R2" btnGroup="3" btnTitle="MOVE" />
-            <CTAButton btnId="R3" btnTitle="RESET" />
-            <CTAButton btnId="R4" btnGroup="4" btnTitle="LEFT" />
+            <CTAButton
+              setGroupId={setGroupId}
+              btnId="R1"
+              btnGroup="3"
+              btnTitle="BEND"
+            />
+            <CTAButton
+              setGroupId={setGroupId}
+              btnId="R2"
+              btnGroup="3"
+              btnTitle="MOVE"
+            />
+            <CTAButton
+              setGroupId={setGroupId}
+              btnId="R3"
+              btnGroup="5"
+              btnTitle="RESET"
+            />
+            <CTAButton
+              setGroupId={setGroupId}
+              btnId="R4"
+              btnGroup="4"
+              btnTitle="LEFT"
+            />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnId="R5" btnGroup="3" btnTitle="STRETCH" />
-            <CTAButton btnId="R6" btnGroup="3" btnTitle="TWIST" />
-            <CTAButton btnId="R7" btnTitle="STOP" />
-            <CTAButton btnId="R8" btnGroup="4" btnTitle="RIGHT" />
+            <CTAButton
+              setGroupId={setGroupId}
+              btnId="R5"
+              btnGroup="3"
+              btnTitle="STRETCH"
+            />
+            <CTAButton
+              setGroupId={setGroupId}
+              btnId="R6"
+              btnGroup="3"
+              btnTitle="TWIST"
+            />
+            <CTAButton
+              setGroupId={setGroupId}
+              btnGroup="5"
+              btnId="R7"
+              btnTitle="STOP"
+            />
+            <CTAButton
+              setGroupId={setGroupId}
+              btnId="R8"
+              btnGroup="4"
+              btnTitle="RIGHT"
+            />
           </View>
           <View style={styles.colStyle}>
-            <CTAButton btnId="R9" btnGroup="4" btnTitle="FORWARD" />
-            <CTAButton btnId="R10" btnGroup="4" btnTitle="BACKWARD" />
-            <CTAButton btnId="R11" btnGroup="4" btnTitle="UP" />
-            <CTAButton btnId="R12" btnGroup="4" btnTitle="DOWN" />
+            <CTAButton
+              setGroupId={setGroupId}
+              btnId="R9"
+              btnGroup="4"
+              btnTitle="FORWARD"
+            />
+            <CTAButton
+              setGroupId={setGroupId}
+              btnId="R10"
+              btnGroup="4"
+              btnTitle="BACKWARD"
+            />
+            <CTAButton
+              setGroupId={setGroupId}
+              btnId="R11"
+              btnGroup="4"
+              btnTitle="UP"
+            />
+            <CTAButton
+              setGroupId={setGroupId}
+              btnId="R12"
+              btnGroup="4"
+              btnTitle="DOWN"
+            />
           </View>
         </View>
 
