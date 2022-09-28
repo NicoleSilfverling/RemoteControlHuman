@@ -4,7 +4,6 @@ function ContentSelector(btnId, bodyHalfLeft) {
   let bodypartImg = "";
   let sound = "";
 
-
   switch (btnId) {
     case "L1":
       text = "button with id 1";
@@ -17,17 +16,17 @@ function ContentSelector(btnId, bodyHalfLeft) {
     case "L2":
       text = "button with id 2";
       iconImg = require("../assets/icons/handIcon.png");
-      if (bodyHalfLeft)
-      bodypartImg = require("../assets/images/hand_l.png")
-      else bodypartImg = require("../assets/images/hand_r.png");
       sound = require("../assets/sounds/hand.wav");
+      if (bodyHalfLeft) bodypartImg = require("../assets/images/hand_l.png");
+      else bodypartImg = require("../assets/images/hand_r.png");
 
       break;
     case "L3":
       text = "button with id 3";
       iconImg = require("../assets/icons/armIcon.png");
-      bodypartImg = require("../assets/images/arm_l.png");
       sound = require("../assets/sounds/arm.wav");
+      if (bodyHalfLeft) bodypartImg = require("../assets/images/arm_l.png");
+      else bodypartImg = require("../assets/images/arm_r.png");
 
       break;
     case "L4":
@@ -38,15 +37,17 @@ function ContentSelector(btnId, bodyHalfLeft) {
     case "L5":
       text = "button with id 5";
       iconImg = require("../assets/icons/thumbIcon.png");
-      bodypartImg = require("../assets/images/hand_l.png");
       sound = require("../assets/sounds/fingers.wav");
+      if (bodyHalfLeft) bodypartImg = require("../assets/images/hand_l.png");
+      else bodypartImg = require("../assets/images/hand_r.png");
 
       break;
     case "L6":
       text = "button with id 6";
       iconImg = require("../assets/icons/legIcon.png");
-      bodypartImg = require("../assets/images/leg_l.png");
       sound = require("../assets/sounds/leg.wav");
+      if (bodyHalfLeft) bodypartImg = require("../assets/images/leg_l.png");
+      else bodypartImg = require("../assets/images/leg_r.png");
 
       break;
     case "L7":
@@ -58,14 +59,16 @@ function ContentSelector(btnId, bodyHalfLeft) {
     case "L8":
       text = "button with id 8";
       iconImg = require("../assets/icons/indexIcon.png");
-      bodypartImg = require("../assets/images/hand_l.png");
       sound = require("../assets/sounds/fingers.wav");
+      if (bodyHalfLeft) bodypartImg = require("../assets/images/hand_l.png");
+      else bodypartImg = require("../assets/images/hand_r.png");
       break;
     case "L9":
       text = "button with id 9";
       iconImg = require("../assets/icons/footIcon.png");
-      bodypartImg = require("../assets/images/foot_l.png");
       sound = require("../assets/sounds/foot.wav");
+      if (bodyHalfLeft) bodypartImg = require("../assets/images/foot_l.png");
+      else bodypartImg = require("../assets/images/foot_r.png");
       break;
     case "R1":
       text = "button with id 1";
