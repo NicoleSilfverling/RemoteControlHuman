@@ -99,7 +99,7 @@ function ContentSelector(btnId, bodyHalfLeft) {
     case "R6":
       text = "button with id 6";
       iconImg = require("../assets/icons/walkIcon.png");
-      sound = require("../assets/sounds/walk.wav");
+      sound = require("../assets/sounds/twist.wav");
       break;
     case "R7":
       text = "button with id 7";

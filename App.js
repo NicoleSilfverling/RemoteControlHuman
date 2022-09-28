@@ -14,7 +14,6 @@ import ShowImage from "./components/ShowImage";
 import React, { useState } from "react";
 import { Audio } from "expo-av";
 
-
 export default function App() {
   const [showImage, setShowImage] = useState(false);
   const [buttonId, setButtonId] = useState("");
@@ -27,12 +26,12 @@ export default function App() {
         <View style={styles.leftside}>
           <View style={styles.colStyle}>
             <CTAButton
-            setBodyHalfLeft={setBodyHalfLeft} 
-            bodyHalfLeft = {bodyHalfLeft}
-            btnId="L1" 
-            btnGroup="1" 
-            btnTitle="LEFT"
-             />
+              setBodyHalfLeft={setBodyHalfLeft}
+              bodyHalfLeft={bodyHalfLeft}
+              btnId="L1"
+              btnGroup="1"
+              btnTitle="LEFT"
+            />
             <CTAButton
               setShowImage={setShowImage}
               setButtonId={setButtonId}
@@ -74,10 +73,10 @@ export default function App() {
           </View>
           <View style={styles.colStyle}>
             <CTAButton
-            setBodyHalfLeft={setBodyHalfLeft} 
-            btnId="L7" 
-            btnGroup="1" 
-            btnTitle="RIGHT" 
+              setBodyHalfLeft={setBodyHalfLeft}
+              btnId="L7"
+              btnGroup="1"
+              btnTitle="RIGHT"
             />
             <CTAButton
               setShowImage={setShowImage}
@@ -111,9 +110,11 @@ export default function App() {
             {/* <Counter count={showImage} setCount={setShowImage} /> */}
           </View>
           {showImage && (
-            <ShowImage showImage={showImage} setShowImage={setShowImage}
-            buttonId = {buttonId} 
-            bodyHalfLeft = {bodyHalfLeft}
+            <ShowImage
+              showImage={showImage}
+              setShowImage={setShowImage}
+              buttonId={buttonId}
+              bodyHalfLeft={bodyHalfLeft}
             />
           )}
         </View>
@@ -128,7 +129,7 @@ export default function App() {
           </View>
           <View style={styles.colStyle}>
             <CTAButton btnId="R5" btnGroup="3" btnTitle="STRETCH" />
-            <CTAButton btnId="R6" btnGroup="3" btnTitle="WALK" />
+            <CTAButton btnId="R6" btnGroup="3" btnTitle="TWIST" />
             <CTAButton btnId="R7" btnTitle="STOP" />
             <CTAButton btnId="R8" btnGroup="4" btnTitle="RIGHT" />
           </View>
