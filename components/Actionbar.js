@@ -3,9 +3,12 @@ import { StyleSheet, View, Text } from "react-native";
 import ContentSelector from "./ContentSelector";
 
 const Actionbar = ({ groupId, buttonId }) => {
-  let titleGroup1;
+  let titleGroup1 = "SECTION";
+  let titleGroup2 = "BODY PART";
   if (groupId == "1") {
     titleGroup1 = ContentSelector(buttonId).title;
+  } else if (groupId == "2") {
+    titleGroup2 = ContentSelector(buttonId).title;
   }
 
   let backgroundColorBar1 = "transparent";
@@ -63,8 +66,8 @@ const Actionbar = ({ groupId, buttonId }) => {
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
-        <Text style={styles.textStyle}>SECTION</Text>
-        <Text style={styles.textStyle}>BODY PART</Text>
+        <Text style={styles.textStyle}>{titleGroup1}</Text>
+        <Text style={styles.textStyle}>{titleGroup2}</Text>
         <Text style={styles.textStyle}>ACTION</Text>
         <Text style={styles.textStyle}>DIRECTION</Text>
       </View>
@@ -76,12 +79,12 @@ const Actionbar = ({ groupId, buttonId }) => {
         <View style={[styles.bar4, colorStylesBar4]}></View>
         {/* <View style={[styles.bar5, colorStylesBar5]}></View> */}
       </View>
-      <View style={styles.textContainer}>
+      {/* <View style={styles.textContainer}>
         <Text style={styles.textStyle}>{titleGroup1}</Text>
         <Text style={styles.textStyle}>BODY PART</Text>
         <Text style={styles.textStyle}>ACTION</Text>
         <Text style={styles.textStyle}>DIRECTION</Text>
-      </View>
+      </View> */}
     </View>
   );
 };
