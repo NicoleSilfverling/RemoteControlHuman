@@ -5,10 +5,16 @@ import ContentSelector from "./ContentSelector";
 const Actionbar = ({ groupId, buttonId }) => {
   let titleGroup1 = "SECTION";
   let titleGroup2 = "BODY PART";
+  let titleGroup3 = "ACTION";
+  let titleGroup4 = "DIRECTION";
   if (groupId == "1") {
     titleGroup1 = ContentSelector(buttonId).title;
   } else if (groupId == "2") {
     titleGroup2 = ContentSelector(buttonId).title;
+  } else if (groupId == "3") {
+    titleGroup3 = ContentSelector(buttonId).title;
+  }else if (groupId == "4") {
+    titleGroup4 = ContentSelector(buttonId).title;
   }
 
   let backgroundColorBar1 = "transparent";
@@ -68,8 +74,8 @@ const Actionbar = ({ groupId, buttonId }) => {
       <View style={styles.textContainer}>
         <Text style={styles.textStyle}>{titleGroup1}</Text>
         <Text style={styles.textStyle}>{titleGroup2}</Text>
-        <Text style={styles.textStyle}>ACTION</Text>
-        <Text style={styles.textStyle}>DIRECTION</Text>
+        <Text style={styles.textStyle}>{titleGroup3}</Text>
+        <Text style={styles.textStyle}>{titleGroup4}</Text>
       </View>
 
       <View style={styles.barContainer}>
