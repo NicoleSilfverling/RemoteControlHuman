@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     paddingBottom: "18%",
     marginLeft: "10%",
-    width: "70%",
-    // backgroundColor: "pink",
+    width: "100%",
+    // backgroundColor: "blue",
   },
 });

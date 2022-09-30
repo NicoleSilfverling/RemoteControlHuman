@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 
 const Actionbar = ({ groupId }) => {
   let backgroundColorBar1 = "transparent";
@@ -57,11 +57,20 @@ const Actionbar = ({ groupId }) => {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.bar1, colorStylesBar1]}></View>
-      <View style={[styles.bar2, colorStylesBar2]}></View>
-      <View style={[styles.bar3, colorStylesBar3]}></View>
-      <View style={[styles.bar4, colorStylesBar4]}></View>
-      <View style={[styles.bar5, colorStylesBar5]}></View>
+      <View style={styles.textContainer}>
+        <Text style={styles.textStyle}>SECTION</Text>
+        <Text style={styles.textStyle}>BODY PART</Text>
+        <Text style={styles.textStyle}>ACTION</Text>
+        <Text style={styles.textStyle}>DIRECTION</Text>
+      </View>
+
+      <View style={styles.barContainer}>
+        <View style={[styles.bar1, colorStylesBar1]}></View>
+        <View style={[styles.bar2, colorStylesBar2]}></View>
+        <View style={[styles.bar3, colorStylesBar3]}></View>
+        <View style={[styles.bar4, colorStylesBar4]}></View>
+        {/* <View style={[styles.bar5, colorStylesBar5]}></View> */}
+      </View>
     </View>
   );
 };
@@ -70,6 +79,9 @@ export default Actionbar;
 
 const styles = StyleSheet.create({
   container: {
+    // backgroundColor: "pink",
+  },
+  barContainer: {
     height: 15,
     width: "100%",
     overflow: "hidden",
@@ -80,7 +92,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   bar1: {
-    flex: 0.5,
+    flex: 1,
     backgroundColor: "transparent",
     borderWidth: 1,
     borderColor: "#FFF",
@@ -118,5 +130,18 @@ const styles = StyleSheet.create({
     borderColor: "#FFF",
     borderRadius: 10,
     marginRight: "1%",
+  },
+  textStyle: {
+    flex: 1,
+    color: "#FFF",
+    textAlign: "center",
+    fontSize: 15,
+    marginRight: "1%",
+    fontWeight: "bold",
+  },
+  textContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
