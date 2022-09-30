@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   Image,
   Button,
+  Text,
 } from "react-native";
 import Actionbar from "./components/Actionbar";
 import CTAButton from "./components/CTAButton";
@@ -13,6 +14,7 @@ import HiddenButton from "./components/HiddenButton";
 import ShowImage from "./components/ShowImage";
 import React, { useState } from "react";
 import { Audio } from "expo-av";
+import ContentSelector from "./components/ContentSelector";
 
 export default function App() {
   const [showImage, setShowImage] = useState(false);
@@ -30,9 +32,10 @@ export default function App() {
               setBodyHalfLeft={setBodyHalfLeft}
               bodyHalfLeft={bodyHalfLeft}
               setGroupId={setGroupId}
+              setButtonId={setButtonId}
               btnId="L1"
               btnGroup="1"
-              btnTitle="LEFT"
+              btnTitle={ContentSelector("L1").title}
             />
             <CTAButton
               setShowImage={setShowImage}
@@ -82,9 +85,10 @@ export default function App() {
             <CTAButton
               setBodyHalfLeft={setBodyHalfLeft}
               setGroupId={setGroupId}
+              setButtonId={setButtonId}
               btnId="L7"
               btnGroup="1"
-              btnTitle="RIGHT"
+              btnTitle={ContentSelector("L7").title}
             />
             <CTAButton
               setShowImage={setShowImage}
@@ -105,7 +109,16 @@ export default function App() {
             <HiddenButton />
           </View>
           <View style={styles.actionbar}>
-            <Actionbar groupId={groupId} />
+            <Actionbar groupId={groupId} buttonId={buttonId} />
+
+            <View style={styles.iconCon}>
+              <View style={styles.iconball}>
+                <Text style={styles.iconText}>i</Text>
+              </View>
+              <View style={styles.iconball}>
+                <Text style={styles.iconText}>i</Text>
+              </View>
+            </View>
           </View>
         </View>
 
@@ -287,5 +300,23 @@ const styles = StyleSheet.create({
     marginLeft: "10%",
     width: "100%",
     // backgroundColor: "blue",
+  },
+  iconball: {
+    // backgroundColor: "green",
+    borderWidth: 3,
+    borderColor: "#FFF",
+    borderRadius: "50%",
+    width: 50,
+    height: 50,
+    zIndex: 2,
+  },
+  iconText: {
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "#FFF",
+  },
+  iconCon: {
+    flexDirection: "row",
+    // justifyContent: "space-around",
   },
 });

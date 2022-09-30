@@ -1,13 +1,18 @@
 import React, { useEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
+import ContentSelector from "./ContentSelector";
 
-const Actionbar = ({ groupId }) => {
+const Actionbar = ({ groupId, buttonId }) => {
+  let titleGroup1;
+  if (groupId == "1") {
+    titleGroup1 = ContentSelector(buttonId).title;
+  }
+
   let backgroundColorBar1 = "transparent";
   let backgroundColorBar2;
   let backgroundColorBar3;
   let backgroundColorBar4;
   let backgroundColorBar5;
-
   if (groupId == "1") {
     backgroundColorBar1 = "#FFF";
   } else if (groupId == "2") {
@@ -70,6 +75,12 @@ const Actionbar = ({ groupId }) => {
         <View style={[styles.bar3, colorStylesBar3]}></View>
         <View style={[styles.bar4, colorStylesBar4]}></View>
         {/* <View style={[styles.bar5, colorStylesBar5]}></View> */}
+      </View>
+      <View style={styles.textContainer}>
+        <Text style={styles.textStyle}>{titleGroup1}</Text>
+        <Text style={styles.textStyle}>BODY PART</Text>
+        <Text style={styles.textStyle}>ACTION</Text>
+        <Text style={styles.textStyle}>DIRECTION</Text>
       </View>
     </View>
   );
@@ -137,7 +148,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 15,
     marginRight: "1%",
-    fontWeight: "bold",
   },
   textContainer: {
     flexDirection: "row",
