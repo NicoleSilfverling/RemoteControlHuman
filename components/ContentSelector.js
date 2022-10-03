@@ -31,13 +31,14 @@ function ContentSelector(btnId, bodyHalfLeft) {
       title = "TORSO";
       iconImg = require("../assets/icons/torsoIcon.png");
       sound = require("../assets/sounds/torso.wav");
+      bodypartImg = require("../assets/images/torso.png");
       break;
     case "L5":
       title = "THUMB";
       iconImg = require("../assets/icons/thumbIcon.png");
       sound = require("../assets/sounds/thumb.wav");
-      if (bodyHalfLeft) bodypartImg = require("../assets/images/hand_l.png");
-      else bodypartImg = require("../assets/images/hand_r.png");
+      if (bodyHalfLeft) bodypartImg = require("../assets/images/thumb_l.png");
+      else bodypartImg = require("../assets/images/thumb_r.png");
 
       break;
     case "L6":
@@ -58,8 +59,8 @@ function ContentSelector(btnId, bodyHalfLeft) {
       title = "INDEX";
       iconImg = require("../assets/icons/indexIcon.png");
       sound = require("../assets/sounds/index.wav");
-      if (bodyHalfLeft) bodypartImg = require("../assets/images/hand_l.png");
-      else bodypartImg = require("../assets/images/hand_r.png");
+      if (bodyHalfLeft) bodypartImg = require("../assets/images/index_l.png");
+      else bodypartImg = require("../assets/images/index_r.png");
 
       break;
     case "L9":

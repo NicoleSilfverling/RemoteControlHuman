@@ -127,7 +127,7 @@ export default function App() {
         <View style={styles.center}>
           <Image
             style={styles.imageBody}
-            source={require("./assets/images/human.jpg")}
+            source={require("./assets/images/humanbutt.png")}
           />
           {/* <ShowImage /> */}
           <View style={{ display: "flex", flexDirection: "row" }}>
