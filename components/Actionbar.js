@@ -3,17 +3,17 @@ import { StyleSheet, View, Text } from "react-native";
 import ContentSelector from "./ContentSelector";
 
 const Actionbar = ({ groupId, buttonId }) => {
-  let titleGroup1 = "SECTION";
-  let titleGroup2 = "BODY PART";
-  let titleGroup3 = "ACTION";
-  let titleGroup4 = "DIRECTION";
+  let titleGroup1 = "";
+  let titleGroup2 = "";
+  let titleGroup3 = "";
+  let titleGroup4 = "";
   if (groupId == "1") {
     titleGroup1 = ContentSelector(buttonId).title;
   } else if (groupId == "2") {
     titleGroup2 = ContentSelector(buttonId).title;
   } else if (groupId == "3") {
     titleGroup3 = ContentSelector(buttonId).title;
-  }else if (groupId == "4") {
+  } else if (groupId == "4") {
     titleGroup4 = ContentSelector(buttonId).title;
   }
 
@@ -21,7 +21,6 @@ const Actionbar = ({ groupId, buttonId }) => {
   let backgroundColorBar2;
   let backgroundColorBar3;
   let backgroundColorBar4;
-  let backgroundColorBar5;
   if (groupId == "1") {
     backgroundColorBar1 = "#FFF";
   } else if (groupId == "2") {
@@ -37,20 +36,10 @@ const Actionbar = ({ groupId, buttonId }) => {
     backgroundColorBar3 = "orange";
     backgroundColorBar4 = "#00A300";
   } else if (groupId == "5") {
-    backgroundColorBar1 = "#FFF";
-    backgroundColorBar2 = "#ffd500";
-    backgroundColorBar3 = "orange";
-    backgroundColorBar4 = "#00A300";
-    backgroundColorBar5 = "#FFF";
-
-    setTimeout(() => {
-      console.log("set timeout runs");
-      backgroundColorBar1 = "red";
-      //   backgroundColorBar2 = "transparent";
-      //   backgroundColorBar3 = "transparent";
-      //   backgroundColorBar4 = "transparent";
-      //   backgroundColorBar5 = "transparent";
-    }, 1000);
+    backgroundColorBar1 = "transparent";
+    backgroundColorBar2 = "transparent";
+    backgroundColorBar3 = "transparent";
+    backgroundColorBar4 = "transparent";
   }
 
   let colorStylesBar1 = {
@@ -64,9 +53,6 @@ const Actionbar = ({ groupId, buttonId }) => {
   };
   let colorStylesBar4 = {
     backgroundColor: backgroundColorBar4,
-  };
-  let colorStylesBar5 = {
-    backgroundColor: backgroundColorBar5,
   };
 
   return (
@@ -83,7 +69,6 @@ const Actionbar = ({ groupId, buttonId }) => {
         <View style={[styles.bar2, colorStylesBar2]}></View>
         <View style={[styles.bar3, colorStylesBar3]}></View>
         <View style={[styles.bar4, colorStylesBar4]}></View>
-        {/* <View style={[styles.bar5, colorStylesBar5]}></View> */}
       </View>
       {/* <View style={styles.textContainer}>
         <Text style={styles.textStyle}>{titleGroup1}</Text>
@@ -155,7 +140,7 @@ const styles = StyleSheet.create({
     flex: 1,
     color: "#FFF",
     textAlign: "center",
-    fontSize: 15,
+    fontSize: 18,
     marginRight: "1%",
   },
   textContainer: {
