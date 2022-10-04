@@ -1,6 +1,12 @@
 import React from "react";
 import { Audio } from "expo-av";
-import { StyleSheet, TouchableHighlight, Text, Image } from "react-native";
+import {
+  StyleSheet,
+  TouchableHighlight,
+  Text,
+  Image,
+  View,
+} from "react-native";
 import ContentSelector from "./ContentSelector";
 // import { playSound } from "./Audioplayer";
 import { testFunc } from "./ShowImage";
@@ -67,33 +73,41 @@ export default function CTAButton({
   else if (btnId == "L7") leftSide = false;
 
   return (
-    <TouchableHighlight
-      onPress={() => {
-        setShowImage ? setShowImage(true) : null,
-          playSound(),
-          setButtonId ? setButtonId(btnId) : null,
-          setBodyHalfLeft ? setBodyHalfLeft(leftSide) : null,
-          setGroupId ? setGroupId(btnGroup) : null;
-      }}
-      //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
-      style={[styles.container, colorStyles]}
-      activeOpacity={0.5}
-      underlayColor={btnBorderColor}
-    >
-      <React.Fragment>
+    <View style={styles.container}>
+      <TouchableHighlight
+        onPress={() => {
+          setShowImage ? setShowImage(true) : null,
+            playSound(),
+            setButtonId ? setButtonId(btnId) : null,
+            setBodyHalfLeft ? setBodyHalfLeft(leftSide) : null,
+            setGroupId ? setGroupId(btnGroup) : null;
+        }}
+        //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
+        style={[styles.button, colorStyles]}
+        activeOpacity={0.5}
+        underlayColor={btnBorderColor}
+      >
         <Image style={styles.icon} source={ContentSelector(btnId).iconImg} />
-        <Text style={styles.textStyle}>{btnTitle}</Text>
-      </React.Fragment>
-    </TouchableHighlight>
+      </TouchableHighlight>
+      <Text style={styles.textStyle}>{btnTitle}</Text>
+    </View>
   );
 }
 
 const styles = EStyleSheet.create({
   container: {
-    height: "12%",
+    // width: "100%",
+    height: "15%",
+    aspectRatio: 1,
+
+    // backgroundColor: "red",
+    alignItems: "center",
+  },
+  button: {
+    height: "100%",
     aspectRatio: 1,
     borderRadius: 15,
-    borderWidth: 5,
+    borderWidth: 6,
     borderColor: "#FFF",
     backgroundColor: "black",
     alignItems: "center",
@@ -102,22 +116,49 @@ const styles = EStyleSheet.create({
   textStyle: {
     width: "250%",
     color: "#FFF",
-    fontSize: "1.6rem",
-    position: "absolute",
-    bottom: -50,
+    fontSize: "1.7rem",
     textAlign: "center",
     fontWeight: "bold",
+    paddingTop: "15%",
+  },
+  "@media (max-width: 1300)": {
+    textStyle: {
+      fontSize: "1.7rem",
+      width: "260%",
+    },
+    button: {
+      borderRadius: 10,
+      borderWidth: 4,
+    },
+    container: {
+      height: "14%",
+    },
   },
   "@media (max-width: 1000)": {
     textStyle: {
       fontSize: "1rem",
-      bottom: -25,
       width: "260%",
+    },
+    button: {
+      borderRadius: 10,
+      borderWidth: 3,
     },
     container: {
       height: "17%",
-      borderRadius: 10,
+    },
+  },
+  "@media (max-width: 900)": {
+    textStyle: {
+      fontSize: "0.8rem",
+      width: "260%",
+      paddingTop: "7%",
+    },
+    button: {
+      borderRadius: 8,
       borderWidth: 3,
+    },
+    container: {
+      height: "17%",
     },
   },
   icon: {

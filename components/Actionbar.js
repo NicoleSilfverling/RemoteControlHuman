@@ -70,12 +70,6 @@ const Actionbar = ({ groupId, buttonId }) => {
         <View style={[styles.bar3, colorStylesBar3]}></View>
         <View style={[styles.bar4, colorStylesBar4]}></View>
       </View>
-      {/* <View style={styles.textContainer}>
-        <Text style={styles.textStyle}>{titleGroup1}</Text>
-        <Text style={styles.textStyle}>BODY PART</Text>
-        <Text style={styles.textStyle}>ACTION</Text>
-        <Text style={styles.textStyle}>DIRECTION</Text>
-      </View> */}
     </View>
   );
 };

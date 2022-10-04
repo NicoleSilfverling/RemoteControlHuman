@@ -248,7 +248,7 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "black",
@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
   },
 
   center: {
-    flex: 1.2,
+    flex: 1.5,
     // width: '25%',
     // height : '100%',
     justifyContent: "center",
@@ -336,5 +336,11 @@ const styles = StyleSheet.create({
   iconCon: {
     flexDirection: "row",
     // justifyContent: "space-around",
+  },
+
+  "@media (max-width: 1300)": {
+    center: {
+      flex: 1.2,
+    },
   },
 });
