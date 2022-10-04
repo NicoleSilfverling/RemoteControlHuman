@@ -100,9 +100,9 @@ const styles = EStyleSheet.create({
     justifyContent: "center",
   },
   textStyle: {
-    width: "245%",
+    width: "250%",
     color: "#FFF",
-    fontSize: "1.7rem",
+    fontSize: "1.6rem",
     position: "absolute",
     bottom: -50,
     textAlign: "center",
@@ -111,6 +111,13 @@ const styles = EStyleSheet.create({
   "@media (max-width: 1000)": {
     textStyle: {
       fontSize: "1rem",
+      bottom: -25,
+      width: "260%",
+    },
+    container: {
+      height: "17%",
+      borderRadius: 10,
+      borderWidth: 3,
     },
   },
   icon: {
