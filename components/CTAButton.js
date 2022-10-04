@@ -4,6 +4,7 @@ import { StyleSheet, TouchableHighlight, Text, Image } from "react-native";
 import ContentSelector from "./ContentSelector";
 // import { playSound } from "./Audioplayer";
 import { testFunc } from "./ShowImage";
+import EStyleSheet from "react-native-extended-stylesheet";
 
 export default function CTAButton({
   btnTitle,
@@ -87,7 +88,7 @@ export default function CTAButton({
   );
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
     height: "12%",
     aspectRatio: 1,
@@ -101,11 +102,16 @@ const styles = StyleSheet.create({
   textStyle: {
     width: "245%",
     color: "#FFF",
-    fontSize: 24,
+    fontSize: "1.7rem",
     position: "absolute",
     bottom: -50,
     textAlign: "center",
     fontWeight: "bold",
+  },
+  "@media (max-width: 1000)": {
+    textStyle: {
+      fontSize: "1rem",
+    },
   },
   icon: {
     width: "100%",

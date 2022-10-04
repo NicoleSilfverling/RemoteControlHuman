@@ -15,8 +15,13 @@ import ShowImage from "./components/ShowImage";
 import React, { useState } from "react";
 import { Audio } from "expo-av";
 import ContentSelector from "./components/ContentSelector";
+import EStyleSheet from "react-native-extended-stylesheet";
 
 export default function App() {
+  EStyleSheet.build({
+    $textColor: "#FFF",
+  });
+
   const [showImage, setShowImage] = useState(false);
   const [buttonId, setButtonId] = useState("");
   const [bodyHalfLeft, setBodyHalfLeft] = useState(false);
