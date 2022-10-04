@@ -16,6 +16,7 @@ import React, { useState } from "react";
 import { Audio } from "expo-av";
 import ContentSelector from "./components/ContentSelector";
 import EStyleSheet from "react-native-extended-stylesheet";
+import HelpPopUp from "./components/HelpPopUp";
 
 export default function App() {
   EStyleSheet.build({
@@ -26,9 +27,11 @@ export default function App() {
   const [buttonId, setButtonId] = useState("");
   const [bodyHalfLeft, setBodyHalfLeft] = useState(false);
   const [groupId, setGroupId] = useState("");
+  const [showHelpPopUp, setShowHelpPopUp] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
+      {showHelpPopUp ? <HelpPopUp setShowHelpPopUp={setShowHelpPopUp} /> : null}
       <View style={styles.layout}>
         {/* leftside */}
         <View style={styles.leftside}>
@@ -116,7 +119,12 @@ export default function App() {
           </View>
           <View style={styles.actionbar}>
             <Actionbar groupId={groupId} buttonId={buttonId} />
-
+            <Button
+              title="Button"
+              onPress={() => {
+                setShowHelpPopUp(true);
+              }}
+            ></Button>
             {/* <View style={styles.iconCon}>
               <View style={styles.iconball}>
                 <Text style={styles.iconText}>i</Text>
