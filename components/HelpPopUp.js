@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Button, Touchable, Text } from "react-native";
+import { View, Button, TouchableHighlight, Text } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { Video, AVPlaybackStatus } from "expo-av";
 
@@ -9,33 +9,35 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
   return (
     <View style={styles.container}>
       <View style={styles.container2}>
-        <Button
+        <TouchableHighlight
+          style={styles.closeButton}
           title="Close"
           onPress={() => {
             setShowHelpPopUp ? setShowHelpPopUp(false) : null;
           }}
-        ></Button>
+        >
+          <Text style={styles.closeText}>X</Text>
+        </TouchableHighlight>
 
         <Video
           ref={video}
           style={styles.video}
-          source={{
-            uri: "https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
-          }}
+          source={require("../assets/videos/testinfovid.mov")}
           useNativeControls
           resizeMode="contain"
+          shouldPlay
           isLooping
           onPlaybackStatusUpdate={(status) => setStatus(() => status)}
         />
         <View style={styles.buttons}>
-          <Button
+          {/* <Button
             title={status.isPlaying ? "Pause" : "Play"}
             onPress={() =>
               status.isPlaying
                 ? video.current.pauseAsync()
                 : video.current.playAsync()
             }
-          />
+          /> */}
         </View>
       </View>
     </View>
@@ -74,5 +76,17 @@ const styles = EStyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+  },
+  closeButton: {
+    width: 30,
+    position: "absolute",
+    top: 0,
+    right: 0,
+    // backgroundColor: "red",
+  },
+  closeText: {
+    color: "#FFF",
+    fontSize: 30,
+    fontWeight: "bold",
   },
 });

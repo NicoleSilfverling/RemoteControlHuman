@@ -120,7 +120,7 @@ export default function App() {
           <View style={styles.actionbar}>
             <Actionbar groupId={groupId} buttonId={buttonId} />
             <Button
-              title="Button"
+              title="Info"
               onPress={() => {
                 setShowHelpPopUp(true);
               }}
