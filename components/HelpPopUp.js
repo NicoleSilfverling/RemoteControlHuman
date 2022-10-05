@@ -22,7 +22,7 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
             setShowHelpPopUp ? setShowHelpPopUp(false) : null;
           }}
         >
-          <Text style={styles.closeText}>X</Text>
+          <Text style={styles.closeText}>x</Text>
         </TouchableHighlight>
 
         <Video
@@ -48,13 +48,19 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
             Create an abstract ballet, filmed with time lapse.{"\n"}
             For tips and inspiration, watch this video.{"\n"}
             {"\n"}
+            {"\n"}
             The Controller is divided into 4 sections. The best way to create a
             commando for your robot is in this order.{"\n"}
+            {"\n"}
             1. Body half - left, right{"\n"}
-            2. Body part - torso, arm, hand, thumb, index finger, leg, foot
+            {"\n"}2. Body part - torso, arm, hand, thumb, index finger, leg,
+            foot
+            {"\n"}
             {"\n"}
             3. Action - move, bend, stretch, twist{"\n"}
+            {"\n"}
             4. Direction - up, down, forward, backward, left, right{"\n"}
+            {"\n"}
             There are 2 additional buttons that are useful - stop, reset body
             position.{"\n"}
             To play Blind Bot the robot must trust the operator. Play on a flat
@@ -65,6 +71,8 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
             {"\n"}
             {"\n"}Blind Bot was created by Rumtiden Idea Lab. programmed by
             Nicole Silfverling and Nasir Tedros, concept by Hakan Lidbo.
+            {"\n"}
+            {"\n"}
           </Text>
         </ScrollView>
 
@@ -125,7 +133,7 @@ const styles = EStyleSheet.create({
   },
   closeText: {
     color: "#FFF",
-    fontSize: 30,
+    fontSize: 35,
     fontWeight: "bold",
   },
   textOnTopContainer: {
@@ -139,6 +147,6 @@ const styles = EStyleSheet.create({
   },
   textOnTopStyle: {
     color: "#FFF",
-    fontSize: 40,
+    fontSize: 30,
   },
 });

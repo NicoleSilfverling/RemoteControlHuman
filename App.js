@@ -322,7 +322,7 @@ const styles = EStyleSheet.create({
     position: "absolute",
     zIndex: 2,
     bottom: 0,
-    paddingBottom: "18%",
+    marginBottom: "18%",
     marginLeft: "10%",
     width: "100%",
     // backgroundColor: "blue",

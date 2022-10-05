@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import ContentSelector from "./ContentSelector";
+import EStyleSheet from "react-native-extended-stylesheet";
 
 const Actionbar = ({ groupId, buttonId }) => {
   let titleGroup1 = "";
@@ -57,17 +58,21 @@ const Actionbar = ({ groupId, buttonId }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.textContainer}>
-        <Text style={styles.textStyle}>{titleGroup1}</Text>
-        <Text style={styles.textStyle}>{titleGroup2}</Text>
-        <Text style={styles.textStyle}>{titleGroup3}</Text>
-        <Text style={styles.textStyle}>{titleGroup4}</Text>
-      </View>
-
       <View style={styles.barContainer}>
+        <Text style={styles.textStyle}>{titleGroup1}</Text>
+
         <View style={[styles.bar1, colorStylesBar1]}></View>
+      </View>
+      <View style={styles.barContainer}>
+        <Text style={styles.textStyle}>{titleGroup2}</Text>
         <View style={[styles.bar2, colorStylesBar2]}></View>
+      </View>
+      <View style={styles.barContainer}>
+        <Text style={styles.textStyle}>{titleGroup3}</Text>
         <View style={[styles.bar3, colorStylesBar3]}></View>
+      </View>
+      <View style={styles.barContainer}>
+        <Text style={styles.textStyle}>{titleGroup4}</Text>
         <View style={[styles.bar4, colorStylesBar4]}></View>
       </View>
     </View>
@@ -76,22 +81,43 @@ const Actionbar = ({ groupId, buttonId }) => {
 
 export default Actionbar;
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
     // backgroundColor: "pink",
+    flexDirection: "row",
   },
   barContainer: {
-    height: 15,
-    width: "100%",
+    // height: 15,
+    flex: 1,
+    // width: "100%",
     overflow: "hidden",
     borderRadius: 10,
     borderWidth: 2,
     borderColor: "transparent",
     backgroundColor: "transparent",
-    flexDirection: "row",
+    alignItems: "center",
+
+    // flexDirection: "row",
+  },
+  textStyle: {
+    flex: 1,
+    color: "#FFF",
+    textAlign: "center",
+    fontSize: "1.1rem",
+
+    fontWeight: "bold",
+    width: "120%",
+    paddingBottom: "2%",
+  },
+  textContainer: {
+    // flexDirection: "row",
+    // justifyContent: "center",
+    // alignItems: "center",
   },
   bar1: {
-    flex: 1,
+    // flex: 1,
+    width: "100%",
+    height: 15,
     backgroundColor: "transparent",
     borderWidth: 1,
     borderColor: "#FFF",
@@ -99,7 +125,8 @@ const styles = StyleSheet.create({
     marginRight: "1%",
   },
   bar2: {
-    flex: 1,
+    width: "100%",
+    height: 15,
     backgroundColor: "transparent",
     borderWidth: 1,
     borderColor: "#ffd500",
@@ -107,7 +134,8 @@ const styles = StyleSheet.create({
     marginRight: "1%",
   },
   bar3: {
-    flex: 1,
+    height: 15,
+    width: "100%",
     backgroundColor: "transparent",
     borderWidth: 1,
     borderColor: "orange",
@@ -115,7 +143,8 @@ const styles = StyleSheet.create({
     marginRight: "1%",
   },
   bar4: {
-    flex: 1,
+    height: 15,
+    width: "100%",
     backgroundColor: "transparent",
     borderWidth: 1,
     borderColor: "#00A300",
@@ -130,16 +159,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginRight: "1%",
   },
-  textStyle: {
-    flex: 1,
-    color: "#FFF",
-    textAlign: "center",
-    fontSize: 18,
-    marginRight: "1%",
+
+  "@media (max-width: 1300)": {
+    textStyle: {
+      fontSize: "1rem",
+    },
   },
-  textContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
+  "@media (max-width: 1000)": {},
+  "@media (max-width: 900)": {},
 });
