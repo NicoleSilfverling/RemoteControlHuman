@@ -14,7 +14,15 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
   const [status, setStatus] = React.useState({});
   return (
     <View style={styles.container}>
-      <View style={styles.container2}>
+      <TouchableHighlight
+        style={styles.clickableBG}
+        onPress={() => {
+          setShowHelpPopUp(false);
+        }}
+      >
+        <View />
+      </TouchableHighlight>
+      <View style={styles.popUp}>
         <TouchableHighlight
           style={styles.closeButton}
           title="Close"
@@ -95,7 +103,7 @@ export default HelpPopUp;
 
 const styles = EStyleSheet.create({
   container: {
-    backgroundColor: "rgba(0, 0, 0,0.9 )",
+    backgroundColor: "transparent",
     flex: 1,
     zIndex: 5,
     position: "absolute",
@@ -104,7 +112,16 @@ const styles = EStyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  container2: {
+  clickableBG: {
+    backgroundColor: "rgba(0, 0, 0,0.9 )",
+    flex: 1,
+    position: "absolute",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+  },
+  popUp: {
     backgroundColor: "#333",
     alignSelf: "center",
     justifyContent: "center",
