@@ -36,7 +36,7 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
         <Video
           ref={video}
           style={styles.video}
-          source={require("../assets/videos/testinfovid.mov")}
+          source={require("../assets/videos/dummyflick.mp4")}
           useNativeControls
           resizeMode="contain"
           shouldPlay
