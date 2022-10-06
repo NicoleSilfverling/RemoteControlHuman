@@ -109,11 +109,6 @@ const styles = EStyleSheet.create({
     width: "120%",
     paddingBottom: "2%",
   },
-  textContainer: {
-    // flexDirection: "row",
-    // justifyContent: "center",
-    // alignItems: "center",
-  },
   bar1: {
     // flex: 1,
     width: "100%",
@@ -165,6 +160,23 @@ const styles = EStyleSheet.create({
       fontSize: "1rem",
     },
   },
-  "@media (max-width: 1000)": {},
+  "@media (max-width: 1000)": {
+    bar1: {
+      width: 20,
+      height: 20,
+    },
+    bar2: {
+      display: "none",
+    },
+    bar3: {
+      display: "none",
+    },
+    bar4: {
+      display: "none",
+    },
+    textStyle: {
+      display: "none",
+    },
+  },
   "@media (max-width: 900)": {},
 });

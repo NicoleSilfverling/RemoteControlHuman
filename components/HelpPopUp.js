@@ -122,12 +122,14 @@ const styles = EStyleSheet.create({
     height: "100%",
   },
   popUp: {
-    backgroundColor: "#333",
+    backgroundColor: "black",
     alignSelf: "center",
     justifyContent: "center",
     width: "80%",
     height: "80%",
     borderRadius: 10,
+    // borderColor: "#FFF",
+    // borderWidth: 2,
   },
   video: {
     alignSelf: "center",
@@ -164,6 +166,6 @@ const styles = EStyleSheet.create({
   },
   textOnTopStyle: {
     color: "#FFF",
-    fontSize: 30,
+    fontSize: 20,
   },
 });
