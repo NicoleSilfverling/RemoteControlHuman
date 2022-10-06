@@ -8,6 +8,10 @@ const Actionbar = ({ groupId, buttonId }) => {
   let titleGroup2 = "";
   let titleGroup3 = "";
   let titleGroup4 = "";
+  let titleMobile = "";
+  titleMobile = ContentSelector(buttonId).title;
+
+
   if (groupId == "1") {
     titleGroup1 = ContentSelector(buttonId).title;
   } else if (groupId == "2") {
@@ -60,8 +64,8 @@ const Actionbar = ({ groupId, buttonId }) => {
     <View style={styles.container}>
       <View style={styles.barContainer}>
         <Text style={styles.textStyle}>{titleGroup1}</Text>
-
         <View style={[styles.bar1, colorStylesBar1]}></View>
+        <Text style={styles.textStyleMobile}>{titleMobile}</Text>
       </View>
       <View style={styles.barContainer}>
         <Text style={styles.textStyle}>{titleGroup2}</Text>
@@ -104,6 +108,18 @@ const styles = EStyleSheet.create({
     color: "#FFF",
     textAlign: "center",
     fontSize: "1.1rem",
+
+    fontWeight: "bold",
+    width: "120%",
+    paddingBottom: "2%",
+  },
+  textStyleMobile: {
+    flex: 1,
+    color: "#FFF",
+    textAlign: "center",
+    fontSize: "1.1rem",
+    display: "none",
+    
 
     fontWeight: "bold",
     width: "120%",
@@ -177,6 +193,15 @@ const styles = EStyleSheet.create({
     textStyle: {
       display: "none",
     },
+    textStyleMobile: {
+     backgroundColor : "pink",
+     display : "flex"
+    },
+    barContainer: {
+      flexDirection: "row",
+      backgroundColor: "red",
+      
+    }
   },
   "@media (max-width: 900)": {},
 });

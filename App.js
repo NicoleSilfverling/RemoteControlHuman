@@ -119,12 +119,12 @@ export default function App() {
           </View>
           <View style={styles.actionbar}>
             <Actionbar groupId={groupId} buttonId={buttonId} />
-            <Button
+            {/* <Button
               title="Info"
               onPress={() => {
                 setShowHelpPopUp(true);
               }}
-            ></Button>
+            ></Button> */}
             {/* <View style={styles.iconCon}>
               <View style={styles.iconball}>
                 <Text style={styles.iconText}>i</Text>
