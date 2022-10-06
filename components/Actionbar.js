@@ -9,7 +9,10 @@ const Actionbar = ({ groupId, buttonId }) => {
   let titleGroup3 = "";
   let titleGroup4 = "";
   let titleMobile = "";
+  
+  if (ContentSelector(buttonId).title != "RESET" &&ContentSelector(buttonId).title !="STOP" ){
   titleMobile = ContentSelector(buttonId).title;
+  }
 
 
   if (groupId == "1") {
@@ -26,15 +29,20 @@ const Actionbar = ({ groupId, buttonId }) => {
   let backgroundColorBar2;
   let backgroundColorBar3;
   let backgroundColorBar4;
+  let backgroundColorMobile;
+  
   if (groupId == "1") {
     backgroundColorBar1 = "#FFF";
+    backgroundColorMobile= "#FFF";
   } else if (groupId == "2") {
     backgroundColorBar1 = "#FFF";
+    backgroundColorMobile = "#ffd500"; 
     backgroundColorBar2 = "#ffd500";
   } else if (groupId == "3") {
     backgroundColorBar1 = "#FFF";
     backgroundColorBar2 = "#ffd500";
     backgroundColorBar3 = "orange";
+    backgroundColorMobile = "orange"
   } else if (groupId == "4") {
     backgroundColorBar1 = "#FFF";
     backgroundColorBar2 = "#ffd500";
@@ -59,13 +67,19 @@ const Actionbar = ({ groupId, buttonId }) => {
   let colorStylesBar4 = {
     backgroundColor: backgroundColorBar4,
   };
+  let colorStylesBarMobile = {
+    backgroundColor: backgroundColorMobile
+  }
 
   return (
     <View style={styles.container}>
+      <View style={styles.mobileContainer}>
+      <View style={[styles.barMobile, colorStylesBarMobile]}></View>
+        <Text style={styles.textStyleMobile}>{titleMobile}</Text>
+      </View>
       <View style={styles.barContainer}>
         <Text style={styles.textStyle}>{titleGroup1}</Text>
         <View style={[styles.bar1, colorStylesBar1]}></View>
-        <Text style={styles.textStyleMobile}>{titleMobile}</Text>
       </View>
       <View style={styles.barContainer}>
         <Text style={styles.textStyle}>{titleGroup2}</Text>
@@ -113,18 +127,46 @@ const styles = EStyleSheet.create({
     width: "120%",
     paddingBottom: "2%",
   },
-  textStyleMobile: {
+  mobileContainer: {
+    // height: 15,
     flex: 1,
-    color: "#FFF",
-    textAlign: "center",
+    // width: "100%",
+    overflow: "hidden",
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "transparent",
+    backgroundColor: "transparent",
+    alignItems: "center",
+    display: "none",  
+    flexDirection: "row",
+  },
+
+  barMobile:{
+    height : 20,
+    width: 20,
+    borderColor: "#FFF",
+    borderWidth: 2,
+    borderRadius: 10 
+  },
+
+
+  textStyleMobile:{
     fontSize: "1.1rem",
-    display: "none",
+
+    color: "#FFF",
+
     
 
     fontWeight: "bold",
     width: "120%",
     paddingBottom: "2%",
+    paddingLeft: "3%"
   },
+
+
+
+
+
   bar1: {
     // flex: 1,
     width: "100%",
@@ -177,31 +219,14 @@ const styles = EStyleSheet.create({
     },
   },
   "@media (max-width: 1000)": {
-    bar1: {
-      width: 20,
-      height: 20,
-    },
-    bar2: {
-      display: "none",
-    },
-    bar3: {
-      display: "none",
-    },
-    bar4: {
-      display: "none",
-    },
-    textStyle: {
-      display: "none",
-    },
-    textStyleMobile: {
-     backgroundColor : "pink",
-     display : "flex"
-    },
+    
     barContainer: {
-      flexDirection: "row",
-      backgroundColor: "red",
-      
+      display: "none"
+    },
+    mobileContainer: {
+      display : "flex"
     }
+
   },
   "@media (max-width: 900)": {},
 });
