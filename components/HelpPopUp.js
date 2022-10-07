@@ -83,17 +83,17 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
             {"\n"}
           </Text>
         </ScrollView>
-
+        {/* 
         <View style={styles.buttons}>
-          {/* <Button
+          <Button
             title={status.isPlaying ? "Pause" : "Play"}
             onPress={() =>
               status.isPlaying
                 ? video.current.pauseAsync()
                 : video.current.playAsync()
             }
-          /> */}
-        </View>
+          />
+        </View> */}
       </View>
     </View>
   );
@@ -109,11 +109,14 @@ const styles = EStyleSheet.create({
     position: "absolute",
     justifyContent: "center",
     alignItems: "center",
+    alignSelf: "center",
     width: "100%",
     height: "100%",
+    margin: 0,
+    padding: 0,
   },
   clickableBG: {
-    backgroundColor: "rgba(0, 0, 0,0.9 )",
+    backgroundColor: "rgba(0, 0, 0,0.4 )",
     flex: 1,
     position: "absolute",
     justifyContent: "center",

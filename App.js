@@ -32,104 +32,106 @@ export default function App() {
   const [showHelpPopUp, setShowHelpPopUp] = useState(false);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.window}>
       {showHelpPopUp ? <HelpPopUp setShowHelpPopUp={setShowHelpPopUp} /> : null}
-      <View style={styles.layout}>
-        {/* leftside */}
-        <View style={styles.leftside}>
-          <View style={styles.colStyle}>
-            <CTAButton
-              setBodyHalfLeft={setBodyHalfLeft}
-              bodyHalfLeft={bodyHalfLeft}
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="L1"
-              btnGroup="1"
-              btnTitle={ContentSelector("L1").title}
-            />
-            <CTAButton
-              setShowImage={setShowImage}
-              setButtonId={setButtonId}
-              setGroupId={setGroupId}
-              btnId="L2"
-              btnGroup="2"
-              btnTitle={ContentSelector("L2").title}
-            />
-            <CTAButton
-              setShowImage={setShowImage}
-              setButtonId={setButtonId}
-              setGroupId={setGroupId}
-              btnId="L3"
-              btnGroup="2"
-              btnTitle={ContentSelector("L3").title}
-            />
-            <HiddenButton />
-          </View>
-          <View style={styles.colStyle}>
-            <CTAButton
-              setShowImage={setShowImage}
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="L4"
-              btnGroup="2"
-              btnTitle={ContentSelector("L4").title}
-            />
-            <CTAButton
-              setShowImage={setShowImage}
-              setButtonId={setButtonId}
-              setGroupId={setGroupId}
-              btnId="L5"
-              btnGroup="2"
-              btnTitle={ContentSelector("L5").title}
-            />
-            <CTAButton
-              setShowImage={setShowImage}
-              setButtonId={setButtonId}
-              setGroupId={setGroupId}
-              btnId="L6"
-              btnGroup="2"
-              btnTitle={ContentSelector("L6").title}
-            />
-            <HiddenButton />
-          </View>
-          <View style={styles.colStyle}>
-            <CTAButton
-              setBodyHalfLeft={setBodyHalfLeft}
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="L7"
-              btnGroup="1"
-              btnTitle={ContentSelector("L7").title}
-            />
-            <CTAButton
-              setShowImage={setShowImage}
-              setButtonId={setButtonId}
-              setGroupId={setGroupId}
-              btnId="L8"
-              btnGroup="2"
-              btnTitle={ContentSelector("L8").title}
-            />
-            <CTAButton
-              setShowImage={setShowImage}
-              setButtonId={setButtonId}
-              setGroupId={setGroupId}
-              btnId="L9"
-              btnGroup="2"
-              btnTitle={ContentSelector("L9").title}
-            />
-            <HiddenButton />
-          </View>
-          <View style={styles.actionbar}>
-            <Actionbar groupId={groupId} buttonId={buttonId} />
-            <TouchableHighlight
-              id ="infobtn" 
-              onPress={() => {
-                setShowHelpPopUp(true);
-              }}
-              style={styles.infoButton}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.layout}>
+          {/* leftside */}
+          <View style={styles.leftside}>
+            <View style={styles.colStyle}>
+              <CTAButton
+                setBodyHalfLeft={setBodyHalfLeft}
+                bodyHalfLeft={bodyHalfLeft}
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="L1"
+                btnGroup="1"
+                btnTitle={ContentSelector("L1").title}
+              />
+              <CTAButton
+                setShowImage={setShowImage}
+                setButtonId={setButtonId}
+                setGroupId={setGroupId}
+                btnId="L2"
+                btnGroup="2"
+                btnTitle={ContentSelector("L2").title}
+              />
+              <CTAButton
+                setShowImage={setShowImage}
+                setButtonId={setButtonId}
+                setGroupId={setGroupId}
+                btnId="L3"
+                btnGroup="2"
+                btnTitle={ContentSelector("L3").title}
+              />
+              <HiddenButton />
+            </View>
+            <View style={styles.colStyle}>
+              <CTAButton
+                setShowImage={setShowImage}
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="L4"
+                btnGroup="2"
+                btnTitle={ContentSelector("L4").title}
+              />
+              <CTAButton
+                setShowImage={setShowImage}
+                setButtonId={setButtonId}
+                setGroupId={setGroupId}
+                btnId="L5"
+                btnGroup="2"
+                btnTitle={ContentSelector("L5").title}
+              />
+              <CTAButton
+                setShowImage={setShowImage}
+                setButtonId={setButtonId}
+                setGroupId={setGroupId}
+                btnId="L6"
+                btnGroup="2"
+                btnTitle={ContentSelector("L6").title}
+              />
+              <HiddenButton />
+            </View>
+            <View style={styles.colStyle}>
+              <CTAButton
+                setBodyHalfLeft={setBodyHalfLeft}
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="L7"
+                btnGroup="1"
+                btnTitle={ContentSelector("L7").title}
+              />
+              <CTAButton
+                setShowImage={setShowImage}
+                setButtonId={setButtonId}
+                setGroupId={setGroupId}
+                btnId="L8"
+                btnGroup="2"
+                btnTitle={ContentSelector("L8").title}
+              />
+              <CTAButton
+                setShowImage={setShowImage}
+                setButtonId={setButtonId}
+                setGroupId={setGroupId}
+                btnId="L9"
+                btnGroup="2"
+                btnTitle={ContentSelector("L9").title}
+              />
+              <HiddenButton />
+            </View>
+            <View style={styles.actionbar}>
+              <Actionbar groupId={groupId} buttonId={buttonId} />
+              <TouchableHighlight
+                id="infobtn"
+                onPress={() => {
+                  setShowHelpPopUp(true);
+                }}
+                style={styles.infoButton}
+              >
                 <Text style={styles.iconText}>i</Text>
-            </TouchableHighlight>
-             {/* <View style={styles.iconCon}>
+              </TouchableHighlight>
+              {/* <View style={styles.iconCon}>
               <View style={styles.iconball}>
                 <Text style={styles.iconText}>i</Text>
               </View>
@@ -137,130 +139,134 @@ export default function App() {
                 <Text style={styles.iconText}>i</Text>
               </View> 
             </View> */}
+            </View>
           </View>
-        </View>
 
-        {/* center */}
-        <View style={styles.center}>
-          <Image
-            style={styles.imageBody}
-            source={require("./assets/images/humanbutt.png")}
-          />
-          {/* <ShowImage /> */}
-          <View style={{ display: "flex", flexDirection: "row" }}>
-            {/* <Counter count={showImage} setCount={setShowImage} /> */}
-          </View>
-          {showImage && (
-            <ShowImage
-              showImage={showImage}
-              setShowImage={setShowImage}
-              buttonId={buttonId}
-              bodyHalfLeft={bodyHalfLeft}
+          {/* center */}
+          <View style={styles.center}>
+            <Image
+              style={styles.imageBody}
+              source={require("./assets/images/humanbutt.png")}
             />
-          )}
-        </View>
+            {/* <ShowImage /> */}
+            <View style={{ display: "flex", flexDirection: "row" }}>
+              {/* <Counter count={showImage} setCount={setShowImage} /> */}
+            </View>
+            {showImage && (
+              <ShowImage
+                showImage={showImage}
+                setShowImage={setShowImage}
+                buttonId={buttonId}
+                bodyHalfLeft={bodyHalfLeft}
+              />
+            )}
+          </View>
 
-        {/* right side */}
-        <View style={styles.rightside}>
-          <View style={styles.colStyle}>
-            <CTAButton
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="R1"
-              btnGroup="3"
-              btnTitle={ContentSelector("R1").title}
-            />
-            <CTAButton
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="R2"
-              btnGroup="3"
-              btnTitle={ContentSelector("R2").title}
-            />
-            <CTAButton
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="R3"
-              btnGroup="3"
-              btnTitle={ContentSelector("R3").title}
-            />
-            <CTAButton
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="R4"
-              btnGroup="3"
-              btnTitle={ContentSelector("R4").title}
-            />
+          {/* right side */}
+          <View style={styles.rightside}>
+            <View style={styles.colStyle}>
+              <CTAButton
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="R1"
+                btnGroup="3"
+                btnTitle={ContentSelector("R1").title}
+              />
+              <CTAButton
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="R2"
+                btnGroup="3"
+                btnTitle={ContentSelector("R2").title}
+              />
+              <CTAButton
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="R3"
+                btnGroup="3"
+                btnTitle={ContentSelector("R3").title}
+              />
+              <CTAButton
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="R4"
+                btnGroup="3"
+                btnTitle={ContentSelector("R4").title}
+              />
+            </View>
+            <View style={styles.colStyle}>
+              <CTAButton
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="R5"
+                btnGroup="4"
+                btnTitle={ContentSelector("R5").title}
+              />
+              <CTAButton
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="R6"
+                btnGroup="4"
+                btnTitle={ContentSelector("R6").title}
+              />
+              <CTAButton
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnGroup="4"
+                btnId="R7"
+                btnTitle={ContentSelector("R7").title}
+              />
+              <CTAButton
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="R8"
+                btnGroup="5"
+                btnTitle={ContentSelector("R8").title}
+              />
+            </View>
+            <View style={styles.colStyle}>
+              <CTAButton
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="R9"
+                btnGroup="4"
+                btnTitle={ContentSelector("R9").title}
+              />
+              <CTAButton
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="R10"
+                btnGroup="4"
+                btnTitle={ContentSelector("R10").title}
+              />
+              <CTAButton
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="R11"
+                btnGroup="4"
+                btnTitle={ContentSelector("R11").title}
+              />
+              <CTAButton
+                setGroupId={setGroupId}
+                setButtonId={setButtonId}
+                btnId="R12"
+                btnGroup="5"
+                btnTitle={ContentSelector("R12").title}
+              />
+            </View>
           </View>
-          <View style={styles.colStyle}>
-            <CTAButton
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="R5"
-              btnGroup="4"
-              btnTitle={ContentSelector("R5").title}
-            />
-            <CTAButton
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="R6"
-              btnGroup="4"
-              btnTitle={ContentSelector("R6").title}
-            />
-            <CTAButton
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnGroup="4"
-              btnId="R7"
-              btnTitle={ContentSelector("R7").title}
-            />
-            <CTAButton
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="R8"
-              btnGroup="5"
-              btnTitle={ContentSelector("R8").title}
-            />
-          </View>
-          <View style={styles.colStyle}>
-            <CTAButton
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="R9"
-              btnGroup="4"
-              btnTitle={ContentSelector("R9").title}
-            />
-            <CTAButton
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="R10"
-              btnGroup="4"
-              btnTitle={ContentSelector("R10").title}
-            />
-            <CTAButton
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="R11"
-              btnGroup="4"
-              btnTitle={ContentSelector("R11").title}
-            />
-            <CTAButton
-              setGroupId={setGroupId}
-              setButtonId={setButtonId}
-              btnId="R12"
-              btnGroup="5"
-              btnTitle={ContentSelector("R12").title}
-            />
-          </View>
-        </View>
 
-        <StatusBar hidden />
-      </View>
-    </SafeAreaView>
+          <StatusBar hidden />
+        </View>
+      </SafeAreaView>
+    </View>
   );
 }
 
 const styles = EStyleSheet.create({
+  window: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     backgroundColor: "black",
@@ -332,30 +338,29 @@ const styles = EStyleSheet.create({
     // backgroundColor: "blue",
   },
   infoButton: {
-    borderColor:"#FFF",
+    borderColor: "#FFF",
     borderWidth: 3,
     borderRadius: 30,
     width: 50,
     height: 50,
     display: "flex",
     justifyContent: "flex-end",
-    marginTop: 20 
+    marginTop: 20,
   },
   iconball: {
     // backgroundColor: "green",
     borderWidth: 3,
     borderColor: "#FFF",
     borderRadius: 50,
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     zIndex: 2,
   },
   iconText: {
     textAlign: "center",
     fontWeight: "bold",
     color: "#FFF",
-    fontSize:24
-    
+    fontSize: 24,
   },
   iconCon: {
     flexDirection: "row",
