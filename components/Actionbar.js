@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { View, Text } from "react-native";
 import ContentSelector from "./ContentSelector";
 import EStyleSheet from "react-native-extended-stylesheet";
 
@@ -125,7 +125,7 @@ const styles = EStyleSheet.create({
 
     fontWeight: "bold",
     width: "120%",
-    paddingBottom: "2%",
+    paddingBottom: "2%"
   },
   mobileContainer: {
     // height: 15,
@@ -138,7 +138,7 @@ const styles = EStyleSheet.create({
     backgroundColor: "transparent",
     alignItems: "center",
     display: "none",  
-    flexDirection: "row",
+    flexDirection: "row"
   },
 
   barMobile:{
@@ -152,20 +152,12 @@ const styles = EStyleSheet.create({
 
   textStyleMobile:{
     fontSize: "1.1rem",
-
-    color: "#FFF",
-
-    
-
+    color: "#FFF", 
     fontWeight: "bold",
     width: "120%",
     paddingBottom: "2%",
     paddingLeft: "3%"
   },
-
-
-
-
 
   bar1: {
     // flex: 1,

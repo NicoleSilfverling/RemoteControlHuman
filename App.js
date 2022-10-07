@@ -7,6 +7,8 @@ import {
   Image,
   Button,
   Text,
+  TouchableOpacity,
+  TouchableHighlight,
 } from "react-native";
 import Actionbar from "./components/Actionbar";
 import CTAButton from "./components/CTAButton";
@@ -119,20 +121,22 @@ export default function App() {
           </View>
           <View style={styles.actionbar}>
             <Actionbar groupId={groupId} buttonId={buttonId} />
-            {/* <Button
-              title="Info"
+            <TouchableHighlight
+              id ="infobtn" 
               onPress={() => {
                 setShowHelpPopUp(true);
               }}
-            ></Button> */}
-            {/* <View style={styles.iconCon}>
+              style={styles.infoButton}>
+                <Text style={styles.iconText}>i</Text>
+            </TouchableHighlight>
+             {/* <View style={styles.iconCon}>
               <View style={styles.iconball}>
                 <Text style={styles.iconText}>i</Text>
               </View>
               <View style={styles.iconball}>
                 <Text style={styles.iconText}>i</Text>
               </View> 
-            </View>*/}
+            </View> */}
           </View>
         </View>
 
@@ -327,6 +331,16 @@ const styles = EStyleSheet.create({
     width: "100%",
     // backgroundColor: "blue",
   },
+  infoButton: {
+    borderColor:"#FFF",
+    borderWidth: 3,
+    borderRadius: 30,
+    width: 50,
+    height: 50,
+    display: "flex",
+    justifyContent: "flex-end",
+    marginTop: 20 
+  },
   iconball: {
     // backgroundColor: "green",
     borderWidth: 3,
@@ -340,6 +354,8 @@ const styles = EStyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     color: "#FFF",
+    fontSize:24
+    
   },
   iconCon: {
     flexDirection: "row",
