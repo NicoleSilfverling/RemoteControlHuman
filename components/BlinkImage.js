@@ -29,7 +29,7 @@ class Blink extends Component {
 
     const timer = setTimeout(() => {
       this.props.setShowImage(false);
-    }, 3000);
+    }, 1000);
   }
 
   render() {
@@ -54,7 +54,7 @@ export default function BlinkImage({
       setShowImage={setShowImage}
       showImage={showImage}
       style={styles.container}
-      duration={500}
+      duration={125}
       repeat_count={3}
     >
       <Image
