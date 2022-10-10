@@ -19,6 +19,7 @@ import { Audio } from "expo-av";
 import ContentSelector from "./components/ContentSelector";
 import EStyleSheet from "react-native-extended-stylesheet";
 import HelpPopUp from "./components/HelpPopUp";
+import BlinkImage from "./components/BlinkImage";
 
 export default function App() {
   EStyleSheet.build({
@@ -153,12 +154,18 @@ export default function App() {
               {/* <Counter count={showImage} setCount={setShowImage} /> */}
             </View>
             {showImage && (
-              <ShowImage
+              <BlinkImage
                 showImage={showImage}
                 setShowImage={setShowImage}
                 buttonId={buttonId}
                 bodyHalfLeft={bodyHalfLeft}
               />
+              // <ShowImage
+              //   showImage={showImage}
+              //   setShowImage={setShowImage}
+              //   buttonId={buttonId}
+              //   bodyHalfLeft={bodyHalfLeft}
+              // />
             )}
           </View>
 
