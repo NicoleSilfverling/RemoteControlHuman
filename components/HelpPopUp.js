@@ -5,6 +5,7 @@ import {
   Button,
   TouchableHighlight,
   Text,
+  Image,
 } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { Video, AVPlaybackStatus } from "expo-av";
@@ -32,6 +33,7 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
         >
           <Text style={styles.closeText}>x</Text>
         </TouchableHighlight>
+        <Text style={styles.title}>BlindBot</Text>
 
         <Video
           ref={video}
@@ -43,7 +45,6 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
           isLooping
           onPlaybackStatusUpdate={(status) => setStatus(() => status)}
         />
-
         <ScrollView style={styles.textOnTopContainer}>
           <Text style={styles.textOnTopStyle}>
             Blind Bot is a tool to remote control a human. {"\n"}
@@ -60,9 +61,44 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
             The Controller is divided into 4 sections. The best way to create a
             commando for your robot is in this order.{"\n"}
             {"\n"}
-            1. Body half - left, right{"\n"}
+            1. Body half - left, right
+            <View style={styles.iconContainer}>
+              <View style={styles.iconBorder}>
+                <Image
+                  style={styles.icon}
+                  source={require("../assets/icons/leftArrowIcon.png")}
+                />
+              </View>
+              <View style={styles.iconBorder}>
+                <Image
+                  style={styles.icon}
+                  source={require("../assets/icons/rightArrowIcon.png")}
+                />
+              </View>
+            </View>
+            {"\n"}
             {"\n"}2. Body part - torso, arm, hand, thumb, index finger, leg,
-            foot
+            foot{"\n"}
+            <View style={styles.iconContainer}>
+              <View style={styles.iconBorder}>
+                <Image
+                  style={styles.icon}
+                  source={require("../assets/icons/torsoIcon.png")}
+                />
+              </View>
+              <View style={styles.iconBorder}>
+                <Image
+                  style={styles.icon}
+                  source={require("../assets/icons/handIcon.png")}
+                />
+              </View>
+              <View style={styles.iconBorder}>
+                <Image
+                  style={styles.icon}
+                  source={require("../assets/icons/footIcon.png")}
+                />
+              </View>
+            </View>
             {"\n"}
             {"\n"}
             3. Action - move, bend, stretch, twist{"\n"}
@@ -170,5 +206,26 @@ const styles = EStyleSheet.create({
   textOnTopStyle: {
     color: "#FFF",
     fontSize: 20,
+  },
+  iconBorder: {
+    backgroundColor: "black",
+    borderWidth: 2,
+    borderColor: "#FFF",
+    width: 30,
+    height: 30,
+  },
+  icon: {
+    width: "100%",
+    height: "100%",
+  },
+  iconContainer: {
+    flexDirection: "row",
+    paddingLeft: 15,
+  },
+  title: {
+    color: "#FFFFFF",
+    fontSize: 50,
+    zIndex: 10,
+    marginLeft: "5%",
   },
 });

@@ -30,7 +30,7 @@ export default function App() {
   const [buttonId, setButtonId] = useState("");
   const [bodyHalfLeft, setBodyHalfLeft] = useState(false);
   const [groupId, setGroupId] = useState("");
-  const [showHelpPopUp, setShowHelpPopUp] = useState(false);
+  const [showHelpPopUp, setShowHelpPopUp] = useState(true);
 
   return (
     <View style={styles.window}>
