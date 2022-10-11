@@ -67,6 +67,10 @@ export default function CTAButton({
     backgroundColor: btnBackgroundColor,
   };
 
+  const colorStyleIcon = {
+    tintColor: btnBorderColor,
+  };
+
   let leftSide;
 
   if (btnId == "L1") leftSide = true;
@@ -87,7 +91,10 @@ export default function CTAButton({
         activeOpacity={0.5}
         underlayColor={btnBorderColor}
       >
-        <Image style={styles.icon} source={ContentSelector(btnId).iconImg} />
+        <Image
+          style={[styles.icon, colorStyleIcon]}
+          source={ContentSelector(btnId).iconImg}
+        />
       </TouchableHighlight>
       <Text style={styles.textStyle}>{btnTitle}</Text>
     </View>
@@ -107,7 +114,7 @@ const styles = EStyleSheet.create({
     height: "100%",
     aspectRatio: 1,
     borderRadius: 15,
-    borderWidth: 6,
+    borderWidth: 4,
     borderColor: "#FFF",
     backgroundColor: "black",
     alignItems: "center",
@@ -141,7 +148,7 @@ const styles = EStyleSheet.create({
     },
     button: {
       borderRadius: 10,
-      borderWidth: 3,
+      borderWidth: 2,
     },
     container: {
       height: "17%",
@@ -155,7 +162,7 @@ const styles = EStyleSheet.create({
     },
     button: {
       borderRadius: 8,
-      borderWidth: 3,
+      borderWidth: 1,
     },
     container: {
       height: "17%",
@@ -164,5 +171,6 @@ const styles = EStyleSheet.create({
   icon: {
     width: "100%",
     height: "100%",
+    tintColor: "#FFFFFF",
   },
 });
