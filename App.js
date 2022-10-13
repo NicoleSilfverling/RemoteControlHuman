@@ -19,6 +19,7 @@ import ContentSelector from "./components/ContentSelector";
 import EStyleSheet from "react-native-extended-stylesheet";
 import HelpPopUp from "./components/HelpPopUp";
 import BlinkImage from "./components/BlinkImage";
+import StartVideo from "./components/StartVideo";
 
 export default function App() {
   EStyleSheet.build({
@@ -29,13 +30,20 @@ export default function App() {
   const [buttonId, setButtonId] = useState("");
   const [bodyHalfLeft, setBodyHalfLeft] = useState(false);
   const [groupId, setGroupId] = useState("");
-  const [showHelpPopUp, setShowHelpPopUp] = useState(true);
+  const [showHelpPopUp, setShowHelpPopUp] = useState(false);
+  const [showStartVideo, setShowStartVideo] = useState(true);
+
+  const timer = setTimeout(() => {
+    setShowStartVideo(false);
+  }, 2200);
 
   return (
     <View style={styles.window}>
-      
       <SafeAreaView style={styles.container}>
-      {showHelpPopUp ? <HelpPopUp setShowHelpPopUp={setShowHelpPopUp} /> : null}
+        {showStartVideo ? <StartVideo /> : null}
+        {showHelpPopUp ? (
+          <HelpPopUp setShowHelpPopUp={setShowHelpPopUp} />
+        ) : null}
         <View style={styles.layout}>
           {/* leftside */}
           <View style={styles.leftside}>
@@ -121,7 +129,6 @@ export default function App() {
               />
               <HiddenButton />
             </View>
-            
             <View style={styles.actionbar}>
               <Actionbar groupId={groupId} buttonId={buttonId} />
               <TouchableHighlight
@@ -349,8 +356,9 @@ const styles = EStyleSheet.create({
     borderColor: "#FFF",
     borderWidth: 3,
     borderRadius: 30,
-    width: 30,
-    height: 30,
+    width: 50,
+    height: 50,
+    display: "flex",
     justifyContent: "flex-end",
     marginTop: 20,
   },
@@ -379,8 +387,4 @@ const styles = EStyleSheet.create({
       flex: 1.2,
     },
   },
-
-  "@media (max-width: 1000)": {
-
-  }
 });

@@ -114,7 +114,7 @@ const styles = EStyleSheet.create({
     height: "100%",
     aspectRatio: 1,
     borderRadius: 15,
-    borderWidth: 4,
+    borderWidth: 2,
     borderColor: "#FFF",
     backgroundColor: "black",
     alignItems: "center",
@@ -135,7 +135,7 @@ const styles = EStyleSheet.create({
     },
     button: {
       borderRadius: 10,
-      borderWidth: 4,
+      borderWidth: 1,
     },
     container: {
       height: "14%",
@@ -148,7 +148,7 @@ const styles = EStyleSheet.create({
     },
     button: {
       borderRadius: 10,
-      borderWidth: 2,
+      borderWidth: 1,
     },
     container: {
       height: "17%",
