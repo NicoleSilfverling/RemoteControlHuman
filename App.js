@@ -7,7 +7,6 @@ import {
   Image,
   Button,
   Text,
-  TouchableOpacity,
   TouchableHighlight,
 } from "react-native";
 import Actionbar from "./components/Actionbar";
@@ -34,8 +33,9 @@ export default function App() {
 
   return (
     <View style={styles.window}>
-      {showHelpPopUp ? <HelpPopUp setShowHelpPopUp={setShowHelpPopUp} /> : null}
+      
       <SafeAreaView style={styles.container}>
+      {showHelpPopUp ? <HelpPopUp setShowHelpPopUp={setShowHelpPopUp} /> : null}
         <View style={styles.layout}>
           {/* leftside */}
           <View style={styles.leftside}>
@@ -121,6 +121,7 @@ export default function App() {
               />
               <HiddenButton />
             </View>
+            
             <View style={styles.actionbar}>
               <Actionbar groupId={groupId} buttonId={buttonId} />
               <TouchableHighlight
@@ -348,9 +349,8 @@ const styles = EStyleSheet.create({
     borderColor: "#FFF",
     borderWidth: 3,
     borderRadius: 30,
-    width: 50,
-    height: 50,
-    display: "flex",
+    width: 30,
+    height: 30,
     justifyContent: "flex-end",
     marginTop: 20,
   },
@@ -379,4 +379,8 @@ const styles = EStyleSheet.create({
       flex: 1.2,
     },
   },
+
+  "@media (max-width: 1000)": {
+
+  }
 });

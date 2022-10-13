@@ -42,17 +42,20 @@ const Actionbar = ({ groupId, buttonId }) => {
     backgroundColorBar1 = "#FFF";
     backgroundColorBar2 = "#ffd500";
     backgroundColorBar3 = "orange";
-    backgroundColorMobile = "orange"
+    backgroundColorMobile = "orange";
   } else if (groupId == "4") {
     backgroundColorBar1 = "#FFF";
     backgroundColorBar2 = "#ffd500";
     backgroundColorBar3 = "orange";
     backgroundColorBar4 = "#00A300";
+    backgroundColorMobile = "#00A300";
+
   } else if (groupId == "5") {
     backgroundColorBar1 = "transparent";
     backgroundColorBar2 = "transparent";
     backgroundColorBar3 = "transparent";
     backgroundColorBar4 = "transparent";
+    backgroundColorMobile = "transparent";
   }
 
   let colorStylesBar1 = {
@@ -73,6 +76,7 @@ const Actionbar = ({ groupId, buttonId }) => {
 
   return (
     <View style={styles.container}>
+      
       <View style={styles.mobileContainer}>
       <View style={[styles.barMobile, colorStylesBarMobile]}></View>
         <Text style={styles.textStyleMobile}>{titleMobile}</Text>
@@ -93,7 +97,10 @@ const Actionbar = ({ groupId, buttonId }) => {
         <Text style={styles.textStyle}>{titleGroup4}</Text>
         <View style={[styles.bar4, colorStylesBar4]}></View>
       </View>
-    </View>
+      </View>
+
+
+    
   );
 };
 
@@ -101,21 +108,37 @@ export default Actionbar;
 
 const styles = EStyleSheet.create({
   container: {
-    // backgroundColor: "pink",
+  
     flexDirection: "row",
   },
+  
+  barMobile:{
+    height : 20,
+    width: 20,
+    borderColor: "red",
+    borderWidth: 2,
+    borderRadius: 10,
+    
+  },
+
+
+  textStyleMobile:{
+    fontSize: "1.1rem",
+    color: "#FFF", 
+    fontWeight: "bold",
+    width: "120%",
+    paddingBottom: "2%",
+    paddingLeft: "3%",
+    display: "none"
+  },
   barContainer: {
-    // height: 15,
     flex: 1,
-    // width: "100%",
     overflow: "hidden",
     borderRadius: 10,
     borderWidth: 2,
     borderColor: "transparent",
     backgroundColor: "transparent",
     alignItems: "center",
-
-    // flexDirection: "row",
   },
   textStyle: {
     flex: 1,
@@ -127,37 +150,21 @@ const styles = EStyleSheet.create({
     width: "120%",
     paddingBottom: "2%"
   },
+
   mobileContainer: {
     // height: 15,
     flex: 1,
     // width: "100%",
     overflow: "hidden",
     borderRadius: 10,
-    borderWidth: 2,
+    borderWidth: 0,
     borderColor: "transparent",
     backgroundColor: "transparent",
     alignItems: "center",
-    display: "none",  
+   display: "none",
     flexDirection: "row"
   },
 
-  barMobile:{
-    height : 20,
-    width: 20,
-    borderColor: "#FFF",
-    borderWidth: 2,
-    borderRadius: 10 
-  },
-
-
-  textStyleMobile:{
-    fontSize: "1.1rem",
-    color: "#FFF", 
-    fontWeight: "bold",
-    width: "120%",
-    paddingBottom: "2%",
-    paddingLeft: "3%"
-  },
 
   bar1: {
     // flex: 1,
@@ -211,13 +218,18 @@ const styles = EStyleSheet.create({
     },
   },
   "@media (max-width: 1000)": {
-    
+  
     barContainer: {
-      display: "none"
+      borderWidth: 0,
+      display: "none",
     },
     mobileContainer: {
-      display : "flex"
+      borderWidth: 2,
+      display: "flex"
+
+      
     }
+    
 
   },
   "@media (max-width: 900)": {},
