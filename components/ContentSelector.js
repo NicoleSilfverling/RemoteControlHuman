@@ -7,7 +7,7 @@ function ContentSelector(btnId, bodyHalfLeft) {
   switch (btnId) {
     case "L1":
       title = "LEFT";
-      iconImg = require("../assets/icons/leftArrowIcon.png");
+      iconImg = require("../assets/icons/leftIcon.png");
       sound = require("../assets/sounds/left.wav");
 
       break;
@@ -51,7 +51,7 @@ function ContentSelector(btnId, bodyHalfLeft) {
       break;
     case "L7":
       title = "RIGHT";
-      iconImg = require("../assets/icons/rightArrowIcon.png");
+      iconImg = require("../assets/icons/rightIcon.png");
       sound = require("../assets/sounds/right.wav");
 
       break;
@@ -105,7 +105,7 @@ function ContentSelector(btnId, bodyHalfLeft) {
       break;
     case "R7":
       title = "LEFT";
-      iconImg = require("../assets/icons/greenLeftIcon.png");
+      iconImg = require("../assets/icons/leftIcon.png");
       sound = require("../assets/sounds/left.wav");
       break;
     case "R8":
@@ -125,7 +125,7 @@ function ContentSelector(btnId, bodyHalfLeft) {
       break;
     case "R11":
       title = "RIGHT";
-      iconImg = require("../assets/icons/greenRightIcon.png");
+      iconImg = require("../assets/icons/rightIcon.png");
       sound = require("../assets/sounds/right.wav");
       break;
     case "R12":
