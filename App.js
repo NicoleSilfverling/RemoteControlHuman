@@ -33,14 +33,12 @@ export default function App() {
   const [showHelpPopUp, setShowHelpPopUp] = useState(false);
   const [showStartVideo, setShowStartVideo] = useState(true);
 
-  const timer = setTimeout(() => {
-    setShowStartVideo(false);
-  }, 2200);
-
   return (
     <View style={styles.window}>
       <SafeAreaView style={styles.container}>
-        {showStartVideo ? <StartVideo /> : null}
+        {showStartVideo ? (
+          <StartVideo setShowStartVideo={setShowStartVideo} />
+        ) : null}
         {showHelpPopUp ? (
           <HelpPopUp setShowHelpPopUp={setShowHelpPopUp} />
         ) : null}
