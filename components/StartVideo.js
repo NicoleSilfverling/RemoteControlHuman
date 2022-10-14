@@ -2,9 +2,15 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Video, AVPlaybackStatus } from "expo-av";
 
-const StartVideo = () => {
+const StartVideo = ({ setShowStartVideo }) => {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
+
+  _onPlaybackStatusUpdate = (playbackStatus) => {
+    if (playbackStatus.didJustFinish === true) setShowStartVideo(false);
+    console.log(playbackStatus.didJustFinish);
+  };
+
   return (
     <View>
       <Video
@@ -15,7 +21,10 @@ const StartVideo = () => {
         resizeMode="contain"
         shouldPlay
         isLooping="false"
-        onPlaybackStatusUpdate={(status) => setStatus(() => status)}
+        didJustFinish
+        onPlaybackStatusUpdate={(playbackStatus) =>
+          this._onPlaybackStatusUpdate(playbackStatus)
+        }
       />
     </View>
   );
