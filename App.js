@@ -140,17 +140,10 @@ export default function App() {
               >
                 <Text style={styles.iconText}>i</Text>
               </TouchableHighlight>
-              {/* <View style={styles.iconCon}>
-              <View style={styles.iconball}>
-                <Text style={styles.iconText}>i</Text>
-              </View>
-              <View style={styles.iconball}>
-                <Text style={styles.iconText}>i</Text>
-              </View> 
-            </View> */}
+            
             </View>
           </View>
-
+          
           {/* center */}
           <View style={styles.center}>
             <Image
@@ -346,21 +339,28 @@ const styles = EStyleSheet.create({
   actionbar: {
     position: "absolute",
     zIndex: 2,
-    bottom: 0,
+    
+    bottom: 18,
     marginBottom: "18%",
     marginLeft: "10%",
     width: "100%",
+    paddingLeft: "3%",
+    paddingRight: "3%"
+
+    
     // backgroundColor: "blue",
   },
   infoButton: {
+    
     borderColor: "#FFF",
     borderWidth: 3,
     borderRadius: 30,
-    width: 50,
-    height: 50,
-    display: "flex",
+    width: 30,
+    height: 30,
     justifyContent: "flex-end",
-    marginTop: 20,
+  
+
+    
   },
   iconball: {
     // backgroundColor: "green",
@@ -386,5 +386,28 @@ const styles = EStyleSheet.create({
     center: {
       flex: 1.2,
     },
+  },
+
+  "@media (max-width: 1000)": {
+    leftside: {
+      paddingTop: "3%",
+      paddingBottom: "3%"
+    },
+    rightside: {
+      paddingTop: "3%",
+      paddingBottom: "3%"
+    },
+    actionbar: {
+    
+      flexDirection : "row",
+      marginBottom: "0%",
+      justifyContent: "space-between"
+      
+      
+      
+    },
+    infoButton: {
+    
+         }
   },
 });

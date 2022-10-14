@@ -108,14 +108,15 @@ export default Actionbar;
 
 const styles = EStyleSheet.create({
   container: {
-  
+    backgroundColor : "transparent",
     flexDirection: "row",
+    marginTop: "5%"
   },
   
   barMobile:{
     height : 20,
     width: 20,
-    borderColor: "red",
+    borderColor: "#FFF",
     borderWidth: 2,
     borderRadius: 10,
     
@@ -129,7 +130,7 @@ const styles = EStyleSheet.create({
     width: "120%",
     paddingBottom: "2%",
     paddingLeft: "3%",
-    display: "none"
+    
   },
   barContainer: {
     flex: 1,
@@ -162,7 +163,9 @@ const styles = EStyleSheet.create({
     backgroundColor: "transparent",
     alignItems: "center",
    display: "none",
-    flexDirection: "row"
+    flexDirection: "row",
+    
+
   },
 
 
@@ -225,8 +228,8 @@ const styles = EStyleSheet.create({
     },
     mobileContainer: {
       borderWidth: 2,
-      display: "flex"
-
+      display: "flex",
+      backgroundColor: "blue"
       
     }
     

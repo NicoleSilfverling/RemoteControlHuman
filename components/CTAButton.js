@@ -125,7 +125,7 @@ const styles = EStyleSheet.create({
     color: "#FFF",
     fontSize: "1.7rem",
     textAlign: "center",
-    fontWeight: "bold",
+  
     paddingTop: "15%",
   },
   "@media (max-width: 1300)": {

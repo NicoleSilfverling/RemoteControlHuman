@@ -13,7 +13,7 @@ const styles = EStyleSheet.create({
     height: "15%",
     aspectRatio: 1,
     borderRadius: 15,
-    borderWidth: 6,
+    borderWidth: 2,
     borderColor: "transparent",
     backgroundColor: "transparent",
     alignItems: "center",
@@ -23,21 +23,21 @@ const styles = EStyleSheet.create({
     container: {
       height: "14%",
       borderRadius: 10,
-      borderWidth: 4,
+      borderWidth: 1,
     },
   },
   "@media (max-width: 1000)": {
     container: {
       height: "17%",
       borderRadius: 10,
-      borderWidth: 3,
+      borderWidth: 1,
     },
   },
   "@media (max-width: 900)": {
     container: {
       height: "17%",
       borderRadius: 8,
-      borderWidth: 3,
+      borderWidth: 1,
     },
   },
 });
