@@ -337,13 +337,14 @@ const styles = EStyleSheet.create({
   actionbar: {
     position: "absolute",
     zIndex: 2,
-    
     bottom: 18,
+    marginTop: "5%",
     marginBottom: "18%",
     marginLeft: "10%",
     width: "100%",
     paddingLeft: "3%",
     paddingRight: "3%"
+
 
     
     // backgroundColor: "blue",
@@ -356,6 +357,8 @@ const styles = EStyleSheet.create({
     width: 30,
     height: 30,
     justifyContent: "flex-end",
+    marginTop: "5%"
+    
   
 
     
@@ -396,15 +399,17 @@ const styles = EStyleSheet.create({
       paddingBottom: "3%"
     },
     actionbar: {
-    
       flexDirection : "row",
       marginBottom: "0%",
-      justifyContent: "space-between"
-      
-      
-      
-    },
+      justifyContent: "space-between",
+      /* backgroundColor: "blue" */
+      },
     infoButton: {
+      height: 25,
+      width:25,
+      marginTop: "5%"
+
+
     
          }
   },

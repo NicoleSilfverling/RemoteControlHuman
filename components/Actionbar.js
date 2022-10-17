@@ -78,7 +78,7 @@ const Actionbar = ({ groupId, buttonId }) => {
     <View style={styles.container}>
       
       <View style={styles.mobileContainer}>
-      <View style={[styles.barMobile, colorStylesBarMobile]}></View>
+        <View style={[styles.barMobile, colorStylesBarMobile]}></View>
         <Text style={styles.textStyleMobile}>{titleMobile}</Text>
       </View>
       <View style={styles.barContainer}>
@@ -114,22 +114,22 @@ const styles = EStyleSheet.create({
   },
   
   barMobile:{
-    height : 20,
-    width: 20,
+    height : 25,
+    width: 25,
     borderColor: "#FFF",
     borderWidth: 2,
-    borderRadius: 10,
+    borderRadius: 30,
     
   },
 
 
   textStyleMobile:{
-    fontSize: "1.1rem",
+    fontSize: 12,
     color: "#FFF", 
-    fontWeight: "bold",
-    width: "120%",
+    
+    width: "170%",
     paddingBottom: "2%",
-    paddingLeft: "3%",
+    paddingLeft: "5%",
     
   },
   barContainer: {
@@ -164,6 +164,8 @@ const styles = EStyleSheet.create({
     alignItems: "center",
    display: "none",
     flexDirection: "row",
+    
+
     
 
   },
@@ -229,7 +231,10 @@ const styles = EStyleSheet.create({
     mobileContainer: {
       borderWidth: 2,
       display: "flex",
-      backgroundColor: "blue"
+      /* paddingLeft: "2%", */
+      paddingRight: "70%",
+      marginLeft: "0%",
+      /* backgroundColor: "pink" */
       
     }
     
