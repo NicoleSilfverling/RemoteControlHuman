@@ -3,17 +3,19 @@ import { View, Text } from "react-native";
 import ContentSelector from "./ContentSelector";
 import EStyleSheet from "react-native-extended-stylesheet";
 
-const Actionbar = ({ groupId, buttonId }) => {
+const Actionbar = ({ groupId, buttonId, isHand }) => {
   let titleGroup1 = "";
   let titleGroup2 = "";
   let titleGroup3 = "";
   let titleGroup4 = "";
   let titleMobile = "";
-  
-  if (ContentSelector(buttonId).title != "RESET" &&ContentSelector(buttonId).title !="STOP" ){
-  titleMobile = ContentSelector(buttonId).title;
-  }
 
+  if (
+    ContentSelector(buttonId).title != "RESET" &&
+    ContentSelector(buttonId).title != "STOP"
+  ) {
+    titleMobile = ContentSelector(buttonId, true, isHand).title;
+  }
 
   if (groupId == "1") {
     titleGroup1 = ContentSelector(buttonId).title;
@@ -30,13 +32,13 @@ const Actionbar = ({ groupId, buttonId }) => {
   let backgroundColorBar3;
   let backgroundColorBar4;
   let backgroundColorMobile;
-  
+
   if (groupId == "1") {
     backgroundColorBar1 = "#FFF";
-    backgroundColorMobile= "#FFF";
+    backgroundColorMobile = "#FFF";
   } else if (groupId == "2") {
     backgroundColorBar1 = "#FFF";
-    backgroundColorMobile = "#ffd500"; 
+    backgroundColorMobile = "#ffd500";
     backgroundColorBar2 = "#ffd500";
   } else if (groupId == "3") {
     backgroundColorBar1 = "#FFF";
@@ -49,7 +51,6 @@ const Actionbar = ({ groupId, buttonId }) => {
     backgroundColorBar3 = "orange";
     backgroundColorBar4 = "#00A300";
     backgroundColorMobile = "#00A300";
-
   } else if (groupId == "5") {
     backgroundColorBar1 = "transparent";
     backgroundColorBar2 = "transparent";
@@ -71,12 +72,11 @@ const Actionbar = ({ groupId, buttonId }) => {
     backgroundColor: backgroundColorBar4,
   };
   let colorStylesBarMobile = {
-    backgroundColor: backgroundColorMobile
-  }
+    backgroundColor: backgroundColorMobile,
+  };
 
   return (
     <View style={styles.container}>
-      
       <View style={styles.mobileContainer}>
         <View style={[styles.barMobile, colorStylesBarMobile]}></View>
         <Text style={styles.textStyleMobile}>{titleMobile}</Text>
@@ -88,10 +88,7 @@ const Actionbar = ({ groupId, buttonId }) => {
         <View style={[styles.bar4, colorStylesBar4]}></View>
         <Text style={styles.textStyle}>{titleMobile}</Text>
       </View>
-      </View>
-
-
-    
+    </View>
   );
 };
 
@@ -99,29 +96,26 @@ export default Actionbar;
 
 const styles = EStyleSheet.create({
   container: {
-    backgroundColor : "transparent",
+    backgroundColor: "transparent",
     flexDirection: "row",
-    marginTop: "5%"
+    marginTop: "5%",
   },
-  
-  barMobile:{
-    height : 25,
+
+  barMobile: {
+    height: 25,
     width: 25,
     borderColor: "#FFF",
     borderWidth: 2,
     borderRadius: 30,
-    
   },
 
-
-  textStyleMobile:{
+  textStyleMobile: {
     fontSize: 12,
-    color: "#FFF", 
-    
+    color: "#FFF",
+
     width: "170%",
     paddingBottom: "2%",
     paddingLeft: "5%",
-    
   },
   barContainer: {
     //flex: 1,
@@ -131,7 +125,7 @@ const styles = EStyleSheet.create({
     borderColor: "transparent",
     backgroundColor: "transparent",
     alignItems: "center",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   textStyle: {
     //flex: 2,
@@ -141,7 +135,7 @@ const styles = EStyleSheet.create({
     /* backgroundColor: "pink", */
     fontWeight: "bold",
     //width: "120%",
-    paddingBottom: "2%"
+    paddingBottom: "2%",
   },
 
   mobileContainer: {
@@ -154,14 +148,9 @@ const styles = EStyleSheet.create({
     borderColor: "transparent",
     backgroundColor: "transparent",
     alignItems: "center",
-   display: "none",
+    display: "none",
     flexDirection: "row",
-    
-
-    
-
   },
-
 
   bar1: {
     // flex: 1,
@@ -169,7 +158,7 @@ const styles = EStyleSheet.create({
     height: 20,
     width: 20,
     backgroundColor: "transparent",
-    borderWidth:2,
+    borderWidth: 2,
     borderColor: "#FFF",
     borderRadius: 15,
     marginRight: 7,
@@ -219,7 +208,6 @@ const styles = EStyleSheet.create({
     },
   },
   "@media (max-width: 1000)": {
-  
     barContainer: {
       borderWidth: 0,
       display: "none",
@@ -231,10 +219,7 @@ const styles = EStyleSheet.create({
       paddingRight: "70%",
       marginLeft: "0%",
       /* backgroundColor: "pink" */
-      
-    }
-    
-
+    },
   },
   "@media (max-width: 900)": {},
 });

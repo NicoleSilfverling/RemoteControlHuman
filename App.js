@@ -159,7 +159,11 @@ export default function App() {
                 <Text style={styles.iconText}>i</Text>
               </TouchableHighlight>
               <View style={styles.actionbar}>
-                <Actionbar groupId={groupId} buttonId={buttonId} />
+                <Actionbar
+                  groupId={groupId}
+                  buttonId={buttonId}
+                  isHand={isHand}
+                />
               </View>
             </View>
           </View>
