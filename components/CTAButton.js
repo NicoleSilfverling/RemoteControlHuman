@@ -1,9 +1,16 @@
 import React from "react";
 import { Audio } from "expo-av";
-import { StyleSheet, TouchableHighlight, Text, Image } from "react-native";
+import {
+  StyleSheet,
+  TouchableHighlight,
+  Text,
+  Image,
+  View,
+} from "react-native";
 import ContentSelector from "./ContentSelector";
 // import { playSound } from "./Audioplayer";
 import { testFunc } from "./ShowImage";
+import EStyleSheet from "react-native-extended-stylesheet";
 
 export default function CTAButton({
   btnTitle,
@@ -14,6 +21,7 @@ export default function CTAButton({
   setBodyHalfLeft,
   bodyHalfLeft,
   setGroupId,
+  setSoundIsPlaying,
 }) {
   const [sound, setSound] = React.useState();
 
@@ -24,8 +32,15 @@ export default function CTAButton({
     );
     setSound(sound);
 
+
     console.log("Playing Sound");
     await sound.playAsync();
+
+    sound.setOnPlaybackStatusUpdate((playbackStatus) => {
+      
+      if (playbackStatus.didJustFinish==true)
+        setSoundIsPlaying(false);
+  })
   }
 
   React.useEffect(() => {
@@ -60,55 +75,110 @@ export default function CTAButton({
     backgroundColor: btnBackgroundColor,
   };
 
+  const colorStyleIcon = {
+    tintColor: btnBorderColor,
+  };
+
   let leftSide;
 
   if (btnId == "L1") leftSide = true;
   else if (btnId == "L7") leftSide = false;
 
   return (
-    <TouchableHighlight
-      onPress={() => {
-        setShowImage ? setShowImage(true) : null,
-          playSound(),
-          setButtonId ? setButtonId(btnId) : null,
-          setBodyHalfLeft ? setBodyHalfLeft(leftSide) : null,
-          setGroupId ? setGroupId(btnGroup) : null;
-      }}
-      //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
-      style={[styles.container, colorStyles]}
-      activeOpacity={0.5}
-      underlayColor={btnBorderColor}
-    >
-      <React.Fragment>
-        <Image style={styles.icon} source={ContentSelector(btnId).iconImg} />
-        <Text style={styles.textStyle}>{btnTitle}</Text>
-      </React.Fragment>
-    </TouchableHighlight>
+    <View style={styles.container}>
+      <TouchableHighlight
+        onPress={() => {
+          setShowImage ? setShowImage(true) : null,
+            playSound(),
+            setButtonId ? setButtonId(btnId) : null,
+            setBodyHalfLeft ? setBodyHalfLeft(leftSide) : null,
+            setGroupId ? setGroupId(btnGroup) : null;
+          setSoundIsPlaying ? setSoundIsPlaying(true) : null;
+        }}
+        style={[styles.button, colorStyles]}
+        activeOpacity={0.5}
+        underlayColor={btnBorderColor}
+      >
+        <Image
+          style={[styles.icon, colorStyleIcon]}
+          source={ContentSelector(btnId).iconImg}
+        />
+      </TouchableHighlight>
+      <Text style={styles.textStyle}>{btnTitle}</Text>
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
-    height: "12%",
+    // width: "100%",
+    height: "15%",
+    aspectRatio: 1,
+
+    // backgroundColor: "red",
+    alignItems: "center",
+  },
+  button: {
+    height: "100%",
     aspectRatio: 1,
     borderRadius: 15,
-    borderWidth: 5,
+    borderWidth: 2,
     borderColor: "#FFF",
     backgroundColor: "black",
     alignItems: "center",
     justifyContent: "center",
   },
   textStyle: {
-    width: "245%",
+    width: "250%",
     color: "#FFF",
-    fontSize: 24,
-    position: "absolute",
-    bottom: -50,
+    fontSize: "1.7rem",
     textAlign: "center",
-    fontWeight: "bold",
+
+    paddingTop: "15%",
+  },
+  "@media (max-width: 1300)": {
+    textStyle: {
+      fontSize: "1.7rem",
+      width: "260%",
+    },
+    button: {
+      borderRadius: 10,
+      borderWidth: 1,
+    },
+    container: {
+      height: "14%",
+    },
+  },
+  "@media (max-width: 1000)": {
+    textStyle: {
+      fontSize: "1rem",
+      width: "260%",
+    },
+    button: {
+      borderRadius: 10,
+      borderWidth: 1,
+    },
+    container: {
+      height: "17%",
+    },
+  },
+  "@media (max-width: 900)": {
+    textStyle: {
+      fontSize: "0.8rem",
+      width: "260%",
+      paddingTop: "7%",
+    },
+    button: {
+      borderRadius: 8,
+      borderWidth: 1,
+    },
+    container: {
+      height: "17%",
+    },
   },
   icon: {
     width: "100%",
     height: "100%",
+    tintColor: "#FFFFFF",
   },
 });
