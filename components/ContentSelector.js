@@ -77,16 +77,20 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
 
       break;
     case "R2":
-      if (isHand === true) {
+      if (isHand) {
         title = "CLOSE GRIP";
-      } else if (!isHand) {
+      } else {
         title = "BEND";
       }
       iconImg = require("../assets/icons/bendIcon.png");
       sound = require("../assets/sounds/bend.wav");
       break;
     case "R3":
-      title = "STRETCH";
+      if (isHand) {
+        title = "OPEN GRIP";
+      } else {
+        title = "STRETCH";
+      }
       iconImg = require("../assets/icons/stretchIcon.png");
       sound = require("../assets/sounds/stretch.wav");
 

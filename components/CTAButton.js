@@ -82,6 +82,10 @@ export default function CTAButton({
   if (btnId == "L1") leftSide = true;
   else if (btnId == "L7") leftSide = false;
 
+  let isHand;
+  if (btnId == "L2") isHand = true;
+  else isHand = false;
+
   return (
     <View style={styles.container}>
       <TouchableHighlight
@@ -92,7 +96,7 @@ export default function CTAButton({
             setBodyHalfLeft ? setBodyHalfLeft(leftSide) : null,
             setGroupId ? setGroupId(btnGroup) : null;
           setSoundIsPlaying ? setSoundIsPlaying(true) : null;
-          setIsHand ? setIsHand(true) : null;
+          setIsHand ? setIsHand(isHand) : null;
         }}
         style={[styles.button, colorStyles]}
         activeOpacity={0.5}

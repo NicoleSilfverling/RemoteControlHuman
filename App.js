@@ -34,7 +34,7 @@ export default function App() {
   const [showHelpPopUp, setShowHelpPopUp] = useState(false);
   const [showStartVideo, setShowStartVideo] = useState(true);
   const [soundIsPlaying, setSoundIsPlaying] = useState(false);
-  const [isHand, setIsHand] = useState(true);
+  const [isHand, setIsHand] = useState(false);
 
   return (
     <View style={styles.window}>
@@ -55,6 +55,7 @@ export default function App() {
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L1"
                 btnGroup="1"
                 btnTitle={ContentSelector("L1").title}
@@ -74,6 +75,7 @@ export default function App() {
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L3"
                 btnGroup="2"
                 btnTitle={ContentSelector("L3").title}
@@ -86,6 +88,7 @@ export default function App() {
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L4"
                 btnGroup="2"
                 btnTitle={ContentSelector("L4").title}
@@ -95,6 +98,7 @@ export default function App() {
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L5"
                 btnGroup="2"
                 btnTitle={ContentSelector("L5").title}
@@ -104,6 +108,7 @@ export default function App() {
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L6"
                 btnGroup="2"
                 btnTitle={ContentSelector("L6").title}
@@ -116,6 +121,7 @@ export default function App() {
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L7"
                 btnGroup="1"
                 btnTitle={ContentSelector("L7").title}
@@ -125,6 +131,7 @@ export default function App() {
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L8"
                 btnGroup="2"
                 btnTitle={ContentSelector("L8").title}
@@ -134,6 +141,7 @@ export default function App() {
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L9"
                 btnGroup="2"
                 btnTitle={ContentSelector("L9").title}
@@ -190,7 +198,7 @@ export default function App() {
                 setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R2"
                 btnGroup="3"
-                btnTitle={ContentSelector("R2", isHand).title}
+                btnTitle={ContentSelector("R2", true, isHand).title}
               />
               <CTAButton
                 setGroupId={setGroupId}
@@ -198,7 +206,7 @@ export default function App() {
                 setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R3"
                 btnGroup="3"
-                btnTitle={ContentSelector("R3", isHand).title}
+                btnTitle={ContentSelector("R3", true, isHand).title}
               />
               <CTAButton
                 setGroupId={setGroupId}
@@ -238,6 +246,7 @@ export default function App() {
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="R8"
                 btnGroup="5"
                 btnTitle={ContentSelector("R8").title}
@@ -272,6 +281,7 @@ export default function App() {
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="R12"
                 btnGroup="5"
                 btnTitle={ContentSelector("R12").title}
