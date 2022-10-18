@@ -20,6 +20,7 @@ import EStyleSheet from "react-native-extended-stylesheet";
 import HelpPopUp from "./components/HelpPopUp";
 import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
+import SoundVisual from "./components/SoundVisual";
 
 export default function App() {
   EStyleSheet.build({
@@ -32,6 +33,7 @@ export default function App() {
   const [groupId, setGroupId] = useState("");
   const [showHelpPopUp, setShowHelpPopUp] = useState(false);
   const [showStartVideo, setShowStartVideo] = useState(true);
+  const [soundIsPlaying, setSoundIsPlaying] = useState(false);
 
   return (
     <View style={styles.window}>
@@ -51,6 +53,7 @@ export default function App() {
                 bodyHalfLeft={bodyHalfLeft}
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="L1"
                 btnGroup="1"
                 btnTitle={ContentSelector("L1").title}
@@ -59,6 +62,7 @@ export default function App() {
                 setShowImage={setShowImage}
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="L2"
                 btnGroup="2"
                 btnTitle={ContentSelector("L2").title}
@@ -67,6 +71,7 @@ export default function App() {
                 setShowImage={setShowImage}
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="L3"
                 btnGroup="2"
                 btnTitle={ContentSelector("L3").title}
@@ -78,6 +83,7 @@ export default function App() {
                 setShowImage={setShowImage}
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="L4"
                 btnGroup="2"
                 btnTitle={ContentSelector("L4").title}
@@ -86,6 +92,7 @@ export default function App() {
                 setShowImage={setShowImage}
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="L5"
                 btnGroup="2"
                 btnTitle={ContentSelector("L5").title}
@@ -94,6 +101,7 @@ export default function App() {
                 setShowImage={setShowImage}
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="L6"
                 btnGroup="2"
                 btnTitle={ContentSelector("L6").title}
@@ -105,6 +113,7 @@ export default function App() {
                 setBodyHalfLeft={setBodyHalfLeft}
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="L7"
                 btnGroup="1"
                 btnTitle={ContentSelector("L7").title}
@@ -113,6 +122,7 @@ export default function App() {
                 setShowImage={setShowImage}
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="L8"
                 btnGroup="2"
                 btnTitle={ContentSelector("L8").title}
@@ -121,6 +131,7 @@ export default function App() {
                 setShowImage={setShowImage}
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="L9"
                 btnGroup="2"
                 btnTitle={ContentSelector("L9").title}
@@ -138,20 +149,18 @@ export default function App() {
               >
                 <Text style={styles.iconText}>i</Text>
               </TouchableHighlight>
-            
             </View>
           </View>
-          
+
           {/* center */}
           <View style={styles.center}>
             <Image
               style={styles.imageBody}
               source={require("./assets/images/humanbutt.png")}
             />
-            {/* <ShowImage /> */}
-            <View style={{ display: "flex", flexDirection: "row" }}>
-              {/* <Counter count={showImage} setCount={setShowImage} /> */}
-            </View>
+            <View style={{ display: "flex", flexDirection: "row" }}></View>
+            {soundIsPlaying && <SoundVisual />}
+
             {showImage && (
               <BlinkImage
                 showImage={showImage}
@@ -159,12 +168,6 @@ export default function App() {
                 buttonId={buttonId}
                 bodyHalfLeft={bodyHalfLeft}
               />
-              // <ShowImage
-              //   showImage={showImage}
-              //   setShowImage={setShowImage}
-              //   buttonId={buttonId}
-              //   bodyHalfLeft={bodyHalfLeft}
-              // />
             )}
           </View>
 
@@ -174,6 +177,7 @@ export default function App() {
               <CTAButton
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R1"
                 btnGroup="3"
                 btnTitle={ContentSelector("R1").title}
@@ -181,6 +185,7 @@ export default function App() {
               <CTAButton
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R2"
                 btnGroup="3"
                 btnTitle={ContentSelector("R2").title}
@@ -188,6 +193,7 @@ export default function App() {
               <CTAButton
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R3"
                 btnGroup="3"
                 btnTitle={ContentSelector("R3").title}
@@ -195,6 +201,7 @@ export default function App() {
               <CTAButton
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R4"
                 btnGroup="3"
                 btnTitle={ContentSelector("R4").title}
@@ -204,6 +211,7 @@ export default function App() {
               <CTAButton
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R5"
                 btnGroup="4"
                 btnTitle={ContentSelector("R5").title}
@@ -211,6 +219,7 @@ export default function App() {
               <CTAButton
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R6"
                 btnGroup="4"
                 btnTitle={ContentSelector("R6").title}
@@ -218,6 +227,7 @@ export default function App() {
               <CTAButton
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnGroup="4"
                 btnId="R7"
                 btnTitle={ContentSelector("R7").title}
@@ -225,6 +235,7 @@ export default function App() {
               <CTAButton
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R8"
                 btnGroup="5"
                 btnTitle={ContentSelector("R8").title}
@@ -234,6 +245,7 @@ export default function App() {
               <CTAButton
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R9"
                 btnGroup="4"
                 btnTitle={ContentSelector("R9").title}
@@ -241,6 +253,7 @@ export default function App() {
               <CTAButton
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R10"
                 btnGroup="4"
                 btnTitle={ContentSelector("R10").title}
@@ -248,6 +261,7 @@ export default function App() {
               <CTAButton
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R11"
                 btnGroup="4"
                 btnTitle={ContentSelector("R11").title}
@@ -255,6 +269,7 @@ export default function App() {
               <CTAButton
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
+                setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R12"
                 btnGroup="5"
                 btnTitle={ContentSelector("R12").title}
@@ -344,25 +359,18 @@ const styles = EStyleSheet.create({
     width: "100%",
     paddingLeft: "3%",
     paddingRight: "3%",
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
 
-
-    
     // backgroundColor: "blue",
   },
   infoButton: {
-    
     borderColor: "#FFF",
     borderWidth: 2,
     borderRadius: 10,
     width: 40,
     height: 40,
     justifyContent: "flex-end",
-    marginTop: "5%"
-    
-  
-
-    
+    marginTop: "5%",
   },
   iconball: {
     // backgroundColor: "green",
@@ -393,25 +401,22 @@ const styles = EStyleSheet.create({
   "@media (max-width: 1000)": {
     leftside: {
       paddingTop: "3%",
-      paddingBottom: "3%"
+      paddingBottom: "3%",
     },
     rightside: {
       paddingTop: "3%",
-      paddingBottom: "3%"
+      paddingBottom: "3%",
     },
     actionbar: {
-      flexDirection : "row",
+      flexDirection: "row",
       marginBottom: "0%",
       justifyContent: "space-between",
       /* backgroundColor: "blue" */
-      },
+    },
     infoButton: {
       height: 25,
-      width:25,
-      marginTop: "5%"
-
-
-    
-         }
+      width: 25,
+      marginTop: "5%",
+    },
   },
 });

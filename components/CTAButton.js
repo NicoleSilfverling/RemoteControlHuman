@@ -21,6 +21,7 @@ export default function CTAButton({
   setBodyHalfLeft,
   bodyHalfLeft,
   setGroupId,
+  setSoundIsPlaying,
 }) {
   const [sound, setSound] = React.useState();
 
@@ -85,8 +86,8 @@ export default function CTAButton({
             setButtonId ? setButtonId(btnId) : null,
             setBodyHalfLeft ? setBodyHalfLeft(leftSide) : null,
             setGroupId ? setGroupId(btnGroup) : null;
+          setSoundIsPlaying ? setSoundIsPlaying(true) : null;
         }}
-        //  on press -> ShowContent(ID) -> ContentSelector(ID) -> ShowContent() -> play sound,
         style={[styles.button, colorStyles]}
         activeOpacity={0.5}
         underlayColor={btnBorderColor}
@@ -125,7 +126,7 @@ const styles = EStyleSheet.create({
     color: "#FFF",
     fontSize: "1.7rem",
     textAlign: "center",
-  
+
     paddingTop: "15%",
   },
   "@media (max-width: 1300)": {
