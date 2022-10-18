@@ -82,20 +82,11 @@ const Actionbar = ({ groupId, buttonId }) => {
         <Text style={styles.textStyleMobile}>{titleMobile}</Text>
       </View>
       <View style={styles.barContainer}>
-        <Text style={styles.textStyle}>{titleGroup1}</Text>
         <View style={[styles.bar1, colorStylesBar1]}></View>
-      </View>
-      <View style={styles.barContainer}>
-        <Text style={styles.textStyle}>{titleGroup2}</Text>
         <View style={[styles.bar2, colorStylesBar2]}></View>
-      </View>
-      <View style={styles.barContainer}>
-        <Text style={styles.textStyle}>{titleGroup3}</Text>
         <View style={[styles.bar3, colorStylesBar3]}></View>
-      </View>
-      <View style={styles.barContainer}>
-        <Text style={styles.textStyle}>{titleGroup4}</Text>
         <View style={[styles.bar4, colorStylesBar4]}></View>
+        <Text style={styles.textStyle}>{titleMobile}</Text>
       </View>
       </View>
 
@@ -133,22 +124,23 @@ const styles = EStyleSheet.create({
     
   },
   barContainer: {
-    flex: 1,
+    //flex: 1,
     overflow: "hidden",
     borderRadius: 10,
     borderWidth: 2,
     borderColor: "transparent",
     backgroundColor: "transparent",
     alignItems: "center",
+    flexDirection: "row"
   },
   textStyle: {
-    flex: 1,
+    //flex: 2,
     color: "#FFF",
     textAlign: "center",
-    fontSize: "1.1rem",
-
+    fontSize: 12,
+    /* backgroundColor: "pink", */
     fontWeight: "bold",
-    width: "120%",
+    //width: "120%",
     paddingBottom: "2%"
   },
 
@@ -174,43 +166,43 @@ const styles = EStyleSheet.create({
   bar1: {
     // flex: 1,
     /* width: "100%", */
-    height: 30,
-    width: 30,
+    height: 20,
+    width: 20,
     backgroundColor: "transparent",
-    borderWidth:1,
+    borderWidth:2,
     borderColor: "#FFF",
     borderRadius: 15,
-    marginRight: "1%",
+    marginRight: 7,
   },
   bar2: {
     width: "100%",
-    height: 30,
-    width: 30,
+    height: 20,
+    width: 20,
     backgroundColor: "transparent",
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: "#ffd500",
     borderRadius: 15,
-    marginRight: "1%",
+    marginRight: 7,
   },
   bar3: {
     width: "100%",
-    height: 30,
-    width: 30,
+    height: 20,
+    width: 20,
     backgroundColor: "transparent",
     borderWidth: 2,
     borderColor: "orange",
     borderRadius: 15,
-    marginRight: "1%",
+    marginRight: 7,
   },
   bar4: {
     width: "100%",
-    height: 30,
-    width: 30,
+    height: 20,
+    width: 20,
     backgroundColor: "transparent",
     borderWidth: 2,
     borderColor: "#00A300",
     borderRadius: 15,
-    marginRight: "1%",
+    marginRight: 7,
   },
   bar5: {
     flex: 0.5,

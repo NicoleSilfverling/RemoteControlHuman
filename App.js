@@ -383,7 +383,7 @@ const styles = EStyleSheet.create({
     // marginTop: "5%",
     // marginBottom: "8%",
     // marginLeft: "10%",
-    width: "50%",
+    width: "100%",
     // paddingLeft: "3%",
     // paddingRight: "3%",
     backgroundColor: "transparent",
