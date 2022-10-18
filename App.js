@@ -148,8 +148,7 @@ export default function App() {
               />
               <HiddenButton />
             </View>
-            <View style={styles.actionbar}>
-              <Actionbar groupId={groupId} buttonId={buttonId} />
+            <View style={styles.actionInfo}>
               <TouchableHighlight
                 id="infobtn"
                 onPress={() => {
@@ -159,6 +158,9 @@ export default function App() {
               >
                 <Text style={styles.iconText}>i</Text>
               </TouchableHighlight>
+              <View style={styles.actionbar}>
+                <Actionbar groupId={groupId} buttonId={buttonId} />
+              </View>
             </View>
           </View>
 
@@ -361,16 +363,29 @@ const styles = EStyleSheet.create({
     height: "100%",
     zIndex: 0,
   },
-  actionbar: {
+  actionInfo: {
     position: "absolute",
     zIndex: 2,
-    bottom: 18,
+
+    flexDirection: "row",
     marginTop: "5%",
     marginBottom: "8%",
     marginLeft: "10%",
     width: "100%",
     paddingLeft: "3%",
     paddingRight: "3%",
+    bottom: 18,
+    alignItems: "center",
+  },
+  actionbar: {
+    // position: "absolute",
+    bottom: 18,
+    // marginTop: "5%",
+    // marginBottom: "8%",
+    // marginLeft: "10%",
+    width: "50%",
+    // paddingLeft: "3%",
+    // paddingRight: "3%",
     backgroundColor: "transparent",
 
     // backgroundColor: "blue",
@@ -382,7 +397,8 @@ const styles = EStyleSheet.create({
     width: 40,
     height: 40,
     justifyContent: "flex-end",
-    marginTop: "5%",
+    // marginTop: "5%",
+    // backgroundColor: "green",
   },
   iconball: {
     // backgroundColor: "green",
