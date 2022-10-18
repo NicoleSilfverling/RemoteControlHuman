@@ -34,6 +34,7 @@ export default function App() {
   const [showHelpPopUp, setShowHelpPopUp] = useState(false);
   const [showStartVideo, setShowStartVideo] = useState(true);
   const [soundIsPlaying, setSoundIsPlaying] = useState(false);
+  const [isHand, setIsHand] = useState(true);
 
   return (
     <View style={styles.window}>
@@ -63,6 +64,7 @@ export default function App() {
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L2"
                 btnGroup="2"
                 btnTitle={ContentSelector("L2").title}
@@ -188,7 +190,7 @@ export default function App() {
                 setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R2"
                 btnGroup="3"
-                btnTitle={ContentSelector("R2").title}
+                btnTitle={ContentSelector("R2", isHand).title}
               />
               <CTAButton
                 setGroupId={setGroupId}
@@ -196,7 +198,7 @@ export default function App() {
                 setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R3"
                 btnGroup="3"
-                btnTitle={ContentSelector("R3").title}
+                btnTitle={ContentSelector("R3", isHand).title}
               />
               <CTAButton
                 setGroupId={setGroupId}

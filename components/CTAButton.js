@@ -22,6 +22,7 @@ export default function CTAButton({
   bodyHalfLeft,
   setGroupId,
   setSoundIsPlaying,
+  setIsHand,
 }) {
   const [sound, setSound] = React.useState();
 
@@ -32,15 +33,12 @@ export default function CTAButton({
     );
     setSound(sound);
 
-
     console.log("Playing Sound");
     await sound.playAsync();
 
     sound.setOnPlaybackStatusUpdate((playbackStatus) => {
-      
-      if (playbackStatus.didJustFinish==true)
-        setSoundIsPlaying(false);
-  })
+      if (playbackStatus.didJustFinish == true) setSoundIsPlaying(false);
+    });
   }
 
   React.useEffect(() => {
@@ -94,6 +92,7 @@ export default function CTAButton({
             setBodyHalfLeft ? setBodyHalfLeft(leftSide) : null,
             setGroupId ? setGroupId(btnGroup) : null;
           setSoundIsPlaying ? setSoundIsPlaying(true) : null;
+          setIsHand ? setIsHand(true) : null;
         }}
         style={[styles.button, colorStyles]}
         activeOpacity={0.5}

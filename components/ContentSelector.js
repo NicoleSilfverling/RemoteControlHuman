@@ -1,4 +1,4 @@
-function ContentSelector(btnId, bodyHalfLeft) {
+function ContentSelector(btnId, bodyHalfLeft, isHand) {
   let title = "";
   let iconImg = "";
   let bodypartImg = "";
@@ -77,7 +77,11 @@ function ContentSelector(btnId, bodyHalfLeft) {
 
       break;
     case "R2":
-      title = "BEND";
+      if (isHand === true) {
+        title = "CLOSE GRIP";
+      } else if (!isHand) {
+        title = "BEND";
+      }
       iconImg = require("../assets/icons/bendIcon.png");
       sound = require("../assets/sounds/bend.wav");
       break;
