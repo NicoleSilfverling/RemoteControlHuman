@@ -131,7 +131,7 @@ const styles = EStyleSheet.create({
     //flex: 2,
     color: "#FFF",
     textAlign: "center",
-    fontSize: 12,
+    fontSize: 18,
     /* backgroundColor: "pink", */
     fontWeight: "bold",
     //width: "120%",

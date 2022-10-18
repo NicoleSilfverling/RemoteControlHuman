@@ -149,6 +149,13 @@ export default function App() {
               <HiddenButton />
             </View>
             <View style={styles.actionInfo}>
+              <View style={styles.actionbar}>
+                <Actionbar
+                  groupId={groupId}
+                  buttonId={buttonId}
+                  isHand={isHand}
+                />
+              </View>
               <TouchableHighlight
                 id="infobtn"
                 onPress={() => {
@@ -158,13 +165,6 @@ export default function App() {
               >
                 <Text style={styles.iconText}>i</Text>
               </TouchableHighlight>
-              <View style={styles.actionbar}>
-                <Actionbar
-                  groupId={groupId}
-                  buttonId={buttonId}
-                  isHand={isHand}
-                />
-              </View>
             </View>
           </View>
 
@@ -376,25 +376,28 @@ const styles = EStyleSheet.create({
     marginBottom: "8%",
     marginLeft: "10%",
     width: "100%",
-    paddingLeft: "3%",
-    paddingRight: "3%",
+    // paddingLeft: "3%",
+    // paddingRight: "3%",
     bottom: 18,
     alignItems: "center",
+    justifyContent: "space-between",
+    // backgroundColor: "blue",
   },
   actionbar: {
     // position: "absolute",
-    bottom: 18,
+    // bottom: 18,
     // marginTop: "5%",
     // marginBottom: "8%",
     // marginLeft: "10%",
-    width: "100%",
+    width: "50%",
     // paddingLeft: "3%",
     // paddingRight: "3%",
     backgroundColor: "transparent",
-
-    // backgroundColor: "blue",
+    // justifySelf: "center",
+    // backgroundColor: "pink",
   },
   infoButton: {
+    position: "relative",
     borderColor: "#FFF",
     borderWidth: 2,
     borderRadius: 10,
