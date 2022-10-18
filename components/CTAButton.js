@@ -32,8 +32,15 @@ export default function CTAButton({
     );
     setSound(sound);
 
+
     console.log("Playing Sound");
     await sound.playAsync();
+
+    sound.setOnPlaybackStatusUpdate((playbackStatus) => {
+      
+      if (playbackStatus.didJustFinish==true)
+        setSoundIsPlaying(false);
+  })
   }
 
   React.useEffect(() => {
