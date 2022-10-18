@@ -339,11 +339,12 @@ const styles = EStyleSheet.create({
     zIndex: 2,
     bottom: 18,
     marginTop: "5%",
-    marginBottom: "18%",
+    marginBottom: "8%",
     marginLeft: "10%",
     width: "100%",
     paddingLeft: "3%",
-    paddingRight: "3%"
+    paddingRight: "3%",
+    backgroundColor: "transparent"
 
 
     
@@ -352,10 +353,10 @@ const styles = EStyleSheet.create({
   infoButton: {
     
     borderColor: "#FFF",
-    borderWidth: 3,
-    borderRadius: 30,
-    width: 30,
-    height: 30,
+    borderWidth: 2,
+    borderRadius: 10,
+    width: 40,
+    height: 40,
     justifyContent: "flex-end",
     marginTop: "5%"
     
