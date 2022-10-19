@@ -89,7 +89,7 @@ export default function App() {
                 btnTitle={ContentSelector("L3").title}
               />
               {/* <HiddenButton /> */}
-              <View style={styles.hiddenBtn}>
+              <View style={[styles.hiddenBtn, { alignItems: "flex-start" }]}>
                 <Actionbar groupId={groupId} />
               </View>
             </View>
@@ -378,7 +378,7 @@ const styles = EStyleSheet.create({
   titlePressedbtn: {
     color: "#FFF",
     fontSize: 20,
-    fontWeight: "bold",
+    // fontWeight: "bold",
     textAlign: "center",
     width: "170%",
     // backgroundColor: "blue",

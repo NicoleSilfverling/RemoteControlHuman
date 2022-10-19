@@ -141,7 +141,7 @@ const styles = EStyleSheet.create({
   },
   "@media (max-width: 1300)": {
     textStyle: {
-      fontSize: "1.7rem",
+      fontSize: "1.3rem",
       width: "260%",
     },
     button: {
