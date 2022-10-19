@@ -22,6 +22,7 @@ export default function CTAButton({
   bodyHalfLeft,
   setGroupId,
   setSoundIsPlaying,
+  setIsHand,
 }) {
   const [sound, setSound] = React.useState();
 
@@ -32,15 +33,12 @@ export default function CTAButton({
     );
     setSound(sound);
 
-
     console.log("Playing Sound");
     await sound.playAsync();
 
     sound.setOnPlaybackStatusUpdate((playbackStatus) => {
-      
-      if (playbackStatus.didJustFinish==true)
-        setSoundIsPlaying(false);
-  })
+      if (playbackStatus.didJustFinish == true) setSoundIsPlaying(false);
+    });
   }
 
   React.useEffect(() => {
@@ -84,6 +82,10 @@ export default function CTAButton({
   if (btnId == "L1") leftSide = true;
   else if (btnId == "L7") leftSide = false;
 
+  let isHand;
+  if (btnId == "L2") isHand = true;
+  else isHand = false;
+
   return (
     <View style={styles.container}>
       <TouchableHighlight
@@ -94,6 +96,7 @@ export default function CTAButton({
             setBodyHalfLeft ? setBodyHalfLeft(leftSide) : null,
             setGroupId ? setGroupId(btnGroup) : null;
           setSoundIsPlaying ? setSoundIsPlaying(true) : null;
+          setIsHand ? setIsHand(isHand) : null;
         }}
         style={[styles.button, colorStyles]}
         activeOpacity={0.5}

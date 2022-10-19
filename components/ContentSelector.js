@@ -1,4 +1,4 @@
-function ContentSelector(btnId, bodyHalfLeft) {
+function ContentSelector(btnId, bodyHalfLeft, isHand) {
   let title = "";
   let iconImg = "";
   let bodypartImg = "";
@@ -77,12 +77,20 @@ function ContentSelector(btnId, bodyHalfLeft) {
 
       break;
     case "R2":
-      title = "BEND";
+      if (isHand) {
+        title = "CLOSE GRIP";
+      } else {
+        title = "BEND";
+      }
       iconImg = require("../assets/icons/bendIcon.png");
       sound = require("../assets/sounds/bend.wav");
       break;
     case "R3":
-      title = "STRETCH";
+      if (isHand) {
+        title = "OPEN GRIP";
+      } else {
+        title = "STRETCH";
+      }
       iconImg = require("../assets/icons/stretchIcon.png");
       sound = require("../assets/sounds/stretch.wav");
 

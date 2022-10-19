@@ -34,6 +34,15 @@ export default function App() {
   const [showHelpPopUp, setShowHelpPopUp] = useState(false);
   const [showStartVideo, setShowStartVideo] = useState(true);
   const [soundIsPlaying, setSoundIsPlaying] = useState(false);
+  const [isHand, setIsHand] = useState(false);
+
+  let titlePressedbtn;
+  if (
+    ContentSelector(buttonId).title != "RESET" &&
+    ContentSelector(buttonId).title != "STOP"
+  ) {
+    titlePressedbtn = ContentSelector(buttonId, true, isHand).title;
+  }
 
   return (
     <View style={styles.window}>
@@ -54,6 +63,7 @@ export default function App() {
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L1"
                 btnGroup="1"
                 btnTitle={ContentSelector("L1").title}
@@ -63,6 +73,7 @@ export default function App() {
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L2"
                 btnGroup="2"
                 btnTitle={ContentSelector("L2").title}
@@ -72,11 +83,15 @@ export default function App() {
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L3"
                 btnGroup="2"
                 btnTitle={ContentSelector("L3").title}
               />
-              <HiddenButton />
+              {/* <HiddenButton /> */}
+              <View style={styles.hiddenBtn}>
+                <Actionbar groupId={groupId} />
+              </View>
             </View>
             <View style={styles.colStyle}>
               <CTAButton
@@ -84,6 +99,7 @@ export default function App() {
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L4"
                 btnGroup="2"
                 btnTitle={ContentSelector("L4").title}
@@ -93,6 +109,7 @@ export default function App() {
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L5"
                 btnGroup="2"
                 btnTitle={ContentSelector("L5").title}
@@ -102,11 +119,16 @@ export default function App() {
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L6"
                 btnGroup="2"
                 btnTitle={ContentSelector("L6").title}
               />
-              <HiddenButton />
+              {/* <HiddenButton /> */}
+
+              <View style={styles.hiddenBtn}>
+                <Text style={styles.titlePressedbtn}>{titlePressedbtn}</Text>
+              </View>
             </View>
             <View style={styles.colStyle}>
               <CTAButton
@@ -114,6 +136,7 @@ export default function App() {
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L7"
                 btnGroup="1"
                 btnTitle={ContentSelector("L7").title}
@@ -123,6 +146,7 @@ export default function App() {
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L8"
                 btnGroup="2"
                 btnTitle={ContentSelector("L8").title}
@@ -132,23 +156,23 @@ export default function App() {
                 setButtonId={setButtonId}
                 setGroupId={setGroupId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="L9"
                 btnGroup="2"
                 btnTitle={ContentSelector("L9").title}
               />
-              <HiddenButton />
-            </View>
-            <View style={styles.actionbar}>
-              <Actionbar groupId={groupId} buttonId={buttonId} />
-              <TouchableHighlight
-                id="infobtn"
-                onPress={() => {
-                  setShowHelpPopUp(true);
-                }}
-                style={styles.infoButton}
-              >
-                <Text style={styles.iconText}>i</Text>
-              </TouchableHighlight>
+              {/* <HiddenButton /> */}
+              <View style={[styles.hiddenBtn, { alignItems: "flex-end" }]}>
+                <TouchableHighlight
+                  id="infobtn"
+                  onPress={() => {
+                    setShowHelpPopUp(true);
+                  }}
+                  style={styles.infoButton}
+                >
+                  <Text style={styles.iconText}>?</Text>
+                </TouchableHighlight>
+              </View>
             </View>
           </View>
 
@@ -188,7 +212,7 @@ export default function App() {
                 setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R2"
                 btnGroup="3"
-                btnTitle={ContentSelector("R2").title}
+                btnTitle={ContentSelector("R2", true, isHand).title}
               />
               <CTAButton
                 setGroupId={setGroupId}
@@ -196,7 +220,7 @@ export default function App() {
                 setSoundIsPlaying={setSoundIsPlaying}
                 btnId="R3"
                 btnGroup="3"
-                btnTitle={ContentSelector("R3").title}
+                btnTitle={ContentSelector("R3", true, isHand).title}
               />
               <CTAButton
                 setGroupId={setGroupId}
@@ -236,6 +260,7 @@ export default function App() {
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="R8"
                 btnGroup="5"
                 btnTitle={ContentSelector("R8").title}
@@ -270,6 +295,7 @@ export default function App() {
                 setGroupId={setGroupId}
                 setButtonId={setButtonId}
                 setSoundIsPlaying={setSoundIsPlaying}
+                setIsHand={setIsHand}
                 btnId="R12"
                 btnGroup="5"
                 btnTitle={ContentSelector("R12").title}
@@ -349,52 +375,50 @@ const styles = EStyleSheet.create({
     height: "100%",
     zIndex: 0,
   },
-  actionbar: {
-    position: "absolute",
-    zIndex: 2,
-    bottom: 18,
-    marginTop: "5%",
-    marginBottom: "8%",
-    marginLeft: "10%",
-    width: "100%",
-    paddingLeft: "3%",
-    paddingRight: "3%",
-    backgroundColor: "transparent",
-
+  titlePressedbtn: {
+    color: "#FFF",
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    width: "170%",
     // backgroundColor: "blue",
   },
   infoButton: {
+    position: "relative",
     borderColor: "#FFF",
     borderWidth: 2,
     borderRadius: 10,
-    width: 40,
-    height: 40,
-    justifyContent: "flex-end",
-    marginTop: "5%",
-  },
-  iconball: {
+    width: "60%",
+    height: "60%",
+    justifyContent: "center",
+    // marginTop: "5%",
     // backgroundColor: "green",
-    borderWidth: 3,
-    borderColor: "#FFF",
-    borderRadius: 50,
-    width: 40,
-    height: 40,
-    zIndex: 2,
   },
   iconText: {
     textAlign: "center",
     fontWeight: "bold",
     color: "#FFF",
-    fontSize: 24,
+    fontSize: 30,
   },
-  iconCon: {
-    flexDirection: "row",
-    // justifyContent: "space-around",
+  hiddenBtn: {
+    height: "15%",
+    aspectRatio: 1,
+    borderRadius: 15,
+    borderWidth: 2,
+    borderColor: "transparent",
+    backgroundColor: "transparent",
+    alignItems: "center",
+    justifyContent: "flex-end",
   },
 
   "@media (max-width: 1300)": {
     center: {
       flex: 1.2,
+    },
+    hiddenBtn: {
+      height: "14%",
+      borderRadius: 10,
+      borderWidth: 1,
     },
   },
 
@@ -407,16 +431,25 @@ const styles = EStyleSheet.create({
       paddingTop: "3%",
       paddingBottom: "3%",
     },
-    actionbar: {
-      flexDirection: "row",
-      marginBottom: "0%",
-      justifyContent: "space-between",
-      /* backgroundColor: "blue" */
-    },
     infoButton: {
       height: 25,
       width: 25,
       marginTop: "5%",
+    },
+    hiddenBtn: {
+      height: "17%",
+      borderRadius: 10,
+      borderWidth: 1,
+    },
+    titlePressedbtn: {
+      fontSize: 12,
+    },
+  },
+  "@media (max-width: 900)": {
+    hiddenBtn: {
+      height: "17%",
+      borderRadius: 8,
+      borderWidth: 1,
     },
   },
 });
