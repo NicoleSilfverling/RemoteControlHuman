@@ -170,10 +170,10 @@ export default function App() {
                   }}
                   style={styles.infoButton}
                 >
-                <Image
-              style={styles.infoIcon}
-              source={require("./assets/icons/rightIcon.png")}
-            />
+                  <Image
+                    style={styles.infoIcon}
+                    source={require("./assets/icons/rightIcon.png")}
+                  />
                 </TouchableHighlight>
               </View>
             </View>
@@ -389,12 +389,12 @@ const styles = EStyleSheet.create({
   infoButton: {
     position: "relative",
     borderColor: "#FFF",
-    borderWidth: 1 ,
+    borderWidth: 1,
     borderRadius: 50,
     width: "100%",
     height: "100%",
     justifyContent: "center",
-    paddingLeft: "25%"
+    paddingLeft: "25%",
     // marginTop: "5%",
     // backgroundColor: "green",
   },
@@ -409,14 +409,13 @@ const styles = EStyleSheet.create({
     tintColor: "#FFF",
     width: "100%",
     height: "100%",
-    
   },
   hiddenBtn: {
     height: "15%",
     aspectRatio: 1,
     borderRadius: 15,
     borderWidth: 2,
-    borderColor: "pink",
+    borderColor: "transparent",
     backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "flex-end",
