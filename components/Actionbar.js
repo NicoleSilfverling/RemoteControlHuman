@@ -1,32 +1,8 @@
-import React, { useEffect } from "react";
-import { View, Text } from "react-native";
-import ContentSelector from "./ContentSelector";
+import React from "react";
+import { View } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 
-const Actionbar = ({ groupId, buttonId, isHand }) => {
-  let titleGroup1 = "";
-  let titleGroup2 = "";
-  let titleGroup3 = "";
-  let titleGroup4 = "";
-  let titleMobile = "";
-
-  if (
-    ContentSelector(buttonId).title != "RESET" &&
-    ContentSelector(buttonId).title != "STOP"
-  ) {
-    titleMobile = ContentSelector(buttonId, true, isHand).title;
-  }
-
-  if (groupId == "1") {
-    titleGroup1 = ContentSelector(buttonId).title;
-  } else if (groupId == "2") {
-    titleGroup2 = ContentSelector(buttonId).title;
-  } else if (groupId == "3") {
-    titleGroup3 = ContentSelector(buttonId).title;
-  } else if (groupId == "4") {
-    titleGroup4 = ContentSelector(buttonId).title;
-  }
-
+const Actionbar = ({ groupId }) => {
   let backgroundColorBar1 = "transparent";
   let backgroundColorBar2;
   let backgroundColorBar3;
@@ -79,14 +55,12 @@ const Actionbar = ({ groupId, buttonId, isHand }) => {
     <View style={styles.container}>
       <View style={styles.mobileContainer}>
         <View style={[styles.barMobile, colorStylesBarMobile]}></View>
-        <Text style={styles.textStyleMobile}>{titleMobile}</Text>
       </View>
       <View style={styles.barContainer}>
         <View style={[styles.bar1, colorStylesBar1]}></View>
         <View style={[styles.bar2, colorStylesBar2]}></View>
         <View style={[styles.bar3, colorStylesBar3]}></View>
         <View style={[styles.bar4, colorStylesBar4]}></View>
-        <Text style={styles.textStyle}>{titleMobile}</Text>
       </View>
     </View>
   );
@@ -108,15 +82,6 @@ const styles = EStyleSheet.create({
     borderWidth: 2,
     borderRadius: 30,
   },
-
-  textStyleMobile: {
-    fontSize: 12,
-    color: "#FFF",
-
-    width: "170%",
-    paddingBottom: "2%",
-    paddingLeft: "5%",
-  },
   barContainer: {
     //flex: 1,
     overflow: "hidden",
@@ -126,16 +91,6 @@ const styles = EStyleSheet.create({
     backgroundColor: "transparent",
     alignItems: "center",
     flexDirection: "row",
-  },
-  textStyle: {
-    //flex: 2,
-    color: "#FFF",
-    textAlign: "center",
-    fontSize: 18,
-    /* backgroundColor: "pink", */
-    fontWeight: "bold",
-    //width: "120%",
-    paddingBottom: "2%",
   },
 
   mobileContainer: {
@@ -202,11 +157,6 @@ const styles = EStyleSheet.create({
     marginRight: "1%",
   },
 
-  "@media (max-width: 1300)": {
-    textStyle: {
-      fontSize: "1rem",
-    },
-  },
   "@media (max-width: 1000)": {
     barContainer: {
       borderWidth: 0,

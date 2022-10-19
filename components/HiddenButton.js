@@ -3,38 +3,38 @@ import { View, StyleSheet } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 
 const HiddenButton = () => {
-  return <View style={styles.container}></View>;
+  return <View style={styles.hiddenBtn}></View>;
 };
 
 export default HiddenButton;
 
 const styles = EStyleSheet.create({
-  container: {
+  hiddenBtn: {
     height: "15%",
     aspectRatio: 1,
     borderRadius: 15,
     borderWidth: 2,
-    borderColor: "transparent",
+    borderColor: "green",
     backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "center",
   },
   "@media (max-width: 1300)": {
-    container: {
+    hiddenBtn: {
       height: "14%",
       borderRadius: 10,
       borderWidth: 1,
     },
   },
   "@media (max-width: 1000)": {
-    container: {
+    hiddenBtn: {
       height: "17%",
       borderRadius: 10,
       borderWidth: 1,
     },
   },
   "@media (max-width: 900)": {
-    container: {
+    hiddenBtn: {
       height: "17%",
       borderRadius: 8,
       borderWidth: 1,
