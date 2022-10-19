@@ -8,7 +8,6 @@ import {
   View,
 } from "react-native";
 import ContentSelector from "./ContentSelector";
-// import { playSound } from "./Audioplayer";
 import { testFunc } from "./ShowImage";
 import EStyleSheet from "react-native-extended-stylesheet";
 
@@ -24,31 +23,31 @@ export default function CTAButton({
   setSoundIsPlaying,
   setIsHand,
 }) {
-  const [sound, setSound] = React.useState();
+  // const [sound, setSound] = React.useState();
 
-  async function playSound() {
-    console.log("Loading Sound");
-    const { sound } = await Audio.Sound.createAsync(
-      ContentSelector(btnId, bodyHalfLeft).sound
-    );
-    setSound(sound);
+  // async function playSound() {
+  //   console.log("Loading Sound");
+  //   const { sound } = await Audio.Sound.createAsync(
+  //     ContentSelector(btnId, bodyHalfLeft).sound
+  //   );
+  //   setSound(sound);
 
-    console.log("Playing Sound");
-    await sound.playAsync();
+  //   console.log("Playing Sound");
+  //   await sound.playAsync();
 
-    sound.setOnPlaybackStatusUpdate((playbackStatus) => {
-      if (playbackStatus.didJustFinish == true) setSoundIsPlaying(false);
-    });
-  }
+  //   sound.setOnPlaybackStatusUpdate((playbackStatus) => {
+  //     if (playbackStatus.didJustFinish == true) setSoundIsPlaying(false);
+  //   });
+  // }
 
-  React.useEffect(() => {
-    return sound
-      ? () => {
-          console.log("Unloading Sound");
-          sound.unloadAsync();
-        }
-      : undefined;
-  }, [sound]);
+  // React.useEffect(() => {
+  //   return sound
+  //     ? () => {
+  //         console.log("Unloading Sound");
+  //         sound.unloadAsync();
+  //       }
+  //     : undefined;
+  // }, [sound]);
 
   let btnBorderColor = "#FFF";
   let btnBackgroundColor = "black";

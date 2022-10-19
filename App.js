@@ -21,11 +21,15 @@ import HelpPopUp from "./components/HelpPopUp";
 import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
 import SoundVisual from "./components/SoundVisual";
+import Audioplayer from "./components/Audioplayer";
 
 export default function App() {
   EStyleSheet.build({
     $textColor: "#FFF",
   });
+  let isPlayingSound = false;
+  const audioplayer = Audioplayer();
+  audioplayer.playBackgroundSound();
 
   const [showImage, setShowImage] = useState(false);
   const [buttonId, setButtonId] = useState("");
@@ -47,9 +51,9 @@ export default function App() {
   return (
     <View style={styles.window}>
       <SafeAreaView style={styles.container}>
-        {showStartVideo ? (
+        {/* {showStartVideo ? (
           <StartVideo setShowStartVideo={setShowStartVideo} />
-        ) : null}
+        ) : null} */}
         {showHelpPopUp ? (
           <HelpPopUp setShowHelpPopUp={setShowHelpPopUp} />
         ) : null}
