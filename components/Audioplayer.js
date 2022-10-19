@@ -2,31 +2,30 @@ import * as React from "react";
 import { Audio } from "expo-av";
 
 const Audioplayer = function () {
-  const [soundBackground, setSoundBackground] = React.useState();
+  const [soundBg, setSoundBg] = React.useState();
 
-  async function playBackgroundSound() {
+  async function playSoundBg() {
     console.log("Loading Sound");
-    const { soundBackground } = await Audio.Sound.createAsync(
+    const { soundBg } = await Audio.Sound.createAsync(
       require("../assets/sounds/robotbakgrundsloop.wav")
     );
-    setSound(soundBackground);
+    setSoundBg(soundBg);
 
     console.log("Playing Sound");
-    await soundBackground.playAsync();
+    await soundBg.playAsync();
+    return {
+      soundBg: soundBg,
+    };
   }
-  return {
-    playBackgroundSound: playBackgroundSound,
-  };
-  // playSound();
 
   React.useEffect(() => {
-    return soundBackground
+    return soundBg
       ? () => {
           console.log("Unloading Sound");
-          soundBackground.unloadAsync();
+          soundBg.unloadAsync();
         }
       : undefined;
-  }, [soundBackground]);
+  }, [soundBg]);
 };
 
 export default Audioplayer;

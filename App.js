@@ -27,9 +27,36 @@ export default function App() {
   EStyleSheet.build({
     $textColor: "#FFF",
   });
-  let isPlayingSound = false;
+  // let isPlayingSound = false;
   const audioplayer = Audioplayer();
-  audioplayer.playBackgroundSound();
+
+  const [sound, setSound] = React.useState();
+
+  async function playSound() {
+    console.log("Loading Sound");
+    const { sound } = await Audio.Sound.createAsync(
+      require("./assets/sounds/robotbakgrundsloop.wav")
+    );
+    setSound(sound);
+
+    console.log("Playing Sound");
+    await sound.playAsync();
+  }
+
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log("Unloading Sound");
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
+  let startBgSound = true;
+  while (startBgSound) {
+    // audioplayer.soundBg();
+    playSound();
+    startBgSound = false;
+  }
 
   const [showImage, setShowImage] = useState(false);
   const [buttonId, setButtonId] = useState("");
