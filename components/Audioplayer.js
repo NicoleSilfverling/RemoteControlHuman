@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Audio } from "expo-av";
 
-export async function Audioplayer(btnId) {
+export default Audioplayer() {
   console.log("logging audioplayer and pressed buttonID: " + btnId);
   const [sound, setSound] = React.useState();
 
@@ -16,7 +16,7 @@ export async function Audioplayer(btnId) {
     await sound.playAsync();
   }
   playSound();
-
+/* 
   React.useEffect(() => {
     return sound
       ? () => {
@@ -24,5 +24,5 @@ export async function Audioplayer(btnId) {
           sound.unloadAsync();
         }
       : undefined;
-  }, [sound]);
+  }, [sound]); */
 }
