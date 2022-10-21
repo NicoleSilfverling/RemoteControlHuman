@@ -38,7 +38,7 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
         <Video
           ref={video}
           style={styles.video}
-          source={require("../assets/videos/robothumanInfo.mov")}
+          source={require("../assets/videos/robothumanhelp.mp4")}
           useNativeControls="false"
           resizeMode="contain"
           shouldPlay
@@ -67,13 +67,13 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
                 <View style={styles.iconBorder}>
                   <Image
                     style={styles.icon}
-                    source={require("../assets/icons/leftArrowIcon.png")}
+                    source={require("../assets/icons/leftIcon.png")}
                   />
                 </View>
                 <View style={styles.iconBorder}>
                   <Image
                     style={styles.icon}
-                    source={require("../assets/icons/rightArrowIcon.png")}
+                    source={require("../assets/icons/rightIcon.png")}
                   />
                 </View>
               </View>
@@ -160,13 +160,13 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
                 <View style={styles.iconBorder}>
                   <Image
                     style={styles.icon}
-                    source={require("../assets/icons/leftArrowIcon.png")}
+                    source={require("../assets/icons/leftIcon.png")}
                   />
                 </View>
                 <View style={styles.iconBorder}>
                   <Image
                     style={styles.icon}
-                    source={require("../assets/icons/rightArrowIcon.png")}
+                    source={require("../assets/icons/rightIcon.png")}
                   />
                 </View>
               </View>
@@ -250,6 +250,7 @@ const styles = EStyleSheet.create({
     justifyContent: "center",
     width: "80%",
     height: "80%",
+    // display: "inline-block",
     borderRadius: 10,
     // borderColor: "#FFF",
     // borderWidth: 2,
@@ -283,7 +284,7 @@ const styles = EStyleSheet.create({
     zIndex: 5,
     position: "absolute",
     backgroundColor: "rgba(0, 0, 0, 0.4)",
-    width: "50%",
+    width: "54%",
     height: "100%",
     padding: "5%",
   },
