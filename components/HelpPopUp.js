@@ -48,17 +48,6 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
         <View style={styles.leftContainer}>
           <ScrollView style={styles.textOnTopContainer}>
             <Text style={styles.textOnTopStyle}>
-              Blind Bot is a tool to remote control a human. {"\n"}
-              One person is the operates the controller, the other one the robot
-              and is blindfolded. {"\n"}
-              Send voice commandos with the controller buttons that your robot
-              must follow. {"\n"}
-              Create challenges to perform a simple task.{"\n"}
-              Play against other controller+robot teams.{"\n"}
-              Create an abstract ballet, filmed with time lapse.{"\n"}
-              For tips and inspiration, watch this video.{"\n"}
-              {"\n"}
-              {"\n"}
               The Controller is divided into 4 sections. The best way to create
               a commando for your robot is in this order.{"\n"}
               {"\n"}
@@ -283,9 +272,11 @@ const styles = EStyleSheet.create({
     flex: 1,
     zIndex: 5,
     position: "absolute",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
+    right: 0,
+    top: "10%",
+    // backgroundColor: "rgba(0, 0, 0, 0.4)",
     width: "54%",
-    height: "100%",
+    height: "50%",
     padding: "5%",
   },
   textOnTopContainer: {
@@ -324,5 +315,10 @@ const styles = EStyleSheet.create({
     fontSize: 50,
     zIndex: 10,
     marginLeft: "5%",
+  },
+  "@media (max-width: 1000)": {
+    textOnTopStyle: {
+      fontSize: 14,
+    },
   },
 });
