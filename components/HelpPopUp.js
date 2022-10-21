@@ -38,7 +38,7 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
         <Video
           ref={video}
           style={styles.video}
-          source={require("../assets/videos/dummyflick.mp4")}
+          source={require("../assets/videos/robothumanInfo.mov")}
           useNativeControls="false"
           resizeMode="contain"
           shouldPlay
