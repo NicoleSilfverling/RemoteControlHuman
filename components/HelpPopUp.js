@@ -239,9 +239,8 @@ const styles = EStyleSheet.create({
     justifyContent: "center",
     // width: "80%",
     // height: "80%",
-    width: 1280,
-    height: 720,
-    // display: "inline-block",
+    width: 1150,
+    height: 647,
     borderRadius: 10,
     // borderColor: "#FFF",
     // borderWidth: 2,
@@ -250,8 +249,8 @@ const styles = EStyleSheet.create({
     alignSelf: "center",
     // width: "100%",
     // height: "100%",
-    width: 1280,
-    height: 800,
+    width: 1150,
+    height: 647,
   },
   buttons: {
     flexDirection: "row",
@@ -318,17 +317,30 @@ const styles = EStyleSheet.create({
     zIndex: 10,
     marginLeft: "5%",
   },
+  "@media (max-width: 1300)": {
+    textOnTopStyle: {
+      fontSize: 14,
+    },
+    popUp: {
+      width: 960,
+      height: 540,
+    },
+    video: {
+      width: 960,
+      height: 540,
+    },
+  },
   "@media (max-width: 1000)": {
     textOnTopStyle: {
       fontSize: 14,
     },
     popUp: {
-      width: 640,
-      height: 360,
+      width: 580,
+      height: 326,
     },
     video: {
-      width: 640,
-      height: 400,
+      width: 580,
+      height: 326,
     },
   },
 });

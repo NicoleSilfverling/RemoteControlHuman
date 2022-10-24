@@ -383,7 +383,7 @@ const styles = EStyleSheet.create({
     fontSize: 20,
     // fontWeight: "bold",
     textAlign: "center",
-    
+
     width: "170%",
     //backgroundColor: "blue",
   },
@@ -416,7 +416,7 @@ const styles = EStyleSheet.create({
     aspectRatio: 1,
     borderRadius: 15,
     borderWidth: 2,
-    borderColor: "green",
+    borderColor: "transparent",
     backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "flex-end",
