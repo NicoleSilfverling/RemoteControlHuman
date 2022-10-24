@@ -389,7 +389,10 @@ const styles = EStyleSheet.create({
     fontSize: 20,
     // fontWeight: "bold",
     textAlign: "center",
-
+    padding: 0,
+    margin: 0,
+    lineHeight: 16 * 1.4,
+    height: 16,
     width: "170%",
     // backgroundColor: "blue",
   },
