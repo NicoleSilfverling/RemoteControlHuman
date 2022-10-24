@@ -343,4 +343,30 @@ const styles = EStyleSheet.create({
       height: 326,
     },
   },
+  "@media (max-width: 900)": {
+    textOnTopStyle: {
+      fontSize: 14,
+    },
+    popUp: {
+      width: 500,
+      height: 281,
+    },
+    video: {
+      width: 500,
+      height: 281,
+    },
+  },
+  "@media (max-width: 780)": {
+    textOnTopStyle: {
+      fontSize: 14,
+    },
+    popUp: {
+      width: "75%",
+      height: "75%",
+    },
+    video: {
+      width: "100%",
+      height: "100%",
+    },
+  },
 });
