@@ -133,11 +133,12 @@ const styles = EStyleSheet.create({
   },
   textStyle: {
     width: "250%",
-    color: "#FFF",
+    color: "$textColor",
     fontSize: "1.7rem",
     textAlign: "center",
-
     paddingTop: "15%",
+    fontFamily: "$fontFamily",
+    fontWeight: "$fontWeight",
   },
   "@media (max-width: 1300)": {
     textStyle: {

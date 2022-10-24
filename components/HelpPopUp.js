@@ -181,7 +181,9 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
               {"\n"}
               To play Blind Bot the robot must trust the operator. Play on a
               flat surface without obstacles. Never play close to bumps, holes
-              ot staircases.{"\n"}
+              ot staircases.
+              {"\n"}
+              {"\n"}
               Feel free to film and share your Blind Bot games. Please use
               #blindbot{"\n"}
               {"\n"}
@@ -291,8 +293,10 @@ const styles = EStyleSheet.create({
   },
 
   textOnTopStyle: {
-    color: "#FFF",
+    color: "$textColor",
     fontSize: 20,
+    fontFamily: "$fontFamily",
+    fontWeight: "$fontWeight",
   },
   iconBorder: {
     backgroundColor: "black",
@@ -319,7 +323,7 @@ const styles = EStyleSheet.create({
   },
   "@media (max-width: 1300)": {
     textOnTopStyle: {
-      fontSize: 14,
+      fontSize: 16,
     },
     popUp: {
       width: 960,

@@ -24,7 +24,9 @@ import SoundVisual from "./components/SoundVisual";
 
 export default function App() {
   EStyleSheet.build({
-    $textColor: "#FFF",
+    $textColor: "#FFFFFF",
+    $fontFamily: "Avenir",
+    $fontWeight: "bold",
   });
 
   const [showImage, setShowImage] = useState(false);
@@ -365,8 +367,10 @@ const styles = EStyleSheet.create({
     paddingRight: "3%",
   },
   textStyle: {
-    color: "#FFF",
+    color: "$textColor",
     fontSize: 30,
+    fontFamily: "$fontFamily",
+    fontWeight: "$fontWeight",
   },
   colStyle: {
     justifyContent: "space-between",
@@ -379,13 +383,15 @@ const styles = EStyleSheet.create({
     zIndex: 0,
   },
   titlePressedbtn: {
-    color: "#FFF",
+    fontFamily: "$fontFamily",
+    fontWeight: "$fontWeight",
+    color: "$textColor",
     fontSize: 20,
     // fontWeight: "bold",
     textAlign: "center",
 
     width: "170%",
-    //backgroundColor: "blue",
+    // backgroundColor: "blue",
   },
   infoButton: {
     position: "relative",
