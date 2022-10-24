@@ -22,10 +22,11 @@ import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
 import SoundVisual from "./components/SoundVisual";
 
+
 export default function App() {
   EStyleSheet.build({
     $textColor: "#FFFFFF",
-    $fontFamily: "Avenir",
+    $fontFamily: "",
     $fontWeight: "bold",
   });
 
@@ -383,7 +384,7 @@ const styles = EStyleSheet.create({
     zIndex: 0,
   },
   titlePressedbtn: {
-    fontFamily: "$fontFamily",
+    fontFamily: "Avenir Heavy",
     fontWeight: "$fontWeight",
     color: "$textColor",
     fontSize: 20,
