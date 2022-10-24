@@ -79,14 +79,14 @@ const styles = EStyleSheet.create({
     height: 25,
     width: 25,
     borderColor: "#FFF",
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 30,
   },
   barContainer: {
     //flex: 1,
     overflow: "hidden",
     borderRadius: 10,
-    borderWidth: 2,
+  
     borderColor: "transparent",
     backgroundColor: "transparent",
     alignItems: "center",
@@ -99,7 +99,7 @@ const styles = EStyleSheet.create({
     // width: "100%",
     overflow: "hidden",
     borderRadius: 10,
-    borderWidth: 0,
+    
     borderColor: "transparent",
     backgroundColor: "transparent",
     alignItems: "center",
@@ -163,12 +163,12 @@ const styles = EStyleSheet.create({
       display: "none",
     },
     mobileContainer: {
-      borderWidth: 2,
+      
       display: "flex",
       /* paddingLeft: "2%", */
       paddingRight: "70%",
       marginLeft: "0%",
-      /* backgroundColor: "pink" */
+       //backgroundColor: "pink"
     },
   },
   "@media (max-width: 900)": {},
