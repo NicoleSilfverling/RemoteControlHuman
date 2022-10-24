@@ -21,12 +21,14 @@ import HelpPopUp from "./components/HelpPopUp";
 import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
 import SoundVisual from "./components/SoundVisual";
-
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
+import { Cookie_400Regular } from "@expo-google-fonts/cookie";
 
 export default function App() {
   EStyleSheet.build({
     $textColor: "#FFFFFF",
-    $fontFamily: "",
+    $fontFamily: "Cookie-Regular",
     $fontWeight: "bold",
   });
 
@@ -38,6 +40,14 @@ export default function App() {
   const [showStartVideo, setShowStartVideo] = useState(true);
   const [soundIsPlaying, setSoundIsPlaying] = useState(false);
   const [isHand, setIsHand] = useState(false);
+
+  let [fontsLoaded] = useFonts({
+    "Avenir-Heavy": require("./assets/fonts/Avenir Heavy/Avenir-Heavy.ttf"),
+    "Cookie-Regular": Cookie_400Regular,
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
 
   let titlePressedbtn;
   if (
@@ -384,7 +394,7 @@ const styles = EStyleSheet.create({
     zIndex: 0,
   },
   titlePressedbtn: {
-    fontFamily: "Avenir Heavy",
+    fontFamily: "$fontFamily",
     fontWeight: "$fontWeight",
     color: "$textColor",
     fontSize: 20,
