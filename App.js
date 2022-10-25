@@ -22,12 +22,17 @@ import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
 import SoundVisual from "./components/SoundVisual";
 
-
 export default function App() {
   EStyleSheet.build({
     $textColor: "#FFFFFF",
-    $fontFamily: "",
-    $fontWeight: "bold",
+    $fontFamily: "Avenir-Heavy",
+    $fontFamilyIOS: "Avenir-Heavy",
+    $fontFamilyAndroid: "sans-serif",
+    $fontWeight: "500",
+    $white: "#FFFFFF",
+    $yellow: "#ffd500",
+    $orange: "orange",
+    $green: "#00A300",
   });
 
   const [showImage, setShowImage] = useState(false);
@@ -172,6 +177,8 @@ export default function App() {
                     setShowHelpPopUp(true);
                   }}
                   style={styles.infoButton}
+                  // activeOpacity={0.1}
+                  underlayColor={"#FFFFFF"}
                 >
                   <Image
                     style={styles.infoIcon}
@@ -384,7 +391,8 @@ const styles = EStyleSheet.create({
     zIndex: 0,
   },
   titlePressedbtn: {
-    fontFamily: "Avenir Heavy",
+    // fontFamily: "$fontFamily",
+    fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
     color: "$textColor",
     fontSize: 20,
@@ -406,6 +414,7 @@ const styles = EStyleSheet.create({
     height: "80%",
     justifyContent: "center",
     paddingLeft: "25%",
+
     // marginTop: "5%",
     // backgroundColor: "green",
   },

@@ -137,7 +137,7 @@ const styles = EStyleSheet.create({
     fontSize: "1.7rem",
     textAlign: "center",
     paddingTop: "15%",
-    fontFamily: "$fontFamily",
+    fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
   },
   "@media (max-width: 1300)": {

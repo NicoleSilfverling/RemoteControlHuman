@@ -31,8 +31,12 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
             setShowHelpPopUp ? setShowHelpPopUp(false) : null;
           }}
         >
-          <Text style={styles.closeText}>x</Text>
+          <Image
+            style={styles.closeIcon}
+            source={require("../assets/icons/rightIcon.png")}
+          />
         </TouchableHighlight>
+
         {/* <Text style={styles.title}>BlindBot</Text> */}
 
         <Video
@@ -52,6 +56,7 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
               a commando for your robot is in this order.{"\n"}
               {"\n"}
               1. Body half - left, right
+              {"\n"}
               <View style={styles.iconContainer}>
                 <View style={styles.iconBorder}>
                   <Image
@@ -70,21 +75,21 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
               {"\n"}2. Body part - torso, arm, hand, thumb, index finger, leg,
               foot{"\n"}
               <View style={styles.iconContainer}>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.yellowIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.yellowIcon]}
                     source={require("../assets/icons/torsoIcon.png")}
                   />
                 </View>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.yellowIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.yellowIcon]}
                     source={require("../assets/icons/handIcon.png")}
                   />
                 </View>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.yellowIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.yellowIcon]}
                     source={require("../assets/icons/footIcon.png")}
                   />
                 </View>
@@ -93,27 +98,27 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
               {"\n"}
               3. Action - move, bend, stretch, twist{"\n"}
               <View style={styles.iconContainer}>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.orangeIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.orangeIcon]}
                     source={require("../assets/icons/moveIcon.png")}
                   />
                 </View>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.orangeIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.orangeIcon]}
                     source={require("../assets/icons/bendIcon.png")}
                   />
                 </View>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.orangeIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.orangeIcon]}
                     source={require("../assets/icons/stretchIcon.png")}
                   />
                 </View>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.orangeIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.orangeIcon]}
                     source={require("../assets/icons/twistIcon.png")}
                   />
                 </View>
@@ -122,39 +127,39 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
               {"\n"}
               4. Direction - up, down, forward, backward, left, right{"\n"}
               <View style={styles.iconContainer}>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.greenIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.greenIcon]}
                     source={require("../assets/icons/upIcon.png")}
                   />
                 </View>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.greenIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.greenIcon]}
                     source={require("../assets/icons/downIcon.png")}
                   />
                 </View>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.greenIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.greenIcon]}
                     source={require("../assets/icons/forwardIcon.png")}
                   />
                 </View>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.greenIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.greenIcon]}
                     source={require("../assets/icons/backwardIcon.png")}
                   />
                 </View>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.greenIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.greenIcon]}
                     source={require("../assets/icons/leftIcon.png")}
                   />
                 </View>
-                <View style={styles.iconBorder}>
+                <View style={[styles.iconBorder, styles.greenIcon]}>
                   <Image
-                    style={styles.icon}
+                    style={[styles.icon, styles.greenIcon]}
                     source={require("../assets/icons/rightIcon.png")}
                   />
                 </View>
@@ -260,11 +265,22 @@ const styles = EStyleSheet.create({
     alignItems: "center",
   },
   closeButton: {
-    width: 30,
     position: "absolute",
-    top: 0,
-    right: 0,
+    top: 2,
+    right: 2,
     zIndex: 50,
+    borderColor: "#FFF",
+    borderWidth: 1,
+    borderRadius: 50,
+    width: 30,
+    height: 30,
+    justifyContent: "center",
+  },
+  closeIcon: {
+    // backgroundColor: "red",
+    tintColor: "#FFF",
+    width: "100%",
+    height: "100%",
   },
   closeText: {
     color: "#FFF",
@@ -276,10 +292,10 @@ const styles = EStyleSheet.create({
     zIndex: 5,
     position: "absolute",
     right: 0,
-    top: "10%",
+    top: "0%",
     // backgroundColor: "rgba(0, 0, 0, 0.4)",
     width: "54%",
-    height: "50%",
+    height: "60%",
     padding: "5%",
   },
   textOnTopContainer: {
@@ -295,7 +311,7 @@ const styles = EStyleSheet.create({
   textOnTopStyle: {
     color: "$textColor",
     fontSize: 20,
-    fontFamily: "$fontFamily",
+    fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
   },
   iconBorder: {
@@ -305,6 +321,19 @@ const styles = EStyleSheet.create({
     borderRadius: 3,
     width: 30,
     height: 30,
+    margin: 4,
+  },
+  greenIcon: {
+    borderColor: "$green",
+    tintColor: "$green",
+  },
+  yellowIcon: {
+    borderColor: "$yellow",
+    tintColor: "$yellow",
+  },
+  orangeIcon: {
+    borderColor: "$orange",
+    tintColor: "$orange",
   },
   icon: {
     width: "100%",
@@ -321,6 +350,7 @@ const styles = EStyleSheet.create({
     zIndex: 10,
     marginLeft: "5%",
   },
+
   "@media (max-width: 1300)": {
     textOnTopStyle: {
       fontSize: 16,
