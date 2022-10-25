@@ -21,6 +21,7 @@ import HelpPopUp from "./components/HelpPopUp";
 import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
 import SoundVisual from "./components/SoundVisual";
+import backgroundLoop from "./components/backgroundLoop";
 
 export default function App() {
   EStyleSheet.build({
@@ -51,6 +52,8 @@ export default function App() {
   ) {
     titlePressedbtn = ContentSelector(buttonId, true, isHand).title;
   }
+
+  //backgroundLoop();
 
   return (
     <View style={styles.window}>
