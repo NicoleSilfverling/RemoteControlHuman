@@ -390,7 +390,7 @@ const styles = EStyleSheet.create({
       height: 281,
     },
   },
-  "@media (max-width: 780)": {
+  "@media (max-width: 720)": {
     textOnTopStyle: {
       fontSize: 14,
     },

@@ -27,7 +27,7 @@ export default function App() {
     $textColor: "#FFFFFF",
     $fontFamily: "Avenir-Heavy",
     $fontFamilyIOS: "Avenir-Heavy",
-    $fontFamilyAndroid: "sans-serif",
+    $fontFamilyAndroid: "monospace",
     $fontWeight: "500",
     $white: "#FFFFFF",
     $yellow: "#ffd500",
