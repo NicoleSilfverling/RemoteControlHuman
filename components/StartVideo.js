@@ -2,13 +2,16 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Video, AVPlaybackStatus } from "expo-av";
 
-const StartVideo = ({ setShowStartVideo }) => {
+const StartVideo = ({ setShowStartVideo, setShowInfoCard }) => {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
 
   _onPlaybackStatusUpdate = (playbackStatus) => {
-    if (playbackStatus.didJustFinish === true) setShowStartVideo(false);
-    console.log(playbackStatus.didJustFinish);
+    if (playbackStatus.didJustFinish === true) {
+      setShowStartVideo(false);
+      setShowInfoCard(true);
+      console.log(playbackStatus.didJustFinish);
+    }
   };
 
   return (

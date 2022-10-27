@@ -21,6 +21,7 @@ import HelpPopUp from "./components/HelpPopUp";
 import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
 import SoundVisual from "./components/SoundVisual";
+import InfoCard from "./components/InfoCard";
 
 export default function App() {
   EStyleSheet.build({
@@ -43,6 +44,7 @@ export default function App() {
   const [showStartVideo, setShowStartVideo] = useState(true);
   const [soundIsPlaying, setSoundIsPlaying] = useState(false);
   const [isHand, setIsHand] = useState(false);
+  const [showInfoCard, setShowInfoCard] = useState(false);
 
   let titlePressedbtn;
   if (
@@ -56,11 +58,16 @@ export default function App() {
     <View style={styles.window}>
       <SafeAreaView style={styles.container}>
         {showStartVideo ? (
-          <StartVideo setShowStartVideo={setShowStartVideo} />
+          <StartVideo
+            setShowStartVideo={setShowStartVideo}
+            setShowInfoCard={setShowInfoCard}
+          />
         ) : null}
         {showHelpPopUp ? (
           <HelpPopUp setShowHelpPopUp={setShowHelpPopUp} />
         ) : null}
+        {showInfoCard ? <InfoCard setShowInfoCard={setShowInfoCard} /> : null}
+
         <View style={styles.layout}>
           {/* leftside */}
           <View style={styles.leftside}>
