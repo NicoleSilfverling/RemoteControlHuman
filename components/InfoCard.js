@@ -17,8 +17,8 @@ const InfoCard = ({ setShowInfoCard }) => {
       <View style={styles.infoCard}>
         {pageNr < 3 ? (
           <TouchableHighlight
-            style={[styles.arrow, { right: 2 }]}
-            title="Close"
+            underlayColor={"transparent"}
+            style={[styles.arrow, { right: 2, alignItems: "flex-end" }]}
             onPress={() => {
               setPageNr(pageNr + 1);
             }}
@@ -31,8 +31,8 @@ const InfoCard = ({ setShowInfoCard }) => {
         ) : null}
         {pageNr > 1 ? (
           <TouchableHighlight
-            style={[styles.arrow, { left: 2 }]}
-            title="Close"
+            underlayColor={"transparent"}
+            style={[styles.arrow, { left: 2, alignItems: "flex-start" }]}
             onPress={() => {
               setPageNr(pageNr - 1);
             }}
@@ -46,6 +46,7 @@ const InfoCard = ({ setShowInfoCard }) => {
 
         {pageNr < 3 ? (
           <TouchableHighlight
+            underlayColor={"transparent"}
             style={styles.skip}
             onPress={() => {
               setShowInfoCard(false);
@@ -55,8 +56,26 @@ const InfoCard = ({ setShowInfoCard }) => {
           </TouchableHighlight>
         ) : null}
 
+        {pageNr == 3 ? (
+          <TouchableHighlight
+            underlayColor={"#00A300"}
+            style={styles.startBtn}
+            onPress={() => {
+              setShowInfoCard(false);
+            }}
+          >
+            <View style={styles.startCont}>
+              <Text style={styles.startText}>LET'S PLAY</Text>
+              <Image
+                style={styles.startIcon}
+                source={require("../assets/icons/rightIcon.png")}
+              />
+            </View>
+          </TouchableHighlight>
+        ) : null}
+
         {pageNr == 1 ? (
-          <View>
+          <View style={styles.txtBox}>
             <Text style={styles.textStyle}>
               Blind Bot is a tool to remote control a human.
               {"\n"}
@@ -67,7 +86,7 @@ const InfoCard = ({ setShowInfoCard }) => {
           </View>
         ) : null}
         {pageNr == 2 ? (
-          <View>
+          <View style={styles.txtBox}>
             <Text style={styles.textStyle}>
               One person is the operates the controller, the other one the robot
               and is blindfolded.
@@ -82,7 +101,7 @@ const InfoCard = ({ setShowInfoCard }) => {
           </View>
         ) : null}
         {pageNr == 3 ? (
-          <View>
+          <View style={styles.txtBox}>
             <Text style={styles.textStyle}>
               For further instructions, please watch this video.
             </Text>
@@ -144,24 +163,29 @@ const styles = EStyleSheet.create({
     backgroundColor: "rgba(40, 40, 40,1 )",
     borderRadius: 10,
     alignItems: "center",
-    padding: 40,
+    justifyContent: "center",
+    // backgroundColor: "yellow",
+    // padding: 40,
   },
   arrow: {
     position: "absolute",
-    // zIndex: 2,
+    zIndex: 1,
     // borderColor: "#FFF",
     // borderWidth: 1,
     // borderRadius: 50,
-    width: 40,
-    height: 40,
+    // width: 40,
+    // height: 40,
+    width: "40%",
+    height: "100%",
     justifyContent: "center",
-    bottom: "50%",
+    // backgroundColor: "blue",
+    // bottom: "50%",
   },
   arrowIcon: {
     // backgroundColor: "red",
     tintColor: "#FFF",
-    width: "100%",
-    height: "100%",
+    width: 40,
+    height: 40,
   },
   progressDot: {
     width: 10,
@@ -177,6 +201,11 @@ const styles = EStyleSheet.create({
     position: "absolute",
     bottom: 10,
   },
+  txtBox: {
+    width: "80%",
+    height: "90%",
+    // backgroundColor: "green",
+  },
   textStyle: {
     color: "#FFF",
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
@@ -185,8 +214,16 @@ const styles = EStyleSheet.create({
   },
   skip: {
     position: "absolute",
-    right: 10,
-    bottom: 5,
+    right: 0,
+    bottom: 0,
+    height: "10%",
+    width: "30%",
+    // backgroundColor: "red",
+    alignItems: "flex-end",
+    justifyContent: "flex-end",
+    zIndex: 3,
+    paddingRight: 14,
+    paddingBottom: 4,
   },
   skipText: {
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
@@ -194,20 +231,55 @@ const styles = EStyleSheet.create({
     color: "#FFF",
     fontSize: 15,
   },
+  startBtn: {
+    borderWidth: 1,
+    borderColor: "$green",
+    borderRadius: 3,
+    width: 110,
+    height: 30,
+    margin: 4,
+    zIndex: 5,
+    alignItems: "center",
+    justifyContent: "center",
+    position: "absolute",
+    top: "75%",
+  },
+  startIcon: {
+    width: 25,
+    height: "100%",
+    tintColor: "$green",
+    // backgroundColor: "pink",
+  },
+  startCont: {
+    flexDirection: "row",
+    paddingLeft: 10,
+    // backgroundColor: "blue",
+  },
+  startText: {
+    // backgroundColor: "blue",
+
+    // width: 60,
+    color: "#FFF",
+    fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
+    fontWeight: "$fontWeight",
+  },
   "@media (max-width: 1000)": {
     infoCard: {
-      width: 250,
+      width: 260,
       height: 250,
     },
     progressDot: {
       width: 7,
       height: 7,
     },
-    arrow: {
+    arrowIcon: {
       width: 25,
       height: 25,
     },
     textStyle: {
+      fontSize: 14,
+    },
+    skipText: {
       fontSize: 14,
     },
   },
