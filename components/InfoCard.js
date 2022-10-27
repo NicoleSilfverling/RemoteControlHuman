@@ -44,37 +44,48 @@ const InfoCard = ({ setShowInfoCard }) => {
           </TouchableHighlight>
         ) : null}
 
+        {pageNr < 3 ? (
+          <TouchableHighlight
+            style={styles.skip}
+            onPress={() => {
+              setShowInfoCard(false);
+            }}
+          >
+            <Text style={styles.skipText}>skip</Text>
+          </TouchableHighlight>
+        ) : null}
+
         {pageNr == 1 ? (
           <View>
             <Text style={styles.textStyle}>
               Blind Bot is a tool to remote control a human.
               {"\n"}
               {"\n"}
-              One person is the operates the controller, the other one the robot
-              and is blindfolded.
-              {"\n"}
-              {"\n"}
-              Send voice commandos with the controller buttons that your robot
-              must follow.
+              Blind Bot was created by Rumtiden Idea Lab. programmed by Nicole
+              Silfverling and Nasir Tedros, concept by Hakan Lidbo.
             </Text>
           </View>
         ) : null}
         {pageNr == 2 ? (
           <View>
             <Text style={styles.textStyle}>
+              One person is the operates the controller, the other one the robot
+              and is blindfolded.
+              {"\n"}
+              {"\n"}
+              Send voice commandos with the controller buttons that your robot
+              must follow.
+              {"\n"}
+              {"\n"}
               Create challenges to perform a simple task.
-              {"\n"}
-              {"\n"}
-              Play against other controller+robot teams.
-              {"\n"}
-              {"\n"}
-              Create an abstract ballet, filmed with time lapse.
             </Text>
           </View>
         ) : null}
         {pageNr == 3 ? (
           <View>
-            <Text style={styles.textStyle}>Page 3</Text>
+            <Text style={styles.textStyle}>
+              For further instructions, please watch this video.
+            </Text>
           </View>
         ) : null}
 
@@ -171,6 +182,17 @@ const styles = EStyleSheet.create({
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
     fontSize: 20,
+  },
+  skip: {
+    position: "absolute",
+    right: 10,
+    bottom: 5,
+  },
+  skipText: {
+    fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
+    fontWeight: "$fontWeight",
+    color: "#FFF",
+    fontSize: 15,
   },
   "@media (max-width: 1000)": {
     infoCard: {
