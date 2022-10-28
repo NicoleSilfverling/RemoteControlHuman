@@ -340,5 +340,20 @@ const styles = EStyleSheet.create({
     skipText: {
       fontSize: 14,
     },
+    imageBox: {
+      marginTop: 15,
+      marginBottom: 15,
+    },
+    gubbe: {
+      height: 60,
+      width: 60,
+      tintColor: "#FFF",
+    },
+    ballet: {
+      height: 60,
+      width: 25,
+      tintColor: "#FFF",
+      marginLeft: 15,
+    },
   },
 });
