@@ -22,8 +22,33 @@ import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
 import SoundVisual from "./components/SoundVisual";
 import InfoCard from "./components/InfoCard";
+import TrackPlayer from 'react-native-track-player';
 
 export default function App() {
+
+  TrackPlayer.registerPlaybackService(() => require("/components/service.js))
+
+
+  const start = async () => {
+    // Set up the player
+    await TrackPlayer.setupPlayer();
+
+    // Add a track to the queue
+    await TrackPlayer.add({
+        id: 'trackId',
+        url: require('./assets/sounds/robotbakgrundsloop.wav'),
+        title: 'Track Title',
+        artist: 'Track Artist',
+       
+    });
+
+    // Start playing it
+    await TrackPlayer.play();
+};
+start();
+
+
+
   EStyleSheet.build({
     $textColor: "#FFFFFF",
     $fontFamily: "Avenir-Heavy",
