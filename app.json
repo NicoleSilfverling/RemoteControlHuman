@@ -1,5 +1,6 @@
 {
   "expo": {
+    "owner": "ograes",
     "name": "RemoteControlHuman",
     "slug": "RemoteControlHuman",
     "version": "1.0.0",
@@ -18,16 +19,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ograes.RemoteControlHuman"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.ograes.RemoteControlHuman"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e45a4303-b79f-4c42-b946-8811f6166f42"
+      }
     }
   }
 }
