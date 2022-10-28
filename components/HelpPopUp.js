@@ -52,8 +52,11 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
         <View style={styles.leftContainer}>
           <ScrollView style={styles.textOnTopContainer}>
             <Text style={styles.textOnTopStyle}>
-              The Controller is divided into 4 sections. The best way to create
-              a commando for your robot is in this order.{"\n"}
+              The Controller is divided into 4 sections.
+              {"\n"}
+              {"\n"}
+              The best way to create a commando for your robot is in this order.
+              {"\n"}
               {"\n"}
               1. Body half - left, right
               {"\n"}
@@ -184,9 +187,11 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
               </View>
               {"\n"}
               {"\n"}
-              To play Blind Bot the robot must trust the operator. Play on a
-              flat surface without obstacles. Never play close to bumps, holes
-              ot staircases.
+              To play Blind Bot the robot must trust the operator.
+              {"\n"}
+              {"\n"}
+              Play on a flat surface without obstacles. Never play close to
+              bumps, holes ot staircases.
               {"\n"}
               {"\n"}
               Feel free to film and share your Blind Bot games. Please use
@@ -313,27 +318,35 @@ const styles = EStyleSheet.create({
     fontSize: 20,
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
+    textTransform: "uppercase",
   },
   iconBorder: {
-    backgroundColor: "black",
+    backgroundColor: "transparent",
     borderWidth: 1,
     borderColor: "#FFF",
     borderRadius: 3,
     width: 30,
     height: 30,
-    margin: 4,
+    marginTop: 10,
+    marginRight: 10,
   },
   greenIcon: {
     borderColor: "$green",
     tintColor: "$green",
+    borderColor: "#FFF",
+    tintColor: "#FFF",
   },
   yellowIcon: {
     borderColor: "$yellow",
     tintColor: "$yellow",
+    borderColor: "#FFF",
+    tintColor: "#FFF",
   },
   orangeIcon: {
     borderColor: "$orange",
     tintColor: "$orange",
+    borderColor: "#FFF",
+    tintColor: "#FFF",
   },
   icon: {
     width: "100%",
