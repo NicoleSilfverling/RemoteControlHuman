@@ -76,18 +76,32 @@ const InfoCard = ({ setShowInfoCard }) => {
 
         {pageNr == 1 ? (
           <View style={styles.txtBox}>
-            <Text style={styles.textStyle}>
+            {/* <Text style={styles.textStyle}>
               Blind Bot is a tool to remote control a human.
               {"\n"}
               {"\n"}
               Blind Bot was created by Rumtiden Idea Lab. programmed by Nicole
               Silfverling and Nasir Tedros, concept by Hakan Lidbo.
+            </Text> */}
+            <Text style={styles.textStyle}>
+              Send voice commandos with the controller buttons that your robot
+              must follow.
+              {/* Play against other controller+robot teams. */}
+            </Text>
+            <View style={styles.imageBox}>
+              <Image
+                style={[styles.gubbe]}
+                source={require("../assets/images/gubbe.png")}
+              />
+            </View>
+            <Text style={styles.textStyle}>
+              Use wireless headphones and a blindfold for best effect.
             </Text>
           </View>
         ) : null}
         {pageNr == 2 ? (
           <View style={styles.txtBox}>
-            <Text style={styles.textStyle}>
+            {/* <Text style={styles.textStyle}>
               One person is the operates the controller, the other one the robot
               and is blindfolded.
               {"\n"}
@@ -97,6 +111,27 @@ const InfoCard = ({ setShowInfoCard }) => {
               {"\n"}
               {"\n"}
               Create challenges to perform a simple task.
+            </Text> */}
+            <Text style={styles.textStyle}>
+              Create challenges to perform a simple task. Play against other
+              controller+robot teams.
+            </Text>
+            <View style={styles.imageBox}>
+              <Image
+                style={styles.ballet}
+                source={require("../assets/images/ballerina1.png")}
+              />
+              <Image
+                style={styles.ballet}
+                source={require("../assets/images/ballerina3.png")}
+              />
+              <Image
+                style={styles.ballet}
+                source={require("../assets/images/ballerina2.png")}
+              />
+            </View>
+            <Text style={styles.textStyle}>
+              Create an abstract ballet, filmed with time lapse.
             </Text>
           </View>
         ) : null}
@@ -109,11 +144,10 @@ const InfoCard = ({ setShowInfoCard }) => {
         ) : null}
 
         <View style={styles.dotContainer}>
-          <View style={styles.progressDot} />
           <View
             style={[
               styles.progressDot,
-              pageNr > 1
+              pageNr == 1
                 ? { backgroundColor: "#FFF" }
                 : { backgroundColor: "transparent" },
             ]}
@@ -121,7 +155,15 @@ const InfoCard = ({ setShowInfoCard }) => {
           <View
             style={[
               styles.progressDot,
-              pageNr > 2
+              pageNr == 2
+                ? { backgroundColor: "#FFF" }
+                : { backgroundColor: "transparent" },
+            ]}
+          />
+          <View
+            style={[
+              styles.progressDot,
+              pageNr == 3
                 ? { backgroundColor: "#FFF" }
                 : { backgroundColor: "transparent" },
             ]}
@@ -165,21 +207,14 @@ const styles = EStyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     // backgroundColor: "yellow",
-    // padding: 40,
   },
   arrow: {
     position: "absolute",
     zIndex: 1,
-    // borderColor: "#FFF",
-    // borderWidth: 1,
-    // borderRadius: 50,
-    // width: 40,
-    // height: 40,
     width: "40%",
     height: "100%",
     justifyContent: "center",
     // backgroundColor: "blue",
-    // bottom: "50%",
   },
   arrowIcon: {
     // backgroundColor: "red",
@@ -203,7 +238,7 @@ const styles = EStyleSheet.create({
   },
   txtBox: {
     width: "80%",
-    height: "90%",
+    height: "80%",
     // backgroundColor: "green",
   },
   textStyle: {
@@ -211,6 +246,8 @@ const styles = EStyleSheet.create({
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
     fontSize: 20,
+    alignSelf: "center",
+    textAlign: "center",
   },
   skip: {
     position: "absolute",
@@ -262,6 +299,27 @@ const styles = EStyleSheet.create({
     color: "#FFF",
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
+  },
+  ballet: {
+    height: 120,
+    width: 50,
+    tintColor: "#FFF",
+    marginLeft: 15,
+    // borderColor: "red",
+    // borderWidth: 1,
+  },
+  imageBox: {
+    flexDirection: "row",
+    // backgroundColor: "red",
+    justifyContent: "center",
+    marginTop: 25,
+    marginBottom: 25,
+    // paddingLeft: 15,
+  },
+  gubbe: {
+    height: 120,
+    width: 120,
+    tintColor: "#FFF",
   },
   "@media (max-width: 1000)": {
     infoCard: {
