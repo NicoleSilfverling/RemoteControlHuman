@@ -52,7 +52,7 @@ const InfoCard = ({ setShowInfoCard }) => {
               setShowInfoCard(false);
             }}
           >
-            <Text style={styles.skipText}>skip</Text>
+            <Text style={styles.skipText}>SKIP</Text>
           </TouchableHighlight>
         ) : null}
 
@@ -119,19 +119,19 @@ const InfoCard = ({ setShowInfoCard }) => {
             <View style={styles.imageBox}>
               <Image
                 style={styles.ballet}
-                source={require("../assets/images/ballerina1.png")}
-              />
-              <Image
-                style={styles.ballet}
-                source={require("../assets/images/ballerina3.png")}
-              />
-              <Image
-                style={styles.ballet}
                 source={require("../assets/images/ballerina2.png")}
               />
+              <Image
+                style={styles.blocks}
+                source={require("../assets/images/blocks.png")}
+              />
+              {/* <Image
+                style={styles.ballet}
+                source={require("../assets/images/ballerina2.png")}
+              /> */}
             </View>
             <Text style={styles.textStyle}>
-              Create an abstract ballet, filmed with time lapse.
+              Create an abstract ballet or try to build the highest tower.
             </Text>
           </View>
         ) : null}
@@ -245,7 +245,9 @@ const styles = EStyleSheet.create({
     color: "#FFF",
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
-    fontSize: 20,
+    fontSize: 18,
+    textTransform: "uppercase",
+
     alignSelf: "center",
     textAlign: "center",
   },
@@ -266,7 +268,7 @@ const styles = EStyleSheet.create({
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
     color: "#FFF",
-    fontSize: 15,
+    fontSize: 16,
   },
   startBtn: {
     borderWidth: 1,
@@ -307,6 +309,12 @@ const styles = EStyleSheet.create({
     marginLeft: 15,
     // borderColor: "red",
     // borderWidth: 1,
+  },
+  blocks: {
+    height: 120,
+    width: 110,
+    tintColor: "#FFF",
+    marginLeft: 15,
   },
   imageBox: {
     flexDirection: "row",

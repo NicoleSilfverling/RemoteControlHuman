@@ -192,6 +192,7 @@ export default function App() {
                     source={require("./assets/icons/rightIcon.png")}
                   />
                 </TouchableHighlight>
+                <Text style={styles.iconText}>GUIDE</Text>
               </View>
             </View>
           </View>
@@ -407,30 +408,38 @@ const styles = EStyleSheet.create({
     textAlign: "center",
     padding: 0,
     margin: 0,
-    lineHeight: 16 * 1.4,
+    // lineHeight: 16 * 1.4,
     height: 16,
+    lineHeight: Platform.OS === "ios" ? 16 * 1.4 : 16 * 1.2,
+    // height: Platform.OS === "ios" ? 16 : 16,
     width: "170%",
     // backgroundColor: "blue",
   },
   infoButton: {
     position: "relative",
     borderColor: "#FFF",
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 50,
-    width: "80%",
-    height: "80%",
+    width: "60%",
+    height: "60%",
     justifyContent: "center",
-    paddingLeft: "25%",
+    alignItems: "center",
+    position: "absolute",
+    top: 15,
+    // paddingLeft: "25%",
 
     // marginTop: "5%",
     // backgroundColor: "green",
   },
-  /* iconText: {
+  iconText: {
     textAlign: "center",
-    fontWeight: "bold",
+    // fontWeight: "bold",
     color: "#FFF",
-    fontSize: 30,
-  }, */
+    fontSize: 18,
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+  },
 
   infoIcon: {
     tintColor: "#FFF",
@@ -446,6 +455,7 @@ const styles = EStyleSheet.create({
     backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "flex-end",
+    // borderColor: "red",
   },
 
   "@media (max-width: 1300)": {
@@ -456,6 +466,14 @@ const styles = EStyleSheet.create({
       height: "14%",
       borderRadius: 10,
       borderWidth: 1,
+    },
+    infoButton: {
+      height: 50,
+      width: 50,
+      marginTop: "5%",
+    },
+    iconText: {
+      fontSize: 16,
     },
   },
 
