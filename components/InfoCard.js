@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TouchableHighlight, Image } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
+import backgroundLoop from "./BackgroundLoop";
 
 const InfoCard = ({ setShowInfoCard }) => {
   const [pageNr, setPageNr] = useState(1);
@@ -10,6 +11,7 @@ const InfoCard = ({ setShowInfoCard }) => {
         style={styles.clickableBG}
         onPress={() => {
           setShowInfoCard(false);
+          backgroundLoop();
         }}
       >
         <View />
@@ -62,6 +64,7 @@ const InfoCard = ({ setShowInfoCard }) => {
             style={styles.startBtn}
             onPress={() => {
               setShowInfoCard(false);
+              backgroundLoop();
             }}
           >
             <View style={styles.startCont}>
