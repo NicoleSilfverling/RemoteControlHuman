@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { View, Text, TouchableHighlight, Image } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
-import backgroundLoop from "./BackgroundLoop";
+import { AudioPlayerContext } from "../SharedAudioPlayer";
 
 const InfoCard = ({ setShowInfoCard }) => {
   const [pageNr, setPageNr] = useState(1);
+  const sharedAudioPlayer = useContext(AudioPlayerContext)
   return (
     <View style={styles.container}>
       <TouchableHighlight
         style={styles.clickableBG}
         onPress={() => {
+          sharedAudioPlayer.startBackgroundLoop()
           setShowInfoCard(false);
-          backgroundLoop();
         }}
       >
         <View />
@@ -63,8 +64,8 @@ const InfoCard = ({ setShowInfoCard }) => {
             underlayColor={"#00A300"}
             style={styles.startBtn}
             onPress={() => {
+              sharedAudioPlayer.startBackgroundLoop()
               setShowInfoCard(false);
-              backgroundLoop();
             }}
           >
             <View style={styles.startCont}>

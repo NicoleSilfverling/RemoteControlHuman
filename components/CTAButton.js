@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Audio } from "expo-av";
 import {
   StyleSheet,
@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import ContentSelector from "./ContentSelector";
-// import { playSound } from "./Audioplayer";
+import { AudioPlayerContext } from "../SharedAudioPlayer";
 import { testFunc } from "./ShowImage";
 import EStyleSheet from "react-native-extended-stylesheet";
 
@@ -21,34 +21,16 @@ export default function CTAButton({
   setBodyHalfLeft,
   bodyHalfLeft,
   setGroupId,
-  setSoundIsPlaying,
   setIsHand,
 }) {
-  const [sound, setSound] = React.useState();
+  const sharedAudioPlayer = useContext(AudioPlayerContext)
 
   async function playSound() {
-    console.log("Loading Sound");
-    const { sound } = await Audio.Sound.createAsync(
-      ContentSelector(btnId, bodyHalfLeft).sound
-    );
-    setSound(sound);
+    console.log("Loading Sound", btnId);
+    const sel = ContentSelector(btnId, bodyHalfLeft)
 
-    console.log("Playing Sound");
-    await sound.playAsync();
-
-    sound.setOnPlaybackStatusUpdate((playbackStatus) => {
-      if (playbackStatus.didJustFinish == true) setSoundIsPlaying(false);
-    });
+    sharedAudioPlayer.play(sel)
   }
-
-  React.useEffect(() => {
-    return sound
-      ? () => {
-          console.log("Unloading Sound");
-          sound.unloadAsync();
-        }
-      : undefined;
-  }, [sound]);
 
   let btnBorderColor = "#FFF";
   let btnBackgroundColor = "black";
@@ -90,13 +72,12 @@ export default function CTAButton({
     <View style={styles.container}>
       <TouchableHighlight
         onPress={() => {
-          setShowImage ? setShowImage(true) : null,
-            playSound(),
-            setButtonId ? setButtonId(btnId) : null,
-            setBodyHalfLeft ? setBodyHalfLeft(leftSide) : null,
-            setGroupId ? setGroupId(btnGroup) : null;
-          setSoundIsPlaying ? setSoundIsPlaying(true) : null;
-          setIsHand ? setIsHand(isHand) : null;
+          setShowImage && setShowImage(true);
+          playSound();
+          setButtonId && setButtonId(btnId);
+          setBodyHalfLeft && setBodyHalfLeft(leftSide);
+          setGroupId && setGroupId(btnGroup);
+          setIsHand && setIsHand(isHand);
         }}
         style={[styles.button, colorStyles]}
         activeOpacity={0.5}
