@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { Video, AVPlaybackStatus } from "expo-av";
+import backgroundLoop from "./BackgroundLoop";
 
 const HelpPopUp = ({ setShowHelpPopUp }) => {
   const video = React.useRef(null);
@@ -19,6 +20,7 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
         style={styles.clickableBG}
         onPress={() => {
           setShowHelpPopUp(false);
+          backgroundLoop();
         }}
       >
         <View />

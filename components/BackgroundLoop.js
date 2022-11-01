@@ -1,14 +1,22 @@
-import {Audio} from "expo-av"
+import { Audio } from "expo-av";
 
+// export default async function backgroundLoop() {
+//   const playbackObject = await Audio.Sound.createAsync(
+//     require("../assets/sounds/robotbakgrundsloop.wav"),
+//     { isLooping: true }
+//   );
 
-export default async function backgroundLoop(){
+//   await playbackObject.playAsync();
 
+// }
 
-const playbackObject = await Audio.Sound.createAsync(
-  require('../assets/sounds/robotbakgrundsloop.wav'),
-  { shouldPlay: true ,
-  isLooping : true}
-);
+export default async function backgroundLoop() {
+  console.log("Loading Sound");
+  const { sound } = await Audio.Sound.createAsync(
+    require("../assets/sounds/reset.wav"),
+    { isLooping: true }
+  );
 
-playbackObject.playAsync();
+  console.log("Playing Sound");
+  await sound.playAsync();
 }

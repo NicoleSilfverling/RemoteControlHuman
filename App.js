@@ -21,7 +21,7 @@ import HelpPopUp from "./components/HelpPopUp";
 import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
 import SoundVisual from "./components/SoundVisual";
-import backgroundLoop from "./components/backgroundLoop";
+import backgroundLoop from "./components/BackgroundLoop";
 
 export default function App() {
   EStyleSheet.build({
@@ -53,8 +53,20 @@ export default function App() {
     titlePressedbtn = ContentSelector(buttonId, true, isHand).title;
   }
 
-  //backgroundLoop();
+  // backgroundLoop();
+  // const [sound, setSound] = React.useState();
 
+  async function backgroundLoop2() {
+    console.log("Loading Sound");
+    const { sound } = await Audio.Sound.createAsync(
+      require("./assets/sounds/reset.wav"),
+      { isLooping: true }
+    );
+
+    console.log("Playing Sound");
+    await sound.playAsync();
+  }
+  // backgroundLoop2();
   return (
     <View style={styles.window}>
       <SafeAreaView style={styles.container}>
@@ -67,6 +79,9 @@ export default function App() {
         <View style={styles.layout}>
           {/* leftside */}
           <View style={styles.leftside}>
+            <Button title="playsound" onPress={() => backgroundLoop()}>
+              Press Here
+            </Button>
             <View style={styles.colStyle}>
               <CTAButton
                 setBodyHalfLeft={setBodyHalfLeft}
