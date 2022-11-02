@@ -212,6 +212,7 @@ export default function App() {
                   bodyHalfLeft={bodyHalfLeft}
                 />
               )}
+
             </View>
 
             {/* right side */}
@@ -423,9 +424,13 @@ const styles = EStyleSheet.create({
     // fontWeight: "bold",
     color: "#FFF",
     fontSize: 18,
+    fontWeight: "$fontWeight",
+    height: 16,
+    lineHeight: Platform.OS === "ios" ? 16 * 1.2 : 16 * 1.2,
     position: "absolute",
     bottom: 0,
     right: 0,
+    // backgroundColor: "green",
   },
 
   infoIcon: {

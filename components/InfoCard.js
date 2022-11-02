@@ -143,6 +143,9 @@ const InfoCard = ({ setShowInfoCard }) => {
           <View style={styles.txtBox}>
             <Text style={styles.textStyle}>
               For further instructions, please watch this video.
+              <TouchableHighlight>
+                <Text style={styles.textStyle}>VIDEO</Text>
+              </TouchableHighlight>
             </Text>
           </View>
         ) : null}

@@ -79,20 +79,22 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
     case "R2":
       if (isHand) {
         title = "CLOSE GRIP";
+        sound = require("../assets/sounds/closegrip.wav");
       } else {
         title = "BEND";
+        sound = require("../assets/sounds/bend.wav");
       }
       iconImg = require("../assets/icons/bendIcon.png");
-      sound = require("../assets/sounds/bend.wav");
       break;
     case "R3":
       if (isHand) {
         title = "OPEN GRIP";
+        sound = require("../assets/sounds/opengrip.wav");
       } else {
         title = "STRETCH";
+        sound = require("../assets/sounds/stretch.wav");
       }
       iconImg = require("../assets/icons/stretchIcon.png");
-      sound = require("../assets/sounds/stretch.wav");
 
       break;
     case "R4":

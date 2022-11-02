@@ -22,11 +22,13 @@ export default function CTAButton({
   bodyHalfLeft,
   setGroupId,
   setIsHand,
+  isHand,
 }) {
+
   const sharedAudioPlayer = useContext(AudioPlayerContext)
 
   async function playSound() {
-    console.log("Loading Sound", btnId);
+     console.log("Loading Sound", btnId);
     const sel = ContentSelector(btnId, bodyHalfLeft)
 
     sharedAudioPlayer.play(sel)
@@ -69,7 +71,7 @@ export default function CTAButton({
   else isHand = false;
 
   return (
-    <View style={styles.container}>
+   <View style={styles.container}>
       <TouchableHighlight
         onPress={() => {
           setShowImage && setShowImage(true);
