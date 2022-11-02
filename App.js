@@ -22,7 +22,12 @@ import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
 import SoundVisual from "./components/SoundVisual";
 import InfoCard from "./components/InfoCard";
-import { SharedAudioPlayer, AudioPlayerContext, useAudioPlayerIsPlayingEffect, globalAudioPlayer } from './SharedAudioPlayer'
+import {
+  SharedAudioPlayer,
+  AudioPlayerContext,
+  useAudioPlayerIsPlayingEffect,
+  globalAudioPlayer,
+} from "./SharedAudioPlayer";
 
 export default function App() {
   EStyleSheet.build({
@@ -56,9 +61,9 @@ export default function App() {
   }
 
   useAudioPlayerIsPlayingEffect((soundPlaying) => {
-    console.log('in useAudioPlayerIsPlayingEffect callback', soundPlaying)
+    console.log("in useAudioPlayerIsPlayingEffect callback", soundPlaying);
     setSoundIsPlaying(soundPlaying);
-  })
+  });
 
   return (
     <AudioPlayerContext.Provider value={globalAudioPlayer}>
@@ -212,7 +217,6 @@ export default function App() {
                   bodyHalfLeft={bodyHalfLeft}
                 />
               )}
-
             </View>
 
             {/* right side */}
@@ -228,6 +232,7 @@ export default function App() {
                 <CTAButton
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
+                  isHand={isHand}
                   btnId="R2"
                   btnGroup="3"
                   btnTitle={ContentSelector("R2", true, isHand).title}
@@ -235,6 +240,7 @@ export default function App() {
                 <CTAButton
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
+                  isHand={isHand}
                   btnId="R3"
                   btnGroup="3"
                   btnTitle={ContentSelector("R3", true, isHand).title}

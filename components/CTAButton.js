@@ -24,14 +24,13 @@ export default function CTAButton({
   setIsHand,
   isHand,
 }) {
-
-  const sharedAudioPlayer = useContext(AudioPlayerContext)
+  const sharedAudioPlayer = useContext(AudioPlayerContext);
 
   async function playSound() {
-     console.log("Loading Sound", btnId);
-    const sel = ContentSelector(btnId, bodyHalfLeft)
+    console.log("Loading Sound", btnId);
+    const sel = ContentSelector(btnId, bodyHalfLeft, isHand);
 
-    sharedAudioPlayer.play(sel)
+    sharedAudioPlayer.play(sel);
   }
 
   let btnBorderColor = "#FFF";
@@ -66,12 +65,12 @@ export default function CTAButton({
   if (btnId == "L1") leftSide = true;
   else if (btnId == "L7") leftSide = false;
 
-  let isHand;
-  if (btnId == "L2") isHand = true;
-  else isHand = false;
+  let toggleIsHand;
+  if (btnId == "L2") toggleIsHand = true;
+  else toggleIsHand = false;
 
   return (
-   <View style={styles.container}>
+    <View style={styles.container}>
       <TouchableHighlight
         onPress={() => {
           setShowImage && setShowImage(true);
@@ -79,7 +78,7 @@ export default function CTAButton({
           setButtonId && setButtonId(btnId);
           setBodyHalfLeft && setBodyHalfLeft(leftSide);
           setGroupId && setGroupId(btnGroup);
-          setIsHand && setIsHand(isHand);
+          setIsHand && setIsHand(toggleIsHand);
         }}
         style={[styles.button, colorStyles]}
         activeOpacity={0.5}
