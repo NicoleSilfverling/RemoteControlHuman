@@ -64,13 +64,13 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
                 <View style={styles.iconBorder}>
                   <Image
                     style={styles.icon}
-                    source={require("../assets/icons/leftIcon.png")}
+                    source={require("../assets/icons/bold/leftIconBold.png")}
                   />
                 </View>
                 <View style={styles.iconBorder}>
                   <Image
                     style={styles.icon}
-                    source={require("../assets/icons/rightIcon.png")}
+                    source={require("../assets/icons/bold/rightIconBold.png")}
                   />
                 </View>
               </View>
@@ -81,19 +81,43 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
                 <View style={[styles.iconBorder, styles.yellowIcon]}>
                   <Image
                     style={[styles.icon, styles.yellowIcon]}
-                    source={require("../assets/icons/torsoIcon.png")}
+                    source={require("../assets/icons/bold/torsoIconBold.png")}
                   />
                 </View>
                 <View style={[styles.iconBorder, styles.yellowIcon]}>
                   <Image
                     style={[styles.icon, styles.yellowIcon]}
-                    source={require("../assets/icons/handIcon.png")}
+                    source={require("../assets/icons/bold/armIconBold.png")}
                   />
                 </View>
                 <View style={[styles.iconBorder, styles.yellowIcon]}>
                   <Image
                     style={[styles.icon, styles.yellowIcon]}
-                    source={require("../assets/icons/footIcon.png")}
+                    source={require("../assets/icons/bold/handIconBold.png")}
+                  />
+                </View>
+                <View style={[styles.iconBorder, styles.yellowIcon]}>
+                  <Image
+                    style={[styles.icon, styles.yellowIcon]}
+                    source={require("../assets/icons/bold/thumbIconBold.png")}
+                  />
+                </View>
+                <View style={[styles.iconBorder, styles.yellowIcon]}>
+                  <Image
+                    style={[styles.icon, styles.yellowIcon]}
+                    source={require("../assets/icons/bold/indexIconBold.png")}
+                  />
+                </View>
+                <View style={[styles.iconBorder, styles.yellowIcon]}>
+                  <Image
+                    style={[styles.icon, styles.yellowIcon]}
+                    source={require("../assets/icons/bold/legIconBold.png")}
+                  />
+                </View>
+                <View style={[styles.iconBorder, styles.yellowIcon]}>
+                  <Image
+                    style={[styles.icon, styles.yellowIcon]}
+                    source={require("../assets/icons/bold/footIconBold.png")}
                   />
                 </View>
               </View>
@@ -104,25 +128,25 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
                 <View style={[styles.iconBorder, styles.orangeIcon]}>
                   <Image
                     style={[styles.icon, styles.orangeIcon]}
-                    source={require("../assets/icons/moveIcon.png")}
+                    source={require("../assets/icons/bold/moveIconBold.png")}
                   />
                 </View>
                 <View style={[styles.iconBorder, styles.orangeIcon]}>
                   <Image
                     style={[styles.icon, styles.orangeIcon]}
-                    source={require("../assets/icons/bendIcon.png")}
+                    source={require("../assets/icons/bold/bendIconBold.png")}
                   />
                 </View>
                 <View style={[styles.iconBorder, styles.orangeIcon]}>
                   <Image
                     style={[styles.icon, styles.orangeIcon]}
-                    source={require("../assets/icons/stretchIcon.png")}
+                    source={require("../assets/icons/bold/stretchIconBold.png")}
                   />
                 </View>
                 <View style={[styles.iconBorder, styles.orangeIcon]}>
                   <Image
                     style={[styles.icon, styles.orangeIcon]}
-                    source={require("../assets/icons/twistIcon.png")}
+                    source={require("../assets/icons/bold/twistIconBold.png")}
                   />
                 </View>
               </View>
@@ -133,37 +157,37 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
                 <View style={[styles.iconBorder, styles.greenIcon]}>
                   <Image
                     style={[styles.icon, styles.greenIcon]}
-                    source={require("../assets/icons/upIcon.png")}
+                    source={require("../assets/icons/bold/upIconBold.png")}
                   />
                 </View>
                 <View style={[styles.iconBorder, styles.greenIcon]}>
                   <Image
                     style={[styles.icon, styles.greenIcon]}
-                    source={require("../assets/icons/downIcon.png")}
+                    source={require("../assets/icons/bold/downIconBold.png")}
                   />
                 </View>
                 <View style={[styles.iconBorder, styles.greenIcon]}>
                   <Image
                     style={[styles.icon, styles.greenIcon]}
-                    source={require("../assets/icons/forwardIcon.png")}
+                    source={require("../assets/icons/bold/forwardIconBold.png")}
                   />
                 </View>
                 <View style={[styles.iconBorder, styles.greenIcon]}>
                   <Image
                     style={[styles.icon, styles.greenIcon]}
-                    source={require("../assets/icons/backwardIcon.png")}
+                    source={require("../assets/icons/bold/backwardIconBold.png")}
                   />
                 </View>
                 <View style={[styles.iconBorder, styles.greenIcon]}>
                   <Image
                     style={[styles.icon, styles.greenIcon]}
-                    source={require("../assets/icons/leftIcon.png")}
+                    source={require("../assets/icons/bold/leftIconBold.png")}
                   />
                 </View>
                 <View style={[styles.iconBorder, styles.greenIcon]}>
                   <Image
                     style={[styles.icon, styles.greenIcon]}
-                    source={require("../assets/icons/rightIcon.png")}
+                    source={require("../assets/icons/bold/rightIconBold.png")}
                   />
                 </View>
               </View>
@@ -175,13 +199,13 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
                 <View style={styles.iconBorder}>
                   <Image
                     style={styles.icon}
-                    source={require("../assets/icons/stopIcon.png")}
+                    source={require("../assets/icons/bold/stopIconBold.png")}
                   />
                 </View>
                 <View style={styles.iconBorder}>
                   <Image
                     style={styles.icon}
-                    source={require("../assets/icons/resetIcon.png")}
+                    source={require("../assets/icons/bold/resetIconBold.png")}
                   />
                 </View>
               </View>
@@ -325,8 +349,10 @@ const styles = EStyleSheet.create({
     borderWidth: 1,
     borderColor: "#FFF",
     borderRadius: 3,
-    width: 30,
-    height: 30,
+    width: 25,
+    height: 25,
+    // width: 30,
+    // height: 30,
     marginTop: 10,
     marginRight: 10,
   },
@@ -355,7 +381,7 @@ const styles = EStyleSheet.create({
   },
   iconContainer: {
     flexDirection: "row",
-    paddingLeft: 15,
+    // paddingLeft: 15,
   },
   title: {
     color: "#FFFFFF",
