@@ -5,13 +5,13 @@ import { AudioPlayerContext } from "../SharedAudioPlayer";
 
 const InfoCard = ({ setShowInfoCard }) => {
   const [pageNr, setPageNr] = useState(1);
-  const sharedAudioPlayer = useContext(AudioPlayerContext)
+  const sharedAudioPlayer = useContext(AudioPlayerContext);
   return (
     <View style={styles.container}>
       <TouchableHighlight
         style={styles.clickableBG}
         onPress={() => {
-          sharedAudioPlayer.startBackgroundLoop()
+          sharedAudioPlayer.startBackgroundLoop();
           setShowInfoCard(false);
         }}
       >
@@ -64,7 +64,7 @@ const InfoCard = ({ setShowInfoCard }) => {
             underlayColor={"#00A300"}
             style={styles.startBtn}
             onPress={() => {
-              sharedAudioPlayer.startBackgroundLoop()
+              sharedAudioPlayer.startBackgroundLoop();
               setShowInfoCard(false);
             }}
           >
