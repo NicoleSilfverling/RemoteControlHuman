@@ -51,6 +51,7 @@ export default function App() {
   const [soundIsPlaying, setSoundIsPlaying] = useState(false);
   const [isHand, setIsHand] = useState(false);
   const [showInfoCard, setShowInfoCard] = useState(false);
+  const [muted, setMuted] = useState(false);
 
   // const [sharedAudioPlayer, setSharedAudioPlayer] = useContext(AudioPlayerContext);
   // const sharedAudioPlayer = useContext(AudioPlayerContext);
@@ -79,7 +80,11 @@ export default function App() {
             />
           ) : null}
           {showHelpPopUp ? (
-            <HelpPopUp setShowHelpPopUp={setShowHelpPopUp} />
+            <HelpPopUp
+              setShowHelpPopUp={setShowHelpPopUp}
+              muted={muted}
+              setMuted={setMuted}
+            />
           ) : null}
           {showInfoCard ? <InfoCard setShowInfoCard={setShowInfoCard} /> : null}
 

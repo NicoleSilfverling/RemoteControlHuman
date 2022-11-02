@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import {
   View,
@@ -12,7 +12,7 @@ import EStyleSheet from "react-native-extended-stylesheet";
 import { Video, AVPlaybackStatus } from "expo-av";
 import { AudioPlayerContext } from "../SharedAudioPlayer";
 
-const HelpPopUp = ({ setShowHelpPopUp }) => {
+const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
 
@@ -26,7 +26,9 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
         style={styles.clickableBG}
         onPress={() => {
           setShowHelpPopUp(false);
-          sharedAudioPlayer.startBackgroundLoop();
+          if (!muted) {
+            sharedAudioPlayer.startBackgroundLoop();
+          }
         }}
       >
         <View />
@@ -37,7 +39,9 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
           title="Close"
           onPress={() => {
             setShowHelpPopUp ? setShowHelpPopUp(false) : null;
-            sharedAudioPlayer.startBackgroundLoop();
+            if (!muted) {
+              sharedAudioPlayer.startBackgroundLoop();
+            }
           }}
         >
           <Image
@@ -57,13 +61,40 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
           shouldPlay
           isLooping
           onPlaybackStatusUpdate={(status) => setStatus(() => status)}
+          isMuted={muted}
         />
-        <View style={styles.leftContainer}>
+        <View style={styles.textBox}>
           <ScrollView style={styles.textOnTopContainer}>
+            <View style={styles.titleContainer}>
+              <Text style={styles.title}>BlindBot </Text>
+
+              <TouchableHighlight
+                style={styles.soundBtn}
+                underlayColor="transparent"
+                onPress={() => {
+                  if (!muted) {
+                    setMuted(true);
+                    sharedAudioPlayer.stopBackgroundLoop();
+                  } else {
+                    setMuted(false);
+                    // sharedAudioPlayer.startBackgroundLoop();
+                  }
+                }}
+              >
+                {muted ? (
+                  <Image
+                    style={styles.icon}
+                    source={require("../assets/icons/soundOff.png")}
+                  />
+                ) : (
+                  <Image
+                    style={styles.icon}
+                    source={require("../assets/icons/soundOn.png")}
+                  />
+                )}
+              </TouchableHighlight>
+            </View>
             <Text style={styles.textOnTopStyle}>
-              BlindBot
-              {"\n"}
-              {"\n"}
               The Controller is divided into 4 sections.
               {"\n"}
               {"\n"}
@@ -328,14 +359,14 @@ const styles = EStyleSheet.create({
     fontSize: 35,
     fontWeight: "bold",
   },
-  leftContainer: {
+  textBox: {
     flex: 1,
     zIndex: 5,
     position: "absolute",
-    right: 0,
+    right: "2%",
     top: "0%",
-    // backgroundColor: "rgba(0, 0, 0, 0.4)",
-    width: "54%",
+    // backgroundColor: "pink",
+    width: "51%",
     height: "60%",
     padding: "5%",
   },
@@ -355,6 +386,24 @@ const styles = EStyleSheet.create({
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
     textTransform: "uppercase",
+  },
+  title: {
+    color: "#FFFFFF",
+    fontSize: 40,
+    fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
+    fontWeight: "$fontWeight",
+    height: 35,
+    lineHeight: Platform.OS === "ios" ? 35 * 1.3 : 16 * 1.2,
+    textTransform: "uppercase",
+    // zIndex: 10,
+    // backgroundColor: "blue",
+  },
+  titleContainer: {
+    flexDirection: "row",
+    alignItems: "flex-end",
+    marginBottom: 20,
+
+    // backgroundColor: "green",
   },
   iconBorder: {
     backgroundColor: "transparent",
@@ -395,11 +444,13 @@ const styles = EStyleSheet.create({
     flexDirection: "row",
     // paddingLeft: 15,
   },
-  title: {
-    color: "#FFFFFF",
-    fontSize: 50,
-    zIndex: 10,
-    marginLeft: "5%",
+  soundBtn: {
+    width: 30,
+    height: 30,
+    // marginLeft: 250,
+    position: "absolute",
+    right: "15%",
+    bottom: 0,
   },
 
   "@media (max-width: 1300)": {
