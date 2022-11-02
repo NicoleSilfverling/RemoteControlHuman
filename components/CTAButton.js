@@ -23,15 +23,26 @@ export default function CTAButton({
   setGroupId,
   setSoundIsPlaying,
   setIsHand,
+  isHand,
 }) {
+  let leftSide;
+
+  if (btnId == "L1") leftSide = true;
+  else if (btnId == "L7") leftSide = false;
+
+  let toggleIsHand;
+  if (btnId == "L2") toggleIsHand = true;
+  else toggleIsHand = false;
+
   const [sound, setSound] = React.useState();
 
   async function playSound() {
     console.log("Loading Sound");
     const { sound } = await Audio.Sound.createAsync(
-      ContentSelector(btnId, bodyHalfLeft).sound
+      ContentSelector(btnId, bodyHalfLeft, isHand).sound
     );
     setSound(sound);
+    console.log(btnId, bodyHalfLeft, toggleIsHand);
 
     console.log("Playing Sound");
     await sound.playAsync();
@@ -77,15 +88,6 @@ export default function CTAButton({
     tintColor: btnBorderColor,
   };
 
-  let leftSide;
-
-  if (btnId == "L1") leftSide = true;
-  else if (btnId == "L7") leftSide = false;
-
-  let isHand;
-  if (btnId == "L2") isHand = true;
-  else isHand = false;
-
   return (
     <View style={styles.container}>
       <TouchableHighlight
@@ -96,7 +98,7 @@ export default function CTAButton({
             setBodyHalfLeft ? setBodyHalfLeft(leftSide) : null,
             setGroupId ? setGroupId(btnGroup) : null;
           setSoundIsPlaying ? setSoundIsPlaying(true) : null;
-          setIsHand ? setIsHand(isHand) : null;
+          setIsHand ? setIsHand(toggleIsHand) : null;
         }}
         style={[styles.button, colorStyles]}
         activeOpacity={0.5}

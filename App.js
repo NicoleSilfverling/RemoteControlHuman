@@ -234,6 +234,7 @@ export default function App() {
                 btnId="R2"
                 btnGroup="3"
                 btnTitle={ContentSelector("R2", true, isHand).title}
+                isHand={isHand}
               />
               <CTAButton
                 setGroupId={setGroupId}
@@ -242,6 +243,7 @@ export default function App() {
                 btnId="R3"
                 btnGroup="3"
                 btnTitle={ContentSelector("R3", true, isHand).title}
+                isHand={isHand}
               />
               <CTAButton
                 setGroupId={setGroupId}
@@ -436,9 +438,13 @@ const styles = EStyleSheet.create({
     // fontWeight: "bold",
     color: "#FFF",
     fontSize: 18,
+    fontWeight: "$fontWeight",
+    height: 16,
+    lineHeight: Platform.OS === "ios" ? 16 * 1.2 : 16 * 1.2,
     position: "absolute",
     bottom: 0,
     right: 0,
+    // backgroundColor: "green",
   },
 
   infoIcon: {
