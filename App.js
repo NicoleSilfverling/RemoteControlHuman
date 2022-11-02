@@ -13,7 +13,7 @@ import Actionbar from "./components/Actionbar";
 import CTAButton from "./components/CTAButton";
 import HiddenButton from "./components/HiddenButton";
 import ShowImage from "./components/ShowImage";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Audio } from "expo-av";
 import ContentSelector from "./components/ContentSelector";
 import EStyleSheet from "react-native-extended-stylesheet";
@@ -22,6 +22,7 @@ import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
 import SoundVisual from "./components/SoundVisual";
 import InfoCard from "./components/InfoCard";
+import { SharedAudioPlayer, AudioPlayerContext, useAudioPlayerIsPlayingEffect, globalAudioPlayer } from './SharedAudioPlayer'
 
 export default function App() {
   EStyleSheet.build({
@@ -54,282 +55,267 @@ export default function App() {
     titlePressedbtn = ContentSelector(buttonId, true, isHand).title;
   }
 
+  useAudioPlayerIsPlayingEffect((soundPlaying) => {
+    console.log('in useAudioPlayerIsPlayingEffect callback', soundPlaying)
+    setSoundIsPlaying(soundPlaying);
+  })
+
   return (
-    <View style={styles.window}>
-      <SafeAreaView style={styles.container}>
-        {showStartVideo ? (
-          <StartVideo
-            setShowStartVideo={setShowStartVideo}
-            setShowInfoCard={setShowInfoCard}
-          />
-        ) : null}
-        {showHelpPopUp ? (
-          <HelpPopUp setShowHelpPopUp={setShowHelpPopUp} />
-        ) : null}
-        {showInfoCard ? <InfoCard setShowInfoCard={setShowInfoCard} /> : null}
-
-        <View style={styles.layout}>
-          {/* leftside */}
-          <View style={styles.leftside}>
-            <View style={styles.colStyle}>
-              <CTAButton
-                setBodyHalfLeft={setBodyHalfLeft}
-                bodyHalfLeft={bodyHalfLeft}
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                setIsHand={setIsHand}
-                btnId="L1"
-                btnGroup="1"
-                btnTitle={ContentSelector("L1").title}
-              />
-              <CTAButton
-                setShowImage={setShowImage}
-                setButtonId={setButtonId}
-                setGroupId={setGroupId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                setIsHand={setIsHand}
-                btnId="L2"
-                btnGroup="2"
-                btnTitle={ContentSelector("L2").title}
-              />
-              <CTAButton
-                setShowImage={setShowImage}
-                setButtonId={setButtonId}
-                setGroupId={setGroupId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                setIsHand={setIsHand}
-                btnId="L3"
-                btnGroup="2"
-                btnTitle={ContentSelector("L3").title}
-              />
-              {/* <HiddenButton /> */}
-              <View style={[styles.hiddenBtn, { alignItems: "flex-start" }]}>
-                <Actionbar groupId={groupId} />
-              </View>
-            </View>
-            <View style={styles.colStyle}>
-              <CTAButton
-                setShowImage={setShowImage}
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                setIsHand={setIsHand}
-                btnId="L4"
-                btnGroup="2"
-                btnTitle={ContentSelector("L4").title}
-              />
-              <CTAButton
-                setShowImage={setShowImage}
-                setButtonId={setButtonId}
-                setGroupId={setGroupId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                setIsHand={setIsHand}
-                btnId="L5"
-                btnGroup="2"
-                btnTitle={ContentSelector("L5").title}
-              />
-              <CTAButton
-                setShowImage={setShowImage}
-                setButtonId={setButtonId}
-                setGroupId={setGroupId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                setIsHand={setIsHand}
-                btnId="L6"
-                btnGroup="2"
-                btnTitle={ContentSelector("L6").title}
-              />
-              {/* <HiddenButton /> */}
-
-              <View style={styles.hiddenBtn}>
-                <Text style={styles.titlePressedbtn}>{titlePressedbtn}</Text>
-              </View>
-            </View>
-            <View style={styles.colStyle}>
-              <CTAButton
-                setBodyHalfLeft={setBodyHalfLeft}
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                setIsHand={setIsHand}
-                btnId="L7"
-                btnGroup="1"
-                btnTitle={ContentSelector("L7").title}
-              />
-              <CTAButton
-                setShowImage={setShowImage}
-                setButtonId={setButtonId}
-                setGroupId={setGroupId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                setIsHand={setIsHand}
-                btnId="L8"
-                btnGroup="2"
-                btnTitle={ContentSelector("L8").title}
-              />
-              <CTAButton
-                setShowImage={setShowImage}
-                setButtonId={setButtonId}
-                setGroupId={setGroupId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                setIsHand={setIsHand}
-                btnId="L9"
-                btnGroup="2"
-                btnTitle={ContentSelector("L9").title}
-              />
-              {/* <HiddenButton /> */}
-              <View style={[styles.hiddenBtn, { alignItems: "flex-end" }]}>
-                <TouchableHighlight
-                  id="infobtn"
-                  onPress={() => {
-                    setShowHelpPopUp(true);
-                  }}
-                  style={styles.infoButton}
-                  // activeOpacity={0.1}
-                  underlayColor={"#FFFFFF"}
-                >
-                  <Image
-                    style={styles.infoIcon}
-                    source={require("./assets/icons/rightIcon.png")}
-                  />
-                </TouchableHighlight>
-                <Text style={styles.iconText}>GUIDE</Text>
-              </View>
-            </View>
-          </View>
-
-          {/* center */}
-          <View style={styles.center}>
-            <Image
-              style={styles.imageBody}
-              source={require("./assets/images/humanbutt.png")}
+    <AudioPlayerContext.Provider value={globalAudioPlayer}>
+      <View style={styles.window}>
+        <SafeAreaView style={styles.container}>
+          {showStartVideo ? (
+            <StartVideo
+              setShowStartVideo={setShowStartVideo}
+              setShowInfoCard={setShowInfoCard}
             />
-            <View style={{ display: "flex", flexDirection: "row" }}></View>
-            {soundIsPlaying && <SoundVisual />}
+          ) : null}
+          {showHelpPopUp ? (
+            <HelpPopUp setShowHelpPopUp={setShowHelpPopUp} />
+          ) : null}
+          {showInfoCard ? <InfoCard setShowInfoCard={setShowInfoCard} /> : null}
 
-            {showImage && (
-              <BlinkImage
-                showImage={showImage}
-                setShowImage={setShowImage}
-                buttonId={buttonId}
-                bodyHalfLeft={bodyHalfLeft}
+          <View style={styles.layout}>
+            {/* leftside */}
+            <View style={styles.leftside}>
+              <View style={styles.colStyle}>
+                <CTAButton
+                  setBodyHalfLeft={setBodyHalfLeft}
+                  bodyHalfLeft={bodyHalfLeft}
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  setIsHand={setIsHand}
+                  btnId="L1"
+                  btnGroup="1"
+                  btnTitle={ContentSelector("L1").title}
+                />
+                <CTAButton
+                  setShowImage={setShowImage}
+                  setButtonId={setButtonId}
+                  setGroupId={setGroupId}
+                  setIsHand={setIsHand}
+                  btnId="L2"
+                  btnGroup="2"
+                  btnTitle={ContentSelector("L2").title}
+                />
+                <CTAButton
+                  setShowImage={setShowImage}
+                  setButtonId={setButtonId}
+                  setGroupId={setGroupId}
+                  setIsHand={setIsHand}
+                  btnId="L3"
+                  btnGroup="2"
+                  btnTitle={ContentSelector("L3").title}
+                />
+                {/* <HiddenButton /> */}
+                <View style={[styles.hiddenBtn, { alignItems: "flex-start" }]}>
+                  <Actionbar groupId={groupId} />
+                </View>
+              </View>
+              <View style={styles.colStyle}>
+                <CTAButton
+                  setShowImage={setShowImage}
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  setIsHand={setIsHand}
+                  btnId="L4"
+                  btnGroup="2"
+                  btnTitle={ContentSelector("L4").title}
+                />
+                <CTAButton
+                  setShowImage={setShowImage}
+                  setButtonId={setButtonId}
+                  setGroupId={setGroupId}
+                  setIsHand={setIsHand}
+                  btnId="L5"
+                  btnGroup="2"
+                  btnTitle={ContentSelector("L5").title}
+                />
+                <CTAButton
+                  setShowImage={setShowImage}
+                  setButtonId={setButtonId}
+                  setGroupId={setGroupId}
+                  setIsHand={setIsHand}
+                  btnId="L6"
+                  btnGroup="2"
+                  btnTitle={ContentSelector("L6").title}
+                />
+                {/* <HiddenButton /> */}
+
+                <View style={styles.hiddenBtn}>
+                  <Text style={styles.titlePressedbtn}>{titlePressedbtn}</Text>
+                </View>
+              </View>
+              <View style={styles.colStyle}>
+                <CTAButton
+                  setBodyHalfLeft={setBodyHalfLeft}
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  setIsHand={setIsHand}
+                  btnId="L7"
+                  btnGroup="1"
+                  btnTitle={ContentSelector("L7").title}
+                />
+                <CTAButton
+                  setShowImage={setShowImage}
+                  setButtonId={setButtonId}
+                  setGroupId={setGroupId}
+                  setIsHand={setIsHand}
+                  btnId="L8"
+                  btnGroup="2"
+                  btnTitle={ContentSelector("L8").title}
+                />
+                <CTAButton
+                  setShowImage={setShowImage}
+                  setButtonId={setButtonId}
+                  setGroupId={setGroupId}
+                  setIsHand={setIsHand}
+                  btnId="L9"
+                  btnGroup="2"
+                  btnTitle={ContentSelector("L9").title}
+                />
+                {/* <HiddenButton /> */}
+                <View style={[styles.hiddenBtn, { alignItems: "flex-end" }]}>
+                  <TouchableHighlight
+                    id="infobtn"
+                    onPress={() => {
+                      setShowHelpPopUp(true);
+                    }}
+                    style={styles.infoButton}
+                    // activeOpacity={0.1}
+                    underlayColor={"#FFFFFF"}
+                  >
+                    <Image
+                      style={styles.infoIcon}
+                      source={require("./assets/icons/rightIcon.png")}
+                    />
+                  </TouchableHighlight>
+                  <Text style={styles.iconText}>GUIDE</Text>
+                </View>
+              </View>
+            </View>
+
+            {/* center */}
+            <View style={styles.center}>
+              <Image
+                style={styles.imageBody}
+                source={require("./assets/images/humanbutt.png")}
               />
-            )}
+              <View style={{ display: "flex", flexDirection: "row" }}></View>
+              {soundIsPlaying && <SoundVisual />}
+
+              {showImage && (
+                <BlinkImage
+                  showImage={showImage}
+                  setShowImage={setShowImage}
+                  buttonId={buttonId}
+                  bodyHalfLeft={bodyHalfLeft}
+                />
+              )}
+
+            </View>
+
+            {/* right side */}
+            <View style={styles.rightside}>
+              <View style={styles.colStyle}>
+                <CTAButton
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  btnId="R1"
+                  btnGroup="3"
+                  btnTitle={ContentSelector("R1").title}
+                />
+                <CTAButton
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  btnId="R2"
+                  btnGroup="3"
+                  btnTitle={ContentSelector("R2", true, isHand).title}
+                />
+                <CTAButton
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  btnId="R3"
+                  btnGroup="3"
+                  btnTitle={ContentSelector("R3", true, isHand).title}
+                />
+                <CTAButton
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  btnId="R4"
+                  btnGroup="3"
+                  btnTitle={ContentSelector("R4").title}
+                />
+              </View>
+              <View style={styles.colStyle}>
+                <CTAButton
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  btnId="R5"
+                  btnGroup="4"
+                  btnTitle={ContentSelector("R5").title}
+                />
+                <CTAButton
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  btnId="R6"
+                  btnGroup="4"
+                  btnTitle={ContentSelector("R6").title}
+                />
+                <CTAButton
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  btnGroup="4"
+                  btnId="R7"
+                  btnTitle={ContentSelector("R7").title}
+                />
+                <CTAButton
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  setIsHand={setIsHand}
+                  btnId="R8"
+                  btnGroup="5"
+                  btnTitle={ContentSelector("R8").title}
+                />
+              </View>
+              <View style={styles.colStyle}>
+                <CTAButton
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  btnId="R9"
+                  btnGroup="4"
+                  btnTitle={ContentSelector("R9").title}
+                />
+                <CTAButton
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  btnId="R10"
+                  btnGroup="4"
+                  btnTitle={ContentSelector("R10").title}
+                />
+                <CTAButton
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  btnId="R11"
+                  btnGroup="4"
+                  btnTitle={ContentSelector("R11").title}
+                />
+                <CTAButton
+                  setGroupId={setGroupId}
+                  setButtonId={setButtonId}
+                  setIsHand={setIsHand}
+                  btnId="R12"
+                  btnGroup="5"
+                  btnTitle={ContentSelector("R12").title}
+                />
+              </View>
+            </View>
+
+            <StatusBar hidden />
           </View>
-
-          {/* right side */}
-          <View style={styles.rightside}>
-            <View style={styles.colStyle}>
-              <CTAButton
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                btnId="R1"
-                btnGroup="3"
-                btnTitle={ContentSelector("R1").title}
-              />
-              <CTAButton
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                btnId="R2"
-                btnGroup="3"
-                btnTitle={ContentSelector("R2", true, isHand).title}
-                isHand={isHand}
-              />
-              <CTAButton
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                btnId="R3"
-                btnGroup="3"
-                btnTitle={ContentSelector("R3", true, isHand).title}
-                isHand={isHand}
-              />
-              <CTAButton
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                btnId="R4"
-                btnGroup="3"
-                btnTitle={ContentSelector("R4").title}
-              />
-            </View>
-            <View style={styles.colStyle}>
-              <CTAButton
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                btnId="R5"
-                btnGroup="4"
-                btnTitle={ContentSelector("R5").title}
-              />
-              <CTAButton
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                btnId="R6"
-                btnGroup="4"
-                btnTitle={ContentSelector("R6").title}
-              />
-              <CTAButton
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                btnGroup="4"
-                btnId="R7"
-                btnTitle={ContentSelector("R7").title}
-              />
-              <CTAButton
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                setIsHand={setIsHand}
-                btnId="R8"
-                btnGroup="5"
-                btnTitle={ContentSelector("R8").title}
-              />
-            </View>
-            <View style={styles.colStyle}>
-              <CTAButton
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                btnId="R9"
-                btnGroup="4"
-                btnTitle={ContentSelector("R9").title}
-              />
-              <CTAButton
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                btnId="R10"
-                btnGroup="4"
-                btnTitle={ContentSelector("R10").title}
-              />
-              <CTAButton
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                btnId="R11"
-                btnGroup="4"
-                btnTitle={ContentSelector("R11").title}
-              />
-              <CTAButton
-                setGroupId={setGroupId}
-                setButtonId={setButtonId}
-                setSoundIsPlaying={setSoundIsPlaying}
-                setIsHand={setIsHand}
-                btnId="R12"
-                btnGroup="5"
-                btnTitle={ContentSelector("R12").title}
-              />
-            </View>
-          </View>
-
-          <StatusBar hidden />
-        </View>
-      </SafeAreaView>
-    </View>
+        </SafeAreaView>
+      </View>
+    </AudioPlayerContext.Provider>
   );
 }
 
