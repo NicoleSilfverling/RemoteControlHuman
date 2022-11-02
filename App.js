@@ -52,7 +52,8 @@ export default function App() {
   const [isHand, setIsHand] = useState(false);
   const [showInfoCard, setShowInfoCard] = useState(false);
 
-  const sharedAudioPlayer = useContext(AudioPlayerContext);
+  // const [sharedAudioPlayer, setSharedAudioPlayer] = useContext(AudioPlayerContext);
+  // const sharedAudioPlayer = useContext(AudioPlayerContext);
 
   let titlePressedbtn;
   if (
@@ -187,7 +188,6 @@ export default function App() {
                     id="infobtn"
                     onPress={() => {
                       setShowHelpPopUp(true);
-                      sharedAudioPlayer.stopBackgroundLoop();
                     }}
                     style={styles.infoButton}
                     // activeOpacity={0.1}

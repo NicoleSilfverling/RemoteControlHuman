@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+
 import {
   View,
   ScrollView,
@@ -9,16 +10,23 @@ import {
 } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { Video, AVPlaybackStatus } from "expo-av";
+import { AudioPlayerContext } from "../SharedAudioPlayer";
 
 const HelpPopUp = ({ setShowHelpPopUp }) => {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
+
+  const sharedAudioPlayer = useContext(AudioPlayerContext);
+
+  sharedAudioPlayer.stopBackgroundLoop();
+
   return (
     <View style={styles.container}>
       <TouchableHighlight
         style={styles.clickableBG}
         onPress={() => {
           setShowHelpPopUp(false);
+          sharedAudioPlayer.startBackgroundLoop();
         }}
       >
         <View />
@@ -29,6 +37,7 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
           title="Close"
           onPress={() => {
             setShowHelpPopUp ? setShowHelpPopUp(false) : null;
+            sharedAudioPlayer.startBackgroundLoop();
           }}
         >
           <Image
@@ -52,6 +61,9 @@ const HelpPopUp = ({ setShowHelpPopUp }) => {
         <View style={styles.leftContainer}>
           <ScrollView style={styles.textOnTopContainer}>
             <Text style={styles.textOnTopStyle}>
+              BlindBot
+              {"\n"}
+              {"\n"}
               The Controller is divided into 4 sections.
               {"\n"}
               {"\n"}
