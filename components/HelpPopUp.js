@@ -46,12 +46,36 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
         >
           <Image
             style={styles.closeIcon}
-            source={require("../assets/icons/rightIcon.png")}
+            source={require("../assets/icons/close.png")}
           />
         </TouchableHighlight>
 
         {/* <Text style={styles.title}>BlindBot</Text> */}
-
+        <TouchableHighlight
+          style={styles.soundBtn2}
+          underlayColor="transparent"
+          onPress={() => {
+            if (!muted) {
+              setMuted(true);
+              sharedAudioPlayer.stopBackgroundLoop();
+            } else {
+              setMuted(false);
+              // sharedAudioPlayer.startBackgroundLoop();
+            }
+          }}
+        >
+          {muted ? (
+            <Image
+              style={styles.icon}
+              source={require("../assets/icons/soundOff.png")}
+            />
+          ) : (
+            <Image
+              style={styles.icon}
+              source={require("../assets/icons/soundOn.png")}
+            />
+          )}
+        </TouchableHighlight>
         <Video
           ref={video}
           style={styles.video}
@@ -65,35 +89,8 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
         />
         <View style={styles.textBox}>
           <ScrollView style={styles.textOnTopContainer}>
-            <View style={styles.titleContainer}>
-              <Text style={styles.title}>BlindBot </Text>
+            <Text style={styles.title}>BlindBot </Text>
 
-              <TouchableHighlight
-                style={styles.soundBtn}
-                underlayColor="transparent"
-                onPress={() => {
-                  if (!muted) {
-                    setMuted(true);
-                    sharedAudioPlayer.stopBackgroundLoop();
-                  } else {
-                    setMuted(false);
-                    // sharedAudioPlayer.startBackgroundLoop();
-                  }
-                }}
-              >
-                {muted ? (
-                  <Image
-                    style={styles.icon}
-                    source={require("../assets/icons/soundOff.png")}
-                  />
-                ) : (
-                  <Image
-                    style={styles.icon}
-                    source={require("../assets/icons/soundOn.png")}
-                  />
-                )}
-              </TouchableHighlight>
-            </View>
             <Text style={styles.textOnTopStyle}>
               The Controller is divided into 4 sections.
               {"\n"}
@@ -254,18 +251,23 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
               </View>
               {"\n"}
               {"\n"}
+              {"\n"}
               To play Blind Bot the robot must trust the operator.
               {"\n"}
               {"\n"}
               Play on a flat surface without obstacles. Never play close to
-              bumps, holes ot staircases.
+              bumps, holes or staircases.
               {"\n"}
               {"\n"}
               Feel free to film and share your Blind Bot games. Please use
               #blindbot{"\n"}
               {"\n"}
-              {"\n"}Blind Bot was created by Rumtiden Idea Lab. programmed by
-              Nicole Silfverling and Nasir Tedros, concept by Hakan Lidbo.
+              {"\n"}
+              Blind Bot was created by Rumtiden Idea Lab.
+              {"\n"}
+              {"\n"}
+              Programmed by Nicole Silfverling and Nasir Tedros, concept by
+              Hakan Lidbo.
               {"\n"}
               {"\n"}
             </Text>
@@ -338,14 +340,14 @@ const styles = EStyleSheet.create({
   },
   closeButton: {
     position: "absolute",
-    top: 2,
-    right: 2,
+    top: 10,
+    right: 10,
     zIndex: 50,
-    borderColor: "#FFF",
-    borderWidth: 1,
-    borderRadius: 50,
-    width: 30,
-    height: 30,
+    // borderColor: "#FFF",
+    // borderWidth: 1,
+    // borderRadius: 50,
+    width: 22,
+    height: 22,
     justifyContent: "center",
   },
   closeIcon: {
@@ -363,12 +365,13 @@ const styles = EStyleSheet.create({
     flex: 1,
     zIndex: 5,
     position: "absolute",
-    right: "2%",
+    right: 26,
     top: "0%",
     // backgroundColor: "pink",
-    width: "51%",
+    width: "49%",
     height: "60%",
-    padding: "5%",
+    paddingTop: "5%",
+    paddingBottom: "5%",
   },
   textOnTopContainer: {
     // flex: 1,
@@ -395,23 +398,16 @@ const styles = EStyleSheet.create({
     height: 35,
     lineHeight: Platform.OS === "ios" ? 35 * 1.3 : 35 * 1.2,
     textTransform: "uppercase",
-    // zIndex: 10,
-    // backgroundColor: "blue",
-  },
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "flex-end",
     marginBottom: 20,
-
-    // backgroundColor: "green",
+    // backgroundColor: "blue",
   },
   iconBorder: {
     backgroundColor: "transparent",
     borderWidth: 1,
     borderColor: "#FFF",
     borderRadius: 3,
-    width: 25,
-    height: 25,
+    width: 26,
+    height: 26,
     // width: 30,
     // height: 30,
     marginTop: 10,
@@ -452,10 +448,22 @@ const styles = EStyleSheet.create({
     right: "15%",
     bottom: 0,
   },
+  soundBtn2: {
+    position: "absolute",
+    top: 50,
+    right: 8,
+    zIndex: 50,
+    // borderColor: "#FFF",
+    // borderWidth: 1,
+    // borderRadius: 50,
+    width: 30,
+    height: 30,
+    justifyContent: "center",
+  },
 
   "@media (max-width: 1300)": {
     textOnTopStyle: {
-      fontSize: 16,
+      fontSize: 18,
     },
     popUp: {
       width: 960,
@@ -464,12 +472,19 @@ const styles = EStyleSheet.create({
     video: {
       width: 960,
       height: 540,
+    },
+    soundBtn: {
+      width: 25,
+      height: 25,
     },
   },
   "@media (max-width: 1000)": {
     textOnTopStyle: {
       fontSize: 14,
     },
+    title: {
+      fontSize: 22,
+    },
     popUp: {
       width: 580,
       height: 326,
@@ -477,6 +492,23 @@ const styles = EStyleSheet.create({
     video: {
       width: 580,
       height: 326,
+    },
+    iconBorder: {
+      width: 20,
+      height: 20,
+    },
+    soundBtn: {
+      width: 20,
+      height: 20,
+    },
+    soundBtn2: {
+      width: 22,
+      height: 22,
+      top: 40,
+    },
+    closeButton: {
+      width: 15,
+      height: 15,
     },
   },
   "@media (max-width: 900)": {
