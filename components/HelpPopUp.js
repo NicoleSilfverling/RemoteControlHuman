@@ -393,7 +393,7 @@ const styles = EStyleSheet.create({
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
     height: 35,
-    lineHeight: Platform.OS === "ios" ? 35 * 1.3 : 16 * 1.2,
+    lineHeight: Platform.OS === "ios" ? 35 * 1.3 : 35 * 1.2,
     textTransform: "uppercase",
     // zIndex: 10,
     // backgroundColor: "blue",

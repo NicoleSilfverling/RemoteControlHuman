@@ -198,12 +198,15 @@ export default function App() {
                     // activeOpacity={0.1}
                     underlayColor={"#FFFFFF"}
                   >
-                    <Image
-                      style={styles.infoIcon}
-                      source={require("./assets/icons/rightIcon.png")}
-                    />
+                    <View style={styles.infoItemsBox}>
+                      <Image
+                        style={styles.infoIcon}
+                        source={require("./assets/icons/rightIcon.png")}
+                      />
+
+                      <Text style={styles.iconText}>GUIDE</Text>
+                    </View>
                   </TouchableHighlight>
-                  <Text style={styles.iconText}>GUIDE</Text>
                 </View>
               </View>
             </View>
@@ -349,8 +352,6 @@ const styles = EStyleSheet.create({
     padding: "3%",
   },
   leftside: {
-    // width: '40%',
-    // height: '100%',
     flex: 2,
     backgroundColor: "transparent",
     alignItems: "center",
@@ -365,8 +366,6 @@ const styles = EStyleSheet.create({
 
   center: {
     flex: 1.5,
-    // width: '25%',
-    // height : '100%',
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "transparent",
@@ -374,8 +373,6 @@ const styles = EStyleSheet.create({
 
   rightside: {
     flex: 2,
-    // width: '40%',
-    // height: '100%',
     backgroundColor: "transparent",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -401,20 +398,16 @@ const styles = EStyleSheet.create({
     zIndex: 0,
   },
   titlePressedbtn: {
-    // fontFamily: "$fontFamily",
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
     color: "$textColor",
-    fontSize: 20,
-    // fontWeight: "bold",
+    fontSize: 25,
     textAlign: "center",
     padding: 0,
     margin: 0,
-    // lineHeight: 16 * 1.4,
-    height: 16,
-    lineHeight: Platform.OS === "ios" ? 16 * 1.4 : 16 * 1.2,
-    // height: Platform.OS === "ios" ? 16 : 16,
-    width: "170%",
+    height: 22,
+    lineHeight: Platform.OS === "ios" ? 22 * 1.35 : 22 * 1.2,
+    width: "180%",
     // backgroundColor: "blue",
   },
   infoButton: {
@@ -422,35 +415,35 @@ const styles = EStyleSheet.create({
     borderColor: "#FFF",
     borderWidth: 2,
     borderRadius: 50,
-    width: "60%",
-    height: "60%",
+    width: "80%",
+    height: "80%",
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
-    top: 15,
-    // paddingLeft: "25%",
-
-    // marginTop: "5%",
     // backgroundColor: "green",
   },
   iconText: {
     textAlign: "center",
-    // fontWeight: "bold",
     color: "#FFF",
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "$fontWeight",
     height: 16,
     lineHeight: Platform.OS === "ios" ? 16 * 1.2 : 16 * 1.2,
     position: "absolute",
-    bottom: 0,
-    right: 0,
-    // backgroundColor: "green",
+    bottom: -30,
+    // right: 0,
+    //backgroundColor: "green",
   },
 
   infoIcon: {
     tintColor: "#FFF",
     width: "100%",
     height: "100%",
+  },
+  infoItemsBox: {
+    //backgroundColor: "blue",
+    width: "100%",
+    alignItems: "center",
   },
   hiddenBtn: {
     height: "15%",
@@ -473,13 +466,18 @@ const styles = EStyleSheet.create({
       borderRadius: 10,
       borderWidth: 1,
     },
-    infoButton: {
-      height: 50,
-      width: 50,
-      marginTop: "5%",
-    },
     iconText: {
       fontSize: 16,
+    },
+    infoButton: {
+      borderWidth: 1,
+      width: "90%",
+      height: "90%",
+    },
+    titlePressedbtn: {
+      fontSize: 22,
+      height: 22,
+      lineHeight: Platform.OS === "ios" ? 22 * 1.3 : 22 * 1.2,
     },
   },
 
@@ -503,7 +501,16 @@ const styles = EStyleSheet.create({
       borderWidth: 1,
     },
     titlePressedbtn: {
+      fontSize: 14,
+    },
+    iconText: {
       fontSize: 12,
+      bottom: -20,
+    },
+    infoButton: {
+      borderWidth: 1,
+      width: "100%",
+      height: "100%",
     },
   },
   "@media (max-width: 900)": {

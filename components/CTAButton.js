@@ -97,7 +97,7 @@ export default function CTAButton({
 const styles = EStyleSheet.create({
   container: {
     // width: "100%",
-    height: "15%",
+    height: "14%",
     aspectRatio: 1,
 
     // backgroundColor: "red",
