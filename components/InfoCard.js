@@ -88,7 +88,7 @@ const InfoCard = ({ setShowInfoCard }) => {
               Silfverling and Nasir Tedros, concept by Hakan Lidbo.
             </Text> */}
             <Text style={styles.textStyle}>
-              Send voice commandos with the controller buttons that your robot
+              Send voice commands with the controller buttons that your robot
               must follow.
               {/* Play against other controller+robot teams. */}
             </Text>
@@ -350,10 +350,10 @@ const styles = EStyleSheet.create({
       height: 25,
     },
     textStyle: {
-      fontSize: 14,
+      fontSize: 12,
     },
     skipText: {
-      fontSize: 14,
+      fontSize: 12,
     },
     imageBox: {
       marginTop: 15,
@@ -367,8 +367,11 @@ const styles = EStyleSheet.create({
     ballet: {
       height: 60,
       width: 25,
-      tintColor: "#FFF",
       marginLeft: 15,
     },
+    blocks: {
+      height : 60,
+      width: 60
+    }
   },
 });
