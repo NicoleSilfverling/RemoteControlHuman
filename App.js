@@ -159,12 +159,12 @@ export default function App() {
                   btnTitle={ContentSelector("L6").title}
                 />
                 {/* <HiddenButton /> */}
-
+                
                 <View style={styles.hiddenBtn}>
-                  <Image
-                    style={styles.infoIcon}
-                    source={require("./assets/icons/earIcon.png")}
-                  />
+                {soundIsPlaying && 
+                <View style={styles.infoIcon}><SoundVisual
+                imagePath={require("./assets/icons/earIcon.png")}/>
+                </View>}
                   <Text style={styles.titlePressedbtn}>{titlePressedbtn}</Text>
                 </View>
               </View>
@@ -222,7 +222,7 @@ export default function App() {
                 source={require("./assets/images/humanbutt.png")}
               />
               <View style={{ display: "flex", flexDirection: "row" }}></View>
-              {soundIsPlaying && <SoundVisual />}
+              {soundIsPlaying && <SoundVisual imagePath={require("./assets/images/soundplaying.png")} />}
 
               {showImage && (
                 <BlinkImage
@@ -230,6 +230,7 @@ export default function App() {
                   setShowImage={setShowImage}
                   buttonId={buttonId}
                   bodyHalfLeft={bodyHalfLeft}
+                  
                 />
               )}
             </View>
@@ -407,12 +408,14 @@ const styles = EStyleSheet.create({
     color: "$textColor",
     fontSize: 25,
     textAlign: "center",
-    padding: 0,
-    margin: 0,
-    height: 22,
-    lineHeight: Platform.OS === "ios" ? 22 * 1.35 : 22 * 1.2,
+    /* paddingTop: "15%", */
+    /* marginTop: "15%", */
+    bottom : - 30,
+    /* height: 22,
+    lineHeight: Platform.OS === "ios" ? 22 * 1.35 : 22 * 1.2, */
     width: "180%",
-    // backgroundColor: "blue",
+    //backgroundColor: "blue",
+    position: "absolute",
   },
   infoButton: {
     position: "relative",
@@ -441,10 +444,10 @@ const styles = EStyleSheet.create({
 
   infoIcon: {
     tintColor: "#FFF",
-    width: "40%",
-    height: "40%",
+    width: "70%",
+    height: "70%",
     // backgroundColor: "red",
-    marginBottom: 40,
+    
   },
   infoItemsBox: {
     //backgroundColor: "blue",
@@ -460,8 +463,8 @@ const styles = EStyleSheet.create({
     borderColor: "transparent",
     backgroundColor: "transparent",
     alignItems: "center",
-    justifyContent: "flex-end",
-    // borderColor: "red",
+    justifyContent: "center",
+    borderColor: "red",
   },
 
   "@media (max-width: 1300)": {
