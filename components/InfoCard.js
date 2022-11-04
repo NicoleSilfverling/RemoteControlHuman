@@ -117,7 +117,9 @@ const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
         {pageNr == 3 ? (
           // <View>
           <View style={styles.txtBox}>
-            <Text style={[styles.textStyle, {fontSize: 24}]}>Blindfold on {"\n"} lets go!</Text>
+            <Text style={[styles.textStyle, styles.title]}>
+              Blindfold on {"\n"} lets go!
+            </Text>
             {/* </View> */}
             <View style={styles.linkBox}>
               <TouchableHighlight
@@ -248,6 +250,9 @@ const styles = EStyleSheet.create({
     alignSelf: "center",
     textAlign: "center",
   },
+  title: {
+    fontSize: 30,
+  },
   linkBox: {
     // width: "80%",
     // height: "95%",
@@ -255,7 +260,7 @@ const styles = EStyleSheet.create({
     // alignItems: "center",
     // justifyContent: "flex-end",
     position: "absolute",
-    bottom: 0,
+    bottom: 10,
     // left: 0,
   },
   skip: {
@@ -340,9 +345,9 @@ const styles = EStyleSheet.create({
     position: "relative",
     borderColor: "$green",
     borderWidth: 2,
-    borderRadius: 50,
-    width: 100,
-    height: 100,
+    borderRadius: 20,
+    width: 130,
+    height: 130,
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
@@ -376,6 +381,9 @@ const styles = EStyleSheet.create({
     textStyle: {
       fontSize: 12,
     },
+    title: {
+      fontSize: 20,
+    },
     skipText: {
       fontSize: 12,
     },
@@ -396,6 +404,11 @@ const styles = EStyleSheet.create({
     blocks: {
       height: 60,
       width: 60,
+    },
+    infoButton: {
+      width: 80,
+      height: 80,
+      borderRadius: 10,
     },
   },
 });
