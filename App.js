@@ -171,9 +171,11 @@ export default function App() {
                     </View>
                   )}
                   <View style={styles.midBtn}>
-                    <Text style={styles.titlePressedbtn}>
-                      {titlePressedbtn}
-                    </Text>
+                    {soundIsPlaying && (
+                      <Text style={styles.titlePressedbtn}>
+                        {titlePressedbtn}
+                      </Text>
+                    )}
                   </View>
                 </View>
               </View>
