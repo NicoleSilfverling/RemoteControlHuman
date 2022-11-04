@@ -118,7 +118,7 @@ const styles = EStyleSheet.create({
     color: "$textColor",
     fontSize: "1.7rem",
     textAlign: "center",
-    paddingTop: "15%",
+    paddingTop: 10,
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
   },
@@ -152,7 +152,7 @@ const styles = EStyleSheet.create({
     textStyle: {
       fontSize: "0.8rem",
       width: "260%",
-      paddingTop: "7%",
+      paddingTop: 5,
     },
     button: {
       borderRadius: 8,

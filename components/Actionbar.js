@@ -59,6 +59,12 @@ const Actionbar = ({ groupId }) => {
       <View style={styles.barContainer}>
         <View style={[styles.bar1, colorStylesBar1]}></View>
         <View style={[styles.bar2, colorStylesBar2]}></View>
+        {/* <View style={[styles.bar3, colorStylesBar3]}></View>
+        <View style={[styles.bar4, colorStylesBar4]}></View> */}
+      </View>
+      <View style={[styles.barContainer, { alignItems: "flex-end" }]}>
+        {/* <View style={[styles.bar1, colorStylesBar1]}></View>
+        <View style={[styles.bar2, colorStylesBar2]}></View> */}
         <View style={[styles.bar3, colorStylesBar3]}></View>
         <View style={[styles.bar4, colorStylesBar4]}></View>
       </View>
@@ -71,8 +77,13 @@ export default Actionbar;
 const styles = EStyleSheet.create({
   container: {
     backgroundColor: "transparent",
-    flexDirection: "row",
-    marginTop: "5%",
+    // flexDirection: "row",
+    // marginTop: "5%",
+    alignItems: "center",
+    justifyContent: "center",
+    // backgroundColor: "pink",
+    width: "100%",
+    height: "100%",
   },
 
   barMobile: {
@@ -86,10 +97,14 @@ const styles = EStyleSheet.create({
     //flex: 1,
     overflow: "hidden",
     borderRadius: 10,
-
+    width: "100%",
+    height: "50%",
     borderColor: "transparent",
-    backgroundColor: "transparent",
-    alignItems: "center",
+    // backgroundColor: "gray",
+    // alignItems: "center",
+    justifyContent: "space-between",
+    padding: 17,
+
     flexDirection: "row",
   },
 
@@ -116,7 +131,7 @@ const styles = EStyleSheet.create({
     borderWidth: 2,
     borderColor: "#FFF",
     borderRadius: 15,
-    marginRight: 7,
+    // marginRight: 7,
   },
   bar2: {
     width: "100%",
@@ -126,7 +141,7 @@ const styles = EStyleSheet.create({
     borderWidth: 2,
     borderColor: "#ffd500",
     borderRadius: 15,
-    marginRight: 7,
+    // marginRight: 7,
   },
   bar3: {
     width: "100%",
@@ -136,7 +151,7 @@ const styles = EStyleSheet.create({
     borderWidth: 2,
     borderColor: "orange",
     borderRadius: 15,
-    marginRight: 7,
+    // marginRight: 7,
   },
   bar4: {
     width: "100%",
@@ -146,7 +161,7 @@ const styles = EStyleSheet.create({
     borderWidth: 2,
     borderColor: "#00A300",
     borderRadius: 15,
-    marginRight: 7,
+    // marginRight: 7,
   },
   bar5: {
     flex: 0.5,
@@ -157,18 +172,76 @@ const styles = EStyleSheet.create({
     marginRight: "1%",
   },
 
+  "@media (max-width: 1300)": {
+    barContainer: {
+      padding: 13,
+    },
+    bar1: {
+      height: 15,
+      width: 15,
+    },
+    bar2: {
+      height: 15,
+      width: 15,
+    },
+    bar3: {
+      height: 15,
+      width: 15,
+    },
+    bar4: {
+      height: 15,
+      width: 15,
+    },
+  },
   "@media (max-width: 1000)": {
     barContainer: {
-      borderWidth: 0,
-      display: "none",
+      // display: "none",
+      padding: 7,
+    },
+    bar1: {
+      height: 12,
+      width: 12,
+    },
+    bar2: {
+      height: 12,
+      width: 12,
+    },
+    bar3: {
+      height: 12,
+      width: 12,
+    },
+    bar4: {
+      height: 12,
+      width: 12,
     },
     mobileContainer: {
-      display: "flex",
+      // display: "flex",
       /* paddingLeft: "2%", */
       paddingRight: "70%",
       marginLeft: "0%",
       //backgroundColor: "pink"
     },
   },
-  "@media (max-width: 900)": {},
+  "@media (max-width: 900)": {
+    barContainer: {
+      // display: "none",
+      padding: 5,
+    },
+    bar1: {
+      height: 11,
+      width: 11,
+    },
+    bar2: {
+      height: 11,
+      width: 11,
+    },
+    bar3: {
+      height: 11,
+      width: 11,
+    },
+    bar4: {
+      height: 11,
+      width: 11,
+    },
+  },
 });

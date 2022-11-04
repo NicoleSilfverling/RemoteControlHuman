@@ -126,7 +126,7 @@ export default function App() {
                   btnTitle={ContentSelector("L3").title}
                 />
                 {/* <HiddenButton /> */}
-                <View style={[styles.hiddenBtn, { alignItems: "flex-start" }]}>
+                <View style={styles.hiddenBtn}>
                   <Actionbar groupId={groupId} />
                 </View>
               </View>
@@ -159,13 +159,22 @@ export default function App() {
                   btnTitle={ContentSelector("L6").title}
                 />
                 {/* <HiddenButton /> */}
-                
-                <View style={styles.hiddenBtn}>
-                {soundIsPlaying && 
-                <View style={styles.infoIcon}><SoundVisual
-                imagePath={require("./assets/icons/earIcon.png")}/>
-                </View>}
-                  <Text style={styles.titlePressedbtn}>{titlePressedbtn}</Text>
+
+                <View
+                  style={[styles.hiddenBtn, { borderColor: "transparent" }]}
+                >
+                  {soundIsPlaying && (
+                    <View style={styles.earIcon}>
+                      <SoundVisual
+                        imagePath={require("./assets/icons/earIcon.png")}
+                      />
+                    </View>
+                  )}
+                  <View style={styles.midBtn}>
+                    <Text style={styles.titlePressedbtn}>
+                      {titlePressedbtn}
+                    </Text>
+                  </View>
                 </View>
               </View>
               <View style={styles.colStyle}>
@@ -222,7 +231,11 @@ export default function App() {
                 source={require("./assets/images/humanbutt.png")}
               />
               <View style={{ display: "flex", flexDirection: "row" }}></View>
-              {soundIsPlaying && <SoundVisual imagePath={require("./assets/images/soundplaying.png")} />}
+              {soundIsPlaying && (
+                <SoundVisual
+                  imagePath={require("./assets/images/soundplaying.png")}
+                />
+              )}
 
               {showImage && (
                 <BlinkImage
@@ -230,7 +243,6 @@ export default function App() {
                   setShowImage={setShowImage}
                   buttonId={buttonId}
                   bodyHalfLeft={bodyHalfLeft}
-                  
                 />
               )}
             </View>
@@ -410,47 +422,48 @@ const styles = EStyleSheet.create({
     textAlign: "center",
     /* paddingTop: "15%", */
     /* marginTop: "15%", */
-    bottom : - 30,
     /* height: 22,
     lineHeight: Platform.OS === "ios" ? 22 * 1.35 : 22 * 1.2, */
-    width: "180%",
+    width: "190%",
     //backgroundColor: "blue",
     position: "absolute",
+    bottom: 5,
   },
   infoButton: {
     position: "relative",
-    borderColor: "#FFF",
+    borderColor: "transparent",
     borderWidth: 2,
     borderRadius: 10,
-    width: "50%",
-    height: "50%",
+    // flex: 1,
+    width: "100%",
+    height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    position: "absolute",
+    // position: "absolute",
     // backgroundColor: "green",
   },
   iconText: {
     textAlign: "center",
     color: "#FFF",
-    fontSize: 25,
-    fontWeight: "$fontWeight",
-    // height: 16,
+    fontSize: 75,
+    fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
+
+    fontWeight: "100",
     // lineHeight: Platform.OS === "ios" ? 16 * 1.2 : 16 * 1.2,
     // position: "absolute",
     // bottom: -30,
     // right: 0,
-    //backgroundColor: "green",
+    // backgroundColor: "green",
   },
 
-  infoIcon: {
+  earIcon: {
     tintColor: "#FFF",
     width: "70%",
     height: "70%",
     // backgroundColor: "red",
-    
   },
   infoItemsBox: {
-    //backgroundColor: "blue",
+    // backgroundColor: "blue",
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
@@ -464,7 +477,17 @@ const styles = EStyleSheet.create({
     backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "center",
-    borderColor: "red",
+    borderColor: "#FFF",
+  },
+  midBtn: {
+    // borderWidth: 2,
+    // borderRadius: 15,
+    // borderColor: "#FFF",
+    width: "100%",
+    height: "150%",
+    alignItems: "center",
+    position: "absolute",
+    top: 0,
   },
 
   "@media (max-width: 1300)": {
@@ -477,12 +500,13 @@ const styles = EStyleSheet.create({
       borderWidth: 1,
     },
     iconText: {
-      fontSize: 16,
+      fontSize: 60,
     },
     infoButton: {
-      height: "70%",
-      width: "70%",
+      // height: "70%",
+      // width: "70%",
       borderWidth: 1,
+      borderRadius: 8,
     },
     titlePressedbtn: {
       fontSize: 22,
@@ -501,9 +525,9 @@ const styles = EStyleSheet.create({
       paddingBottom: "3%",
     },
     infoButton: {
-      height: "70%",
-      width: "70%",
-      borderWidth: 1,
+      // height: "70%",
+      // width: "70%",
+      // borderRadius: 6,
     },
     hiddenBtn: {
       height: "17%",
@@ -514,7 +538,7 @@ const styles = EStyleSheet.create({
       fontSize: 14,
     },
     iconText: {
-      fontSize: 12,
+      fontSize: 35,
       // bottom: -20,
     },
   },
@@ -523,6 +547,12 @@ const styles = EStyleSheet.create({
       height: "17%",
       borderRadius: 8,
       borderWidth: 1,
+    },
+    titlePressedbtn: {
+      bottom: 3,
+    },
+    infoButton: {
+      // borderRadius: 5,
     },
   },
 });
