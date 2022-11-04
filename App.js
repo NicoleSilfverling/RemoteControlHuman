@@ -161,6 +161,10 @@ export default function App() {
                 {/* <HiddenButton /> */}
 
                 <View style={styles.hiddenBtn}>
+                  <Image
+                    style={styles.infoIcon}
+                    source={require("./assets/icons/earIcon.png")}
+                  />
                   <Text style={styles.titlePressedbtn}>{titlePressedbtn}</Text>
                 </View>
               </View>
@@ -204,12 +208,7 @@ export default function App() {
                     underlayColor={"#FFFFFF"}
                   >
                     <View style={styles.infoItemsBox}>
-                      <Image
-                        style={styles.infoIcon}
-                        source={require("./assets/icons/rightIcon.png")}
-                      />
-
-                      <Text style={styles.iconText}>GUIDE</Text>
+                      <Text style={styles.iconText}>i</Text>
                     </View>
                   </TouchableHighlight>
                 </View>
@@ -419,9 +418,9 @@ const styles = EStyleSheet.create({
     position: "relative",
     borderColor: "#FFF",
     borderWidth: 2,
-    borderRadius: 50,
-    width: "80%",
-    height: "80%",
+    borderRadius: 10,
+    width: "50%",
+    height: "50%",
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
@@ -430,28 +429,31 @@ const styles = EStyleSheet.create({
   iconText: {
     textAlign: "center",
     color: "#FFF",
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "$fontWeight",
-    height: 16,
-    lineHeight: Platform.OS === "ios" ? 16 * 1.2 : 16 * 1.2,
-    position: "absolute",
-    bottom: -30,
+    // height: 16,
+    // lineHeight: Platform.OS === "ios" ? 16 * 1.2 : 16 * 1.2,
+    // position: "absolute",
+    // bottom: -30,
     // right: 0,
     //backgroundColor: "green",
   },
 
   infoIcon: {
     tintColor: "#FFF",
-    width: "100%",
-    height: "100%",
+    width: "40%",
+    height: "40%",
+    // backgroundColor: "red",
+    marginBottom: 40,
   },
   infoItemsBox: {
     //backgroundColor: "blue",
     width: "100%",
     alignItems: "center",
+    justifyContent: "center",
   },
   hiddenBtn: {
-    height: "15%",
+    height: "14%",
     aspectRatio: 1,
     borderRadius: 15,
     borderWidth: 2,
@@ -475,9 +477,9 @@ const styles = EStyleSheet.create({
       fontSize: 16,
     },
     infoButton: {
+      height: "70%",
+      width: "70%",
       borderWidth: 1,
-      width: "90%",
-      height: "90%",
     },
     titlePressedbtn: {
       fontSize: 22,
@@ -496,9 +498,9 @@ const styles = EStyleSheet.create({
       paddingBottom: "3%",
     },
     infoButton: {
-      height: 25,
-      width: 25,
-      marginTop: "5%",
+      height: "70%",
+      width: "70%",
+      borderWidth: 1,
     },
     hiddenBtn: {
       height: "17%",
@@ -510,12 +512,7 @@ const styles = EStyleSheet.create({
     },
     iconText: {
       fontSize: 12,
-      bottom: -20,
-    },
-    infoButton: {
-      borderWidth: 1,
-      width: "100%",
-      height: "100%",
+      // bottom: -20,
     },
   },
   "@media (max-width: 900)": {
