@@ -117,7 +117,7 @@ const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
         {pageNr == 3 ? (
           // <View>
           <View style={styles.txtBox}>
-            <Text style={styles.textStyle}>Blindfold on, lets go</Text>
+            <Text style={[styles.textStyle, {fontSize: 24}]}>Blindfold on {"\n"} lets go!</Text>
             {/* </View> */}
             <View style={styles.linkBox}>
               <TouchableHighlight
