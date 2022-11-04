@@ -3,7 +3,7 @@ import { View, Text, TouchableHighlight, Image } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { AudioPlayerContext } from "../SharedAudioPlayer";
 
-const InfoCard = ({ setShowInfoCard }) => {
+const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
   const [pageNr, setPageNr] = useState(1);
   const sharedAudioPlayer = useContext(AudioPlayerContext);
   return (
@@ -61,36 +61,27 @@ const InfoCard = ({ setShowInfoCard }) => {
 
         {pageNr == 3 ? (
           <TouchableHighlight
-            underlayColor={"#00A300"}
-            style={styles.startBtn}
+            id="infobtn"
             onPress={() => {
               sharedAudioPlayer.startBackgroundLoop();
               setShowInfoCard(false);
             }}
+            style={styles.infoButton}
+            // activeOpacity={0.1}
+            underlayColor={"#00A300"}
           >
-            <View style={styles.startCont}>
-              <Text style={styles.startText}>LET'S PLAY</Text>
-              <Image
-                style={styles.startIcon}
-                source={require("../assets/icons/rightIcon.png")}
-              />
-            </View>
+            <Image
+              style={styles.playIcon}
+              source={require("../assets/icons/playSmall.png")}
+            />
           </TouchableHighlight>
         ) : null}
 
         {pageNr == 1 ? (
           <View style={styles.txtBox}>
-            {/* <Text style={styles.textStyle}>
-              Blind Bot is a tool to remote control a human.
-              {"\n"}
-              {"\n"}
-              Blind Bot was created by Rumtiden Idea Lab. programmed by Nicole
-              Silfverling and Nasir Tedros, concept by Hakan Lidbo.
-            </Text> */}
             <Text style={styles.textStyle}>
               Send voice commands with the controller buttons that your robot
               must follow.
-              {/* Play against other controller+robot teams. */}
             </Text>
             <View style={styles.imageBox}>
               <Image
@@ -105,20 +96,8 @@ const InfoCard = ({ setShowInfoCard }) => {
         ) : null}
         {pageNr == 2 ? (
           <View style={styles.txtBox}>
-            {/* <Text style={styles.textStyle}>
-              One person is the operates the controller, the other one the robot
-              and is blindfolded.
-              {"\n"}
-              {"\n"}
-              Send voice commandos with the controller buttons that your robot
-              must follow.
-              {"\n"}
-              {"\n"}
-              Create challenges to perform a simple task.
-            </Text> */}
             <Text style={styles.textStyle}>
-              Create challenges to perform a simple task. Play against other
-              controller+robot teams.
+              Challenge other controller+robot teams to preform a simple task.
             </Text>
             <View style={styles.imageBox}>
               <Image
@@ -129,24 +108,34 @@ const InfoCard = ({ setShowInfoCard }) => {
                 style={styles.blocks}
                 source={require("../assets/images/blocks.png")}
               />
-              {/* <Image
-                style={styles.ballet}
-                source={require("../assets/images/ballerina2.png")}
-              /> */}
             </View>
             <Text style={styles.textStyle}>
-              Create an abstract ballet or try to build the highest tower.
+              Create an abstract ballet or build the highest tower.
             </Text>
           </View>
         ) : null}
         {pageNr == 3 ? (
+          // <View>
           <View style={styles.txtBox}>
-            <Text style={styles.textStyle}>
-              For further instructions, please watch this video.
-              <TouchableHighlight>
-                <Text style={styles.textStyle}>VIDEO</Text>
+            <Text style={styles.textStyle}>Blindfold on, lets go</Text>
+            {/* </View> */}
+            <View style={styles.linkBox}>
+              <TouchableHighlight
+                onPress={() => {
+                  setShowHelpPopUp(true);
+                  setShowInfoCard(false);
+                }}
+                style={styles.btnToGuide}
+                underlayColor={"transparent"}
+              >
+                <View>
+                  <Text style={[styles.textStyle, { color: "gray" }]}>
+                    For further instructions, please watch this
+                    <Text style={{ color: "#FFF" }}> video</Text>
+                  </Text>
+                </View>
               </TouchableHighlight>
-            </Text>
+            </View>
           </View>
         ) : null}
 
@@ -247,6 +236,7 @@ const styles = EStyleSheet.create({
     width: "80%",
     height: "80%",
     // backgroundColor: "green",
+    alignItems: "center",
   },
   textStyle: {
     color: "#FFF",
@@ -257,6 +247,16 @@ const styles = EStyleSheet.create({
 
     alignSelf: "center",
     textAlign: "center",
+  },
+  linkBox: {
+    // width: "80%",
+    // height: "95%",
+    // backgroundColor: "pink",
+    // alignItems: "center",
+    // justifyContent: "flex-end",
+    position: "absolute",
+    bottom: 0,
+    // left: 0,
   },
   skip: {
     position: "absolute",
@@ -336,6 +336,30 @@ const styles = EStyleSheet.create({
     width: 120,
     tintColor: "#FFF",
   },
+  infoButton: {
+    position: "relative",
+    borderColor: "$green",
+    borderWidth: 2,
+    borderRadius: 50,
+    width: 100,
+    height: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    zIndex: 10,
+    // backgroundColor: "green",
+  },
+  playIcon: {
+    tintColor: "$green",
+    width: "90%",
+    height: "90%",
+    marginLeft: 10,
+  },
+  btnToGuide: {
+    // backgroundColor: "red",
+    justifyContent: "flex-end",
+    padding: 0,
+  },
   "@media (max-width: 1000)": {
     infoCard: {
       width: 260,
@@ -370,8 +394,8 @@ const styles = EStyleSheet.create({
       marginLeft: 15,
     },
     blocks: {
-      height : 60,
-      width: 60
-    }
+      height: 60,
+      width: 60,
+    },
   },
 });

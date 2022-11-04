@@ -86,7 +86,12 @@ export default function App() {
               setMuted={setMuted}
             />
           ) : null}
-          {showInfoCard ? <InfoCard setShowInfoCard={setShowInfoCard} /> : null}
+          {showInfoCard ? (
+            <InfoCard
+              setShowInfoCard={setShowInfoCard}
+              setShowHelpPopUp={setShowHelpPopUp}
+            />
+          ) : null}
 
           <View style={styles.layout}>
             {/* leftside */}
