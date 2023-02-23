@@ -230,7 +230,7 @@ export default function App() {
             <View style={styles.center}>
               <Image
                 style={styles.imageBody}
-                source={require("./assets/images/humanbutt.png")}
+                source={require("./assets/images/gubbe_thin.png")}
               />
               <View style={{ display: "flex", flexDirection: "row" }}></View>
               {soundIsPlaying && (

@@ -8,7 +8,7 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
     case "L1":
       title = "LEFT";
       iconImg = require("../assets/icons/leftIcon.png");
-      sound = require("../assets/sounds/left.wav");
+      sound = require("../assets/sounds/_left.wav");
 
       break;
     case "L2":
@@ -52,7 +52,7 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
     case "L7":
       title = "RIGHT";
       iconImg = require("../assets/icons/rightIcon.png");
-      sound = require("../assets/sounds/right.wav");
+      sound = require("../assets/sounds/_right.wav");
 
       break;
     case "L8":
@@ -89,7 +89,7 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
     case "R3":
       if (isHand) {
         title = "OPEN GRIP";
-        sound = require("../assets/sounds/opengrip.wav");
+        sound = require("../assets/sounds/opengripnew.wav");
       } else {
         title = "STRETCH";
         sound = require("../assets/sounds/stretch.wav");
