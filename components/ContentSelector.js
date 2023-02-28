@@ -45,8 +45,8 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
       title = "LEG";
       iconImg = require("../assets/icons/legIcon.png");
       sound = require("../assets/sounds/leg.wav");
-      if (bodyHalfLeft) bodypartImg = require("../assets/images/leg_l.png");
-      else bodypartImg = require("../assets/images/leg_r.png");
+      if (bodyHalfLeft) bodypartImg = require("../assets/images/leg_left.png");
+      else bodypartImg = require("../assets/images/leg_right.png");
 
       break;
     case "L7":
