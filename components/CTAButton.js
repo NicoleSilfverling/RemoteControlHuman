@@ -132,7 +132,7 @@ const styles = EStyleSheet.create({
       borderWidth: 1,
     },
     container: {
-      height: "14%",
+      height: "13.5%",
     },
   },
   "@media (max-width: 1000)": {

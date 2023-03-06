@@ -479,7 +479,7 @@ const styles = EStyleSheet.create({
       flex: 1.2,
     },
     hiddenBtn: {
-      height: "14%",
+      height: "13.5%",
       borderRadius: 10,
       borderWidth: 1,
     },
