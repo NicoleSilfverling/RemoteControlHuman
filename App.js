@@ -409,7 +409,6 @@ const styles = EStyleSheet.create({
   colStyle: {
     justifyContent: "space-between",
     height: "100%",
-    // backgroundColor: "green",
   },
   imageBody: {
     width: "100%",
@@ -422,50 +421,36 @@ const styles = EStyleSheet.create({
     color: "$textColor",
     fontSize: 25,
     textAlign: "center",
-    /* paddingTop: "15%", */
-    /* marginTop: "15%", */
     /* height: 22,
     lineHeight: Platform.OS === "ios" ? 22 * 1.35 : 22 * 1.2, */
     width: "190%",
-    //backgroundColor: "blue",
     position: "absolute",
     bottom: 5,
   },
   infoButton: {
     position: "relative",
     borderColor: "transparent",
-    borderWidth: 2,
     borderRadius: 10,
-    // flex: 1,
     width: "100%",
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    // position: "absolute",
-    // backgroundColor: "green",
   },
   iconText: {
     textAlign: "center",
     color: "#FFF",
     fontSize: 75,
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
-
     fontWeight: "100",
     // lineHeight: Platform.OS === "ios" ? 16 * 1.2 : 16 * 1.2,
-    // position: "absolute",
-    // bottom: -30,
-    // right: 0,
-    // backgroundColor: "green",
   },
 
   earIcon: {
     tintColor: "#FFF",
     width: "70%",
     height: "70%",
-    // backgroundColor: "red",
   },
   infoItemsBox: {
-    // backgroundColor: "blue",
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
@@ -482,9 +467,6 @@ const styles = EStyleSheet.create({
     borderColor: "#FFF",
   },
   midBtn: {
-    // borderWidth: 2,
-    // borderRadius: 15,
-    // borderColor: "#FFF",
     width: "100%",
     height: "150%",
     alignItems: "center",
@@ -505,10 +487,7 @@ const styles = EStyleSheet.create({
       fontSize: 60,
     },
     infoButton: {
-      // height: "70%",
-      // width: "70%",
-      borderWidth: 1,
-      borderRadius: 8,
+      borderRadius: 6,
     },
     titlePressedbtn: {
       fontSize: 22,
@@ -526,11 +505,6 @@ const styles = EStyleSheet.create({
       paddingTop: "3%",
       paddingBottom: "3%",
     },
-    infoButton: {
-      // height: "70%",
-      // width: "70%",
-      // borderRadius: 6,
-    },
     hiddenBtn: {
       height: "17%",
       borderRadius: 10,
@@ -541,7 +515,6 @@ const styles = EStyleSheet.create({
     },
     iconText: {
       fontSize: 35,
-      // bottom: -20,
     },
   },
   "@media (max-width: 900)": {
@@ -552,9 +525,6 @@ const styles = EStyleSheet.create({
     },
     titlePressedbtn: {
       bottom: 3,
-    },
-    infoButton: {
-      // borderRadius: 5,
     },
   },
 });
