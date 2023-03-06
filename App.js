@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import Actionbar from "./components/Actionbar";
 import CTAButton from "./components/CTAButton";
-import HiddenButton from "./components/HiddenButton";
 import ShowImage from "./components/ShowImage";
 import React, { useContext, useState } from "react";
 import { Audio } from "expo-av";
@@ -125,7 +124,6 @@ export default function App() {
                   btnGroup="2"
                   btnTitle={ContentSelector("L3").title}
                 />
-                {/* <HiddenButton /> */}
                 <View style={styles.hiddenBtn}>
                   <Actionbar groupId={groupId} />
                 </View>
@@ -158,7 +156,6 @@ export default function App() {
                   btnGroup="2"
                   btnTitle={ContentSelector("L6").title}
                 />
-                {/* <HiddenButton /> */}
 
                 <View
                   style={[styles.hiddenBtn, { borderColor: "transparent" }]}
@@ -207,7 +204,6 @@ export default function App() {
                   btnGroup="2"
                   btnTitle={ContentSelector("L9").title}
                 />
-                {/* <HiddenButton /> */}
                 <View style={[styles.hiddenBtn, { alignItems: "flex-end" }]}>
                   <TouchableHighlight
                     id="infobtn"
