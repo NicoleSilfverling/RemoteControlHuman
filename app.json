@@ -4,7 +4,7 @@
     "slug": "RemoteControlHuman",
     "version": "1.0.0",
     "orientation": "landscape",
-    "icon": "./assets/icontest2.png",
+    "icon": "./assets/blindbotIcon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splashtest2.png",
