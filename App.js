@@ -92,6 +92,8 @@ export default function App() {
             />
           ) : null}
 
+          {soundIsPlaying ? <View style={styles.overlayButtons}></View> : null}
+
           <View style={styles.layout}>
             {/* leftside */}
             <View style={styles.leftside}>
@@ -445,6 +447,14 @@ const styles = EStyleSheet.create({
     tintColor: "#FFF",
     width: "70%",
     height: "70%",
+  },
+  overlayButtons: {
+    position: "absolute",
+    // flex: 1,
+    width: "120%",
+    height: "100%",
+    // backgroundColor: "red",
+    zIndex: 50,
   },
   infoItemsBox: {
     width: "100%",
