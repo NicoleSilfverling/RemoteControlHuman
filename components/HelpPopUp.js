@@ -88,14 +88,18 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
           isMuted={muted}
         />
         <View style={styles.textBox}>
-          <ScrollView style={styles.textOnTopContainer}>
+          <ScrollView 
+          showsVerticalScrollIndicator={true} 
+          persistentScrollbar={true}
+          indicatorStyle={styles.scrollbarStyle}
+          style={styles.textOnTopContainer}>
             <Text style={styles.title}>BlindBot </Text>
 
             <Text style={styles.textOnTopStyle}>
               The Controller is divided into 4 sections.
               {"\n"}
               {"\n"}
-              The best way to create a commando for your robot is in this order.
+              The best way to create a command for your robot is in this order.
               {"\n"}
               {"\n"}
               1. Body half - left, right
@@ -365,15 +369,16 @@ const styles = EStyleSheet.create({
     flex: 1,
     zIndex: 5,
     position: "absolute",
-    right: 26,
+    right: 0,
     top: "0%",
-    // backgroundColor: "pink",
+    backgroundColor: "pink",
     width: "49%",
-    height: "60%",
+    height: "100%",
     paddingTop: "5%",
     paddingBottom: "5%",
   },
   textOnTopContainer: {
+
     // flex: 1,
     // zIndex: 5,
     // position: "absolute",
@@ -381,6 +386,10 @@ const styles = EStyleSheet.create({
     // width: "100%",
     // height: "100%",
     // padding: "5%",
+  },
+  scrollbarStyle:{
+    backgroundColor: "black",
+    width: 10,
   },
 
   textOnTopStyle: {

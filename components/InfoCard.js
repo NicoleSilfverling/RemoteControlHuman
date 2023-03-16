@@ -21,7 +21,7 @@ const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
         {pageNr < 3 ? (
           <TouchableHighlight
             underlayColor={"transparent"}
-            style={[styles.arrow, { right: 2, alignItems: "flex-end" }]}
+            style={[styles.arrow, { right: -24, alignItems: "flex-end" }]}
             onPress={() => {
               setPageNr(pageNr + 1);
             }}
@@ -35,7 +35,7 @@ const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
         {pageNr > 1 ? (
           <TouchableHighlight
             underlayColor={"transparent"}
-            style={[styles.arrow, { left: 2, alignItems: "flex-start" }]}
+            style={[styles.arrow, { left: -24, alignItems: "flex-start" }]}
             onPress={() => {
               setPageNr(pageNr - 1);
             }}
@@ -209,10 +209,11 @@ const styles = EStyleSheet.create({
   arrow: {
     position: "absolute",
     zIndex: 1,
-    width: "40%",
+    width: "45%",
     height: "100%",
+    padding : 30, 
     justifyContent: "center",
-    // backgroundColor: "blue",
+   // backgroundColor: "rgba(255, 20, 20, 0.5)",
   },
   arrowIcon: {
     // backgroundColor: "red",

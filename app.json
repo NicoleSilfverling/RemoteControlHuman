@@ -19,7 +19,8 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.ograeset.RemoteControlHuman"
+      "bundleIdentifier": "com.ograeset.RemoteControlHuman",
+      "buildNumber": "2"
     },
     "android": {
       "adaptiveIcon": {

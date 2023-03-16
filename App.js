@@ -39,6 +39,7 @@ export default function App() {
     $yellow: "#ffd500",
     $orange: "orange",
     $green: "#00A300",
+    
   });
 
   const [showImage, setShowImage] = useState(false);
