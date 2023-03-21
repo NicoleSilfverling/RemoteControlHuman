@@ -7,6 +7,8 @@ import {
   TouchableHighlight,
   Text,
   Image,
+  Touchable,
+  TouchableWithoutFeedback,
 } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { Video, AVPlaybackStatus } from "expo-av";
@@ -16,23 +18,34 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
 
+  const [showText, setShowText] = React.useState(false);
+
   const sharedAudioPlayer = useContext(AudioPlayerContext);
 
   sharedAudioPlayer.stopBackgroundLoop();
 
+  //let showText = false;
+
   return (
     <View style={styles.container}>
-      <TouchableHighlight
-        style={styles.clickableBG}
-        onPress={() => {
-          setShowHelpPopUp(false);
-          if (!muted) {
-            sharedAudioPlayer.startBackgroundLoop();
-          }
-        }}
-      >
-        <View />
-      </TouchableHighlight>
+      {!showText ? (
+        <TouchableHighlight
+          style={styles.clickableBG}
+          onPress={() => {
+            // setShowHelpPopUp(false);
+            // if (!muted) {
+            //   sharedAudioPlayer.startBackgroundLoop();
+            // }
+            //showText = true;
+            setShowText(true);
+            console.log("video pressed");
+            console.log(showText);
+          }}
+        >
+          <View />
+        </TouchableHighlight>
+      ) : null}
+
       <View style={styles.popUp}>
         <TouchableHighlight
           style={styles.closeButton}
@@ -87,196 +100,202 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
           onPlaybackStatusUpdate={(status) => setStatus(() => status)}
           isMuted={muted}
         />
-        <View style={styles.textBox}>
-          <ScrollView 
-          showsVerticalScrollIndicator={true} 
-          persistentScrollbar={true}
-          indicatorStyle={styles.scrollbarStyle}
-          style={styles.textOnTopContainer}>
-            <Text style={styles.title}>BlindBot </Text>
 
-            <Text style={styles.textOnTopStyle}>
-              The Controller is divided into 4 sections.
-              {"\n"}
-              {"\n"}
-              The best way to create a command for your robot is in this order.
-              {"\n"}
-              {"\n"}
-              1. Body half - left, right
-              {"\n"}
-              <View style={styles.iconContainer}>
-                <View style={styles.iconBorder}>
-                  <Image
-                    style={styles.icon}
-                    source={require("../assets/icons/bold/leftIconBold.png")}
-                  />
+        {showText ? (
+          <View style={styles.textBox}>
+            <ScrollView
+              showsVerticalScrollIndicator={true}
+              persistentScrollbar={true}
+              indicatorStyle={styles.scrollbarStyle}
+              style={styles.textOnTopContainer}
+            >
+              <Text style={styles.title}>BlindBot </Text>
+
+              <Text style={styles.textOnTopStyle}>
+                The Controller is divided into 4 sections.
+                {"\n"}
+                {"\n"}
+                The best way to create a command for your robot is in this
+                order.
+                {"\n"}
+                {"\n"}
+                1. Body half - left, right
+                {"\n"}
+                <View style={styles.iconContainer}>
+                  <View style={styles.iconBorder}>
+                    <Image
+                      style={styles.icon}
+                      source={require("../assets/icons/bold/leftIconBold.png")}
+                    />
+                  </View>
+                  <View style={styles.iconBorder}>
+                    <Image
+                      style={styles.icon}
+                      source={require("../assets/icons/bold/rightIconBold.png")}
+                    />
+                  </View>
                 </View>
-                <View style={styles.iconBorder}>
-                  <Image
-                    style={styles.icon}
-                    source={require("../assets/icons/bold/rightIconBold.png")}
-                  />
+                {"\n"}
+                {"\n"}2. Body part - torso, arm, hand, thumb, index finger, leg,
+                foot{"\n"}
+                <View style={styles.iconContainer}>
+                  <View style={[styles.iconBorder, styles.yellowIcon]}>
+                    <Image
+                      style={[styles.icon, styles.yellowIcon]}
+                      source={require("../assets/icons/bold/torsoIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.yellowIcon]}>
+                    <Image
+                      style={[styles.icon, styles.yellowIcon]}
+                      source={require("../assets/icons/bold/armIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.yellowIcon]}>
+                    <Image
+                      style={[styles.icon, styles.yellowIcon]}
+                      source={require("../assets/icons/bold/handIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.yellowIcon]}>
+                    <Image
+                      style={[styles.icon, styles.yellowIcon]}
+                      source={require("../assets/icons/bold/thumbIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.yellowIcon]}>
+                    <Image
+                      style={[styles.icon, styles.yellowIcon]}
+                      source={require("../assets/icons/bold/indexIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.yellowIcon]}>
+                    <Image
+                      style={[styles.icon, styles.yellowIcon]}
+                      source={require("../assets/icons/bold/legIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.yellowIcon]}>
+                    <Image
+                      style={[styles.icon, styles.yellowIcon]}
+                      source={require("../assets/icons/bold/footIconBold.png")}
+                    />
+                  </View>
                 </View>
-              </View>
-              {"\n"}
-              {"\n"}2. Body part - torso, arm, hand, thumb, index finger, leg,
-              foot{"\n"}
-              <View style={styles.iconContainer}>
-                <View style={[styles.iconBorder, styles.yellowIcon]}>
-                  <Image
-                    style={[styles.icon, styles.yellowIcon]}
-                    source={require("../assets/icons/bold/torsoIconBold.png")}
-                  />
+                {"\n"}
+                {"\n"}
+                3. Action - move, bend, stretch, twist{"\n"}
+                <View style={styles.iconContainer}>
+                  <View style={[styles.iconBorder, styles.orangeIcon]}>
+                    <Image
+                      style={[styles.icon, styles.orangeIcon]}
+                      source={require("../assets/icons/bold/moveIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.orangeIcon]}>
+                    <Image
+                      style={[styles.icon, styles.orangeIcon]}
+                      source={require("../assets/icons/bold/bendIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.orangeIcon]}>
+                    <Image
+                      style={[styles.icon, styles.orangeIcon]}
+                      source={require("../assets/icons/bold/stretchIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.orangeIcon]}>
+                    <Image
+                      style={[styles.icon, styles.orangeIcon]}
+                      source={require("../assets/icons/bold/twistIconBold.png")}
+                    />
+                  </View>
                 </View>
-                <View style={[styles.iconBorder, styles.yellowIcon]}>
-                  <Image
-                    style={[styles.icon, styles.yellowIcon]}
-                    source={require("../assets/icons/bold/armIconBold.png")}
-                  />
+                {"\n"}
+                {"\n"}
+                4. Direction - up, down, forward, backward, left, right{"\n"}
+                <View style={styles.iconContainer}>
+                  <View style={[styles.iconBorder, styles.greenIcon]}>
+                    <Image
+                      style={[styles.icon, styles.greenIcon]}
+                      source={require("../assets/icons/bold/upIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.greenIcon]}>
+                    <Image
+                      style={[styles.icon, styles.greenIcon]}
+                      source={require("../assets/icons/bold/downIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.greenIcon]}>
+                    <Image
+                      style={[styles.icon, styles.greenIcon]}
+                      source={require("../assets/icons/bold/forwardIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.greenIcon]}>
+                    <Image
+                      style={[styles.icon, styles.greenIcon]}
+                      source={require("../assets/icons/bold/backwardIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.greenIcon]}>
+                    <Image
+                      style={[styles.icon, styles.greenIcon]}
+                      source={require("../assets/icons/bold/leftIconBold.png")}
+                    />
+                  </View>
+                  <View style={[styles.iconBorder, styles.greenIcon]}>
+                    <Image
+                      style={[styles.icon, styles.greenIcon]}
+                      source={require("../assets/icons/bold/rightIconBold.png")}
+                    />
+                  </View>
                 </View>
-                <View style={[styles.iconBorder, styles.yellowIcon]}>
-                  <Image
-                    style={[styles.icon, styles.yellowIcon]}
-                    source={require("../assets/icons/bold/handIconBold.png")}
-                  />
+                {"\n"}
+                {"\n"}
+                There are 2 additional buttons that are useful - stop, reset
+                body position.{"\n"}
+                <View style={styles.iconContainer}>
+                  <View style={styles.iconBorder}>
+                    <Image
+                      style={styles.icon}
+                      source={require("../assets/icons/bold/stopIconBold.png")}
+                    />
+                  </View>
+                  <View style={styles.iconBorder}>
+                    <Image
+                      style={styles.icon}
+                      source={require("../assets/icons/bold/resetIconBold.png")}
+                    />
+                  </View>
                 </View>
-                <View style={[styles.iconBorder, styles.yellowIcon]}>
-                  <Image
-                    style={[styles.icon, styles.yellowIcon]}
-                    source={require("../assets/icons/bold/thumbIconBold.png")}
-                  />
-                </View>
-                <View style={[styles.iconBorder, styles.yellowIcon]}>
-                  <Image
-                    style={[styles.icon, styles.yellowIcon]}
-                    source={require("../assets/icons/bold/indexIconBold.png")}
-                  />
-                </View>
-                <View style={[styles.iconBorder, styles.yellowIcon]}>
-                  <Image
-                    style={[styles.icon, styles.yellowIcon]}
-                    source={require("../assets/icons/bold/legIconBold.png")}
-                  />
-                </View>
-                <View style={[styles.iconBorder, styles.yellowIcon]}>
-                  <Image
-                    style={[styles.icon, styles.yellowIcon]}
-                    source={require("../assets/icons/bold/footIconBold.png")}
-                  />
-                </View>
-              </View>
-              {"\n"}
-              {"\n"}
-              3. Action - move, bend, stretch, twist{"\n"}
-              <View style={styles.iconContainer}>
-                <View style={[styles.iconBorder, styles.orangeIcon]}>
-                  <Image
-                    style={[styles.icon, styles.orangeIcon]}
-                    source={require("../assets/icons/bold/moveIconBold.png")}
-                  />
-                </View>
-                <View style={[styles.iconBorder, styles.orangeIcon]}>
-                  <Image
-                    style={[styles.icon, styles.orangeIcon]}
-                    source={require("../assets/icons/bold/bendIconBold.png")}
-                  />
-                </View>
-                <View style={[styles.iconBorder, styles.orangeIcon]}>
-                  <Image
-                    style={[styles.icon, styles.orangeIcon]}
-                    source={require("../assets/icons/bold/stretchIconBold.png")}
-                  />
-                </View>
-                <View style={[styles.iconBorder, styles.orangeIcon]}>
-                  <Image
-                    style={[styles.icon, styles.orangeIcon]}
-                    source={require("../assets/icons/bold/twistIconBold.png")}
-                  />
-                </View>
-              </View>
-              {"\n"}
-              {"\n"}
-              4. Direction - up, down, forward, backward, left, right{"\n"}
-              <View style={styles.iconContainer}>
-                <View style={[styles.iconBorder, styles.greenIcon]}>
-                  <Image
-                    style={[styles.icon, styles.greenIcon]}
-                    source={require("../assets/icons/bold/upIconBold.png")}
-                  />
-                </View>
-                <View style={[styles.iconBorder, styles.greenIcon]}>
-                  <Image
-                    style={[styles.icon, styles.greenIcon]}
-                    source={require("../assets/icons/bold/downIconBold.png")}
-                  />
-                </View>
-                <View style={[styles.iconBorder, styles.greenIcon]}>
-                  <Image
-                    style={[styles.icon, styles.greenIcon]}
-                    source={require("../assets/icons/bold/forwardIconBold.png")}
-                  />
-                </View>
-                <View style={[styles.iconBorder, styles.greenIcon]}>
-                  <Image
-                    style={[styles.icon, styles.greenIcon]}
-                    source={require("../assets/icons/bold/backwardIconBold.png")}
-                  />
-                </View>
-                <View style={[styles.iconBorder, styles.greenIcon]}>
-                  <Image
-                    style={[styles.icon, styles.greenIcon]}
-                    source={require("../assets/icons/bold/leftIconBold.png")}
-                  />
-                </View>
-                <View style={[styles.iconBorder, styles.greenIcon]}>
-                  <Image
-                    style={[styles.icon, styles.greenIcon]}
-                    source={require("../assets/icons/bold/rightIconBold.png")}
-                  />
-                </View>
-              </View>
-              {"\n"}
-              {"\n"}
-              There are 2 additional buttons that are useful - stop, reset body
-              position.{"\n"}
-              <View style={styles.iconContainer}>
-                <View style={styles.iconBorder}>
-                  <Image
-                    style={styles.icon}
-                    source={require("../assets/icons/bold/stopIconBold.png")}
-                  />
-                </View>
-                <View style={styles.iconBorder}>
-                  <Image
-                    style={styles.icon}
-                    source={require("../assets/icons/bold/resetIconBold.png")}
-                  />
-                </View>
-              </View>
-              {"\n"}
-              {"\n"}
-              {"\n"}
-              To play Blind Bot the robot must trust the operator.
-              {"\n"}
-              {"\n"}
-              Play on a flat surface without obstacles. Never play close to
-              bumps, holes or staircases.
-              {"\n"}
-              {"\n"}
-              Feel free to film and share your Blind Bot games. Please use
-              #blindbot{"\n"}
-              {"\n"}
-              {"\n"}
-              Blind Bot was created by Rumtiden Idea Lab.
-              {"\n"}
-              {"\n"}
-              Programmed by Nicole Silfverling and Nasir Tedros, concept by
-              Hakan Lidbo.
-              {"\n"}
-              {"\n"}
-            </Text>
-          </ScrollView>
-        </View>
+                {"\n"}
+                {"\n"}
+                {"\n"}
+                To play Blind Bot the robot must trust the operator.
+                {"\n"}
+                {"\n"}
+                Play on a flat surface without obstacles. Never play close to
+                bumps, holes or staircases.
+                {"\n"}
+                {"\n"}
+                Feel free to film and share your Blind Bot games. Please use
+                #blindbot{"\n"}
+                {"\n"}
+                {"\n"}
+                Blind Bot was created by Rumtiden Idea Lab.
+                {"\n"}
+                {"\n"}
+                Programmed by Nicole Silfverling and Nasir Tedros, concept by
+                Hakan Lidbo.
+                {"\n"}
+                {"\n"}
+              </Text>
+            </ScrollView>
+          </View>
+        ) : null}
+
         {/* 
         <View style={styles.buttons}>
           <Button
@@ -310,32 +329,35 @@ const styles = EStyleSheet.create({
     padding: 0,
   },
   clickableBG: {
-    backgroundColor: "rgba(0, 0, 0,0.4 )",
+    //backgroundColor: "rgba(0, 0, 0,0.4 )",
+    backgroundColor: "transparent",
+
     flex: 1,
     position: "absolute",
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
     height: "100%",
+    zIndex: 2,
   },
   popUp: {
     backgroundColor: "black",
     alignSelf: "center",
     justifyContent: "center",
-    // width: "80%",
-    // height: "80%",
-    width: 1150,
-    height: 647,
+    width: "100%",
+    height: "100%",
+    // width: 1150,
+    // height: 647,
     borderRadius: 10,
     // borderColor: "#FFF",
     // borderWidth: 2,
   },
   video: {
     alignSelf: "center",
-    // width: "100%",
-    // height: "100%",
-    width: 1150,
-    height: 647,
+    width: "100%",
+    height: "100%",
+    // width: 1150,
+    // height: 647,
   },
   buttons: {
     flexDirection: "row",
@@ -371,14 +393,14 @@ const styles = EStyleSheet.create({
     position: "absolute",
     right: 0,
     top: "0%",
-    backgroundColor: "pink",
-    width: "49%",
+    backgroundColor: "rgba(0,0,0,0.7)",
+    width: "100%",
     height: "100%",
-    paddingTop: "5%",
-    paddingBottom: "5%",
+    // paddingTop: "5%",
+    // paddingBottom: "5%",
+    padding: "5%",
   },
   textOnTopContainer: {
-
     // flex: 1,
     // zIndex: 5,
     // position: "absolute",
@@ -387,7 +409,7 @@ const styles = EStyleSheet.create({
     // height: "100%",
     // padding: "5%",
   },
-  scrollbarStyle:{
+  scrollbarStyle: {
     backgroundColor: "black",
     width: 10,
   },
@@ -474,14 +496,14 @@ const styles = EStyleSheet.create({
     textOnTopStyle: {
       fontSize: 18,
     },
-    popUp: {
-      width: 960,
-      height: 540,
-    },
-    video: {
-      width: 960,
-      height: 540,
-    },
+    // popUp: {
+    //   width: 960,
+    //   height: 540,
+    // },
+    // video: {
+    //   width: 960,
+    //   height: 540,
+    // },
     soundBtn: {
       width: 25,
       height: 25,
@@ -494,14 +516,14 @@ const styles = EStyleSheet.create({
     title: {
       fontSize: 22,
     },
-    popUp: {
-      width: 580,
-      height: 326,
-    },
-    video: {
-      width: 580,
-      height: 326,
-    },
+    // popUp: {
+    //   width: 580,
+    //   height: 326,
+    // },
+    // video: {
+    //   width: 580,
+    //   height: 326,
+    // },
     iconBorder: {
       width: 20,
       height: 20,
@@ -524,26 +546,26 @@ const styles = EStyleSheet.create({
     textOnTopStyle: {
       fontSize: 14,
     },
-    popUp: {
-      width: 500,
-      height: 281,
-    },
-    video: {
-      width: 500,
-      height: 281,
-    },
+    // popUp: {
+    //   width: 500,
+    //   height: 281,
+    // },
+    // video: {
+    //   width: 500,
+    //   height: 281,
+    // },
   },
   "@media (max-width: 720)": {
     textOnTopStyle: {
       fontSize: 14,
     },
-    popUp: {
-      width: "75%",
-      height: "75%",
-    },
-    video: {
-      width: "100%",
-      height: "100%",
-    },
+    // popUp: {
+    //   width: "75%",
+    //   height: "75%",
+    // },
+    // video: {
+    //   width: "100%",
+    //   height: "100%",
+    // },
   },
 });
