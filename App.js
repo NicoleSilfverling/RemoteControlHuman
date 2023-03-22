@@ -39,7 +39,6 @@ export default function App() {
     $yellow: "#ffd500",
     $orange: "orange",
     $green: "#00A300",
-    
   });
 
   const [showImage, setShowImage] = useState(false);
@@ -100,6 +99,7 @@ export default function App() {
             <View style={styles.leftside}>
               <View style={styles.colStyle}>
                 <CTAButton
+                  isActive={buttonId === "L1" && soundIsPlaying}
                   setBodyHalfLeft={setBodyHalfLeft}
                   bodyHalfLeft={bodyHalfLeft}
                   setGroupId={setGroupId}
@@ -110,6 +110,7 @@ export default function App() {
                   btnTitle={ContentSelector("L1").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "L2" && soundIsPlaying}
                   setShowImage={setShowImage}
                   setButtonId={setButtonId}
                   setGroupId={setGroupId}
@@ -119,6 +120,7 @@ export default function App() {
                   btnTitle={ContentSelector("L2").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "L3" && soundIsPlaying}
                   setShowImage={setShowImage}
                   setButtonId={setButtonId}
                   setGroupId={setGroupId}
@@ -133,6 +135,7 @@ export default function App() {
               </View>
               <View style={styles.colStyle}>
                 <CTAButton
+                  isActive={buttonId === "L4" && soundIsPlaying}
                   setShowImage={setShowImage}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
@@ -142,6 +145,7 @@ export default function App() {
                   btnTitle={ContentSelector("L4").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "L5" && soundIsPlaying}
                   setShowImage={setShowImage}
                   setButtonId={setButtonId}
                   setGroupId={setGroupId}
@@ -151,6 +155,7 @@ export default function App() {
                   btnTitle={ContentSelector("L5").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "L6" && soundIsPlaying}
                   setShowImage={setShowImage}
                   setButtonId={setButtonId}
                   setGroupId={setGroupId}
@@ -181,6 +186,7 @@ export default function App() {
               </View>
               <View style={styles.colStyle}>
                 <CTAButton
+                  isActive={buttonId === "L7" && soundIsPlaying}
                   setBodyHalfLeft={setBodyHalfLeft}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
@@ -190,6 +196,7 @@ export default function App() {
                   btnTitle={ContentSelector("L7").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "L8" && soundIsPlaying}
                   setShowImage={setShowImage}
                   setButtonId={setButtonId}
                   setGroupId={setGroupId}
@@ -199,6 +206,7 @@ export default function App() {
                   btnTitle={ContentSelector("L8").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "L9" && soundIsPlaying}
                   setShowImage={setShowImage}
                   setButtonId={setButtonId}
                   setGroupId={setGroupId}
@@ -252,6 +260,7 @@ export default function App() {
             <View style={styles.rightside}>
               <View style={styles.colStyle}>
                 <CTAButton
+                  isActive={buttonId === "R1" && soundIsPlaying}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
                   btnId="R1"
@@ -259,6 +268,7 @@ export default function App() {
                   btnTitle={ContentSelector("R1").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "R2" && soundIsPlaying}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
                   isHand={isHand}
@@ -267,6 +277,7 @@ export default function App() {
                   btnTitle={ContentSelector("R2", true, isHand).title}
                 />
                 <CTAButton
+                  isActive={buttonId === "R3" && soundIsPlaying}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
                   isHand={isHand}
@@ -275,6 +286,7 @@ export default function App() {
                   btnTitle={ContentSelector("R3", true, isHand).title}
                 />
                 <CTAButton
+                  isActive={buttonId === "R4" && soundIsPlaying}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
                   btnId="R4"
@@ -284,6 +296,7 @@ export default function App() {
               </View>
               <View style={styles.colStyle}>
                 <CTAButton
+                  isActive={buttonId === "R5" && soundIsPlaying}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
                   btnId="R5"
@@ -291,6 +304,7 @@ export default function App() {
                   btnTitle={ContentSelector("R5").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "R6" && soundIsPlaying}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
                   btnId="R6"
@@ -298,6 +312,7 @@ export default function App() {
                   btnTitle={ContentSelector("R6").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "R7" && soundIsPlaying}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
                   btnGroup="4"
@@ -305,6 +320,7 @@ export default function App() {
                   btnTitle={ContentSelector("R7").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "R8" && soundIsPlaying}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
                   setIsHand={setIsHand}
@@ -315,6 +331,7 @@ export default function App() {
               </View>
               <View style={styles.colStyle}>
                 <CTAButton
+                  isActive={buttonId === "R9" && soundIsPlaying}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
                   btnId="R9"
@@ -322,6 +339,7 @@ export default function App() {
                   btnTitle={ContentSelector("R9").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "R10" && soundIsPlaying}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
                   btnId="R10"
@@ -329,6 +347,7 @@ export default function App() {
                   btnTitle={ContentSelector("R10").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "R11" && soundIsPlaying}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
                   btnId="R11"
@@ -336,6 +355,7 @@ export default function App() {
                   btnTitle={ContentSelector("R11").title}
                 />
                 <CTAButton
+                  isActive={buttonId === "R12" && soundIsPlaying}
                   setGroupId={setGroupId}
                   setButtonId={setButtonId}
                   setIsHand={setIsHand}

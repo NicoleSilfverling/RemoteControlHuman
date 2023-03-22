@@ -23,6 +23,7 @@ export default function CTAButton({
   setGroupId,
   setIsHand,
   isHand,
+  isActive,
 }) {
   const sharedAudioPlayer = useContext(AudioPlayerContext);
 
@@ -80,7 +81,13 @@ export default function CTAButton({
           setGroupId && setGroupId(btnGroup);
           setIsHand && setIsHand(toggleIsHand);
         }}
-        style={[styles.button, colorStyles]}
+        style={[
+          styles.button,
+          colorStyles,
+          {
+            backgroundColor: isActive ? colorStyles.borderColor : "transparent",
+          },
+        ]}
         activeOpacity={0.5}
         underlayColor={btnBorderColor}
       >
@@ -112,6 +119,9 @@ const styles = EStyleSheet.create({
     backgroundColor: "black",
     alignItems: "center",
     justifyContent: "center",
+  },
+  highlighted: {
+    backgroundColor: "red",
   },
   textStyle: {
     width: "250%",
