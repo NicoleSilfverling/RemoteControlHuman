@@ -97,7 +97,7 @@ const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
         {pageNr == 2 ? (
           <View style={styles.txtBox}>
             <Text style={styles.textStyle}>
-              Challenge other controller+robot teams to preform a simple task.
+              Challenge other controller+robot teams to perform a simple task.
             </Text>
             <View style={styles.imageBox}>
               <Image

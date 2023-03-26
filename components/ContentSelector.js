@@ -12,7 +12,7 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
 
       break;
     case "L2":
-      title = "HAND";
+      title = "HAND/GRIP";
       iconImg = require("../assets/icons/handIcon.png");
       sound = require("../assets/sounds/hand.wav");
       if (bodyHalfLeft) bodypartImg = require("../assets/images/hand_l.png");
