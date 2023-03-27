@@ -18,7 +18,7 @@ const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
         <View />
       </TouchableHighlight>
       <View style={styles.infoCard}>
-        {pageNr < 3 ? (
+        {pageNr < 4 ? (
           <TouchableHighlight
             underlayColor={"transparent"}
             style={[styles.arrow, { right: -24, alignItems: "flex-end" }]}
@@ -47,7 +47,7 @@ const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
           </TouchableHighlight>
         ) : null}
 
-        {pageNr < 3 ? (
+        {pageNr < 4 ? (
           <TouchableHighlight
             underlayColor={"transparent"}
             style={styles.skip}
@@ -59,7 +59,7 @@ const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
           </TouchableHighlight>
         ) : null}
 
-        {pageNr == 3 ? (
+        {pageNr == 4 ? (
           <TouchableHighlight
             id="infobtn"
             onPress={() => {
@@ -117,6 +117,20 @@ const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
         {pageNr == 3 ? (
           // <View>
           <View style={styles.txtBox}>
+            
+            <View style={styles.imageBox}>
+            <Image
+              style={styles.buttonMap}
+              source={require("../assets/images/interFaceTutorial.png")}
+              />
+            </View>
+            
+          </View>
+        ) : null}
+
+        {pageNr == 4 ? (
+          // <View>
+          <View style={styles.txtBox}>
             <Text style={[styles.textStyle, styles.title]}>
               Blindfold on {"\n"} lets go!
             </Text>
@@ -158,14 +172,22 @@ const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
                 : { backgroundColor: "transparent" },
             ]}
           />
-          <View
+          {<View
             style={[
               styles.progressDot,
               pageNr == 3
                 ? { backgroundColor: "#FFF" }
                 : { backgroundColor: "transparent" },
             ]}
-          />
+          />}
+          {<View
+            style={[
+              styles.progressDot,
+              pageNr == 4
+                ? { backgroundColor: "#FFF" }
+                : { backgroundColor: "transparent" },
+            ]}
+          />}
         </View>
       </View>
     </View>
@@ -198,8 +220,8 @@ const styles = EStyleSheet.create({
     // backgroundColor: "blue",
   },
   infoCard: {
-    width: 400,
-    height: 400,
+    width: "100%",
+    height: "100%",
     backgroundColor: "rgba(40, 40, 40,1 )",
     borderRadius: 10,
     alignItems: "center",
@@ -247,7 +269,7 @@ const styles = EStyleSheet.create({
     fontWeight: "$fontWeight",
     fontSize: 18,
     textTransform: "uppercase",
-
+    
     alignSelf: "center",
     textAlign: "center",
   },
@@ -363,8 +385,14 @@ const styles = EStyleSheet.create({
   },
   btnToGuide: {
     // backgroundColor: "red",
-    justifyContent: "flex-end",
+    justifyContent: "flex-end", 
     padding: 0,
+  },
+  buttonMap: {
+    width: "100%",
+    height: "100%",
+
+
   },
   "@media (max-width: 1000)": {
     infoCard: {
