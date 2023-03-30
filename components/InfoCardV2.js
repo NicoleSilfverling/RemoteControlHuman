@@ -26,7 +26,7 @@ const Component1 = () => {
 const Component2 = () => {
   return (
     <View style={styles.component}>
-      <Text>Component2</Text>
+      <Text style={{ color: "white" }}> Component2</Text>
     </View>
   );
 };
@@ -34,7 +34,7 @@ const Component2 = () => {
 const Component3 = () => {
   return (
     <View style={styles.component}>
-      <Text>Component3</Text>
+      <Text style={{ color: "white" }}>Component3</Text>
     </View>
   );
 };
@@ -97,7 +97,7 @@ const styles = EStyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: "black",
     borderWidth: 2,
   },
   component: {
