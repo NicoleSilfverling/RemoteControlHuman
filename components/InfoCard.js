@@ -7,188 +7,176 @@ const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
   const [pageNr, setPageNr] = useState(1);
   const sharedAudioPlayer = useContext(AudioPlayerContext);
   return (
-    <View style={styles.container}>
-      <TouchableHighlight
-        style={styles.clickableBG}
-        onPress={() => {
-          sharedAudioPlayer.startBackgroundLoop();
-          setShowInfoCard(false);
-        }}
-      >
-        <View />
-      </TouchableHighlight>
-      <View style={styles.infoCard}>
-        {pageNr < 4 ? (
-          <TouchableHighlight
-            underlayColor={"transparent"}
-            style={[styles.arrow, { right: -24, alignItems: "flex-end" }]}
-            onPress={() => {
-              setPageNr(pageNr + 1);
-            }}
-          >
-            <Image
-              style={styles.arrowIcon}
-              source={require("../assets/icons/rightIcon.png")}
-            />
-          </TouchableHighlight>
-        ) : null}
-        {pageNr > 1 ? (
-          <TouchableHighlight
-            underlayColor={"transparent"}
-            style={[styles.arrow, { left: -24, alignItems: "flex-start" }]}
-            onPress={() => {
-              setPageNr(pageNr - 1);
-            }}
-          >
-            <Image
-              style={styles.arrowIcon}
-              source={require("../assets/icons/leftIcon.png")}
-            />
-          </TouchableHighlight>
-        ) : null}
+    <View style={styles.infoCard}>
+      {pageNr < 4 ? (
+        <TouchableHighlight
+          underlayColor={"transparent"}
+          style={[styles.arrow, { right: -24, alignItems: "flex-end" }]}
+          onPress={() => {
+            setPageNr(pageNr + 1);
+          }}
+        >
+          <Image
+            style={styles.arrowIcon}
+            source={require("../assets/icons/rightIcon.png")}
+          />
+        </TouchableHighlight>
+      ) : null}
+      {pageNr > 1 ? (
+        <TouchableHighlight
+          underlayColor={"transparent"}
+          style={[styles.arrow, { left: -24, alignItems: "flex-start" }]}
+          onPress={() => {
+            setPageNr(pageNr - 1);
+          }}
+        >
+          <Image
+            style={styles.arrowIcon}
+            source={require("../assets/icons/leftIcon.png")}
+          />
+        </TouchableHighlight>
+      ) : null}
 
-        {pageNr < 4 ? (
-          <TouchableHighlight
-            underlayColor={"transparent"}
-            style={styles.skip}
-            onPress={() => {
-              setShowInfoCard(false);
-            }}
-          >
-            <Text style={styles.skipText}>SKIP</Text>
-          </TouchableHighlight>
-        ) : null}
+      {pageNr < 4 ? (
+        <TouchableHighlight
+          underlayColor={"transparent"}
+          style={styles.skip}
+          onPress={() => {
+            setShowInfoCard(false);
+          }}
+        >
+          <Text style={styles.skipText}>SKIP</Text>
+        </TouchableHighlight>
+      ) : null}
 
-        {pageNr == 4 ? (
-          <TouchableHighlight
-            id="infobtn"
-            onPress={() => {
-              sharedAudioPlayer.startBackgroundLoop();
-              setShowInfoCard(false);
-            }}
-            style={styles.infoButton}
-            // activeOpacity={0.1}
-            underlayColor={"#00A300"}
-          >
+      {pageNr == 4 ? (
+        <TouchableHighlight
+          id="infobtn"
+          onPress={() => {
+            sharedAudioPlayer.startBackgroundLoop();
+            setShowInfoCard(false);
+          }}
+          style={styles.infoButton}
+          // activeOpacity={0.1}
+          underlayColor={"#00A300"}
+        >
+          <Image
+            style={styles.playIcon}
+            source={require("../assets/icons/playSmall.png")}
+          />
+        </TouchableHighlight>
+      ) : null}
+
+      {pageNr == 1 ? (
+        <View style={styles.txtBox}>
+          <Text style={styles.textStyle}>
+            Send voice commands with the controller buttons that your robot must
+            follow.
+          </Text>
+          <View style={styles.imageBox}>
             <Image
-              style={styles.playIcon}
-              source={require("../assets/icons/playSmall.png")}
+              style={[styles.gubbe]}
+              source={require("../assets/images/gubbe.png")}
             />
-          </TouchableHighlight>
-        ) : null}
-
-        {pageNr == 1 ? (
-          <View style={styles.txtBox}>
-            <Text style={styles.textStyle}>
-              Send voice commands with the controller buttons that your robot
-              must follow.
-            </Text>
-            <View style={styles.imageBox}>
-              <Image
-                style={[styles.gubbe]}
-                source={require("../assets/images/gubbe.png")}
-              />
-            </View>
-            <Text style={styles.textStyle}>
-              Use wireless headphones and a blindfold for best effect.
-            </Text>
           </View>
-        ) : null}
-        {pageNr == 2 ? (
-          <View style={styles.txtBox}>
-            <Text style={styles.textStyle}>
-              Challenge other controller+robot teams to perform a simple task.
-            </Text>
-            <View style={styles.imageBox}>
-              <Image
-                style={styles.ballet}
-                source={require("../assets/images/ballerina2.png")}
-              />
-              <Image
-                style={styles.blocks}
-                source={require("../assets/images/blocks.png")}
-              />
-            </View>
-            <Text style={styles.textStyle}>
-              Create an abstract ballet or build the highest tower.
-            </Text>
+          <Text style={styles.textStyle}>
+            Use wireless headphones and a blindfold for best effect.
+          </Text>
+        </View>
+      ) : null}
+      {pageNr == 2 ? (
+        <View style={styles.txtBox}>
+          <Text style={styles.textStyle}>
+            Challenge other controller+robot teams to perform a simple task.
+          </Text>
+          <View style={styles.imageBox}>
+            <Image
+              style={styles.ballet}
+              source={require("../assets/images/ballerina2.png")}
+            />
+            <Image
+              style={styles.blocks}
+              source={require("../assets/images/blocks.png")}
+            />
           </View>
-        ) : null}
-        {pageNr == 3 ? (
-          // <View>
-          <View style={styles.txtBox}>
-            
-            <View style={styles.imageBox}>
+          <Text style={styles.textStyle}>
+            Create an abstract ballet or build the highest tower.
+          </Text>
+        </View>
+      ) : null}
+      {pageNr == 3 ? (
+        <View style={styles.txtBox}>
+          <View style={[styles.imageBox, { width: "90%", height: "90%" }]}>
             <Image
               style={styles.buttonMap}
               source={require("../assets/images/interFaceTutorial.png")}
-              />
-            </View>
-            
+            />
           </View>
-        ) : null}
+        </View>
+      ) : null}
 
-        {pageNr == 4 ? (
-          // <View>
-          <View style={styles.txtBox}>
-            <Text style={[styles.textStyle, styles.title]}>
-              Blindfold on {"\n"} lets go!
-            </Text>
-            {/* </View> */}
-            <View style={styles.linkBox}>
-              <TouchableHighlight
-                onPress={() => {
-                  setShowHelpPopUp(true);
-                  setShowInfoCard(false);
-                }}
-                style={styles.btnToGuide}
-                underlayColor={"transparent"}
-              >
-                <View>
-                  <Text style={[styles.textStyle, { color: "gray" }]}>
-                    For further instructions, please watch this
-                    <Text style={{ color: "#FFF" }}> video</Text>
-                  </Text>
-                </View>
-              </TouchableHighlight>
-            </View>
+      {pageNr == 4 ? (
+        <View style={styles.txtBox}>
+          <Text style={[styles.textStyle, styles.title]}>
+            Blindfold on {"\n"} lets go!
+          </Text>
+          <View style={styles.linkBox}>
+            <TouchableHighlight
+              onPress={() => {
+                setShowHelpPopUp(true);
+                setShowInfoCard(false);
+              }}
+              style={styles.btnToGuide}
+              underlayColor={"transparent"}
+            >
+              <View>
+                <Text style={[styles.textStyle, { color: "gray" }]}>
+                  For further instructions, please watch this
+                  <Text style={{ color: "#FFF" }}> video</Text>
+                </Text>
+              </View>
+            </TouchableHighlight>
           </View>
-        ) : null}
+        </View>
+      ) : null}
 
-        <View style={styles.dotContainer}>
+      <View style={styles.dotContainer}>
+        <View
+          style={[
+            styles.progressDot,
+            pageNr == 1
+              ? { backgroundColor: "#FFF" }
+              : { backgroundColor: "transparent" },
+          ]}
+        />
+        <View
+          style={[
+            styles.progressDot,
+            pageNr == 2
+              ? { backgroundColor: "#FFF" }
+              : { backgroundColor: "transparent" },
+          ]}
+        />
+        {
           <View
-            style={[
-              styles.progressDot,
-              pageNr == 1
-                ? { backgroundColor: "#FFF" }
-                : { backgroundColor: "transparent" },
-            ]}
-          />
-          <View
-            style={[
-              styles.progressDot,
-              pageNr == 2
-                ? { backgroundColor: "#FFF" }
-                : { backgroundColor: "transparent" },
-            ]}
-          />
-          {<View
             style={[
               styles.progressDot,
               pageNr == 3
                 ? { backgroundColor: "#FFF" }
                 : { backgroundColor: "transparent" },
             ]}
-          />}
-          {<View
+          />
+        }
+        {
+          <View
             style={[
               styles.progressDot,
               pageNr == 4
                 ? { backgroundColor: "#FFF" }
                 : { backgroundColor: "transparent" },
             ]}
-          />}
-        </View>
+          />
+        }
       </View>
     </View>
   );
@@ -197,28 +185,6 @@ const InfoCard = ({ setShowInfoCard, setShowHelpPopUp }) => {
 export default InfoCard;
 
 const styles = EStyleSheet.create({
-  container: {
-    width: "100%",
-    height: "100%",
-    backgroundColor: "transparent",
-    zIndex: 2,
-    position: "absolute",
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "center",
-    margin: 0,
-    padding: 0,
-  },
-  clickableBG: {
-    backgroundColor: "rgba(0, 0, 0,0.4 )",
-    flex: 1,
-    position: "absolute",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "100%",
-    height: "100%",
-    // backgroundColor: "blue",
-  },
   infoCard: {
     width: "100%",
     height: "100%",
@@ -233,9 +199,9 @@ const styles = EStyleSheet.create({
     zIndex: 1,
     width: "45%",
     height: "100%",
-    padding : 30, 
+    padding: 30,
     justifyContent: "center",
-   // backgroundColor: "rgba(255, 20, 20, 0.5)",
+    // backgroundColor: "rgba(255, 20, 20, 0.5)",
   },
   arrowIcon: {
     // backgroundColor: "red",
@@ -258,8 +224,8 @@ const styles = EStyleSheet.create({
     bottom: 10,
   },
   txtBox: {
-    width: "80%",
-    height: "80%",
+    width: "100%",
+    height: "100%",
     // backgroundColor: "green",
     alignItems: "center",
   },
@@ -269,7 +235,7 @@ const styles = EStyleSheet.create({
     fontWeight: "$fontWeight",
     fontSize: 18,
     textTransform: "uppercase",
-    
+
     alignSelf: "center",
     textAlign: "center",
   },
@@ -277,14 +243,8 @@ const styles = EStyleSheet.create({
     fontSize: 30,
   },
   linkBox: {
-    // width: "80%",
-    // height: "95%",
-    // backgroundColor: "pink",
-    // alignItems: "center",
-    // justifyContent: "flex-end",
     position: "absolute",
     bottom: 10,
-    // left: 0,
   },
   skip: {
     position: "absolute",
@@ -385,20 +345,18 @@ const styles = EStyleSheet.create({
   },
   btnToGuide: {
     // backgroundColor: "red",
-    justifyContent: "flex-end", 
+    justifyContent: "flex-end",
     padding: 0,
   },
   buttonMap: {
     width: "100%",
     height: "100%",
-
-
   },
   "@media (max-width: 1000)": {
-    infoCard: {
-      width: 260,
-      height: 250,
-    },
+    // infoCard: {
+    //   width: 260,
+    //   height: 250,
+    // },
     progressDot: {
       width: 7,
       height: 7,
