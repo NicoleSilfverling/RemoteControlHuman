@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   View,
   FlatList,
@@ -10,6 +10,7 @@ import {
 import EStyleSheet from "react-native-extended-stylesheet";
 
 const { width, height } = Dimensions.get("window");
+const [pageNr, setPageNr] = useState(1);
 
 const Component1 = () => {
   return (
@@ -39,6 +40,40 @@ const Component3 = () => {
   );
 };
 
+const ProgressDot = ({pageNr}) => {
+  return (
+    <View style={styles.dotContainer}>
+        <View
+          style={[
+            styles.progressDot,
+              pageNr == 1
+              ? { backgroundColor: "#FFF" }
+              : { backgroundColor: "transparent" },
+          ]}
+        />
+        <View
+          style={[
+            styles.progressDot,
+                pageNr == 2
+              ? { backgroundColor: "#FFF" }
+              : { backgroundColor: "transparent" },
+          ]}
+        />
+        {
+          <View
+            style={[
+              styles.progressDot,
+                  pageNr == 3
+                ? { backgroundColor: "#FFF" }
+                : { backgroundColor: "transparent" },
+            ]}
+          />
+        }
+        
+      </View>
+  )
+}
+
 const components = [
   { key: 1, component: <Component1 /> },
   { key: 2, component: <Component2 /> },
@@ -53,9 +88,16 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
   };
 
   const renderItem = ({ item }) => {
+    
+    
     return (
       <View key={item.key} style={styles.container}>
-        {item.component}
+        
+      
+      {item.component}
+      {/* {setPageNr(item.key)} */}
+      {console.log(item.key)}
+
       </View>
     );
   };
@@ -71,6 +113,7 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
       >
         <Text style={styles.skipText}>SKIP</Text>
       </TouchableHighlight>
+      <ProgressDot pagenr={item.key}/> 
       <FlatList
         ref={flatListRef}
         horizontal
@@ -82,6 +125,8 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
         style={styles.flatList}
       />
     </View>
+
+
   );
 };
 
@@ -129,6 +174,22 @@ const styles = EStyleSheet.create({
     fontWeight: "$fontWeight",
     color: "#FFF",
     fontSize: 16,
+  },
+  progressDot: {
+    width: 10,
+    height: 10,
+    borderWidth: 1,
+    borderColor: "#FFF",
+    borderRadius: 50,
+    backgroundColor: "#FFF",
+    marginRight: 5,
+  },
+  dotContainer: {
+    flexDirection: "row",
+    /* position: "absolute",
+    bottom: 10, */
+    
+    zIndex: 2
   },
 });
 
