@@ -27,6 +27,7 @@ import {
   useAudioPlayerIsPlayingEffect,
   globalAudioPlayer,
 } from "./SharedAudioPlayer";
+import InfoCardV2 from "./components/InfoCardV2";
 
 export default function App() {
   EStyleSheet.build({
@@ -86,7 +87,11 @@ export default function App() {
             />
           ) : null}
           {showInfoCard ? (
-            <InfoCard
+            // <InfoCard
+            //   setShowInfoCard={setShowInfoCard}
+            //   setShowHelpPopUp={setShowHelpPopUp}
+            // />
+            <InfoCardV2
               setShowInfoCard={setShowInfoCard}
               setShowHelpPopUp={setShowHelpPopUp}
             />
