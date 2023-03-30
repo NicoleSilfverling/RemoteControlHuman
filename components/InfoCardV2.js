@@ -10,7 +10,6 @@ import {
 import EStyleSheet from "react-native-extended-stylesheet";
 
 const { width, height } = Dimensions.get("window");
-const [pageNr, setPageNr] = useState(1);
 
 const Component1 = () => {
   return (
@@ -40,40 +39,6 @@ const Component3 = () => {
   );
 };
 
-const ProgressDot = ({pageNr}) => {
-  return (
-    <View style={styles.dotContainer}>
-        <View
-          style={[
-            styles.progressDot,
-              pageNr == 1
-              ? { backgroundColor: "#FFF" }
-              : { backgroundColor: "transparent" },
-          ]}
-        />
-        <View
-          style={[
-            styles.progressDot,
-                pageNr == 2
-              ? { backgroundColor: "#FFF" }
-              : { backgroundColor: "transparent" },
-          ]}
-        />
-        {
-          <View
-            style={[
-              styles.progressDot,
-                  pageNr == 3
-                ? { backgroundColor: "#FFF" }
-                : { backgroundColor: "transparent" },
-            ]}
-          />
-        }
-        
-      </View>
-  )
-}
-
 const components = [
   { key: 1, component: <Component1 /> },
   { key: 2, component: <Component2 /> },
@@ -82,28 +47,49 @@ const components = [
 
 const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
   const flatListRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const scrollToIndex = (index) => {
     flatListRef.current.scrollToIndex({ animated: true, index });
   };
+  const handleScroll = (event) => {
+    const xOffset = event.nativeEvent.contentOffset.x;
+    const index = Math.round(xOffset / width);
+    setActiveIndex(index);
+  };
 
   const renderItem = ({ item }) => {
-    
-    
     return (
       <View key={item.key} style={styles.container}>
-        
-      
-      {item.component}
-      {/* {setPageNr(item.key)} */}
-      {console.log(item.key)}
-
+        {item.component}
       </View>
     );
   };
 
   return (
-    <View>
+    <View style={{ alignItems: "center" }}>
+      <FlatList
+        ref={flatListRef}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        data={components}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.key}
+        onScroll={handleScroll}
+        style={styles.flatList}
+      />
+      <View style={styles.dotContainer}>
+        {components.map((_, index) => (
+          <View
+            key={index}
+            style={[
+              styles.dot,
+              activeIndex === index ? styles.activeDot : null,
+            ]}
+          />
+        ))}
+      </View>
       <TouchableHighlight
         underlayColor={"transparent"}
         style={styles.skip}
@@ -113,20 +99,7 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
       >
         <Text style={styles.skipText}>SKIP</Text>
       </TouchableHighlight>
-      <ProgressDot pagenr={item.key}/> 
-      <FlatList
-        ref={flatListRef}
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
-        data={components}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.key}
-        style={styles.flatList}
-      />
     </View>
-
-
   );
 };
 
@@ -159,13 +132,13 @@ const styles = EStyleSheet.create({
   skip: {
     position: "absolute",
     right: 0,
-    bottom: 0,
-    height: "10%",
-    width: "30%",
+    bottom: 20,
+    height: 60,
+    width: 100,
     // backgroundColor: "red",
     alignItems: "flex-end",
     justifyContent: "flex-end",
-    zIndex: 3,
+    // zIndex: 3,
     paddingRight: 14,
     paddingBottom: 4,
   },
@@ -175,21 +148,23 @@ const styles = EStyleSheet.create({
     color: "#FFF",
     fontSize: 16,
   },
-  progressDot: {
-    width: 10,
-    height: 10,
-    borderWidth: 1,
-    borderColor: "#FFF",
-    borderRadius: 50,
-    backgroundColor: "#FFF",
-    marginRight: 5,
-  },
+
   dotContainer: {
     flexDirection: "row",
-    /* position: "absolute",
-    bottom: 10, */
-    
-    zIndex: 2
+    position: "absolute",
+    bottom: 30,
+    // backgroundColor: "green",
+    // zIndex: 2,
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    marginHorizontal: 4,
+    backgroundColor: "lightgray",
+  },
+  activeDot: {
+    backgroundColor: "gray",
   },
 });
 
