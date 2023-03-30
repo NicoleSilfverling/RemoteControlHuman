@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 import {
   View,
   FlatList,
@@ -8,6 +8,7 @@ import {
   Image,
 } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
+import { AudioPlayerContext } from "../SharedAudioPlayer";
 
 const { width, height } = Dimensions.get("window");
 
@@ -46,6 +47,8 @@ const components = [
 ];
 
 const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
+  const sharedAudioPlayer = useContext(AudioPlayerContext);
+
   const flatListRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -94,6 +97,7 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
         underlayColor={"transparent"}
         style={styles.skip}
         onPress={() => {
+          sharedAudioPlayer.startBackgroundLoop();
           setShowInfoCard(false);
         }}
       >
