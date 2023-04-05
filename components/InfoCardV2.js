@@ -16,10 +16,20 @@ const Component1 = () => {
   return (
     <View style={styles.component}>
       <Image
-        source={require("../assets/images/interFaceTutorial.png")}
+        source={require("../assets/images/compOneBG.png")}
         style={styles.image}
         resizeMode="contain"
       />
+      <Text style={styles.txt}>
+      BLIND BOTS IS A GAME FOR 2 PLAYERS
+      {"\n"}  
+      ROBOT AND MASTER
+      {"\n"}
+       THE ROBOT IS BLINDFOLDED WITH WIRELESS HEADPHONES
+       {"\n"} 
+       THE MASTER CONTROLS THE ROBOT WITH THIS APP 
+
+      </Text>
     </View>
   );
 };
@@ -27,7 +37,24 @@ const Component1 = () => {
 const Component2 = () => {
   return (
     <View style={styles.component}>
-      <Text style={{ color: "white" }}> Component2</Text>
+      <Image
+        source={require("../assets/images/compOneBG.png")}
+        style={styles.image}
+        resizeMode="contain"
+      />
+      <Text style={styles.txt}> 
+      CONTROL THE ROBOT AND BUILD SOMETHING
+      {"\n"} 
+      WALK THROUGH AN OBSTACLE COURSE
+      {"\n"}
+      CREATE A ROBOT BALLET
+      {"\n"} 
+CHALLENGE OTHER TEAMS WHO CAN FINISH FIRST
+{"\n"}
+ FILM THE ROBOTS WITH TIME LAPSE
+ {"\n"}
+ IT’S UP TO YOU TO CREATE THE GAMES!
+</Text>
     </View>
   );
 };
@@ -35,15 +62,59 @@ const Component2 = () => {
 const Component3 = () => {
   return (
     <View style={styles.component}>
-      <Text style={{ color: "white" }}>Component3</Text>
+      <Image
+        source={require("../assets/images/interFaceTutorial.png")}
+        style={styles.image}
+        resizeMode="contain"
+      />
+      <Text style={styles.txt}>
+      CONTROL THE BLIND ROBOT WITH THESE BUTTONS, ONE AT THE TIME
+      </Text>
     </View>
   );
 };
+
+const Component4 = () => {
+  return (
+    <View style={styles.component}>
+      <Image
+        source={require("../assets/images/interFaceTutorial.png")}
+        style={styles.image}
+        resizeMode="contain"
+      />
+      <Text style={styles.txt}>
+      EXTRA FUNCTIONS
+      </Text>
+
+
+
+    </View>
+  );
+};
+
+const Component5 = () => {
+  return (
+    <View style={styles.component}>
+      <Image
+        source={require("../assets/images/interFaceTutorial.png")}
+        style={styles.image}
+        resizeMode="contain"
+      />
+      <Text style={styles.txt}>
+      PUT ON BLINDFOLDS AND HEADPHONES PLAY BLIND BOT! 
+      </Text>
+    </View>
+  );
+};
+
+
 
 const components = [
   { key: 1, component: <Component1 /> },
   { key: 2, component: <Component2 /> },
   { key: 3, component: <Component3 /> },
+  { key: 4, component: <Component4 /> },
+  { key: 5, component: <Component5 /> },
 ];
 
 const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
@@ -132,6 +203,14 @@ const styles = EStyleSheet.create({
     width,
     height,
   },
+ 
+  txt : {
+    color : "white",
+    position : "absolute",
+    backgroundColor : "gray",
+    alignItems : "center",
+  },
+
 
   skip: {
     position: "absolute",
