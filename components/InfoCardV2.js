@@ -20,15 +20,22 @@ const Component1 = () => {
         style={styles.image}
         resizeMode="contain"
       />
+      <View
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0,0,0,0.5)",
+          position: "absolute",
+        }}
+      ></View>
       <Text style={styles.txt}>
-      BLIND BOTS IS A GAME FOR 2 PLAYERS
-      {"\n"}  
-      ROBOT AND MASTER
-      {"\n"}
-       THE ROBOT IS BLINDFOLDED WITH WIRELESS HEADPHONES
-       {"\n"} 
-       THE MASTER CONTROLS THE ROBOT WITH THIS APP 
-
+        BLIND BOTS IS A GAME FOR 2 PLAYERS
+        {"\n"}
+        ROBOT AND MASTER
+        {"\n"}
+        THE ROBOT IS BLINDFOLDED WITH WIRELESS HEADPHONES
+        {"\n"}
+        THE MASTER CONTROLS THE ROBOT WITH THIS APP
       </Text>
     </View>
   );
@@ -42,19 +49,19 @@ const Component2 = () => {
         style={styles.image}
         resizeMode="contain"
       />
-      <Text style={styles.txt}> 
-      CONTROL THE ROBOT AND BUILD SOMETHING
-      {"\n"} 
-      WALK THROUGH AN OBSTACLE COURSE
-      {"\n"}
-      CREATE A ROBOT BALLET
-      {"\n"} 
-CHALLENGE OTHER TEAMS WHO CAN FINISH FIRST
-{"\n"}
- FILM THE ROBOTS WITH TIME LAPSE
- {"\n"}
- IT’S UP TO YOU TO CREATE THE GAMES!
-</Text>
+      <Text style={styles.txt}>
+        CONTROL THE ROBOT AND BUILD SOMETHING
+        {"\n"}
+        WALK THROUGH AN OBSTACLE COURSE
+        {"\n"}
+        CREATE A ROBOT BALLET
+        {"\n"}
+        CHALLENGE OTHER TEAMS WHO CAN FINISH FIRST
+        {"\n"}
+        FILM THE ROBOTS WITH TIME LAPSE
+        {"\n"}
+        IT’S UP TO YOU TO CREATE THE GAMES!
+      </Text>
     </View>
   );
 };
@@ -68,7 +75,7 @@ const Component3 = () => {
         resizeMode="contain"
       />
       <Text style={styles.txt}>
-      CONTROL THE BLIND ROBOT WITH THESE BUTTONS, ONE AT THE TIME
+        CONTROL THE BLIND ROBOT WITH THESE BUTTONS, ONE AT THE TIME
       </Text>
     </View>
   );
@@ -82,12 +89,7 @@ const Component4 = () => {
         style={styles.image}
         resizeMode="contain"
       />
-      <Text style={styles.txt}>
-      EXTRA FUNCTIONS
-      </Text>
-
-
-
+      <Text style={styles.txt}>EXTRA FUNCTIONS</Text>
     </View>
   );
 };
@@ -101,13 +103,11 @@ const Component5 = () => {
         resizeMode="contain"
       />
       <Text style={styles.txt}>
-      PUT ON BLINDFOLDS AND HEADPHONES PLAY BLIND BOT! 
+        PUT ON BLINDFOLDS AND HEADPHONES PLAY BLIND BOT!
       </Text>
     </View>
   );
 };
-
-
 
 const components = [
   { key: 1, component: <Component1 /> },
@@ -203,14 +203,18 @@ const styles = EStyleSheet.create({
     width,
     height,
   },
- 
-  txt : {
-    color : "white",
-    position : "absolute",
-    backgroundColor : "gray",
-    alignItems : "center",
-  },
 
+  txt: {
+    color: "white",
+    position: "absolute",
+    backgroundColor: "black",
+    borderWidth: 2,
+    borderColor: "#FFF",
+    borderRadius: 10,
+    padding: 20,
+    fontSize: 20,
+    alignItems: "center",
+  },
 
   skip: {
     position: "absolute",
@@ -248,6 +252,12 @@ const styles = EStyleSheet.create({
   },
   activeDot: {
     backgroundColor: "gray",
+  },
+
+  "@media (max-width: 1000)": {
+    txt: {
+      fontSize: 15,
+    },
   },
 });
 
