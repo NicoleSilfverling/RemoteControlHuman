@@ -1,8 +1,19 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useContext } from "react";
+import { TouchableHighlight, View } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
+import { AudioPlayerContext } from "../SharedAudioPlayer";
+import ContentSelector from "./ContentSelector";
+import { chooseAudioFile } from "./RandomCommand";
 
 const Actionbar = ({ groupId }) => {
+  const sharedAudioPlayer = useContext(AudioPlayerContext);
+
+  async function playSound() {
+    const sel = chooseAudioFile();
+
+    sharedAudioPlayer.play(sel);
+  }
+
   let backgroundColorBar1 = "transparent";
   let backgroundColorBar2;
   let backgroundColorBar3;
@@ -52,23 +63,23 @@ const Actionbar = ({ groupId }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.mobileContainer}>
-        <View style={[styles.barMobile, colorStylesBarMobile]}></View>
+    <TouchableHighlight
+      style={styles.container}
+      onPress={() => {
+        playSound();
+      }}
+    >
+      <View style={styles.container}>
+        <View style={styles.barContainer}>
+          <View style={[styles.bar1, colorStylesBar1]}></View>
+          <View style={[styles.bar2, colorStylesBar2]}></View>
+        </View>
+        <View style={[styles.barContainer, { alignItems: "flex-end" }]}>
+          <View style={[styles.bar3, colorStylesBar3]}></View>
+          <View style={[styles.bar4, colorStylesBar4]}></View>
+        </View>
       </View>
-      <View style={styles.barContainer}>
-        <View style={[styles.bar1, colorStylesBar1]}></View>
-        <View style={[styles.bar2, colorStylesBar2]}></View>
-        {/* <View style={[styles.bar3, colorStylesBar3]}></View>
-        <View style={[styles.bar4, colorStylesBar4]}></View> */}
-      </View>
-      <View style={[styles.barContainer, { alignItems: "flex-end" }]}>
-        {/* <View style={[styles.bar1, colorStylesBar1]}></View>
-        <View style={[styles.bar2, colorStylesBar2]}></View> */}
-        <View style={[styles.bar3, colorStylesBar3]}></View>
-        <View style={[styles.bar4, colorStylesBar4]}></View>
-      </View>
-    </View>
+    </TouchableHighlight>
   );
 };
 

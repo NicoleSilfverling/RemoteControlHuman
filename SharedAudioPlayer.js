@@ -60,7 +60,7 @@ export class SharedAudioPlayer {
     // console.log('SharedAudioPlayer:play', soundSelector)
 
     return new Promise(async (resolve) => {
-      const { sound } = await Audio.Sound.createAsync(soundSelector.sound);
+      const { sound } = await Audio.Sound.createAsync(soundSelector);
 
       sound.setOnPlaybackStatusUpdate((playbackStatus) => {
         // console.log('playback status', playbackStatus)

@@ -29,7 +29,7 @@ export default function CTAButton({
 
   async function playSound() {
     console.log("Loading Sound", btnId);
-    const sel = ContentSelector(btnId, bodyHalfLeft, isHand);
+    const sel = ContentSelector(btnId, bodyHalfLeft, isHand).sound;
 
     sharedAudioPlayer.play(sel);
   }
