@@ -16,7 +16,7 @@ const Component1 = () => {
   return (
     <View style={styles.component}>
       <Image
-        source={require("../assets/images/compOneBG.png")}
+        source={require("../assets/images/InfoCardBG.png")}
         style={styles.image}
         resizeMode="contain"
       />
@@ -45,22 +45,17 @@ const Component2 = () => {
   return (
     <View style={styles.component}>
       <Image
-        source={require("../assets/images/compOneBG.png")}
+        source={require("../assets/images/InfoCardBG.png")}
         style={styles.image}
         resizeMode="contain"
       />
       <Text style={styles.txt}>
-        CONTROL THE ROBOT AND BUILD SOMETHING
-        {"\n"}
-        WALK THROUGH AN OBSTACLE COURSE
-        {"\n"}
-        CREATE A ROBOT BALLET
-        {"\n"}
-        CHALLENGE OTHER TEAMS WHO CAN FINISH FIRST
-        {"\n"}
-        FILM THE ROBOTS WITH TIME LAPSE
-        {"\n"}
-        IT’S UP TO YOU TO CREATE THE GAMES!
+        CONTROL THE ROBOT AND TRY TO:
+        {"\n"}- WALK THROUGH AN OBSTACLE COURSE
+        {"\n"}- CREATE A ROBOT BALLET
+        {"\n"}- CHALLENGE OTHER TEAMS
+        {/* {"\n"}- FILM THE ROBOTS WITH TIME LAPSE */}
+        {"\n\n"}IT’S UP TO YOU TO CREATE THE GAMES!
       </Text>
     </View>
   );
@@ -211,9 +206,12 @@ const styles = EStyleSheet.create({
     borderWidth: 2,
     borderColor: "#FFF",
     borderRadius: 10,
-    padding: 20,
+    padding: 30,
     fontSize: 20,
     alignItems: "center",
+    lineHeight: 35,
+    // width: 600,
+    // minWidth: 550,
   },
 
   skip: {
@@ -248,15 +246,16 @@ const styles = EStyleSheet.create({
     height: 8,
     borderRadius: 4,
     marginHorizontal: 4,
-    backgroundColor: "lightgray",
+    backgroundColor: "gray",
   },
   activeDot: {
-    backgroundColor: "gray",
+    backgroundColor: "#fff",
   },
 
   "@media (max-width: 1000)": {
     txt: {
       fontSize: 15,
+      lineHeight: 25,
     },
   },
 });
