@@ -27,11 +27,11 @@ const Component1 = () => {
           backgroundColor: "rgba(0,0,0,0.5)",
           position: "absolute",
         }}
-      ></View>
+      />
+
       <Text style={styles.txt}>
-        BLIND BOTS IS A GAME FOR 2 PLAYERS
-        {"\n"}
-        ROBOT AND MASTER
+        <Text style={styles.txtTitle}>BLIND BOT</Text>
+        {"\n"}A GAME FOR 2 PLAYERS, ROBOT AND MASTER
         {"\n"}
         THE ROBOT IS BLINDFOLDED WITH WIRELESS HEADPHONES
         {"\n"}
@@ -48,6 +48,14 @@ const Component2 = () => {
         source={require("../assets/images/InfoCardBG.png")}
         style={styles.image}
         resizeMode="contain"
+      />
+      <View
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0,0,0,0.6)",
+          position: "absolute",
+        }}
       />
       <Text style={styles.txt}>
         CONTROL THE ROBOT AND TRY TO:
@@ -90,12 +98,21 @@ const Component4 = () => {
 };
 
 const Component5 = () => {
+  const sharedAudioPlayer = useContext(AudioPlayerContext);
   return (
     <View style={styles.component}>
       <Image
-        source={require("../assets/images/interFaceTutorial.png")}
+        source={require("../assets/images/InfoCardBG.png")}
         style={styles.image}
         resizeMode="contain"
+      />
+      <View
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0,0,0,0.6)",
+          position: "absolute",
+        }}
       />
       <Text style={styles.txt}>
         PUT ON BLINDFOLDS AND HEADPHONES PLAY BLIND BOT!
@@ -169,6 +186,22 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
       >
         <Text style={styles.skipText}>SKIP</Text>
       </TouchableHighlight>
+
+      <TouchableHighlight
+        id="infobtn"
+        onPress={() => {
+          sharedAudioPlayer.startBackgroundLoop();
+          setShowInfoCard(false);
+        }}
+        style={styles.infoButton}
+        // activeOpacity={0.1}
+        underlayColor={"#00A300"}
+      >
+        <Image
+          style={styles.playIcon}
+          source={require("../assets/icons/playSmall.png")}
+        />
+      </TouchableHighlight>
     </View>
   );
 };
@@ -200,6 +233,9 @@ const styles = EStyleSheet.create({
   },
 
   txt: {
+    fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
+    fontWeight: "$fontWeight",
+    fontSize: 20,
     color: "white",
     position: "absolute",
     backgroundColor: "black",
@@ -207,11 +243,16 @@ const styles = EStyleSheet.create({
     borderColor: "#FFF",
     borderRadius: 10,
     padding: 30,
-    fontSize: 20,
     alignItems: "center",
     lineHeight: 35,
     // width: 600,
-    // minWidth: 550,
+    //width: 300,
+  },
+  txtTitle: {
+    fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
+    fontWeight: "bold",
+    fontSize: 27,
+    // textAlign: "center",
   },
 
   skip: {
@@ -251,11 +292,34 @@ const styles = EStyleSheet.create({
   activeDot: {
     backgroundColor: "#fff",
   },
+  infoButton: {
+    position: "relative",
+    borderColor: "$green",
+    borderWidth: 2,
+    borderRadius: 20,
+    width: 130,
+    height: 130,
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    zIndex: 10,
+    // backgroundColor: "green",
+  },
+  playIcon: {
+    tintColor: "$green",
+    width: "90%",
+    height: "90%",
+    marginLeft: 10,
+  },
 
   "@media (max-width: 1000)": {
     txt: {
-      fontSize: 15,
+      fontSize: 12,
       lineHeight: 25,
+      padding: 15,
+    },
+    txtTitle: {
+      fontSize: 18,
     },
   },
 });
