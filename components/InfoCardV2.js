@@ -16,7 +16,7 @@ const Component1 = () => {
   return (
     <View style={styles.component}>
       <Image
-        source={require("../assets/images/InfoCardBG.png")}
+        source={require("../assets/images/InfoCardEnd.png")}
         style={styles.image}
         resizeMode="contain"
       />
@@ -97,39 +97,56 @@ const Component4 = () => {
   );
 };
 
-const Component5 = () => {
+const Component5 = ({ setShowInfoCard }) => {
   const sharedAudioPlayer = useContext(AudioPlayerContext);
   return (
     <View style={styles.component}>
       <Image
-        source={require("../assets/images/InfoCardBG.png")}
+        source={require("../assets/images/InfoCardEnd.png")}
         style={styles.image}
         resizeMode="contain"
       />
-      <View
+      {/* <View
         style={{
           width: "100%",
           height: "100%",
           backgroundColor: "rgba(0,0,0,0.6)",
           position: "absolute",
         }}
-      />
-      <Text style={styles.txt}>
-        PUT ON BLINDFOLDS AND HEADPHONES PLAY BLIND BOT!
-      </Text>
+      /> */}
+      <View style={styles.endBox}>
+        <Text style={[styles.txt, {}]}>
+          PUT ON BLINDFOLDS AND HEADPHONES PLAY BLIND BOT!{" "}
+        </Text>
+        <TouchableHighlight
+          id="infobtn"
+          onPress={() => {
+            sharedAudioPlayer.startBackgroundLoop();
+            setShowInfoCard(false);
+          }}
+          style={styles.infoButton}
+          // activeOpacity={0.1}
+          underlayColor={"#00A300"}
+        >
+          <Image
+            style={styles.playIcon}
+            source={require("../assets/icons/playSmall.png")}
+          />
+        </TouchableHighlight>
+      </View>
     </View>
   );
 };
 
-const components = [
-  { key: 1, component: <Component1 /> },
-  { key: 2, component: <Component2 /> },
-  { key: 3, component: <Component3 /> },
-  { key: 4, component: <Component4 /> },
-  { key: 5, component: <Component5 /> },
-];
-
 const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
+  const components = [
+    { key: 1, component: <Component1 /> },
+    { key: 2, component: <Component2 /> },
+    { key: 3, component: <Component3 /> },
+    { key: 4, component: <Component4 /> },
+    { key: 5, component: <Component5 setShowInfoCard={setShowInfoCard} /> },
+  ];
+
   const sharedAudioPlayer = useContext(AudioPlayerContext);
 
   const flatListRef = useRef(null);
@@ -185,22 +202,6 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
         }}
       >
         <Text style={styles.skipText}>SKIP</Text>
-      </TouchableHighlight>
-
-      <TouchableHighlight
-        id="infobtn"
-        onPress={() => {
-          sharedAudioPlayer.startBackgroundLoop();
-          setShowInfoCard(false);
-        }}
-        style={styles.infoButton}
-        // activeOpacity={0.1}
-        underlayColor={"#00A300"}
-      >
-        <Image
-          style={styles.playIcon}
-          source={require("../assets/icons/playSmall.png")}
-        />
       </TouchableHighlight>
     </View>
   );
@@ -292,23 +293,39 @@ const styles = EStyleSheet.create({
   activeDot: {
     backgroundColor: "#fff",
   },
+  endBox: {
+    width: "100%",
+    // color: "red",
+    position: "absolute",
+    // backgroundColor: "green",
+    // borderWidth: 2,
+    // borderColor: "#FFF",
+    // borderRadius: 10,
+    // padding: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
   infoButton: {
-    position: "relative",
+    // flex: 1,
+    // position: "relative",
     borderColor: "$green",
     borderWidth: 2,
     borderRadius: 20,
-    width: 130,
-    height: 130,
+    width: 170,
+    height: 170,
     justifyContent: "center",
     alignItems: "center",
-    position: "absolute",
-    zIndex: 10,
+    // position: "absolute",
+    //top: 250,
+    // zIndex: 10,
     // backgroundColor: "green",
   },
   playIcon: {
     tintColor: "$green",
     width: "90%",
     height: "90%",
+
     marginLeft: 10,
   },
 
