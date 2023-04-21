@@ -14,7 +14,7 @@ import EStyleSheet from "react-native-extended-stylesheet";
 import { Video, AVPlaybackStatus } from "expo-av";
 import { AudioPlayerContext } from "../SharedAudioPlayer";
 
-const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
+const HelpPopUp = ({ setShowHelpPopUp, soundIsPlaying , muted, setMuted }) => {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
 
@@ -23,6 +23,11 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
   const sharedAudioPlayer = useContext(AudioPlayerContext);
 
   sharedAudioPlayer.stopBackgroundLoop();
+  sharedAudioPlayer.play(require("../assets/sounds/music/information.wav") );
+
+  
+
+  if (!soundIsPlaying) {video.current.playAsync()}
 
   //let showText = false;
 
@@ -95,7 +100,7 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
           source={require("../assets/videos/robothumaninfo.mp4")}
           useNativeControls="false"
           resizeMode="contain"
-          shouldPlay
+          shouldPlay="false"
           isLooping
           onPlaybackStatusUpdate={(status) => setStatus(() => status)}
           isMuted={muted}
@@ -143,7 +148,7 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
           </View>
         ) : null}
 
-        {/* 
+        
         <View style={styles.buttons}>
           <Button
             title={status.isPlaying ? "Pause" : "Play"}
@@ -153,7 +158,7 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
                 : video.current.playAsync()
             }
           />
-        </View> */}
+        </View>
       </View>
     </View>
   );

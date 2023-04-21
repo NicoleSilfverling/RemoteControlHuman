@@ -68,6 +68,8 @@ export default function App() {
     console.log("in useAudioPlayerIsPlayingEffect callback", soundPlaying);
     setSoundIsPlaying(soundPlaying);
   });
+  
+  
 
   return (
     <AudioPlayerContext.Provider value={globalAudioPlayer}>
@@ -82,6 +84,7 @@ export default function App() {
           {showHelpPopUp ? (
             <HelpPopUp
               setShowHelpPopUp={setShowHelpPopUp}
+              soundIsPlaying={soundIsPlaying}
               muted={muted}
               setMuted={setMuted}
             />
@@ -225,6 +228,7 @@ export default function App() {
                     id="infobtn"
                     onPress={() => {
                       setShowHelpPopUp(true);
+
                     }}
                     style={styles.infoButton}
                     // activeOpacity={0.1}
