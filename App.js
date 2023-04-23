@@ -28,6 +28,7 @@ import {
   globalAudioPlayer,
 } from "./SharedAudioPlayer";
 import InfoCardV2 from "./components/InfoCardV2";
+import TestVideo from "./components/TestVideo";
 
 export default function App() {
   EStyleSheet.build({
@@ -68,8 +69,6 @@ export default function App() {
     console.log("in useAudioPlayerIsPlayingEffect callback", soundPlaying);
     setSoundIsPlaying(soundPlaying);
   });
-  
-  
 
   return (
     <AudioPlayerContext.Provider value={globalAudioPlayer}>
@@ -82,7 +81,13 @@ export default function App() {
             />
           ) : null}
           {showHelpPopUp ? (
-            <HelpPopUp
+            // <HelpPopUp
+            //   setShowHelpPopUp={setShowHelpPopUp}
+            //   soundIsPlaying={soundIsPlaying}
+            //   muted={muted}
+            //   setMuted={setMuted}
+            // />
+            <TestVideo
               setShowHelpPopUp={setShowHelpPopUp}
               soundIsPlaying={soundIsPlaying}
               muted={muted}
@@ -228,7 +233,6 @@ export default function App() {
                     id="infobtn"
                     onPress={() => {
                       setShowHelpPopUp(true);
-
                     }}
                     style={styles.infoButton}
                     // activeOpacity={0.1}
