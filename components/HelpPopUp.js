@@ -340,12 +340,22 @@ const styles = EStyleSheet.create({
     justifyContent: "center",
   },
   buttonMap: {
+    // width: 700,
     width: 700,
+    height: 500,
+    // backgroundColor: "red",
+    padding: 20,
   },
 
   "@media (max-width: 1300)": {
     textOnTopStyle: {
       fontSize: 18,
+    },
+    buttonMap: {
+      // width: 700,
+      width: 400,
+      height: 300,
+      // backgroundColor: "red",
     },
     // popUp: {
     //   width: 960,
