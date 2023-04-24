@@ -1,26 +1,21 @@
 import {
-  StyleSheet,
   View,
   Platform,
   StatusBar,
   SafeAreaView,
   Image,
-  Button,
   Text,
   TouchableHighlight,
 } from "react-native";
 import Actionbar from "./components/Actionbar";
 import CTAButton from "./components/CTAButton";
-import ShowImage from "./components/ShowImage";
 import React, { useContext, useState } from "react";
-import { Audio } from "expo-av";
 import ContentSelector from "./components/ContentSelector";
 import EStyleSheet from "react-native-extended-stylesheet";
 import HelpPopUp from "./components/HelpPopUp";
 import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
 import SoundVisual from "./components/SoundVisual";
-import InfoCard from "./components/InfoCard";
 import {
   SharedAudioPlayer,
   AudioPlayerContext,
@@ -28,7 +23,6 @@ import {
   globalAudioPlayer,
 } from "./SharedAudioPlayer";
 import InfoCardV2 from "./components/InfoCardV2";
-import TestVideo from "./components/TestVideo";
 
 export default function App() {
   EStyleSheet.build({
@@ -81,13 +75,7 @@ export default function App() {
             />
           ) : null}
           {showHelpPopUp ? (
-            // <HelpPopUp
-            //   setShowHelpPopUp={setShowHelpPopUp}
-            //   soundIsPlaying={soundIsPlaying}
-            //   muted={muted}
-            //   setMuted={setMuted}
-            // />
-            <TestVideo
+            <HelpPopUp
               setShowHelpPopUp={setShowHelpPopUp}
               soundIsPlaying={soundIsPlaying}
               muted={muted}

@@ -1,57 +1,71 @@
-import React, { useContext, useState } from "react";
-
+import React, { useState, useRef, useEffect, useContext } from "react";
+import EStyleSheet from "react-native-extended-stylesheet";
 import {
   View,
   ScrollView,
-  Button,
   TouchableHighlight,
   Text,
   Image,
-  Touchable,
-  TouchableWithoutFeedback,
 } from "react-native";
-import EStyleSheet from "react-native-extended-stylesheet";
-import { Video, AVPlaybackStatus } from "expo-av";
+import { Video } from "expo-av";
+import { Audio } from "expo-av";
 import { AudioPlayerContext } from "../SharedAudioPlayer";
 
-const HelpPopUp = ({ setShowHelpPopUp, soundIsPlaying , muted, setMuted }) => {
-  const video = React.useRef(null);
+export default function HelpPopUp({
+  setShowHelpPopUp,
+  soundIsPlaying,
+  muted,
+  setMuted,
+}) {
+  const [sound, setSound] = useState();
+  const [videoShouldPlay, setVideoShouldPlay] = useState(false);
+  const videoRef = useRef(null);
+
   const [status, setStatus] = React.useState({});
-
   const [showText, setShowText] = React.useState(false);
-
   const sharedAudioPlayer = useContext(AudioPlayerContext);
 
-  sharedAudioPlayer.stopBackgroundLoop();
-  sharedAudioPlayer.play(require("../assets/sounds/music/information.wav") );
+  const handlePlaybackStatusUpdate = (playbackStatus) => {
+    if (playbackStatus.didJustFinish) {
+      setVideoShouldPlay(true);
+      videoRef.current.playAsync();
+    }
+  };
 
-  
+  const playSoundAndPauseVideo = async () => {
+    if (videoRef.current != null) {
+      await videoRef.current.pauseAsync();
+    }
 
-  if (!soundIsPlaying) {video.current.playAsync()}
+    sharedAudioPlayer.stopBackgroundLoop();
 
-  //let showText = false;
+    const { sound } = await Audio.Sound.createAsync(
+      require("../assets/sounds/music/information.wav")
+    );
+
+    setSound(sound);
+
+    await sound.playAsync();
+    sound.setOnPlaybackStatusUpdate(handlePlaybackStatusUpdate);
+  };
+
+  useEffect(() => {
+    playSoundAndPauseVideo();
+  }, []);
 
   return (
     <View style={styles.container}>
-      {!showText ? (
-        <TouchableHighlight
-          style={styles.clickableBG}
-          onPress={() => {
-            // setShowHelpPopUp(false);
-            // if (!muted) {
-            //   sharedAudioPlayer.startBackgroundLoop();
-            // }
-            //showText = true;
-            setShowText(true);
-            console.log("video pressed");
-            console.log(showText);
-          }}
-        >
-          <View />
-        </TouchableHighlight>
-      ) : null}
-
       <View style={styles.popUp}>
+        {!showText ? (
+          <TouchableHighlight
+            style={styles.clickableBG}
+            onPress={() => {
+              setShowText(true);
+            }}
+          >
+            <View />
+          </TouchableHighlight>
+        ) : null}
         <TouchableHighlight
           style={styles.closeButton}
           title="Close"
@@ -68,17 +82,14 @@ const HelpPopUp = ({ setShowHelpPopUp, soundIsPlaying , muted, setMuted }) => {
           />
         </TouchableHighlight>
 
-        {/* <Text style={styles.title}>BlindBot</Text> */}
         <TouchableHighlight
           style={styles.soundBtn2}
           underlayColor="transparent"
           onPress={() => {
             if (!muted) {
               setMuted(true);
-              sharedAudioPlayer.stopBackgroundLoop();
             } else {
               setMuted(false);
-              // sharedAudioPlayer.startBackgroundLoop();
             }
           }}
         >
@@ -94,16 +105,19 @@ const HelpPopUp = ({ setShowHelpPopUp, soundIsPlaying , muted, setMuted }) => {
             />
           )}
         </TouchableHighlight>
+
         <Video
-          ref={video}
-          style={styles.video}
+          ref={videoRef}
           source={require("../assets/videos/robothumaninfo.mp4")}
+          rate={1.0}
+          volume={1.0}
+          isMuted={muted}
           useNativeControls="false"
           resizeMode="contain"
-          shouldPlay="false"
+          shouldPlay={videoShouldPlay}
           isLooping
           onPlaybackStatusUpdate={(status) => setStatus(() => status)}
-          isMuted={muted}
+          style={styles.video}
         />
 
         {showText ? (
@@ -114,15 +128,12 @@ const HelpPopUp = ({ setShowHelpPopUp, soundIsPlaying , muted, setMuted }) => {
               indicatorStyle={styles.scrollbarStyle}
               style={styles.textOnTopContainer}
             >
-              
               <Text style={styles.title}>BlindBot </Text>
               <Image
-        
-        source={require("../assets/images/interFaceTutorial.png")}
-        style={styles.buttonMap}
-        resizeMode="contain"
-      />
-    
+                source={require("../assets/images/interFaceTutorial.png")}
+                style={styles.buttonMap}
+                resizeMode="contain"
+              />
 
               <Text style={styles.textOnTopStyle}>
                 To play Blind Bot the robot must trust the operator.
@@ -147,24 +158,10 @@ const HelpPopUp = ({ setShowHelpPopUp, soundIsPlaying , muted, setMuted }) => {
             </ScrollView>
           </View>
         ) : null}
-
-        
-        <View style={styles.buttons}>
-          <Button
-            title={status.isPlaying ? "Pause" : "Play"}
-            onPress={() =>
-              status.isPlaying
-                ? video.current.pauseAsync()
-                : video.current.playAsync()
-            }
-          />
-        </View>
       </View>
     </View>
   );
-};
-
-export default HelpPopUp;
+}
 
 const styles = EStyleSheet.create({
   container: {
@@ -183,7 +180,6 @@ const styles = EStyleSheet.create({
   clickableBG: {
     //backgroundColor: "rgba(0, 0, 0,0.4 )",
     backgroundColor: "transparent",
-
     flex: 1,
     position: "absolute",
     justifyContent: "center",
@@ -344,9 +340,7 @@ const styles = EStyleSheet.create({
     justifyContent: "center",
   },
   buttonMap: {
-    width: 700
-    
-    
+    width: 700,
   },
 
   "@media (max-width: 1300)": {
