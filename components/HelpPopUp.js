@@ -130,7 +130,7 @@ export default function HelpPopUp({
             >
               <Text style={styles.title}>BlindBot </Text>
               <Image
-                source={require("../assets/images/interFaceTutorial.png")}
+                source={require("../assets/images/intro3.png")}
                 style={styles.buttonMap}
                 resizeMode="contain"
               />

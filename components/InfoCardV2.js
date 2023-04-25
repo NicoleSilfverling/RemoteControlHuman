@@ -16,7 +16,7 @@ const Component1 = () => {
   return (
     <View style={styles.component}>
       <Image
-        source={require("../assets/images/InfoCardEnd.png")}
+        source={require("../assets/images/intro1.png")}
         style={styles.image}
         resizeMode="contain"
       />
@@ -73,7 +73,7 @@ const Component3 = () => {
   return (
     <View style={styles.component}>
       <Image
-        source={require("../assets/images/interFaceTutorial.png")}
+        source={require("../assets/images/intro3.png")}
         style={styles.image}
         resizeMode="contain"
       />
@@ -88,7 +88,7 @@ const Component4 = () => {
   return (
     <View style={styles.component}>
       <Image
-        source={require("../assets/images/interFaceTutorial.png")}
+        source={require("../assets/images/intro4.png")}
         style={styles.image}
         resizeMode="contain"
       />
@@ -102,7 +102,7 @@ const Component5 = ({ setShowInfoCard }) => {
   return (
     <View style={styles.component}>
       <Image
-        source={require("../assets/images/InfoCardEnd.png")}
+        source={require("../assets/images/intro5.png")}
         style={styles.image}
         resizeMode="contain"
       />
