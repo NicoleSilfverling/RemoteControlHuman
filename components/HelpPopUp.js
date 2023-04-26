@@ -1,104 +1,127 @@
-import React, { useContext, useState } from "react";
-
+import React, { useState, useRef, useEffect, useContext } from "react";
+import EStyleSheet from "react-native-extended-stylesheet";
 import {
   View,
   ScrollView,
-  Button,
   TouchableHighlight,
   Text,
   Image,
-  Touchable,
-  TouchableWithoutFeedback,
 } from "react-native";
-import EStyleSheet from "react-native-extended-stylesheet";
-import { Video, AVPlaybackStatus } from "expo-av";
+import { Video } from "expo-av";
+import { Audio } from "expo-av";
 import { AudioPlayerContext } from "../SharedAudioPlayer";
 
-const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
-  const video = React.useRef(null);
+export default function HelpPopUp({
+  setShowHelpPopUp,
+  soundIsPlaying,
+  muted,
+  setMuted,
+}) {
+  const [sound, setSound] = useState();
+  const [videoShouldPlay, setVideoShouldPlay] = useState(false);
+  const videoRef = useRef(null);
+
   const [status, setStatus] = React.useState({});
-
   const [showText, setShowText] = React.useState(false);
-
   const sharedAudioPlayer = useContext(AudioPlayerContext);
 
-  sharedAudioPlayer.stopBackgroundLoop();
+  const handlePlaybackStatusUpdate = (playbackStatus) => {
+    if (playbackStatus.didJustFinish) {
+      setVideoShouldPlay(true);
+      videoRef.current.playAsync();
+    }
+  };
 
-  //let showText = false;
+  const playSoundAndPauseVideo = async () => {
+    if (videoRef.current != null) {
+      await videoRef.current.pauseAsync();
+    }
+
+    sharedAudioPlayer.stopBackgroundLoop();
+
+    const { sound } = await Audio.Sound.createAsync(
+      require("../assets/sounds/music/information.wav")
+    );
+
+    setSound(sound);
+
+    await sound.playAsync();
+    sound.setOnPlaybackStatusUpdate(handlePlaybackStatusUpdate);
+  };
+
+  useEffect(() => {
+    playSoundAndPauseVideo();
+  }, []);
 
   return (
     <View style={styles.container}>
-      {!showText ? (
-        <TouchableHighlight
-          style={styles.clickableBG}
-          onPress={() => {
-            // setShowHelpPopUp(false);
-            // if (!muted) {
-            //   sharedAudioPlayer.startBackgroundLoop();
-            // }
-            //showText = true;
-            setShowText(true);
-            console.log("video pressed");
-            console.log(showText);
-          }}
-        >
-          <View />
-        </TouchableHighlight>
-      ) : null}
-
       <View style={styles.popUp}>
-        <TouchableHighlight
-          style={styles.closeButton}
-          title="Close"
-          onPress={() => {
-            setShowHelpPopUp ? setShowHelpPopUp(false) : null;
-            if (!muted) {
-              sharedAudioPlayer.startBackgroundLoop();
-            }
-          }}
-        >
-          <Image
-            style={styles.closeIcon}
-            source={require("../assets/icons/close.png")}
-          />
-        </TouchableHighlight>
+        {!showText ? (
+          <TouchableHighlight
+            style={styles.clickableBG}
+            onPress={() => {
+              setShowText(true);
+            }}
+          >
+            <View />
+          </TouchableHighlight>
+        ) : null}
+        {showText ? (
+          <View style={styles.btnContainer}>
+            <TouchableHighlight
+              style={styles.closeButton}
+              title="Close"
+              onPress={() => {
+                setShowHelpPopUp ? setShowHelpPopUp(false) : null;
+                if (!muted) {
+                  sharedAudioPlayer.startBackgroundLoop();
+                }
+              }}
+            >
+              <Image
+                style={styles.closeIcon}
+                source={require("../assets/icons/close.png")}
+              />
+            </TouchableHighlight>
 
-        {/* <Text style={styles.title}>BlindBot</Text> */}
-        <TouchableHighlight
-          style={styles.soundBtn2}
-          underlayColor="transparent"
-          onPress={() => {
-            if (!muted) {
-              setMuted(true);
-              sharedAudioPlayer.stopBackgroundLoop();
-            } else {
-              setMuted(false);
-              // sharedAudioPlayer.startBackgroundLoop();
-            }
-          }}
-        >
-          {muted ? (
-            <Image
-              style={styles.icon}
-              source={require("../assets/icons/soundOff.png")}
-            />
-          ) : (
-            <Image
-              style={styles.icon}
-              source={require("../assets/icons/soundOn.png")}
-            />
-          )}
-        </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.soundBtn2}
+              underlayColor="transparent"
+              onPress={() => {
+                if (!muted) {
+                  setMuted(true);
+                } else {
+                  setMuted(false);
+                }
+              }}
+            >
+              {muted ? (
+                <Image
+                  style={styles.icon}
+                  source={require("../assets/icons/soundOff.png")}
+                />
+              ) : (
+                <Image
+                  style={styles.icon}
+                  source={require("../assets/icons/soundOn.png")}
+                />
+              )}
+            </TouchableHighlight>
+          </View>
+        ) : null}
+
         <Video
-          ref={video}
-          style={styles.video}
+          ref={videoRef}
           source={require("../assets/videos/robothumaninfo.mp4")}
+          rate={1.0}
+          volume={1.0}
+          isMuted={muted}
           useNativeControls="false"
           resizeMode="contain"
-          shouldPlay
+          shouldPlay={videoShouldPlay}
           isLooping
           onPlaybackStatusUpdate={(status) => setStatus(() => status)}
-          isMuted={muted}
+          style={styles.video}
         />
 
         {showText ? (
@@ -110,169 +133,7 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
               style={styles.textOnTopContainer}
             >
               <Text style={styles.title}>BlindBot </Text>
-
               <Text style={styles.textOnTopStyle}>
-                The Controller is divided into 4 sections.
-                {"\n"}
-                {"\n"}
-                The best way to create a command for your robot is in this
-                order.
-                {"\n"}
-                {"\n"}
-                1. Body half - left, right
-                {"\n"}
-                <View style={styles.iconContainer}>
-                  <View style={styles.iconBorder}>
-                    <Image
-                      style={styles.icon}
-                      source={require("../assets/icons/bold/leftIconBold.png")}
-                    />
-                  </View>
-                  <View style={styles.iconBorder}>
-                    <Image
-                      style={styles.icon}
-                      source={require("../assets/icons/bold/rightIconBold.png")}
-                    />
-                  </View>
-                </View>
-                {"\n"}
-                {"\n"}2. Body part - torso, arm, hand, thumb, index finger, leg,
-                foot{"\n"}
-                <View style={styles.iconContainer}>
-                  <View style={[styles.iconBorder, styles.yellowIcon]}>
-                    <Image
-                      style={[styles.icon, styles.yellowIcon]}
-                      source={require("../assets/icons/bold/torsoIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.yellowIcon]}>
-                    <Image
-                      style={[styles.icon, styles.yellowIcon]}
-                      source={require("../assets/icons/bold/armIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.yellowIcon]}>
-                    <Image
-                      style={[styles.icon, styles.yellowIcon]}
-                      source={require("../assets/icons/bold/handIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.yellowIcon]}>
-                    <Image
-                      style={[styles.icon, styles.yellowIcon]}
-                      source={require("../assets/icons/bold/thumbIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.yellowIcon]}>
-                    <Image
-                      style={[styles.icon, styles.yellowIcon]}
-                      source={require("../assets/icons/bold/indexIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.yellowIcon]}>
-                    <Image
-                      style={[styles.icon, styles.yellowIcon]}
-                      source={require("../assets/icons/bold/legIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.yellowIcon]}>
-                    <Image
-                      style={[styles.icon, styles.yellowIcon]}
-                      source={require("../assets/icons/bold/footIconBold.png")}
-                    />
-                  </View>
-                </View>
-                {"\n"}
-                {"\n"}
-                3. Action - move, bend, stretch, twist{"\n"}
-                <View style={styles.iconContainer}>
-                  <View style={[styles.iconBorder, styles.orangeIcon]}>
-                    <Image
-                      style={[styles.icon, styles.orangeIcon]}
-                      source={require("../assets/icons/bold/moveIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.orangeIcon]}>
-                    <Image
-                      style={[styles.icon, styles.orangeIcon]}
-                      source={require("../assets/icons/bold/bendIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.orangeIcon]}>
-                    <Image
-                      style={[styles.icon, styles.orangeIcon]}
-                      source={require("../assets/icons/bold/stretchIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.orangeIcon]}>
-                    <Image
-                      style={[styles.icon, styles.orangeIcon]}
-                      source={require("../assets/icons/bold/twistIconBold.png")}
-                    />
-                  </View>
-                </View>
-                {"\n"}
-                {"\n"}
-                4. Direction - up, down, forward, backward, left, right{"\n"}
-                <View style={styles.iconContainer}>
-                  <View style={[styles.iconBorder, styles.greenIcon]}>
-                    <Image
-                      style={[styles.icon, styles.greenIcon]}
-                      source={require("../assets/icons/bold/upIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.greenIcon]}>
-                    <Image
-                      style={[styles.icon, styles.greenIcon]}
-                      source={require("../assets/icons/bold/downIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.greenIcon]}>
-                    <Image
-                      style={[styles.icon, styles.greenIcon]}
-                      source={require("../assets/icons/bold/forwardIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.greenIcon]}>
-                    <Image
-                      style={[styles.icon, styles.greenIcon]}
-                      source={require("../assets/icons/bold/backwardIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.greenIcon]}>
-                    <Image
-                      style={[styles.icon, styles.greenIcon]}
-                      source={require("../assets/icons/bold/leftIconBold.png")}
-                    />
-                  </View>
-                  <View style={[styles.iconBorder, styles.greenIcon]}>
-                    <Image
-                      style={[styles.icon, styles.greenIcon]}
-                      source={require("../assets/icons/bold/rightIconBold.png")}
-                    />
-                  </View>
-                </View>
-                {"\n"}
-                {"\n"}
-                There are 2 additional buttons that are useful - stop, reset
-                body position.{"\n"}
-                <View style={styles.iconContainer}>
-                  <View style={styles.iconBorder}>
-                    <Image
-                      style={styles.icon}
-                      source={require("../assets/icons/bold/stopIconBold.png")}
-                    />
-                  </View>
-                  <View style={styles.iconBorder}>
-                    <Image
-                      style={styles.icon}
-                      source={require("../assets/icons/bold/resetIconBold.png")}
-                    />
-                  </View>
-                </View>
-                {"\n"}
-                {"\n"}
-                {"\n"}
                 To play Blind Bot the robot must trust the operator.
                 {"\n"}
                 {"\n"}
@@ -280,8 +141,21 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
                 bumps, holes or staircases.
                 {"\n"}
                 {"\n"}
+                CONTROL THE BLIND ROBOT WITH THESE BUTTONS, ONE AT THE TIME
+                {"\n"}
+                {"\n"}
+              </Text>
+              <Image
+                source={require("../assets/images/intro3.png")}
+                style={styles.buttonMap}
+                resizeMode="contain"
+              />
+
+              <Text style={styles.textOnTopStyle}>
+                {"\n"}
+                {"\n"}
                 Feel free to film and share your Blind Bot games. Please use
-                #blindbot{"\n"}
+                #blindbot
                 {"\n"}
                 {"\n"}
                 Blind Bot was created by Rumtiden Idea Lab.
@@ -295,24 +169,10 @@ const HelpPopUp = ({ setShowHelpPopUp, muted, setMuted }) => {
             </ScrollView>
           </View>
         ) : null}
-
-        {/* 
-        <View style={styles.buttons}>
-          <Button
-            title={status.isPlaying ? "Pause" : "Play"}
-            onPress={() =>
-              status.isPlaying
-                ? video.current.pauseAsync()
-                : video.current.playAsync()
-            }
-          />
-        </View> */}
       </View>
     </View>
   );
-};
-
-export default HelpPopUp;
+}
 
 const styles = EStyleSheet.create({
   container: {
@@ -331,7 +191,6 @@ const styles = EStyleSheet.create({
   clickableBG: {
     //backgroundColor: "rgba(0, 0, 0,0.4 )",
     backgroundColor: "transparent",
-
     flex: 1,
     position: "absolute",
     justifyContent: "center",
@@ -376,6 +235,9 @@ const styles = EStyleSheet.create({
     height: 22,
     justifyContent: "center",
   },
+  btnContainer: {
+    zIndex: 3,
+  },
   closeIcon: {
     // backgroundColor: "red",
     tintColor: "#FFF",
@@ -389,7 +251,7 @@ const styles = EStyleSheet.create({
   },
   textBox: {
     flex: 1,
-    zIndex: 5,
+    zIndex: 2,
     position: "absolute",
     right: 0,
     top: "0%",
@@ -430,6 +292,7 @@ const styles = EStyleSheet.create({
     lineHeight: Platform.OS === "ios" ? 35 * 1.3 : 35 * 1.2,
     textTransform: "uppercase",
     marginBottom: 20,
+    alignSelf: "center",
     // backgroundColor: "blue",
   },
   iconBorder: {
@@ -491,11 +354,20 @@ const styles = EStyleSheet.create({
     height: 30,
     justifyContent: "center",
   },
+  buttonMap: {
+    // width: 700,
+    width: 700,
+    height: 500,
+    // backgroundColor: "red",
+    padding: 20,
+    alignSelf: "center",
+  },
 
   "@media (max-width: 1300)": {
     textOnTopStyle: {
       fontSize: 18,
     },
+
     // popUp: {
     //   width: 960,
     //   height: 540,
@@ -515,6 +387,12 @@ const styles = EStyleSheet.create({
     },
     title: {
       fontSize: 22,
+    },
+    buttonMap: {
+      // width: 700,
+      width: 400,
+      height: 300,
+      // backgroundColor: "red",
     },
     // popUp: {
     //   width: 580,

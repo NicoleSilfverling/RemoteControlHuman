@@ -1,26 +1,21 @@
 import {
-  StyleSheet,
   View,
   Platform,
   StatusBar,
   SafeAreaView,
   Image,
-  Button,
   Text,
   TouchableHighlight,
 } from "react-native";
 import Actionbar from "./components/Actionbar";
 import CTAButton from "./components/CTAButton";
-import ShowImage from "./components/ShowImage";
 import React, { useContext, useState } from "react";
-import { Audio } from "expo-av";
 import ContentSelector from "./components/ContentSelector";
 import EStyleSheet from "react-native-extended-stylesheet";
 import HelpPopUp from "./components/HelpPopUp";
 import BlinkImage from "./components/BlinkImage";
 import StartVideo from "./components/StartVideo";
 import SoundVisual from "./components/SoundVisual";
-import InfoCard from "./components/InfoCard";
 import {
   SharedAudioPlayer,
   AudioPlayerContext,
@@ -82,6 +77,7 @@ export default function App() {
           {showHelpPopUp ? (
             <HelpPopUp
               setShowHelpPopUp={setShowHelpPopUp}
+              soundIsPlaying={soundIsPlaying}
               muted={muted}
               setMuted={setMuted}
             />

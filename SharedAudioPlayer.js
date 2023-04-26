@@ -22,7 +22,7 @@ export class SharedAudioPlayer {
     });
 
     const { sound } = await Audio.Sound.createAsync(
-      require("./assets/sounds/robotbakgrundsloop.wav"),
+      require("./assets/sounds/music/robotbakgrundsloop.wav"),
       { isLooping: true }
     );
     // console.log('loaded sound', sound)

@@ -8,13 +8,13 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
     case "L1":
       title = "LEFT";
       iconImg = require("../assets/icons/leftIcon.png");
-      sound = require("../assets/sounds/_left.wav");
+      sound = require("../assets/sounds/commands/left.wav");
 
       break;
     case "L2":
       title = "HAND/GRIP";
       iconImg = require("../assets/icons/handIcon.png");
-      sound = require("../assets/sounds/hand.wav");
+      sound = require("../assets/sounds/commands/hand.wav");
       if (bodyHalfLeft) bodypartImg = require("../assets/images/hand_l.png");
       else bodypartImg = require("../assets/images/hand_r.png");
 
@@ -22,7 +22,7 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
     case "L3":
       title = "ARM";
       iconImg = require("../assets/icons/armIcon.png");
-      sound = require("../assets/sounds/arm.wav");
+      sound = require("../assets/sounds/commands/arm.wav");
       if (bodyHalfLeft) bodypartImg = require("../assets/images/arm_l.png");
       else bodypartImg = require("../assets/images/arm_r.png");
 
@@ -30,13 +30,13 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
     case "L4":
       title = "TORSO";
       iconImg = require("../assets/icons/torsoIcon.png");
-      sound = require("../assets/sounds/torso.wav");
+      sound = require("../assets/sounds/commands/torso.wav");
       bodypartImg = require("../assets/images/torso.png");
       break;
     case "L5":
       title = "THUMB";
       iconImg = require("../assets/icons/thumbIcon.png");
-      sound = require("../assets/sounds/thumb.wav");
+      sound = require("../assets/sounds/commands/thumb.wav");
       if (bodyHalfLeft) bodypartImg = require("../assets/images/thumb_l.png");
       else bodypartImg = require("../assets/images/thumb_r.png");
 
@@ -44,7 +44,7 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
     case "L6":
       title = "LEG";
       iconImg = require("../assets/icons/legIcon.png");
-      sound = require("../assets/sounds/leg.wav");
+      sound = require("../assets/sounds/commands/leg.wav");
       if (bodyHalfLeft) bodypartImg = require("../assets/images/leg_left.png");
       else bodypartImg = require("../assets/images/leg_right.png");
 
@@ -52,13 +52,13 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
     case "L7":
       title = "RIGHT";
       iconImg = require("../assets/icons/rightIcon.png");
-      sound = require("../assets/sounds/_right.wav");
+      sound = require("../assets/sounds/commands/right.wav");
 
       break;
     case "L8":
       title = "INDEX";
       iconImg = require("../assets/icons/indexIcon.png");
-      sound = require("../assets/sounds/index.wav");
+      sound = require("../assets/sounds/commands/index.wav");
       if (bodyHalfLeft) bodypartImg = require("../assets/images/index_l.png");
       else bodypartImg = require("../assets/images/index_r.png");
 
@@ -66,33 +66,33 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
     case "L9":
       title = "FOOT";
       iconImg = require("../assets/icons/footIcon.png");
-      sound = require("../assets/sounds/foot.wav");
+      sound = require("../assets/sounds/commands/foot.wav");
       if (bodyHalfLeft) bodypartImg = require("../assets/images/foot_l.png");
       else bodypartImg = require("../assets/images/foot_r.png");
       break;
     case "R1":
       title = "MOVE";
       iconImg = require("../assets/icons/moveIcon.png");
-      sound = require("../assets/sounds/move.wav");
+      sound = require("../assets/sounds/commands/move.wav");
 
       break;
     case "R2":
       if (isHand) {
         title = "CLOSE GRIP";
-        sound = require("../assets/sounds/closegrip.wav");
+        sound = require("../assets/sounds/commands/closegrip.wav");
       } else {
         title = "BEND";
-        sound = require("../assets/sounds/bend.wav");
+        sound = require("../assets/sounds/commands/bend.wav");
       }
       iconImg = require("../assets/icons/bendIcon.png");
       break;
     case "R3":
       if (isHand) {
         title = "OPEN GRIP";
-        sound = require("../assets/sounds/opengripnew.wav");
+        sound = require("../assets/sounds/commands/open_grip.wav");
       } else {
         title = "STRETCH";
-        sound = require("../assets/sounds/stretch.wav");
+        sound = require("../assets/sounds/commands/stretch.wav");
       }
       iconImg = require("../assets/icons/stretchIcon.png");
 
@@ -100,48 +100,48 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
     case "R4":
       title = "TWIST";
       iconImg = require("../assets/icons/twistIcon.png");
-      sound = require("../assets/sounds/twist.wav");
+      sound = require("../assets/sounds/commands/twist.wav");
 
       break;
     case "R5":
       title = "UP";
       iconImg = require("../assets/icons/upIcon.png");
-      sound = require("../assets/sounds/up.wav");
+      sound = require("../assets/sounds/commands/up.wav");
       break;
     case "R6":
       title = "DOWN";
       iconImg = require("../assets/icons/downIcon.png");
-      sound = require("../assets/sounds/down.wav");
+      sound = require("../assets/sounds/commands/down.wav");
       break;
     case "R7":
       title = "LEFT";
       iconImg = require("../assets/icons/leftIcon.png");
-      sound = require("../assets/sounds/left.wav");
+      sound = require("../assets/sounds/commands/left.wav");
       break;
     case "R8":
       title = "RESET";
       iconImg = require("../assets/icons/resetIcon.png");
-      sound = require("../assets/sounds/reset.wav");
+      sound = require("../assets/sounds/commands/reset.wav");
       break;
     case "R9":
       title = "FORWARD";
       iconImg = require("../assets/icons/forwardIcon.png");
-      sound = require("../assets/sounds/forward.wav");
+      sound = require("../assets/sounds/commands/forward.wav");
       break;
     case "R10":
       title = "BACKWARD";
       iconImg = require("../assets/icons/backwardIcon.png");
-      sound = require("../assets/sounds/backward.wav");
+      sound = require("../assets/sounds/commands/backward.wav");
       break;
     case "R11":
       title = "RIGHT";
       iconImg = require("../assets/icons/rightIcon.png");
-      sound = require("../assets/sounds/right.wav");
+      sound = require("../assets/sounds/commands/right.wav");
       break;
     case "R12":
       title = "STOP";
       iconImg = require("../assets/icons/stopIcon.png");
-      sound = require("../assets/sounds/stop.wav");
+      sound = require("../assets/sounds/commands/stop.wav");
       break;
 
     default:
