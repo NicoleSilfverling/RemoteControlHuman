@@ -66,45 +66,49 @@ export default function HelpPopUp({
             <View />
           </TouchableHighlight>
         ) : null}
-        <TouchableHighlight
-          style={styles.closeButton}
-          title="Close"
-          onPress={() => {
-            setShowHelpPopUp ? setShowHelpPopUp(false) : null;
-            if (!muted) {
-              sharedAudioPlayer.startBackgroundLoop();
-            }
-          }}
-        >
-          <Image
-            style={styles.closeIcon}
-            source={require("../assets/icons/close.png")}
-          />
-        </TouchableHighlight>
+        {showText ? (
+          <View style={styles.btnContainer}>
+            <TouchableHighlight
+              style={styles.closeButton}
+              title="Close"
+              onPress={() => {
+                setShowHelpPopUp ? setShowHelpPopUp(false) : null;
+                if (!muted) {
+                  sharedAudioPlayer.startBackgroundLoop();
+                }
+              }}
+            >
+              <Image
+                style={styles.closeIcon}
+                source={require("../assets/icons/close.png")}
+              />
+            </TouchableHighlight>
 
-        <TouchableHighlight
-          style={styles.soundBtn2}
-          underlayColor="transparent"
-          onPress={() => {
-            if (!muted) {
-              setMuted(true);
-            } else {
-              setMuted(false);
-            }
-          }}
-        >
-          {muted ? (
-            <Image
-              style={styles.icon}
-              source={require("../assets/icons/soundOff.png")}
-            />
-          ) : (
-            <Image
-              style={styles.icon}
-              source={require("../assets/icons/soundOn.png")}
-            />
-          )}
-        </TouchableHighlight>
+            <TouchableHighlight
+              style={styles.soundBtn2}
+              underlayColor="transparent"
+              onPress={() => {
+                if (!muted) {
+                  setMuted(true);
+                } else {
+                  setMuted(false);
+                }
+              }}
+            >
+              {muted ? (
+                <Image
+                  style={styles.icon}
+                  source={require("../assets/icons/soundOff.png")}
+                />
+              ) : (
+                <Image
+                  style={styles.icon}
+                  source={require("../assets/icons/soundOn.png")}
+                />
+              )}
+            </TouchableHighlight>
+          </View>
+        ) : null}
 
         <Video
           ref={videoRef}
@@ -129,12 +133,6 @@ export default function HelpPopUp({
               style={styles.textOnTopContainer}
             >
               <Text style={styles.title}>BlindBot </Text>
-              <Image
-                source={require("../assets/images/intro3.png")}
-                style={styles.buttonMap}
-                resizeMode="contain"
-              />
-
               <Text style={styles.textOnTopStyle}>
                 To play Blind Bot the robot must trust the operator.
                 {"\n"}
@@ -143,8 +141,21 @@ export default function HelpPopUp({
                 bumps, holes or staircases.
                 {"\n"}
                 {"\n"}
+                CONTROL THE BLIND ROBOT WITH THESE BUTTONS, ONE AT THE TIME
+                {"\n"}
+                {"\n"}
+              </Text>
+              <Image
+                source={require("../assets/images/intro3.png")}
+                style={styles.buttonMap}
+                resizeMode="contain"
+              />
+
+              <Text style={styles.textOnTopStyle}>
+                {"\n"}
+                {"\n"}
                 Feel free to film and share your Blind Bot games. Please use
-                #blindbot{"\n"}
+                #blindbot
                 {"\n"}
                 {"\n"}
                 Blind Bot was created by Rumtiden Idea Lab.
@@ -224,6 +235,9 @@ const styles = EStyleSheet.create({
     height: 22,
     justifyContent: "center",
   },
+  btnContainer: {
+    zIndex: 3,
+  },
   closeIcon: {
     // backgroundColor: "red",
     tintColor: "#FFF",
@@ -237,7 +251,7 @@ const styles = EStyleSheet.create({
   },
   textBox: {
     flex: 1,
-    zIndex: 5,
+    zIndex: 2,
     position: "absolute",
     right: 0,
     top: "0%",
@@ -278,6 +292,7 @@ const styles = EStyleSheet.create({
     lineHeight: Platform.OS === "ios" ? 35 * 1.3 : 35 * 1.2,
     textTransform: "uppercase",
     marginBottom: 20,
+    alignSelf: "center",
     // backgroundColor: "blue",
   },
   iconBorder: {
@@ -345,18 +360,14 @@ const styles = EStyleSheet.create({
     height: 500,
     // backgroundColor: "red",
     padding: 20,
+    alignSelf: "center",
   },
 
   "@media (max-width: 1300)": {
     textOnTopStyle: {
       fontSize: 18,
     },
-    buttonMap: {
-      // width: 700,
-      width: 400,
-      height: 300,
-      // backgroundColor: "red",
-    },
+
     // popUp: {
     //   width: 960,
     //   height: 540,
@@ -376,6 +387,12 @@ const styles = EStyleSheet.create({
     },
     title: {
       fontSize: 22,
+    },
+    buttonMap: {
+      // width: 700,
+      width: 400,
+      height: 300,
+      // backgroundColor: "red",
     },
     // popUp: {
     //   width: 580,
