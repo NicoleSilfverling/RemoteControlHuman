@@ -20,14 +20,7 @@ const Component1 = () => {
         style={styles.image}
         resizeMode="contain"
       />
-      <View
-        style={{
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0,0,0,0.5)",
-          position: "absolute",
-        }}
-      />
+      
 
       <Text style={styles.txt}>
         <Text style={styles.txtTitle}>BLIND BOT</Text>
@@ -77,7 +70,7 @@ const Component3 = () => {
         style={styles.image}
         resizeMode="contain"
       />
-      <Text style={styles.txt}>
+      <Text style={[styles.txt,styles.comp3]}>
         CONTROL THE BLIND ROBOT WITH THESE BUTTONS, ONE AT THE TIME
       </Text>
     </View>
@@ -92,7 +85,7 @@ const Component4 = () => {
         style={styles.image}
         resizeMode="contain"
       />
-      <Text style={styles.txt}>EXTRA FUNCTIONS</Text>
+      
     </View>
   );
 };
@@ -115,7 +108,7 @@ const Component5 = ({ setShowInfoCard }) => {
         }}
       /> */}
       <View style={styles.endBox}>
-        <Text style={[styles.txt, {}]}>
+        <Text style={[styles.endTxt, {}]}>
           PUT ON BLINDFOLDS AND HEADPHONES PLAY BLIND BOT!{" "}
         </Text>
         <TouchableHighlight
@@ -124,7 +117,7 @@ const Component5 = ({ setShowInfoCard }) => {
             sharedAudioPlayer.startBackgroundLoop();
             setShowInfoCard(false);
           }}
-          style={styles.infoButton}
+        style={styles.infoButton}
           // activeOpacity={0.1}
           underlayColor={"#00A300"}
         >
@@ -193,7 +186,8 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
           />
         ))}
       </View>
-      <TouchableHighlight
+      {activeIndex != 4 ? (
+            <TouchableHighlight
         underlayColor={"transparent"}
         style={styles.skip}
         onPress={() => {
@@ -203,6 +197,8 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
       >
         <Text style={styles.skipText}>SKIP</Text>
       </TouchableHighlight>
+          ) : null}
+      
     </View>
   );
 };
@@ -255,7 +251,10 @@ const styles = EStyleSheet.create({
     fontSize: 27,
     // textAlign: "center",
   },
-
+  comp3:{
+    left: "4%",
+    bottom:"13%", 
+  },
   skip: {
     position: "absolute",
     right: 0,
@@ -294,32 +293,45 @@ const styles = EStyleSheet.create({
     backgroundColor: "#fff",
   },
   endBox: {
-    width: "100%",
+    //width: "100%",
     // color: "red",
     position: "absolute",
-    // backgroundColor: "green",
-    // borderWidth: 2,
-    // borderColor: "#FFF",
-    // borderRadius: 10,
+    /* backgroundColor: "red",
+    borderWidth: 2,
+    borderColor: "#FFF",
+    borderRadius: 10, */
     // padding: 30,
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
+  },
+  endTxt:{
+    borderWidth: 2,
+    borderColor: "#FFF",
+    borderRadius: 10,
+    padding: 30,
+    fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
+    fontWeight: "$fontWeight",
+    fontSize: 20,
+    color: "white",
+    lineHeight: 35,
+    backgroundColor: "black"
   },
   infoButton: {
     // flex: 1,
     // position: "relative",
     borderColor: "$green",
     borderWidth: 2,
-    borderRadius: 20,
-    width: 170,
-    height: 170,
+    borderRadius: 10,
+    //width: 170,
+    height: "100%",
+    aspectRatio: 1,
     justifyContent: "center",
     alignItems: "center",
     // position: "absolute",
     //top: 250,
     // zIndex: 10,
-    // backgroundColor: "green",
+    backgroundColor: "black",
   },
   playIcon: {
     tintColor: "$green",
@@ -338,6 +350,17 @@ const styles = EStyleSheet.create({
     txtTitle: {
       fontSize: 18,
     },
+    endTxt: {
+    
+        fontSize: 12,
+        lineHeight: 25,
+        padding: 15,
+    
+    },
+    comp3:{
+      left:null,
+      bottom: null
+    }
   },
 });
 
