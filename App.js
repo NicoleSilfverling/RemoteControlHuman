@@ -135,11 +135,10 @@ export default function App() {
                   style={[styles.hiddenBtn, { borderColor: "transparent" }]}
                 >
                   {/* <Actionbar groupId={groupId} /> */}
-                  {/* <Image
-                    style={styles.dice}
-                    source={require("./assets/images/randomDice.png")}
-                  /> */}
-                  <RandomDice style={styles.dice} />
+                  <RandomDice
+                    isActive={buttonId === "random" && soundIsPlaying}
+                    setButtonId={setButtonId}
+                  />
                 </View>
               </View>
               <View style={styles.colStyle}>
@@ -502,10 +501,7 @@ const styles = EStyleSheet.create({
     justifyContent: "center",
     borderColor: "#FFF",
   },
-  dice: {
-    width: "90%",
-    height: "100%",
-  },
+
   midBtn: {
     width: "100%",
     height: "150%",
