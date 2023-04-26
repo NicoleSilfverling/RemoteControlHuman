@@ -23,6 +23,7 @@ import {
   globalAudioPlayer,
 } from "./SharedAudioPlayer";
 import InfoCardV2 from "./components/InfoCardV2";
+import RandomDice from "./components/RandomDice";
 
 export default function App() {
   EStyleSheet.build({
@@ -130,8 +131,15 @@ export default function App() {
                   btnGroup="2"
                   btnTitle={ContentSelector("L3").title}
                 />
-                <View style={styles.hiddenBtn}>
-                  <Actionbar groupId={groupId} />
+                <View
+                  style={[styles.hiddenBtn, { borderColor: "transparent" }]}
+                >
+                  {/* <Actionbar groupId={groupId} /> */}
+                  {/* <Image
+                    style={styles.dice}
+                    source={require("./assets/images/randomDice.png")}
+                  /> */}
+                  <RandomDice style={styles.dice} />
                 </View>
               </View>
               <View style={styles.colStyle}>
@@ -493,6 +501,10 @@ const styles = EStyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderColor: "#FFF",
+  },
+  dice: {
+    width: "90%",
+    height: "100%",
   },
   midBtn: {
     width: "100%",
