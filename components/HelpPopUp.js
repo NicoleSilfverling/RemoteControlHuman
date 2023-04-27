@@ -227,23 +227,37 @@ const styles = EStyleSheet.create({
     position: "absolute",
     top: 10,
     right: 10,
-    zIndex: 50,
-    // borderColor: "#FFF",
-    // borderWidth: 1,
-    // borderRadius: 50,
-    width: 22,
-    height: 22,
+    // backgroundColor: "pink",
+    width: 50,
+    height: 50,
     justifyContent: "center",
+    alignItems: "center",
+  },
+  closeIcon: {
+    tintColor: "#FFF",
+    width: "50%",
+    height: "50%",
+  },
+  soundBtn2: {
+    position: "absolute",
+    top: 60,
+    right: 10,
+    zIndex: 50,
+    width: 50,
+    height: 50,
+    // backgroundColor: "red",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  icon: {
+    width: "75%",
+    height: "75%",
+    tintColor: "#FFFFFF",
   },
   btnContainer: {
     zIndex: 3,
   },
-  closeIcon: {
-    // backgroundColor: "red",
-    tintColor: "#FFF",
-    width: "100%",
-    height: "100%",
-  },
+
   closeText: {
     color: "#FFF",
     fontSize: 35,
@@ -295,41 +309,7 @@ const styles = EStyleSheet.create({
     alignSelf: "center",
     // backgroundColor: "blue",
   },
-  iconBorder: {
-    backgroundColor: "transparent",
-    borderWidth: 1,
-    borderColor: "#FFF",
-    borderRadius: 3,
-    width: 26,
-    height: 26,
-    // width: 30,
-    // height: 30,
-    marginTop: 10,
-    marginRight: 10,
-  },
-  greenIcon: {
-    borderColor: "$green",
-    tintColor: "$green",
-    borderColor: "#FFF",
-    tintColor: "#FFF",
-  },
-  yellowIcon: {
-    borderColor: "$yellow",
-    tintColor: "$yellow",
-    borderColor: "#FFF",
-    tintColor: "#FFF",
-  },
-  orangeIcon: {
-    borderColor: "$orange",
-    tintColor: "$orange",
-    borderColor: "#FFF",
-    tintColor: "#FFF",
-  },
-  icon: {
-    width: "100%",
-    height: "100%",
-    tintColor: "#FFFFFF",
-  },
+
   iconContainer: {
     flexDirection: "row",
     // paddingLeft: 15,
@@ -342,18 +322,7 @@ const styles = EStyleSheet.create({
     right: "15%",
     bottom: 0,
   },
-  soundBtn2: {
-    position: "absolute",
-    top: 50,
-    right: 8,
-    zIndex: 50,
-    // borderColor: "#FFF",
-    // borderWidth: 1,
-    // borderRadius: 50,
-    width: 30,
-    height: 30,
-    justifyContent: "center",
-  },
+
   buttonMap: {
     // width: 700,
     width: 700,
@@ -402,22 +371,30 @@ const styles = EStyleSheet.create({
     //   width: 580,
     //   height: 326,
     // },
-    iconBorder: {
-      width: 20,
-      height: 20,
+    closeButton: {
+      width: 40,
+      height: 40,
+      // backgroundColor: "pink",
+    },
+
+    soundBtn2: {
+      width: 40,
+      height: 40,
+      // backgroundColor: "red",
+      top: 50,
+    },
+    icon: {
+      height: "60%",
+      width: "60%",
+    },
+    closeIcon: {
+      tintColor: "#FFF",
+      width: "40%",
+      height: "40%",
     },
     soundBtn: {
       width: 20,
       height: 20,
-    },
-    soundBtn2: {
-      width: 22,
-      height: 22,
-      top: 40,
-    },
-    closeButton: {
-      width: 15,
-      height: 15,
     },
   },
   "@media (max-width: 900)": {
