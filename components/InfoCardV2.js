@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { AudioPlayerContext } from "../SharedAudioPlayer";
+import { chooseAudioFile } from "./RandomCommand";
 
 const { width, height } = Dimensions.get("window");
 
@@ -20,7 +21,6 @@ const Component1 = () => {
         style={styles.image}
         resizeMode="contain"
       />
-      
 
       <Text style={styles.txt}>
         <Text style={styles.txtTitle}>BLIND BOT</Text>
@@ -70,7 +70,7 @@ const Component3 = () => {
         style={styles.image}
         resizeMode="contain"
       />
-      <Text style={[styles.txt,styles.comp3]}>
+      <Text style={[styles.txt, styles.comp3]}>
         CONTROL THE BLIND ROBOT WITH THESE BUTTONS, ONE AT THE TIME
       </Text>
     </View>
@@ -85,7 +85,6 @@ const Component4 = () => {
         style={styles.image}
         resizeMode="contain"
       />
-      
     </View>
   );
 };
@@ -114,10 +113,13 @@ const Component5 = ({ setShowInfoCard }) => {
         <TouchableHighlight
           id="infobtn"
           onPress={() => {
+            sharedAudioPlayer.play(
+              require("../assets/sounds/music/welcome.wav")
+            );
             sharedAudioPlayer.startBackgroundLoop();
             setShowInfoCard(false);
           }}
-        style={styles.infoButton}
+          style={styles.infoButton}
           // activeOpacity={0.1}
           underlayColor={"#00A300"}
         >
@@ -187,18 +189,20 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
         ))}
       </View>
       {activeIndex != 4 ? (
-            <TouchableHighlight
-        underlayColor={"transparent"}
-        style={styles.skip}
-        onPress={() => {
-          sharedAudioPlayer.startBackgroundLoop();
-          setShowInfoCard(false);
-        }}
-      >
-        <Text style={styles.skipText}>SKIP</Text>
-      </TouchableHighlight>
-          ) : null}
-      
+        <TouchableHighlight
+          underlayColor={"transparent"}
+          style={styles.skip}
+          onPress={() => {
+            sharedAudioPlayer.play(
+              require("../assets/sounds/music/welcome.wav")
+            );
+            sharedAudioPlayer.startBackgroundLoop();
+            setShowInfoCard(false);
+          }}
+        >
+          <Text style={styles.skipText}>SKIP</Text>
+        </TouchableHighlight>
+      ) : null}
     </View>
   );
 };
@@ -251,9 +255,9 @@ const styles = EStyleSheet.create({
     fontSize: 27,
     // textAlign: "center",
   },
-  comp3:{
+  comp3: {
     left: "4%",
-    bottom:"13%", 
+    bottom: "13%",
   },
   skip: {
     position: "absolute",
@@ -305,7 +309,7 @@ const styles = EStyleSheet.create({
     justifyContent: "center",
     flexDirection: "row",
   },
-  endTxt:{
+  endTxt: {
     borderWidth: 2,
     borderColor: "#FFF",
     borderRadius: 10,
@@ -315,7 +319,7 @@ const styles = EStyleSheet.create({
     fontSize: 20,
     color: "white",
     lineHeight: 35,
-    backgroundColor: "black"
+    backgroundColor: "black",
   },
   infoButton: {
     // flex: 1,
@@ -351,16 +355,14 @@ const styles = EStyleSheet.create({
       fontSize: 18,
     },
     endTxt: {
-    
-        fontSize: 12,
-        lineHeight: 25,
-        padding: 15,
-    
+      fontSize: 12,
+      lineHeight: 25,
+      padding: 15,
     },
-    comp3:{
-      left:null,
-      bottom: null
-    }
+    comp3: {
+      left: null,
+      bottom: null,
+    },
   },
 });
 
