@@ -222,22 +222,11 @@ const styles = EStyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "blue"
   },
   closeButton: {
     position: "absolute",
     top: 10,
     right: 10,
-<<<<<<< HEAD
-    zIndex: 50,
-    // borderColor: "#FFF",
-    // borderWidth: 1,
-    // borderRadius: 50,
-    width: 60,
-    height: 60,
-    justifyContent: "center",
-    backgroundColor: "red",
-=======
     // backgroundColor: "pink",
     width: 50,
     height: 50,
@@ -264,22 +253,11 @@ const styles = EStyleSheet.create({
     width: "75%",
     height: "75%",
     tintColor: "#FFFFFF",
->>>>>>> bd4d4c2415914bc837dca7a513f53b0d596b0b33
   },
   btnContainer: {
-    backgroundColor : " blue",
     zIndex: 3,
   },
-<<<<<<< HEAD
-  closeIcon: {
-    
-    tintColor: "#FFF",
-    width: "100%",
-    height: "100%",
-  },
-=======
 
->>>>>>> bd4d4c2415914bc837dca7a513f53b0d596b0b33
   closeText: {
     color: "#FFF",
     fontSize: 35,

@@ -114,7 +114,7 @@ const Component5 = ({ setShowInfoCard }) => {
           id="infobtn"
           onPress={() => {
             sharedAudioPlayer.play(
-              require("../assets/sounds/music/welcome.wav")
+              require("../assets/sounds/music/welcome_new.wav")
             );
             sharedAudioPlayer.startBackgroundLoop();
             setShowInfoCard(false);
@@ -157,21 +157,20 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
   };
 
   useEffect(() => {
-    let sel="";
-    if (activeIndex == 1){sel=require("../assets/sounds/music/swipe1.wav")}
-    else if (activeIndex == 2){sel=require("../assets/sounds/music/swipe2.wav")}
-    else if (activeIndex == 3){sel=require("../assets/sounds/music/swipe3.wav")}
-    else if (activeIndex == 4){sel=require("../assets/sounds/music/swipe4.wav")}
-    if(sel != ""){
-
-      sharedAudioPlayer.play(
-        sel
-      );
-    
+    let sel = "";
+    if (activeIndex == 1) {
+      sel = require("../assets/sounds/music/swipe1.wav");
+    } else if (activeIndex == 2) {
+      sel = require("../assets/sounds/music/swipe2.wav");
+    } else if (activeIndex == 3) {
+      sel = require("../assets/sounds/music/swipe3.wav");
+    } else if (activeIndex == 4) {
+      sel = require("../assets/sounds/music/swipe4.wav");
     }
-   
-  }, [activeIndex])
-  
+    if (sel != "") {
+      sharedAudioPlayer.play(sel);
+    }
+  }, [activeIndex]);
 
   const renderItem = ({ item }) => {
     return (
