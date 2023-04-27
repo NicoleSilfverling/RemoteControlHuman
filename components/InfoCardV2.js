@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useRef, useState, useContext, useEffect } from "react";
 import {
   View,
   FlatList,
@@ -156,6 +156,23 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
     setActiveIndex(index);
   };
 
+  useEffect(() => {
+    let sel="";
+    if (activeIndex == 1){sel=require("../assets/sounds/music/swipe1.wav")}
+    else if (activeIndex == 2){sel=require("../assets/sounds/music/swipe2.wav")}
+    else if (activeIndex == 3){sel=require("../assets/sounds/music/swipe3.wav")}
+    else if (activeIndex == 4){sel=require("../assets/sounds/music/swipe4.wav")}
+    if(sel != ""){
+
+      sharedAudioPlayer.play(
+        sel
+      );
+    
+    }
+   
+  }, [activeIndex])
+  
+
   const renderItem = ({ item }) => {
     return (
       <View key={item.key} style={styles.container}>
@@ -194,7 +211,7 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
           style={styles.skip}
           onPress={() => {
             sharedAudioPlayer.play(
-              require("../assets/sounds/music/welcome.wav")
+              require("../assets/sounds/music/welcome_new.wav")
             );
             sharedAudioPlayer.startBackgroundLoop();
             setShowInfoCard(false);

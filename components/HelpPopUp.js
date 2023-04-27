@@ -222,6 +222,7 @@ const styles = EStyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "blue"
   },
   closeButton: {
     position: "absolute",
@@ -231,15 +232,17 @@ const styles = EStyleSheet.create({
     // borderColor: "#FFF",
     // borderWidth: 1,
     // borderRadius: 50,
-    width: 22,
-    height: 22,
+    width: 60,
+    height: 60,
     justifyContent: "center",
+    backgroundColor: "red",
   },
   btnContainer: {
+    backgroundColor : " blue",
     zIndex: 3,
   },
   closeIcon: {
-    // backgroundColor: "red",
+    
     tintColor: "#FFF",
     width: "100%",
     height: "100%",
