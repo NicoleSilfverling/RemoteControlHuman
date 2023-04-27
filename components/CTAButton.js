@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { Audio } from "expo-av";
+
 import {
-  StyleSheet,
+
   TouchableHighlight,
   Text,
   Image,
@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import ContentSelector from "./ContentSelector";
 import { AudioPlayerContext } from "../SharedAudioPlayer";
-import { testFunc } from "./ShowImage";
+
 import EStyleSheet from "react-native-extended-stylesheet";
 
 export default function CTAButton({

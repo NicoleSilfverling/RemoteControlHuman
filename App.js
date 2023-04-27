@@ -7,7 +7,7 @@ import {
   Text,
   TouchableHighlight,
 } from "react-native";
-import Actionbar from "./components/Actionbar";
+
 import CTAButton from "./components/CTAButton";
 import React, { useContext, useState } from "react";
 import ContentSelector from "./components/ContentSelector";
@@ -84,10 +84,7 @@ export default function App() {
             />
           ) : null}
           {showInfoCard ? (
-            // <InfoCard
-            //   setShowInfoCard={setShowInfoCard}
-            //   setShowHelpPopUp={setShowHelpPopUp}
-            // />
+           
             <InfoCardV2
               setShowInfoCard={setShowInfoCard}
               setShowHelpPopUp={setShowHelpPopUp}
@@ -132,7 +129,6 @@ export default function App() {
                   btnTitle={ContentSelector("L3").title}
                 />
                 <View style={styles.hiddenBtn}>
-                  {/* <Actionbar groupId={groupId} /> */}
                   <RandomDice
                     isActive={buttonId === "random" && soundIsPlaying}
                     setButtonId={setButtonId}
