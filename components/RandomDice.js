@@ -14,17 +14,17 @@ export default function RandomDice({ setButtonId, isActive }) {
   }
   return (
     <TouchableHighlight
-      style={[styles.container]}
+      style={[styles.container, isActive ? styles.highlighted : null]}
       //   activeOpacity={0.5}
-      //   underlayColor="red"
+      underlayColor="#FFF"
       onPress={() => {
         playSound();
         setButtonId("random");
       }}
     >
       <Image
-        style={[styles.dice, isActive ? styles.highlighted : null]}
-        source={require("../assets/images/randomDiceBG.png")}
+        style={[styles.dice, isActive ? styles.invert : null]}
+        source={require("../assets/images/randomDice.png")}
         resizeMode="contain"
       />
     </TouchableHighlight>
@@ -37,12 +37,23 @@ const styles = EStyleSheet.create({
     height: "100%",
     alignItems: "center",
     justifyContent: "center",
+    borderColor: "transparent",
+    borderRadius: 10,
   },
   dice: {
-    width: "100%",
-    height: "100%",
+    width: "65%",
+    height: "65%",
   },
   highlighted: {
-    backgroundColor: "pink",
+    backgroundColor: "#FFF",
+  },
+  invert: {
+    // tintColor: "black",
+  },
+
+  "@media (max-width: 1300)": {
+    container: {
+      borderRadius: 6,
+    },
   },
 });

@@ -131,9 +131,7 @@ export default function App() {
                   btnGroup="2"
                   btnTitle={ContentSelector("L3").title}
                 />
-                <View
-                  style={[styles.hiddenBtn, { borderColor: "transparent" }]}
-                >
+                <View style={styles.hiddenBtn}>
                   {/* <Actionbar groupId={groupId} /> */}
                   <RandomDice
                     isActive={buttonId === "random" && soundIsPlaying}
