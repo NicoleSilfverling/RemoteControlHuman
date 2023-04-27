@@ -242,7 +242,7 @@ const styles = EStyleSheet.create({
     backgroundColor: "black",
     borderWidth: 2,
     borderColor: "#FFF",
-    borderRadius: 10,
+    borderRadius: 15,
     padding: 30,
     alignItems: "center",
     lineHeight: 35,
@@ -276,7 +276,7 @@ const styles = EStyleSheet.create({
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
     color: "#FFF",
-    fontSize: 16,
+    fontSize: 20,
   },
 
   dotContainer: {
@@ -300,10 +300,10 @@ const styles = EStyleSheet.create({
     //width: "100%",
     // color: "red",
     position: "absolute",
-    /* backgroundColor: "red",
-    borderWidth: 2,
-    borderColor: "#FFF",
-    borderRadius: 10, */
+    // backgroundColor: "red",
+    // borderWidth: 1,
+    // borderColor: "blue",
+    // borderRadius: 10,
     // padding: 30,
     alignItems: "center",
     justifyContent: "center",
@@ -312,7 +312,7 @@ const styles = EStyleSheet.create({
   endTxt: {
     borderWidth: 2,
     borderColor: "#FFF",
-    borderRadius: 10,
+    borderRadius: 15,
     padding: 30,
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "$fontWeight",
@@ -322,19 +322,14 @@ const styles = EStyleSheet.create({
     backgroundColor: "black",
   },
   infoButton: {
-    // flex: 1,
-    // position: "relative",
     borderColor: "$green",
+    marginLeft: 3,
     borderWidth: 2,
-    borderRadius: 10,
-    //width: 170,
+    borderRadius: 15,
     height: "100%",
     aspectRatio: 1,
     justifyContent: "center",
     alignItems: "center",
-    // position: "absolute",
-    //top: 250,
-    // zIndex: 10,
     backgroundColor: "black",
   },
   playIcon: {
@@ -342,7 +337,7 @@ const styles = EStyleSheet.create({
     width: "90%",
     height: "90%",
 
-    marginLeft: 10,
+    // marginLeft: 10,
   },
 
   "@media (max-width: 1000)": {
@@ -350,6 +345,8 @@ const styles = EStyleSheet.create({
       fontSize: 12,
       lineHeight: 25,
       padding: 15,
+      borderRadius: 10,
+      borderWidth: 1,
     },
     txtTitle: {
       fontSize: 18,
@@ -358,11 +355,50 @@ const styles = EStyleSheet.create({
       fontSize: 12,
       lineHeight: 25,
       padding: 15,
+      borderRadius: 10,
+      borderWidth: 1,
     },
     comp3: {
       left: null,
       bottom: null,
     },
+    skipText: {
+      fontSize: 16,
+    },
+    infoButton: {
+      borderRadius: 10,
+      borderWidth: 1,
+    },
+  },
+  "@media (max-width: 900)": {
+    txt: {
+      fontSize: 12,
+      lineHeight: 22,
+      padding: 15,
+      borderRadius: 10,
+      borderWidth: 1,
+    },
+    // txtTitle: {
+    //   fontSize: 18,
+    // },
+    // endTxt: {
+    //   fontSize: 12,
+    //   lineHeight: 25,
+    //   padding: 15,
+    //   borderRadius: 10,
+    //   borderWidth: 1,
+    // },
+    // comp3: {
+    //   left: null,
+    //   bottom: null,
+    // },
+    // skipText: {
+    //   fontSize: 16,
+    // },
+    // infoButton: {
+    //   borderRadius: 10,
+    //   borderWidth: 1,
+    // },
   },
 });
 
