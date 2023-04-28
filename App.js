@@ -84,7 +84,6 @@ export default function App() {
             />
           ) : null}
           {showInfoCard ? (
-           
             <InfoCardV2
               setShowInfoCard={setShowInfoCard}
               setShowHelpPopUp={setShowHelpPopUp}
@@ -523,6 +522,11 @@ const styles = EStyleSheet.create({
       fontSize: 22,
       height: 22,
       lineHeight: Platform.OS === "ios" ? 22 * 1.3 : 22 * 1.2,
+    },
+  },
+  "@media (max-width: 1150)": {
+    iconText: {
+      fontSize: 55,
     },
   },
 
