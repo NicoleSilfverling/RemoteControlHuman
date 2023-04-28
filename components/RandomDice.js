@@ -4,7 +4,7 @@ import { AudioPlayerContext } from "../SharedAudioPlayer";
 import { chooseAudioFile } from "./RandomCommand";
 import { TouchableHighlight, Image, View } from "react-native";
 
-export default function RandomDice({ setButtonId, isActive }) {
+export default function RandomDice({ setButtonId, isActive, setShowImage }) {
   const sharedAudioPlayer = useContext(AudioPlayerContext);
 
   async function playSound() {
@@ -20,6 +20,7 @@ export default function RandomDice({ setButtonId, isActive }) {
       onPress={() => {
         playSound();
         setButtonId("random");
+        setShowImage && setShowImage(true);
       }}
     >
       <Image

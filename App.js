@@ -131,6 +131,7 @@ export default function App() {
                   <RandomDice
                     isActive={buttonId === "random" && soundIsPlaying}
                     setButtonId={setButtonId}
+                    setShowImage={setShowImage}
                   />
                 </View>
               </View>

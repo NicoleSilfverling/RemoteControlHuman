@@ -144,6 +144,10 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
       sound = require("../assets/sounds/commands/stop.wav");
       break;
 
+    case "random":
+      bodypartImg = require("../assets/images/bodyFilled.png");
+      break;
+
     default:
       break;
   }
