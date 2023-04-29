@@ -71,7 +71,7 @@ const Component3 = () => {
         resizeMode="contain"
       />
       <Text style={[styles.txt, styles.comp3]}>
-        CONTROL THE BLIND ROBOT WITH THESE BUTTONS, ONE AT THE TIME
+        CONTROL THE BLIND ROBOT WITH THESE BUTTONS, ONE AT A TIME
       </Text>
     </View>
   );

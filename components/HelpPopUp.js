@@ -138,10 +138,10 @@ export default function HelpPopUp({
                 {"\n"}
                 {"\n"}
                 Play on a flat surface without obstacles. Never play close to
-                bumps, holes or staircases.
+                bumps,{"\n"}holes or staircases.
                 {"\n"}
                 {"\n"}
-                CONTROL THE BLIND ROBOT WITH THESE BUTTONS, ONE AT THE TIME
+                CONTROL YOUR ROBOT WITH THESE BUTTONS, ONE AT THE TIME
                 {"\n"}
                 {"\n"}
               </Text>
@@ -353,6 +353,8 @@ const styles = EStyleSheet.create({
   "@media (max-width: 1000)": {
     textOnTopStyle: {
       fontSize: 14,
+      //padding: 14,
+      left: 50
     },
     title: {
       fontSize: 22,
