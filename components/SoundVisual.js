@@ -37,15 +37,10 @@ class Blink extends Component {
   }
 }
 
-const SoundVisual = ({imagePath}) => {
- 
-
+const SoundVisual = ({ imagePath }) => {
   return (
     <Blink style={styles.container} duration={125}>
-      <Image
-        style={styles.image}
-        source={imagePath}
-      />
+      <Image style={styles.image} source={imagePath} resizeMode="contain" />
     </Blink>
   );
 };
@@ -62,10 +57,6 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%",
-    tintColor: "#FFF"
+    tintColor: "#FFF",
   },
 });
-
-
-
-

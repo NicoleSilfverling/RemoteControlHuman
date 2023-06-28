@@ -24,11 +24,11 @@ const Component1 = () => {
 
       <Text style={styles.txt}>
         <Text style={styles.txtTitle}>BLIND BOT</Text>
-        {"\n"}A GAME FOR 2 PLAYERS, ROBOT AND MASTER
+        {"\n"}A GAME FOR 2 PLAYERS, MASTER AND ROBOT.
         {"\n"}
-        THE ROBOT IS BLINDFOLDED WITH WIRELESS HEADPHONES
+        THE MASTER CONTROLS THE ROBOT WITH THIS APP.
         {"\n"}
-        THE MASTER CONTROLS THE ROBOT WITH THIS APP
+        THE ROBOT IS BLINDFOLDED AND WEARING WIRELESS HEADPHONES.
       </Text>
     </View>
   );
@@ -71,7 +71,7 @@ const Component3 = () => {
         resizeMode="contain"
       />
       <Text style={[styles.txt, styles.comp3]}>
-        CONTROL THE BLIND ROBOT WITH THESE BUTTONS, ONE AT THE TIME
+        CONTROL THE BLIND ROBOT WITH THESE BUTTONS, ONE AT A TIME
       </Text>
     </View>
   );
