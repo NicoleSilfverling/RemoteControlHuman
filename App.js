@@ -239,7 +239,8 @@ export default function App() {
             <View style={styles.center}>
               <Image
                 style={styles.imageBody}
-                source={require("./assets/images/gubbe_thin.png")}
+                source={require("./assets/images/human.png")}
+                resizeMode="contain"
               />
               <View style={{ display: "flex", flexDirection: "row" }}></View>
               {soundIsPlaying && (

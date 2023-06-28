@@ -60,6 +60,7 @@ export default function BlinkImage({
       <Image
         style={styles.image}
         source={ContentSelector(buttonId, bodyHalfLeft).bodypartImg}
+        resizeMode="contain"
       />
     </Blink>
   );
