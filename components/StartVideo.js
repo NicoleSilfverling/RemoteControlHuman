@@ -20,10 +20,10 @@ const StartVideo = ({ setShowStartVideo, setShowInfoCard }) => {
         ref={video}
         style={styles.video}
         source={require("../assets/videos/rumtiden.mov")}
-        useNativeControls="false"
+        useNativeControls= {false}
         resizeMode="contain"
         shouldPlay
-        isLooping="false"
+        isLooping={false}
         didJustFinish
         onPlaybackStatusUpdate={(playbackStatus) =>
           this._onPlaybackStatusUpdate(playbackStatus)

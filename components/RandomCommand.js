@@ -43,22 +43,45 @@ const groupC = [
 ];
 
 let count = 0;
+let selectedGroup;
+let selectedSoundIndex;
 
 export function chooseAudioFile() {
   let audioFile;
 
-  if (count < 3) {
-    audioFile = groupA[Math.floor(Math.random() * groupA.length)];
-  } else if (count < 6) {
-    audioFile = groupB[Math.floor(Math.random() * groupB.length)];
-  } else if (count < 10) {
-    audioFile = groupC[Math.floor(Math.random() * groupC.length)];
+  if (count === 0) {
+    const randomGroup = 0;
+
+    if (randomGroup === 0) {
+      selectedGroup = groupA;
+    } else if (randomGroup === 1) {
+      selectedGroup = groupB;
+    } else {
+      selectedGroup = groupC;
+    }
+
+    selectedSoundIndex = Math.floor(Math.random() * selectedGroup.length);
   } else {
-    audioFile = groupC[Math.floor(Math.random() * groupC.length)];
-    count = 0;
+    if (count < 5) {
+      selectedGroup = groupA;
+      console.log("groupA");
+    } else if (count < 9 ) {
+      selectedGroup = groupB;
+      console.log("groupB");
+    } else {
+      selectedGroup = groupC;
+      console.log("groupC");
+    }
+
+    selectedSoundIndex = (selectedSoundIndex + 1) % selectedGroup.length;
   }
 
+  audioFile = selectedGroup[selectedSoundIndex];
+
   count++;
+  if (count === 11) {
+    count = 0;
+  }
 
   return audioFile;
 }

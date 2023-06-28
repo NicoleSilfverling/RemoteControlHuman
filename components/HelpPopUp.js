@@ -116,7 +116,7 @@ export default function HelpPopUp({
           rate={1.0}
           volume={1.0}
           isMuted={muted}
-          useNativeControls="false"
+          useNativeControls={false}
           resizeMode="contain"
           shouldPlay={videoShouldPlay}
           isLooping
