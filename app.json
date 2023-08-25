@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "RemoteControlHuman",
-    "slug": "RemoteControlHuman",
+    "name": "Blind Bot",
+    "slug": "blind-bot",
     "version": "1.0.0",
     "orientation": "landscape",
     "icon": "./assets/blindbotIcon.png",
@@ -19,8 +19,8 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.ograeset.RemoteControlHuman",
-      "buildNumber": "3"
+      "bundleIdentifier": "com.ograeset.BlindBot",
+      "buildNumber": "1"
     },
     "android": {
       "adaptiveIcon": {
@@ -33,8 +33,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "dbd374df-6382-45df-9fb3-26fcef96547f"
+        "projectId": "e5324a0e-4a07-4207-93a9-4ea038aedeee"
       }
-    }
+    },
+    "owner": "ograeset"
   }
 }
