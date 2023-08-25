@@ -28,7 +28,7 @@ const Component1 = () => {
         {"\n"}
         THE MASTER CONTROLS THE ROBOT WITH THIS APP.
         {"\n"}
-        THE ROBOT IS BLINDFOLDED AND WEARING WIRELESS HEADPHONES.
+        THE ROBOT IS BLINDFOLDED, WEARING WIRELESS HEADPHONES.
       </Text>
     </View>
   );
@@ -51,12 +51,12 @@ const Component2 = () => {
         }}
       />
       <Text style={styles.txt}>
-        CONTROL THE ROBOT AND TRY TO:
+        THERE ARE NO RULES. YOU CREATE THE GAMES:
         {"\n"}- WALK THROUGH AN OBSTACLE COURSE
         {"\n"}- CREATE A ROBOT BALLET
         {"\n"}- CHALLENGE OTHER TEAMS
         {/* {"\n"}- FILM THE ROBOTS WITH TIME LAPSE */}
-        {"\n\n"}IT’S UP TO YOU TO CREATE THE GAMES!
+        {/* {"\n\n"}IT’S UP TO YOU TO CREATE THE GAMES! */}
       </Text>
     </View>
   );
@@ -108,7 +108,7 @@ const Component5 = ({ setShowInfoCard }) => {
       /> */}
       <View style={styles.endBox}>
         <Text style={[styles.endTxt, {}]}>
-          PUT ON BLINDFOLDS AND HEADPHONES PLAY BLIND BOT!{" "}
+          PUT ON BLINDFOLDS AND HEADPHONES. LET'S PLAY!{" "}
         </Text>
         <TouchableHighlight
           id="infobtn"
