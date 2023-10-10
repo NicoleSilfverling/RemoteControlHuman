@@ -55,8 +55,6 @@ const Component2 = () => {
         {"\n"}- WALK THROUGH AN OBSTACLE COURSE
         {"\n"}- CREATE A ROBOT BALLET
         {"\n"}- CHALLENGE OTHER TEAMS
-        {/* {"\n"}- FILM THE ROBOTS WITH TIME LAPSE */}
-        {/* {"\n\n"}IT’S UP TO YOU TO CREATE THE GAMES! */}
       </Text>
     </View>
   );
@@ -98,14 +96,6 @@ const Component5 = ({ setShowInfoCard }) => {
         style={styles.image}
         resizeMode="contain"
       />
-      {/* <View
-        style={{
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0,0,0,0.6)",
-          position: "absolute",
-        }}
-      /> */}
       <View style={styles.endBox}>
         <Text style={[styles.endTxt, {}]}>
           PUT ON BLINDFOLDS AND HEADPHONES. LET'S PLAY!{" "}
@@ -334,7 +324,6 @@ const styles = EStyleSheet.create({
     tintColor: "$green",
     width: "90%",
     height: "90%",
-
   },
 
   "@media (max-width: 1000)": {
@@ -375,7 +364,6 @@ const styles = EStyleSheet.create({
       borderRadius: 10,
       borderWidth: 1,
     },
-    
   },
 });
 
