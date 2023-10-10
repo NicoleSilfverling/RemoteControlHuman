@@ -151,6 +151,6 @@ function ContentSelector(btnId, bodyHalfLeft, isHand) {
     default:
       break;
   }
-  return { title, iconImg, bodypartImg, sound }; // return image path, audio path
+  return { title, iconImg, bodypartImg, sound }; 
 }
 export default ContentSelector;

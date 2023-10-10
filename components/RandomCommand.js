@@ -64,13 +64,10 @@ export function chooseAudioFile() {
   } else {
     if (count < 7) {
       selectedGroup = groupA;
-      console.log("groupA");
     } else if (count < 10 ) {
       selectedGroup = groupB;
-      console.log("groupB");
     } else {
       selectedGroup = groupC;
-      console.log("groupC");
     }
 
     selectedSoundIndex = (selectedSoundIndex + 1) % selectedGroup.length;

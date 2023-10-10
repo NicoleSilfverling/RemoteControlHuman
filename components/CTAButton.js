@@ -28,7 +28,7 @@ export default function CTAButton({
   const sharedAudioPlayer = useContext(AudioPlayerContext);
 
   async function playSound() {
-    console.log("Loading Sound", btnId);
+    
     const sel = ContentSelector(btnId, bodyHalfLeft, isHand).sound;
 
     sharedAudioPlayer.play(sel);
@@ -103,11 +103,9 @@ export default function CTAButton({
 
 const styles = EStyleSheet.create({
   container: {
-    // width: "100%",
     height: "14%",
     aspectRatio: 1,
 
-    // backgroundColor: "red",
     alignItems: "center",
   },
   button: {

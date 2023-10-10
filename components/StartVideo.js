@@ -10,7 +10,6 @@ const StartVideo = ({ setShowStartVideo, setShowInfoCard }) => {
     if (playbackStatus.didJustFinish === true) {
       setShowStartVideo(false);
       setShowInfoCard(true);
-      console.log(playbackStatus.didJustFinish);
     }
   };
 

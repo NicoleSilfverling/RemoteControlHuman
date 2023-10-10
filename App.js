@@ -49,9 +49,7 @@ export default function App() {
   const [showInfoCard, setShowInfoCard] = useState(false);
   const [muted, setMuted] = useState(false);
 
-  // const [sharedAudioPlayer, setSharedAudioPlayer] = useContext(AudioPlayerContext);
-  // const sharedAudioPlayer = useContext(AudioPlayerContext);
-
+  
   let titlePressedbtn;
   if (
     ContentSelector(buttonId).title != "RESET" &&
@@ -61,7 +59,6 @@ export default function App() {
   }
 
   useAudioPlayerIsPlayingEffect((soundPlaying) => {
-    console.log("in useAudioPlayerIsPlayingEffect callback", soundPlaying);
     setSoundIsPlaying(soundPlaying);
   });
 
@@ -224,7 +221,7 @@ export default function App() {
                       setShowHelpPopUp(true);
                     }}
                     style={styles.infoButton}
-                    // activeOpacity={0.1}
+
                     underlayColor={"#FFFFFF"}
                   >
                     <View style={styles.infoItemsBox}>
@@ -464,7 +461,7 @@ const styles = EStyleSheet.create({
     fontSize: 75,
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "100",
-    // lineHeight: Platform.OS === "ios" ? 16 * 1.2 : 16 * 1.2,
+    
   },
 
   earIcon: {
@@ -474,10 +471,8 @@ const styles = EStyleSheet.create({
   },
   overlayButtons: {
     position: "absolute",
-    // flex: 1,
     width: "120%",
     height: "100%",
-    // backgroundColor: "red",
     zIndex: 50,
   },
   infoItemsBox: {
