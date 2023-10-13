@@ -1,15 +1,16 @@
 const groupA = [
   require("../assets/sounds/rndCmd/e1_jump_fwd.wav"),
+  require("../assets/sounds/rndCmd/e5_hello.wav"),
   require("../assets/sounds/rndCmd/e2_turn180.wav"),
   require("../assets/sounds/rndCmd/e3_walk_bkw.wav"),
   require("../assets/sounds/rndCmd/e4_clap.wav"),
-  require("../assets/sounds/rndCmd/e5_hello.wav"),
-  require("../assets/sounds/rndCmd/e7_sit.wav"),
+  require("../assets/sounds/rndCmd/e14_hurt_human.wav"),
+  require("../assets/sounds/rndCmd/e6_emotions.wav"),
   require("../assets/sounds/rndCmd/ex6_shake.wav"),
   require("../assets/sounds/rndCmd/ex2_nod_head.wav"),
   require("../assets/sounds/rndCmd/ex3_fingers_crossed.wav"),
   require("../assets/sounds/rndCmd/ex1_hands_in_the_air.wav"),
-  require("../assets/sounds/rndCmd/ex4_spread_toes.wav"),
+  
 ];
 
 const groupB = [
@@ -18,11 +19,12 @@ const groupB = [
   require("../assets/sounds/rndCmd/e11_robot_dance.wav"),
   require("../assets/sounds/rndCmd/e12_lay_down.wav"),
   require("../assets/sounds/rndCmd/e13_obediant.wav"),
-  require("../assets/sounds/rndCmd/e14_hurt_human.wav"),
+  require("../assets/sounds/rndCmd/ex4_spread_toes.wav"),
   require("../assets/sounds/rndCmd/e15_clear_the_way.wav"),
   require("../assets/sounds/rndCmd/e16_not_to_be_trusted.wav"),
   require("../assets/sounds/rndCmd/e8_pig.wav"),
-  require("../assets/sounds/rndCmd/e6_emotions.wav"),
+  
+  require("../assets/sounds/rndCmd/e7_sit.wav"),
   require("../assets/sounds/rndCmd/e22_vacuum_cleaner.wav"),
 ];
 
