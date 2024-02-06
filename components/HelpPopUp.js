@@ -189,7 +189,6 @@ const styles = EStyleSheet.create({
     padding: 0,
   },
   clickableBG: {
-    //backgroundColor: "rgba(0, 0, 0,0.4 )",
     backgroundColor: "transparent",
     flex: 1,
     position: "absolute",
@@ -205,18 +204,12 @@ const styles = EStyleSheet.create({
     justifyContent: "center",
     width: "100%",
     height: "100%",
-    // width: 1150,
-    // height: 647,
     borderRadius: 10,
-    // borderColor: "#FFF",
-    // borderWidth: 2,
   },
   video: {
     alignSelf: "center",
     width: "100%",
     height: "100%",
-    // width: 1150,
-    // height: 647,
   },
   buttons: {
     flexDirection: "row",
@@ -227,7 +220,6 @@ const styles = EStyleSheet.create({
     position: "absolute",
     top: 10,
     right: 10,
-    // backgroundColor: "pink",
     width: 50,
     height: 50,
     justifyContent: "center",
@@ -245,7 +237,6 @@ const styles = EStyleSheet.create({
     zIndex: 50,
     width: 50,
     height: 50,
-    // backgroundColor: "red",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -272,18 +263,9 @@ const styles = EStyleSheet.create({
     backgroundColor: "rgba(0,0,0,0.8)",
     width: "100%",
     height: "100%",
-    // paddingTop: "5%",
-    // paddingBottom: "5%",
     padding: "5%",
   },
   textOnTopContainer: {
-    // flex: 1,
-    // zIndex: 5,
-    // position: "absolute",
-    // backgroundColor: "rgba(0, 0, 0, 0.4)",
-    // width: "100%",
-    // height: "100%",
-    // padding: "5%",
   },
   scrollbarStyle: {
     backgroundColor: "black",
@@ -307,27 +289,22 @@ const styles = EStyleSheet.create({
     textTransform: "uppercase",
     marginBottom: 20,
     alignSelf: "center",
-    // backgroundColor: "blue",
   },
 
   iconContainer: {
     flexDirection: "row",
-    // paddingLeft: 15,
   },
   soundBtn: {
     width: 30,
     height: 30,
-    // marginLeft: 250,
     position: "absolute",
     right: "15%",
     bottom: 0,
   },
 
   buttonMap: {
-    // width: 700,
     width: 700,
     height: 500,
-    // backgroundColor: "red",
     padding: 20,
     alignSelf: "center",
   },
@@ -337,14 +314,6 @@ const styles = EStyleSheet.create({
       fontSize: 18,
     },
 
-    // popUp: {
-    //   width: 960,
-    //   height: 540,
-    // },
-    // video: {
-    //   width: 960,
-    //   height: 540,
-    // },
     soundBtn: {
       width: 25,
       height: 25,
@@ -353,36 +322,23 @@ const styles = EStyleSheet.create({
   "@media (max-width: 1000)": {
     textOnTopStyle: {
       fontSize: 14,
-      //padding: 14,
       left: 50
     },
     title: {
       fontSize: 22,
     },
     buttonMap: {
-      // width: 700,
       width: 400,
       height: 300,
-      // backgroundColor: "red",
     },
-    // popUp: {
-    //   width: 580,
-    //   height: 326,
-    // },
-    // video: {
-    //   width: 580,
-    //   height: 326,
-    // },
     closeButton: {
       width: 40,
       height: 40,
-      // backgroundColor: "pink",
     },
 
     soundBtn2: {
       width: 40,
       height: 40,
-      // backgroundColor: "red",
       top: 50,
     },
     icon: {
@@ -403,26 +359,10 @@ const styles = EStyleSheet.create({
     textOnTopStyle: {
       fontSize: 14,
     },
-    // popUp: {
-    //   width: 500,
-    //   height: 281,
-    // },
-    // video: {
-    //   width: 500,
-    //   height: 281,
-    // },
   },
   "@media (max-width: 720)": {
     textOnTopStyle: {
       fontSize: 14,
     },
-    // popUp: {
-    //   width: "75%",
-    //   height: "75%",
-    // },
-    // video: {
-    //   width: "100%",
-    //   height: "100%",
-    // },
   },
 });

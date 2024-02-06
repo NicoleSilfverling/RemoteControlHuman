@@ -3,7 +3,6 @@ import { Audio, InterruptionModeAndroid, InterruptionModeIOS } from "expo-av";
 
 export class SharedAudioPlayer {
   constructor() {
-    // console.log('in SharedAudioPlayer constructor', Audio)
     this.listeners = [];
     this.backgroundLoop = undefined;
     this.playingSounds = 0;
@@ -25,7 +24,6 @@ export class SharedAudioPlayer {
       require("./assets/sounds/music/robotbakgrundsloop.wav"),
       { isLooping: true }
     );
-    // console.log('loaded sound', sound)
 
     this.backgroundLoop = sound;
   }
@@ -45,35 +43,28 @@ export class SharedAudioPlayer {
   }
 
   async startBackgroundLoop() {
-    // console.log('SharedAudioPlayer:startBackgroundLoop')
     this.backgroundLoop.playAsync();
   }
 
   async stopBackgroundLoop() {
-    // console.log('SharedAudioPlayer:stopBackgroundLoop')
     if (this.backgroundLoop) {
       this.backgroundLoop.stopAsync();
     }
   }
 
   async play(soundSelector) {
-    // console.log('SharedAudioPlayer:play', soundSelector)
 
     return new Promise(async (resolve) => {
       const { sound } = await Audio.Sound.createAsync(soundSelector);
 
       sound.setOnPlaybackStatusUpdate((playbackStatus) => {
-        // console.log('playback status', playbackStatus)
         if (playbackStatus.didJustFinish == true) {
-          // console.log('SharedAudioPlayer: Playback stopped.')
-          // setSoundIsPlaying(false);
           this.playingSounds--;
           this.notifyListeners(this.playingSounds > 0);
           resolve();
         }
       });
 
-      // console.log('SharedAudioPlayer: Starting playback')
       sound.playAsync();
       this.playingSounds++;
       this.notifyListeners(this.playingSounds > 0);
@@ -87,13 +78,11 @@ export const AudioPlayerContext = createContext();
 
 export function useAudioPlayerIsPlayingEffect(callback) {
   useEffect(() => {
-    // console.log('subscribe to audio playback updates')
     const removeSubscription = globalAudioPlayer.subscribe((playing) => {
       callback(playing);
     });
 
     return () => {
-      // console.log('unsubscribe from audio playback updates')
       removeSubscription();
     };
   }, []);

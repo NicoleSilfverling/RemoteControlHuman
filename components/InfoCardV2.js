@@ -28,7 +28,7 @@ const Component1 = () => {
         {"\n"}
         THE MASTER CONTROLS THE ROBOT WITH THIS APP.
         {"\n"}
-        THE ROBOT IS BLINDFOLDED AND WEARING WIRELESS HEADPHONES.
+        THE ROBOT IS BLINDFOLDED, WEARING WIRELESS HEADPHONES.
       </Text>
     </View>
   );
@@ -51,12 +51,10 @@ const Component2 = () => {
         }}
       />
       <Text style={styles.txt}>
-        CONTROL THE ROBOT AND TRY TO:
+        THERE ARE NO RULES. YOU CREATE THE GAMES:
         {"\n"}- WALK THROUGH AN OBSTACLE COURSE
         {"\n"}- CREATE A ROBOT BALLET
         {"\n"}- CHALLENGE OTHER TEAMS
-        {/* {"\n"}- FILM THE ROBOTS WITH TIME LAPSE */}
-        {"\n\n"}IT’S UP TO YOU TO CREATE THE GAMES!
       </Text>
     </View>
   );
@@ -98,17 +96,9 @@ const Component5 = ({ setShowInfoCard }) => {
         style={styles.image}
         resizeMode="contain"
       />
-      {/* <View
-        style={{
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0,0,0,0.6)",
-          position: "absolute",
-        }}
-      /> */}
       <View style={styles.endBox}>
         <Text style={[styles.endTxt, {}]}>
-          PUT ON BLINDFOLDS AND HEADPHONES PLAY BLIND BOT!{" "}
+          PUT ON BLINDFOLDS AND HEADPHONES. LET'S PLAY!{" "}
         </Text>
         <TouchableHighlight
           id="infobtn"
@@ -120,7 +110,6 @@ const Component5 = ({ setShowInfoCard }) => {
             setShowInfoCard(false);
           }}
           style={styles.infoButton}
-          // activeOpacity={0.1}
           underlayColor={"#00A300"}
         >
           <Image
@@ -225,10 +214,8 @@ const InfoCardV2 = ({ setShowInfoCard, setShowHelpPopUp }) => {
 
 const styles = EStyleSheet.create({
   flatList: {
-    // flex: 1,
     width,
     height,
-    // backgroundColor: "red",
   },
   container: {
     width,
@@ -242,7 +229,6 @@ const styles = EStyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: "blue",
   },
   image: {
     width,
@@ -262,14 +248,11 @@ const styles = EStyleSheet.create({
     padding: 30,
     alignItems: "center",
     lineHeight: 35,
-    // width: 600,
-    //width: 300,
   },
   txtTitle: {
     fontFamily: Platform.OS === "ios" ? "$fontFamilyIOS" : "$fontFamilyAndroid",
     fontWeight: "bold",
     fontSize: 27,
-    // textAlign: "center",
   },
   comp3: {
     left: "4%",
@@ -281,10 +264,8 @@ const styles = EStyleSheet.create({
     bottom: 20,
     height: 60,
     width: 100,
-    // backgroundColor: "red",
     alignItems: "flex-end",
     justifyContent: "flex-end",
-    // zIndex: 3,
     paddingRight: 14,
     paddingBottom: 4,
   },
@@ -299,8 +280,6 @@ const styles = EStyleSheet.create({
     flexDirection: "row",
     position: "absolute",
     bottom: 30,
-    // backgroundColor: "green",
-    // zIndex: 2,
   },
   dot: {
     width: 8,
@@ -313,14 +292,7 @@ const styles = EStyleSheet.create({
     backgroundColor: "#fff",
   },
   endBox: {
-    //width: "100%",
-    // color: "red",
     position: "absolute",
-    // backgroundColor: "red",
-    // borderWidth: 1,
-    // borderColor: "blue",
-    // borderRadius: 10,
-    // padding: 30,
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
@@ -352,8 +324,6 @@ const styles = EStyleSheet.create({
     tintColor: "$green",
     width: "90%",
     height: "90%",
-
-    // marginLeft: 10,
   },
 
   "@media (max-width: 1000)": {
@@ -394,27 +364,6 @@ const styles = EStyleSheet.create({
       borderRadius: 10,
       borderWidth: 1,
     },
-    // txtTitle: {
-    //   fontSize: 18,
-    // },
-    // endTxt: {
-    //   fontSize: 12,
-    //   lineHeight: 25,
-    //   padding: 15,
-    //   borderRadius: 10,
-    //   borderWidth: 1,
-    // },
-    // comp3: {
-    //   left: null,
-    //   bottom: null,
-    // },
-    // skipText: {
-    //   fontSize: 16,
-    // },
-    // infoButton: {
-    //   borderRadius: 10,
-    //   borderWidth: 1,
-    // },
   },
 });
 

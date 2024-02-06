@@ -15,7 +15,6 @@ export default function RandomDice({ setButtonId, isActive, setShowImage }) {
   return (
     <TouchableHighlight
       style={[styles.container, isActive ? styles.highlighted : null]}
-      //   activeOpacity={0.5}
       underlayColor="#FFF"
       onPress={() => {
         playSound();
@@ -49,7 +48,6 @@ const styles = EStyleSheet.create({
     backgroundColor: "#FFF",
   },
   invert: {
-    // tintColor: "black",
   },
 
   "@media (max-width: 1300)": {
